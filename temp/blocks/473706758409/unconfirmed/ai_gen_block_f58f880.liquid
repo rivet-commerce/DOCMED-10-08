@@ -1,6 +1,729 @@
+{% doc %}
+  @prompt
+    Layout: Weißer Hintergrund, zentrierter Titel oben. Darunter ein 6-spaltige Grid mit 3 Reihen = 18 Kacheln gesamt.
+    Überschrift:
+    
+    "Unsere Top-Kategorien"
+    Zentriert, leichte Serifenlose, normal weight, ca. 28–32px
+    
+    Kachel-Aufbau (gleich für alle 18):
+    
+    Oben: Quadratisches Produktfoto (~100% Breite der Kachel, ca. 65% der Kachelhöhe)
+    Unten: Weißer Footer-Bereich mit Kategoriename links + Pfeil > rechts
+    Dünner Border um die gesamte Kachel, leicht gerundete Ecken (~4–6px)
+    Kein Hover-Effekt sichtbar, aber typischerweise leichter Shadow oder Underline on hover
+    
+    Kategorie-Namen (18 Stück):
+    Reihe 1: Medizinische Schnelltests / AEDs & Defibrillatoren / Anatomische Modelle & Lehrtafeln / Medizinische Beleuchtung / Absaugpumpen & Zubehör / Diabetes
+    Reihe 2: Blutdruckmessung / Erste Hilfe Taschen & Koffer / Sonnenschutz / Erkältung & Grippe / Blutzuckermessung / Frauengesundheit
+    Reihe 3: Tierapotheke / Männergesundheit / Allergie & Asthma / Beruhigung, Schlaf & Nerven / Superfoods & Pflanzenstoffe / Blase, Niere & Prostata
+    
+    Shopify Hinweis: Als Section mit blocks aufbauen – jeder Block = 1 Kachel mit Settings für Bild, Label-Text und Link-URL. Grid-Spalten per CSS Grid: grid-template-columns: repeat(6, 1fr). Auf Mobile auf 2 Spalten reduzieren.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-category-grid-{{ ai_gen_id }} {
+    display: block;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 20px;
+    width: 100%;
+  }
+
+  .ai-category-grid__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-category-grid__heading-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 400;
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    color: {{ block.settings.text_color }};
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+  }
+
+  .ai-category-grid__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-category-grid__tile-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+    background-color: #ffffff;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .ai-category-grid__tile-{{ ai_gen_id }}:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-category-grid__image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%;
+    overflow: hidden;
+  }
+
+  .ai-category-grid__image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-category-grid__placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-category-grid__placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-category-grid__footer-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.footer_padding }}px;
+    background-color: #ffffff;
+  }
+
+  .ai-category-grid__label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .ai-category-grid__arrow-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.text_color }};
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-category-grid__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ai-category-grid__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-category-grid__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ai-category-grid__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.7);
+    }
+
+    .ai-category-grid__label-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.label_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<category-grid-{{ ai_gen_id }} class="ai-category-grid-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-category-grid__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-category-grid__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-category-grid__grid-{{ ai_gen_id }}">
+      {% for i in (1..18) %}
+        {% liquid
+          assign image_key = 'category_' | append: i | append: '_image'
+          assign label_key = 'category_' | append: i | append: '_label'
+          assign url_key = 'category_' | append: i | append: '_url'
+          
+          assign category_image = block.settings[image_key]
+          assign category_label = block.settings[label_key]
+          assign category_url = block.settings[url_key]
+        %}
+
+        {% if category_url != blank %}
+          <a href="{{ category_url }}" class="ai-category-grid__tile-{{ ai_gen_id }}">
+        {% else %}
+          <div class="ai-category-grid__tile-{{ ai_gen_id }}">
+        {% endif %}
+          
+          <div class="ai-category-grid__image-wrapper-{{ ai_gen_id }}">
+            {% if category_image %}
+              <img
+                src="{{ category_image | image_url: width: 600 }}"
+                alt="{{ category_label | escape }}"
+                loading="lazy"
+                width="600"
+                height="390"
+                class="ai-category-grid__image-{{ ai_gen_id }}"
+              >
+            {% else %}
+              <div class="ai-category-grid__placeholder-{{ ai_gen_id }}">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="ai-category-grid__footer-{{ ai_gen_id }}">
+            <p class="ai-category-grid__label-{{ ai_gen_id }}">
+              {% if category_label != blank %}
+                {{ category_label }}
+              {% else %}
+                Kategorie {{ i }}
+              {% endif %}
+            </p>
+            <span class="ai-category-grid__arrow-{{ ai_gen_id }}">&gt;</span>
+          </div>
+
+        {% if category_url != blank %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</category-grid-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CategoryGrid{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+    customElements.define('category-grid-{{ ai_gen_id }}', CategoryGrid{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Top-Kategorien",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Überschrift"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Unsere Top-Kategorien"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Schriftgröße",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Abstand unten",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximale Breite",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Abstand oben/unten",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Abstand zwischen Kacheln",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Kachel-Stil"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Rahmenbreite",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Rahmenfarbe",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Eckenradius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "footer_padding",
+      "label": "Innenabstand Footer",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label-Schriftgröße",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Farben"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#1d2e40"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_1_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_1_label",
+      "label": "Name",
+      "default": "Medizinische Schnelltests"
+    },
+    {
+      "type": "url",
+      "id": "category_1_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_2_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_2_label",
+      "label": "Name",
+      "default": "AEDs & Defibrillatoren"
+    },
+    {
+      "type": "url",
+      "id": "category_2_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_3_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_3_label",
+      "label": "Name",
+      "default": "Anatomische Modelle & Lehrtafeln"
+    },
+    {
+      "type": "url",
+      "id": "category_3_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_4_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_4_label",
+      "label": "Name",
+      "default": "Medizinische Beleuchtung"
+    },
+    {
+      "type": "url",
+      "id": "category_4_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_5_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_5_label",
+      "label": "Name",
+      "default": "Absaugpumpen & Zubehör"
+    },
+    {
+      "type": "url",
+      "id": "category_5_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_6_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_6_label",
+      "label": "Name",
+      "default": "Diabetes"
+    },
+    {
+      "type": "url",
+      "id": "category_6_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_7_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_7_label",
+      "label": "Name",
+      "default": "Blutdruckmessung"
+    },
+    {
+      "type": "url",
+      "id": "category_7_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_8_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_8_label",
+      "label": "Name",
+      "default": "Erste Hilfe Taschen & Koffer"
+    },
+    {
+      "type": "url",
+      "id": "category_8_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_9_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_9_label",
+      "label": "Name",
+      "default": "Sonnenschutz"
+    },
+    {
+      "type": "url",
+      "id": "category_9_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_10_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_10_label",
+      "label": "Name",
+      "default": "Erkältung & Grippe"
+    },
+    {
+      "type": "url",
+      "id": "category_10_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_11_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_11_label",
+      "label": "Name",
+      "default": "Blutzuckermessung"
+    },
+    {
+      "type": "url",
+      "id": "category_11_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 12"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_12_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_12_label",
+      "label": "Name",
+      "default": "Frauengesundheit"
+    },
+    {
+      "type": "url",
+      "id": "category_12_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 13"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_13_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_13_label",
+      "label": "Name",
+      "default": "Tierapotheke"
+    },
+    {
+      "type": "url",
+      "id": "category_13_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 14"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_14_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_14_label",
+      "label": "Name",
+      "default": "Männergesundheit"
+    },
+    {
+      "type": "url",
+      "id": "category_14_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 15"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_15_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_15_label",
+      "label": "Name",
+      "default": "Allergie & Asthma"
+    },
+    {
+      "type": "url",
+      "id": "category_15_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 16"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_16_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_16_label",
+      "label": "Name",
+      "default": "Beruhigung, Schlaf & Nerven"
+    },
+    {
+      "type": "url",
+      "id": "category_16_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 17"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_17_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_17_label",
+      "label": "Name",
+      "default": "Superfoods & Pflanzenstoffe"
+    },
+    {
+      "type": "url",
+      "id": "category_17_url",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Kategorie 18"
+    },
+    {
+      "type": "image_picker",
+      "id": "category_18_image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "category_18_label",
+      "label": "Name",
+      "default": "Blase, Niere & Prostata"
+    },
+    {
+      "type": "url",
+      "id": "category_18_url",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top-Kategorien"
+    }
+  ]
+}
 {% endschema %}
