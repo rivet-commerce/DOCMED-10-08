@@ -541,6 +541,7 @@
         "collection_block_bLPUzq",
         "collection_block_dJT3eg"
       ],
+      "disabled": true,
       "name": "Kollektion Übersicht ",
       "settings": {
         "cus-bg-color": "#ffffff",
@@ -642,6 +643,7 @@
             "variant": "carousel",
             "headerType_rotator": "top",
             "headerType_carousel": "top",
+            "navigationType": "arrows",
             "customContentIndex": 31,
             "font": "default",
             "themeId": "light",
@@ -815,6 +817,26 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "1784204548fd4a1085": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6477f11_MKHqWG": {
+          "type": "ai_gen_block_6477f11",
+          "settings": {
+            "quote_1": "Sooo schnelle und unkomplizierte Lieferung – Vielen Dank für den super Service",
+            "quote_2": "Günstige Preise, schnelle Lieferung, sicher verpackt – also perfekt.",
+            "star_color": "#FFD700"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6477f11_MKHqWG"
+      ],
+      "disabled": true,
+      "name": "Testimonial Slider ",
+      "settings": {}
     }
   },
   "order": [
@@ -828,6 +850,7 @@
     "1769257728e37c44bc",
     "text_columns_tjFfPx",
     "contact_form_MtCmVQ",
-    "featured_blog_97NRwq"
+    "featured_blog_97NRwq",
+    "1784204548fd4a1085"
   ]
 }
