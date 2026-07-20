@@ -549,6 +549,73 @@
         "subheading": ""
       }
     },
+    "1784206876eb42a083": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f58f880_biM6Ja": {
+          "type": "ai_gen_block_f58f880",
+          "disabled": true,
+          "settings": {
+            "heading": "Unsere Top-Kategorien",
+            "heading_font": "assistant_n4",
+            "heading_size": 30,
+            "heading_spacing": 40,
+            "max_width": 1500,
+            "section_padding": 60,
+            "grid_gap": 20,
+            "border_width": 1,
+            "border_color": "#e0e0e0",
+            "border_radius": 6,
+            "footer_padding": 12,
+            "label_size": 14,
+            "background_color": "#ffffff",
+            "text_color": "#1d2e40",
+            "category_1_label": "Medizinische Simulatoren ",
+            "category_1_url": "shopify://collections/medizinische-simulatoren",
+            "category_2_label": "AEDs & Defibrillatoren",
+            "category_2_url": "",
+            "category_3_label": "Anatomische Modelle & Lehrtafeln",
+            "category_3_url": "",
+            "category_4_label": "Medizinische Beleuchtung",
+            "category_4_url": "",
+            "category_5_label": "Absaugpumpen & Zubehör",
+            "category_5_url": "",
+            "category_6_label": "Diabetes",
+            "category_6_url": "",
+            "category_7_label": "Blutdruckmessung",
+            "category_7_url": "",
+            "category_8_label": "Erste Hilfe Taschen & Koffer",
+            "category_8_url": "",
+            "category_9_label": "Sonnenschutz",
+            "category_9_url": "",
+            "category_10_label": "Erkältung & Grippe",
+            "category_10_url": "",
+            "category_11_label": "Blutzuckermessung",
+            "category_11_url": "",
+            "category_12_label": "Frauengesundheit",
+            "category_12_url": "",
+            "category_13_label": "Tierapotheke",
+            "category_13_url": "",
+            "category_14_label": "Männergesundheit",
+            "category_14_url": "",
+            "category_15_label": "Allergie & Asthma",
+            "category_15_url": "",
+            "category_16_label": "Beruhigung, Schlaf & Nerven",
+            "category_16_url": "",
+            "category_17_label": "Superfoods & Pflanzenstoffe",
+            "category_17_url": "",
+            "category_18_label": "Blase, Niere & Prostata",
+            "category_18_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f58f880_biM6Ja"
+      ],
+      "name": "Top Kategorien",
+      "settings": {}
+    },
     "collapsible_content_7yExeM": {
       "type": "collapsible-content",
       "blocks": {
@@ -826,7 +893,7 @@
           "settings": {
             "quote_1": "Sooo schnelle und unkomplizierte Lieferung – Vielen Dank für den super Service",
             "quote_2": "Günstige Preise, schnelle Lieferung, sicher verpackt – also perfekt.",
-            "star_color": "#FFD700"
+            "star_color": "#ffd700"
           },
           "blocks": {}
         }
@@ -837,73 +904,6 @@
       "disabled": true,
       "name": "Testimonial Slider ",
       "settings": {}
-    },
-    "1784206876eb42a083": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_f58f880_biM6Ja": {
-          "type": "ai_gen_block_f58f880",
-          "settings": {
-            "heading": "Unsere Top-Kategorien",
-            "heading_font": "assistant_n4",
-            "heading_size": 30,
-            "heading_spacing": 40,
-            "max_width": 1500,
-            "section_padding": 60,
-            "grid_gap": 20,
-            "border_width": 1,
-            "border_color": "#e0e0e0",
-            "border_radius": 6,
-            "footer_padding": 12,
-            "label_size": 14,
-            "background_color": "#ffffff",
-            "text_color": "#1d2e40",
-            "category_1_label": "Medizinische Schnelltests",
-            "category_1_url": "",
-            "category_2_label": "AEDs & Defibrillatoren",
-            "category_2_url": "",
-            "category_3_label": "Anatomische Modelle & Lehrtafeln",
-            "category_3_url": "",
-            "category_4_label": "Medizinische Beleuchtung",
-            "category_4_url": "",
-            "category_5_label": "Absaugpumpen & Zubehör",
-            "category_5_url": "",
-            "category_6_label": "Diabetes",
-            "category_6_url": "",
-            "category_7_label": "Blutdruckmessung",
-            "category_7_url": "",
-            "category_8_label": "Erste Hilfe Taschen & Koffer",
-            "category_8_url": "",
-            "category_9_label": "Sonnenschutz",
-            "category_9_url": "",
-            "category_10_label": "Erkältung & Grippe",
-            "category_10_url": "",
-            "category_11_label": "Blutzuckermessung",
-            "category_11_url": "",
-            "category_12_label": "Frauengesundheit",
-            "category_12_url": "",
-            "category_13_label": "Tierapotheke",
-            "category_13_url": "",
-            "category_14_label": "Männergesundheit",
-            "category_14_url": "",
-            "category_15_label": "Allergie & Asthma",
-            "category_15_url": "",
-            "category_16_label": "Beruhigung, Schlaf & Nerven",
-            "category_16_url": "",
-            "category_17_label": "Superfoods & Pflanzenstoffe",
-            "category_17_url": "",
-            "category_18_label": "Blase, Niere & Prostata",
-            "category_18_url": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_f58f880_biM6Ja"
-      ],
-      "disabled": true,
-      "name": "Top Kategorien",
-      "settings": {}
     }
   },
   "order": [
@@ -913,12 +913,12 @@
     "featured_collection_new_pzAqae",
     "custom_featured_coll_sec_hqKMU6",
     "cus_new_collectin_list_sec_ftM88k",
+    "1784206876eb42a083",
     "collapsible_content_7yExeM",
     "1769257728e37c44bc",
     "text_columns_tjFfPx",
     "contact_form_MtCmVQ",
     "featured_blog_97NRwq",
-    "1784204548fd4a1085",
-    "1784206876eb42a083"
+    "1784204548fd4a1085"
   ]
 }
