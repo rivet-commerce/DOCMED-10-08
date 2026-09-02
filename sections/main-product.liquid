@@ -853,6 +853,54 @@
                     </dialog>
                   {%- endif -%}
 
+                  
+
+                  {%- if request.locale.iso_code == 'en' -%}
+                    {%- assign guarantee_file = 'Legal_guarantee_notice_EN.svg' -%}
+                    {%- assign guarantee_line = 'Legal guarantee: ' -%}
+                    {%- assign guarantee_link = 'Learn more' -%}
+                    {%- assign guarantee_title = 'Legal guarantee of conformity' -%}
+                  {%- else -%}
+                    {%- assign guarantee_file = 'Legal_guarantee_notice_DE.svg' -%}
+                    {%- assign guarantee_line = 'Gesetzliche Gewährleistung: ' -%}
+                    {%- assign guarantee_link = 'Mehr erfahren' -%}
+                    {%- assign guarantee_title = 'Gesetzliche Gewährleistung' -%}
+                  {%- endif -%}
+
+                  <div class="product__tax caption rte" style="margin-top: 4px;">
+                    {{ guarantee_line }} 
+                    <button
+                      type="button"
+                      class="product__shipping-policy-btn"
+                      onclick="document.getElementById('guarantee-modal-{{ section.id }}').showModal()"
+                    >{{ guarantee_link }}</button>
+                  </div>
+
+                  <dialog id="guarantee-modal-{{ section.id }}" class="shipping-policy-modal">
+                    <div class="shipping-policy-modal__inner">
+                      <button
+                        type="button"
+                        class="shipping-policy-modal__close"
+                        onclick="this.closest('dialog').close()"
+                        aria-label="Schließen"
+                      >
+                        <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1L17 17M17 1L1 17"/></svg>
+                      </button>
+                      <h2 class="shipping-policy-modal__title">{{ guarantee_title }}</h2>
+                      <div class="shipping-policy-modal__body">
+                        <img
+                          src="{{ guarantee_file | file_url }}"
+                          alt="{{ guarantee_title }}"
+                          style="width: 100%; height: auto; display: block;"
+                          loading="lazy"
+                        >
+                      </div>
+                    </div>
+                  </dialog>
+
+
+
+
                   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
                   {%- assign metafield_delivery = product.metafields.custom.delivery_text.value -%}
