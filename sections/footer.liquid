@@ -7,6 +7,43 @@
   {{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 {%- style -%}
+  .footer-block__button-wrap {
+    display: flex;
+    margin-top: {{ section.settings.footer_button_gap }}px;
+    margin-bottom: 24px;
+    margin-left: 7px;
+  }
+  .footer-block__button-wrap--left { justify-content: flex-start; }
+  .footer-block__button-wrap--center { justify-content: center; }
+  .footer-block__button-wrap--right { justify-content: flex-end; }
+
+  .footer .footer-block__button-wrap a.footer-block__button,
+  .footer .footer-block__button-wrap a.footer-block__button:hover,
+  .footer .footer-block__button-wrap a.footer-block__button:focus,
+  .footer .footer-block__button-wrap a.footer-block__button:visited {
+    display: inline-block;
+    padding: 12px 26px;
+    border: 1px solid #1d2e40;
+    border-radius: 8px;
+    background-color: #1d2e40;
+    font-size: 14px;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .footer .footer-block__button-wrap a.footer-block__button:hover {
+    background-color: #2b4258;
+    border-color: #2b4258;
+  }
+  .footer .footer-block__button-wrap .footer-block__button-label {
+    color: #ffffff;
+  }
+
+  @media screen and (max-width: 767px) {
+    .footer-block__button-wrap {
+      margin-top: 20px;
+    }
+  }
   .footer {
       margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
@@ -174,174 +211,186 @@
               assign footer_grid_class = 'grid--5-col-desktop grid--5-col-tablet'
             endif
           -%}
-          <webi-collapse class="footer__blocks-wrapper footer__menus grid grid--1-col-tablet-down grid--{{ section.blocks.size }}-col-desktop grid--2-col grid--4-col-tablet {{ footer_grid_class }} {%- for block in section.blocks -%}{% if block.type == 'newsletter' %} custom-newsletter {% endif %}{%- endfor -%}">
-            {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %} {% if block.type == 'newsletter' %} footer-block--newsletter{% endif %}"
-                {{ block.shopify_attributes }}
-              >
-                <button
-                  data-toggle="collapse"
-                  data-target="#wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
-                  class="footer-block__heading inline-richtext toggle collapsed h6 rte {{ block.settings.description_style }}"
-                  aria-expanded="false"
-                  aria-controls="wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
-                  id="wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
+          <div style="width: 65%">
+            <webi-collapse class="footer__blocks-wrapper footer__menus grid grid--1-col-tablet-down grid--{{ section.blocks.size }}-col-desktop grid--2-col grid--4-col-tablet {{ footer_grid_class }} {%- for block in section.blocks -%}{% if block.type == 'newsletter' %} custom-newsletter {% endif %}{%- endfor -%}">
+              {%- for block in section.blocks -%}
+                <div
+                  class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %} {% if block.type == 'newsletter' %} footer-block--newsletter{% endif %}"
+                  {{ block.shopify_attributes }}
                 >
-                  <span>{{- block.settings.heading -}}</span>
-                </button>
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
-                  {%- when 'text' -%}
-                    <div class="footer-block__details-content footer-collapse collapse rte">
-                      {{ block.settings.subtext }}
-                    </div>
-                  {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content footer-collapse collapse list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- when 'brand_information' -%}
-                    <div class="wbfootcont  collapse footer-collapse ">
-                      <ul class="contact_info">
-                        <li>
-                          {%- if block.settings.footer_address != blank -%}
-                            {% if block.settings.icon == true %}{% render 'icon-faddress' %} {% endif %}
-                            <span>{{ block.settings.footer_address }}</span>
-                          {%- endif -%}
-                        </li>
-                        <li>
-                          {%- if block.settings.footer_contact_no != blank -%}
-                            {% if block.settings.icon == true %}{% render 'icon-fcontact' %} {% endif %}
-                            <span>{{ block.settings.footer_contact_no }}</span>
-                          {%- endif -%}
-                        </li>
-                        <li>
-                          {%- if block.settings.footer_contact_id != blank -%}
-                            {% if block.settings.icon == true %}{% render 'icon-fmail' %}{% endif %}
-                            <span>{{ block.settings.footer_contact_id }}</span>
-                          {%- endif -%}
-                        </li>
-                        {%- if block.settings.contsubtext != blank -%}
-                          <li class="fsub_cont {{ block.settings.tdescription_style }}">
-                            {{ block.settings.contsubtext }}
-                          </li>
-                        {%- endif -%}
-                      </ul>
-                    </div>
-                   
-                  {%- when 'image' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }} collapse footer-collapse">
-                      
-                      <div
-                          class="footer-block__image-wrapper global-media-settings"
-                          style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                        >
-                         <a href="https://versandhandel.dimdi.de/websearch/servlet/Gate?accessid=dimdi_var&term=441b940d4ec7c01003d99a187a54edad">
-  <div style="position:relative; width:120px;">
-    <img 
-      src="//versandhandel.dimdi.de/img/logo.png" 
-      alt="Link zum Versandhandels-Register"
-      style="width:100%; height:auto; z-index:1;"
-    >
-    <img 
-      src="//versandhandel.dimdi.de/img/logo.gif" 
-      alt=""
-      style="position:absolute; top:0; left:0; width:100%; height:auto; z-index:100;"
-    >
-  </div>
-</a>
-                        </div>
-                    </div>
-                  {%- when 'newsletter' -%}
-                    <div class="footer-block--newsletter footer-collapse collapse">
-                      <div class="footer-block__newsletter">
-                        <div class="wb_news_content">
-                          {{ block.settings.news_subtext }}
-                        </div>
-                        {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                          <input type="hidden" name="contact[tags]" value="newsletter">
-                          <div class="newsletter-form__field-wrapper">
-                            <div class="field">
-                              <input
-                                id="NewsletterForm--{{ section.id }}"
-                                type="email"
-                                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-                                name="contact[email]"
-                                class="field__input"
-                                value="{{ form.email }}"
-                                aria-required="true"
-                                autocapitalize="off"
-                                autocomplete="email"
-                                {% if form.errors %}
-                                  autofocus
-                                  aria-invalid="true"
-                                  aria-describedby="ContactFooter-error"
-                                {% elsif form.posted_successfully? %}
-                                  aria-describedby="ContactFooter-success"
-                                {% endif %}
-                                placeholder="{{ 'newsletter.label' | t }}"
-                                required
-                              >
-                              <label
-                                class="field__label"
-                                for="NewsletterForm--{{ section.id }}"
-                              >
-                                {{ 'newsletter.label' | t }}
-                              </label>
-                              <button
-                                type="submit"
-                                class="newsletter-form__button field__button button button--primary"
-                                name="commit"
-                                id="Subscribe"
-                                aria-label="{{ 'newsletter.button_label' | t }}"
-                              >
-                                <span>{{ 'newsletter.button_label' | t }}</span>
-                              </button>
-                            </div>
-                            {% if block.settings.news_bottom_text %}
-                              <small class="bottom__text">{{ block.settings.news_bottom_text }}</small>
-                            {% endif %}
-                            {%- if form.errors -%}
-                              <small
-                                class="newsletter-form__message form__message"
-                                id="ContactFooter-error"
-                              >
-                                {%- render 'icon-error' -%}
-                                {{- form.errors.translated_fields.email | capitalize }}
-                                {{ form.errors.messages.email -}}
-                              </small>
-                            {%- endif -%}
-                          </div>
-                          {%- if form.posted_successfully? -%}
-                            <h3
-                              class="newsletter-form__message newsletter-form__message--success form__message"
-                              id="ContactFooter-success"
-                              tabindex="-1"
-                              autofocus
-                            >
-                              {% render 'icon-success' -%}
-                              {{- 'newsletter.success' | t }}
-                            </h3>
-                          {%- endif -%}
-                        {%- endform -%}
+                  <button
+                    data-toggle="collapse"
+                    data-target="#wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
+                    class="footer-block__heading inline-richtext toggle collapsed h6 rte {{ block.settings.description_style }}"
+                    aria-expanded="false"
+                    aria-controls="wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
+                    id="wb-{{ block.settings.heading | camelcase }}-{{ block.id }}"
+                  >
+                    <span>{{- block.settings.heading -}}</span>
+                  </button>
+                  {%- case block.type -%}
+                    {%- when '@app' -%}
+                      {% render block %}
+                    {%- when 'text' -%}
+                      <div class="footer-block__details-content footer-collapse collapse rte">
+                        {{ block.settings.subtext }}
                       </div>
-                    </div>
-                {%- endcase -%}
+                    {%- when 'link_list' -%}
+                      {%- if block.settings.menu != blank -%}
+                        <ul class="footer-block__details-content footer-collapse collapse list-unstyled">
+                          {%- for link in block.settings.menu.links -%}
+                            <li>
+                              <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                              >
+                                {{ link.title }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    {%- when 'brand_information' -%}
+                      <div class="wbfootcont  collapse footer-collapse ">
+                        <ul class="contact_info">
+                          <li>
+                            {%- if block.settings.footer_address != blank -%}
+                              {% if block.settings.icon == true %}{% render 'icon-faddress' %} {% endif %}
+                              <span>{{ block.settings.footer_address }}</span>
+                            {%- endif -%}
+                          </li>
+                          <li>
+                            {%- if block.settings.footer_contact_no != blank -%}
+                              {% if block.settings.icon == true %}{% render 'icon-fcontact' %} {% endif %}
+                              <span>{{ block.settings.footer_contact_no }}</span>
+                            {%- endif -%}
+                          </li>
+                          <li>
+                            {%- if block.settings.footer_contact_id != blank -%}
+                              {% if block.settings.icon == true %}{% render 'icon-fmail' %}{% endif %}
+                              <span>{{ block.settings.footer_contact_id }}</span>
+                            {%- endif -%}
+                          </li>
+                          {%- if block.settings.contsubtext != blank -%}
+                            <li class="fsub_cont {{ block.settings.tdescription_style }}">
+                              {{ block.settings.contsubtext }}
+                            </li>
+                          {%- endif -%}
+                        </ul>
+                      </div>
+                     
+                    {%- when 'image' -%}
+                      <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }} collapse footer-collapse">
+                        
+                        <div
+                            class="footer-block__image-wrapper global-media-settings"
+                            style="max-width: min(100%, {{ block.settings.image_width }}px);"
+                          >
+                           <a href="https://versandhandel.dimdi.de/websearch/servlet/Gate?accessid=dimdi_var&term=441b940d4ec7c01003d99a187a54edad">
+                            <div style="position:relative; width:120px;">
+                              <img 
+                                src="//versandhandel.dimdi.de/img/logo.png" 
+                                alt="Link zum Versandhandels-Register"
+                                style="width:100%; height:auto; z-index:1;"
+                              >
+                              <img 
+                                src="//versandhandel.dimdi.de/img/logo.gif" 
+                                alt=""
+                                style="position:absolute; top:0; left:0; width:100%; height:auto; z-index:100;"
+                              >
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    {%- when 'newsletter' -%}
+                      <div class="footer-block--newsletter footer-collapse collapse">
+                        <div class="footer-block__newsletter">
+                          <div class="wb_news_content">
+                            {{ block.settings.news_subtext }}
+                          </div>
+                          {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                            <input type="hidden" name="contact[tags]" value="newsletter">
+                            <div class="newsletter-form__field-wrapper">
+                              <div class="field">
+                                <input
+                                  id="NewsletterForm--{{ section.id }}"
+                                  type="email"
+                                  pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                  name="contact[email]"
+                                  class="field__input"
+                                  value="{{ form.email }}"
+                                  aria-required="true"
+                                  autocapitalize="off"
+                                  autocomplete="email"
+                                  {% if form.errors %}
+                                    autofocus
+                                    aria-invalid="true"
+                                    aria-describedby="ContactFooter-error"
+                                  {% elsif form.posted_successfully? %}
+                                    aria-describedby="ContactFooter-success"
+                                  {% endif %}
+                                  placeholder="{{ 'newsletter.label' | t }}"
+                                  required
+                                >
+                                <label
+                                  class="field__label"
+                                  for="NewsletterForm--{{ section.id }}"
+                                >
+                                  {{ 'newsletter.label' | t }}
+                                </label>
+                                <button
+                                  type="submit"
+                                  class="newsletter-form__button field__button button button--primary"
+                                  name="commit"
+                                  id="Subscribe"
+                                  aria-label="{{ 'newsletter.button_label' | t }}"
+                                >
+                                  <span>{{ 'newsletter.button_label' | t }}</span>
+                                </button>
+                              </div>
+                              {% if block.settings.news_bottom_text %}
+                                <small class="bottom__text">{{ block.settings.news_bottom_text }}</small>
+                              {% endif %}
+                              {%- if form.errors -%}
+                                <small
+                                  class="newsletter-form__message form__message"
+                                  id="ContactFooter-error"
+                                >
+                                  {%- render 'icon-error' -%}
+                                  {{- form.errors.translated_fields.email | capitalize }}
+                                  {{ form.errors.messages.email -}}
+                                </small>
+                              {%- endif -%}
+                            </div>
+                            {%- if form.posted_successfully? -%}
+                              <h3
+                                class="newsletter-form__message newsletter-form__message--success form__message"
+                                id="ContactFooter-success"
+                                tabindex="-1"
+                                autofocus
+                              >
+                                {% render 'icon-success' -%}
+                                {{- 'newsletter.success' | t }}
+                              </h3>
+                            {%- endif -%}
+                          {%- endform -%}
+                        </div>
+                      </div>
+                  {%- endcase -%}
+                </div>
+              {%- endfor -%}
+            </webi-collapse>
+            {%- if section.settings.show_footer_button and section.settings.footer_button_url != blank -%}
+              <div class="footer-block__button-wrap">
+                <a href="{{ section.settings.footer_button_url }}" class="footer-block__button">
+                  <span class="footer-block__button-label">
+                    {{- section.settings.footer_button_text | default: 'Vertrag widerrufen' -}}
+                  </span>
+                </a>
               </div>
-            {%- endfor -%}
-          </webi-collapse>
+            {%- endif -%}
+
+          </div>
         {%- endif -%}
         </div>
       </div>
@@ -841,6 +890,48 @@
     }
   ],
   "settings": [
+    {
+      "type": "header",
+      "content": "Footer button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer_button",
+      "label": "Show footer button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "footer_button_text",
+      "label": "Button text",
+      "default": "Vertrag widerrufen"
+    },
+    {
+      "type": "url",
+      "id": "footer_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "footer_button_align",
+      "label": "Button alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "footer_button_gap",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Space above footer button",
+      "default": 24
+    },
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__9.content",
