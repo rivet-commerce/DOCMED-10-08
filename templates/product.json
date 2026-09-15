@@ -30,9 +30,7 @@
         },
         "65491c3f-abb9-4bd5-9728-1b439626a36f": {
           "type": "sku",
-          "settings": {
-            "text_style": "body"
-          }
+          "settings": {}
         },
         "pzn_xKqefU": {
           "type": "pzn",

@@ -82,15 +82,6 @@
     },
     "1771938017765f7115": {
       "type": "apps",
-      "blocks": {
-        "oo_eu_tax_exemption_cart_tax_exemption_tN8cKz": {
-          "type": "shopify://apps/oo-b2b-wholesale/blocks/cart-tax-exemption/bc577450-6605-4fce-887f-6c25c2bccc22",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "oo_eu_tax_exemption_cart_tax_exemption_tN8cKz"
-      ],
       "settings": {
         "include_margins": true,
         "padding_top": 60,

@@ -77,7 +77,6 @@
             "transparent": 1,
             "solidShadow": false,
             "reviewPhotosType": "small",
-            "showRating": true,
             "writeReview": true,
             "numberOfRowsMobile": 3,
             "numberOfRowsDesktop": 2

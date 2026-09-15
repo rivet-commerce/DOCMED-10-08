@@ -381,10 +381,15 @@
               {%- endfor -%}
             </webi-collapse>
             {%- if section.settings.show_footer_button and section.settings.footer_button_url != blank -%}
+              {%- if request.locale.iso_code == 'en' -%}
+                {%- assign footer_button_default_text = 'Cancel Contract' -%}
+              {%- else -%}
+                {%- assign footer_button_default_text = 'Vertrag widerrufen' -%}
+              {%- endif -%}
               <div class="footer-block__button-wrap">
                 <a href="{{ section.settings.footer_button_url }}" class="footer-block__button">
                   <span class="footer-block__button-label">
-                    {{- section.settings.footer_button_text | default: 'Vertrag widerrufen' -}}
+                    {{- section.settings.footer_button_text | default: footer_button_default_text -}}
                   </span>
                 </a>
               </div>
@@ -904,7 +909,7 @@
       "type": "text",
       "id": "footer_button_text",
       "label": "Button text",
-      "default": "Vertrag widerrufen"
+      "info": "Leave blank to show the default text per language (Vertrag widerrufen / Cancel Contract)."
     },
     {
       "type": "url",

@@ -1,4 +1,13 @@
 <style>
+  .sh-payment-icons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .sh-payment-icon {
     width: 30px;
     height: 30px;
@@ -64,69 +73,33 @@
     grid-template-columns: 1fr 1fr; 
   }
 
+  /* ------------------------------------------------------------------ */
+  /* Product meta group — SKU / PZN / VE rendered as one row             */
+  /* ------------------------------------------------------------------ */
   .product__meta-group {
-    padding: 9px 0;
-    border: 0.5px solid #ccc;
-    border-right: none;
-    border-left: none;
-  }
-
-  .product__meta-inner {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-
-    /* Only take the width actually needed by SKU/PZN/VE */
-    width: fit-content;
-    max-width: 100%;
-    margin-inline: auto;
+    gap: 6px 16px;
+    margin: 8px 0;
   }
 
   .product__meta-group .product__meta-item {
-    flex: 0 0 auto;
     margin: 0;
-    padding: 0;
     font-size: 14px;
     line-height: 1.3;
     white-space: nowrap;
   }
 
-  .product__meta-group p {
-    color: black !important;
+  /* Empty entries must collapse — flex would otherwise force them visible */
+  .product__meta-group .product__meta-item[hidden] {
+    display: none;
   }
 
-  /* Hidden entries must not reserve space */
-  .product__meta-group .product__meta-item[hidden],
+  /* Dawn toggles this class on the SKU when a variant has none.
+     visibility:hidden still reserves space, which leaves a gap in a flex row. */
   .product__meta-group .product__meta-item.visibility-hidden {
-    display: none !important;
-  }
-
-  /* Separators */
-  .product-meta-divider {
-    width: 1px;
-    height: 20px;
-    margin: 0 50px;
-    background-color: #d9d9d9;
-    flex: 0 0 1px;
-  }
-
-
-  /* Mobile */
-  @media screen and (max-width: 749px) {
-    .product__meta-inner {
-      width: 90%;
-      max-width: 90%;
-      margin-inline: auto;
-    }
-
-    .product__meta-group .product__meta-item {
-      font-size: 13px;
-    }
-
-    .product-meta-divider {
-      margin: 0 18px;
-    }
+    display: none;
   }
 
   @media screen and (max-width: 480px) {
@@ -137,21 +110,6 @@
       font-size: 13px;
     }
   }
-  @media screen and (max-width: 375px) {
-    .product__meta-inner {
-      max-width: 100%;
-      margin-inline: 0;
-    }
-  }
-  @media screen and (max-width: 320px) {
-    .product__meta-group .product__meta-item {
-      font-size: 11px;
-    }
-    .product__meta-group {
-      gap: 3px 5px;
-    }
-  }
-
 
   .variant-dropdown {
     width: 100%;
@@ -525,153 +483,77 @@
                 >
                 {{- block.settings.text -}}
                 </p>
-                
+
+              {% when 'custom_liquid' %}
+                {{ block.settings.custom_liquid }}
               {%- when 'sku' -%}
-                {%- liquid
-                  assign current_variant = product.selected_or_first_available_variant
-
-                  assign sku = current_variant.sku
-                  assign pzn = product.metafields.custom.pzn
-                  assign ve = product.metafields.custom.ve
-
-                  assign initial_pzn = current_variant.metafields.custom.variant_pzn
-                  assign initial_ve = current_variant.metafields.custom.unit
-
-                  assign has_pzn = false
-                  if pzn != blank or initial_pzn != blank
-                    assign has_pzn = true
-                  endif
-
-                  assign has_ve = false
-                  if ve != blank or initial_ve != blank
-                    assign has_ve = true
-                  endif
-                -%}
-
-                <div
-                  class="product__meta-group no-js-hidden"
+                <p
+                  class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
+                  id="Sku-{{ section.id }}"
+                  role="status"
                   {{ block.shopify_attributes }}
                 >
-                  <div class="product__meta-inner">
-                  {%- comment -%}
-                    ------------------------------------------------------------
-                    SKU
-                    ------------------------------------------------------------
-                  {%- endcomment -%}
-
-                    {%- if sku != blank -%}
-                      <p
-                        class="product__meta-item product__sku"
-                        id="Sku-{{ section.id }}"
-                        role="status"
-                      >
-                        <span class="visually-hidden">
-                          {{ 'products.product.sku' | t }}:
-                        </span>
-                        <b>SKU</b>:&nbsp;{{ sku }}
-                      </p>
-                    {%- endif -%}
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      Divider between SKU and PZN.
-                      Only render it when PZN actually exists.
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    {%- if has_pzn -%}
-                      <div class="product-meta-divider"></div>
-                    {%- endif -%}
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      PZN — product level
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    {%- if pzn != blank -%}
-                      <p
-                        class="product__meta-item product__pzn"
-                        id="Pzn-{{ section.id }}"
-                        role="status"
-                      >
-                        <span class="visually-hidden">PZN:</span>
-                        <b>PZN</b>:&nbsp;{{ pzn }}
-                      </p>
-                    {%- endif -%}
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      PZN — variant level
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    <p
-                      class="product__meta-item product__pzn"
-                      id="VariantPzn-{{ section.id }}"
-                      role="status"
-                      {% if initial_pzn == blank %}hidden{% endif %}
-                    >
-                      <span class="visually-hidden">PZN:</span>
-                      <b>PZN</b>:&nbsp;<span data-pzn-text>{{ initial_pzn }}</span>
-                    </p>
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      Divider between PZN and VE.
-                      Only render it when VE actually exists.
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    {%- if has_ve -%}
-                      <div class="product-meta-divider"></div>
-                    {%- endif -%}
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      VE — product level
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    {%- if ve != blank -%}
-                      <p
-                        class="product__meta-item product__ve"
-                        id="Ve-{{ section.id }}"
-                        role="status"
-                      >
-                        <span class="visually-hidden">Packaging unit:</span>
-                        <b>VE</b>:&nbsp;{{ ve }}
-                      </p>
-                    {%- endif -%}
-
-
-                    {%- comment -%}
-                      ------------------------------------------------------------
-                      VE — variant level
-                      ------------------------------------------------------------
-                    {%- endcomment -%}
-
-                    <p
-                      class="product__meta-item product__ve"
-                      id="VariantVe-{{ section.id }}"
-                      role="status"
-                      {% if initial_ve == blank %}hidden{% endif %}
-                    >
-                      <span class="visually-hidden">Packaging unit:</span>
-                      <b>VE</b>:&nbsp;<span data-ve-text>{{ initial_ve }}</span>
-                    </p>
-                  </div>
-                </div>
-
+                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                  <b>SKU</b>:&nbsp; {{- product.selected_or_first_available_variant.sku -}}
+                </p>
 
               {%- when 'pzn' -%}
+                {%- assign pzn = product.metafields.custom.pzn -%}
+                
+                {%- if pzn and pzn != blank -%}
+                  <p
+                    class="product__pzn no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    id="Pzn-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                    >
+                    <span class="visually-hidden">PZN:</span>
+                    <b>PZN</b>:&nbsp;{{ pzn }}
+                    </p>
+                  {%- endif -%}
+                  
+                  {%- assign current_variant = product.selected_or_first_available_variant -%}
+                  {%- assign initial_pzn = current_variant.metafields.custom.variant_pzn -%}
+                  
+                  <p
+                    class="product__pzn no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    id="VariantPzn-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                    {% if initial_pzn == blank %}hidden{% endif %}
+                  >
+                    <span class="visually-hidden">PZN:</span>
+                    <b>PZN</b>: <span data-pzn-text>{{ initial_pzn }}</span>
+                  </p>
 
               {%- when 've' -%}
+                {%- assign ve = product.metafields.custom.ve -%}
+              
+                {%- if ve and ve != blank -%}
+                  <p
+                    class="product__ve no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    id="Ve-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                  >
+                    <span class="visually-hidden">Packaging unit:</span>
+                    <span><b>VE</b>:&nbsp;{{ ve }}&nbsp;</span>
+                  </p>
+                {%- endif -%}
+              
+                {%- assign current_variant = product.selected_or_first_available_variant -%}
+                {%- assign initial_ve = current_variant.metafields.custom.unit -%}
+              
+                <p
+                  class="product__ve no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  id="VariantVe-{{ section.id }}"
+                  role="status"
+                  {{ block.shopify_attributes }}
+                  {% if initial_ve == blank %}hidden{% endif %}
+                >
+                  <span class="visually-hidden">Packaging unit:</span>
+                  <b>VE</b>: <span data-ve-text>{{ initial_ve }}</span>&nbsp;
+                </p>
 
 
               {%- when 'title' -%}
