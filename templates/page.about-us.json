@@ -158,6 +158,32 @@
       ],
       "name": "Mission Vision Grwoth",
       "settings": {}
+    },
+    "1789572259dc59f630": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_58a7100_nF3JkH": {
+          "type": "ai_gen_block_58a7100",
+          "settings": {
+            "statement_text": "<p>Gesundheit<br/>kennt keine Grenzen.</p>",
+            "handwriting_font": "abel_n4",
+            "text_color": "#1D2E40",
+            "font_size": 70,
+            "max_width": 560,
+            "alignment": "center",
+            "show_underline": false,
+            "underline_color": "#1D2E40",
+            "desktop_width_percent": 100,
+            "padding_top": 20,
+            "padding_bottom": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_58a7100_nF3JkH"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -165,6 +191,7 @@
     "178957001005f422cd",
     "17895699243fe8d158",
     "178957048752928a69",
-    "1789571628255c629e"
+    "1789571628255c629e",
+    "1789572259dc59f630"
   ]
 }
