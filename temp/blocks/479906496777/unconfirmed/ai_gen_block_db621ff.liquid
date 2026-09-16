@@ -1,6 +1,143 @@
-{% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
-{% endschema %}
+{% doc %}
+  @prompt
+    Create a responsive **About Us company introduction section** for the DocMed website based on the attached visual reference.
+    
+    The section should have a clean, modern and professional healthcare design and consist of a **two-column layout on desktop**, with a company image on the left and text content on the right.
+    
+    ### Desktop layout
+    
+    Use the existing DocMed page container and content width. The section should not be full-bleed; both the image and text should align with the standard content margins of the website.
+    
+    **Left column – Image**
+    
+    * Approximately **45–48% of the available width**
+    * Large landscape image
+    * Slightly rounded corners matching the existing DocMed design system
+    * No shadow or only the existing theme's subtle image treatment
+    * The image should visually align with the height of the text content
+    * Use `object-fit: cover`
+    * Do not distort or stretch the image
+    * I will provide the final image separately, so **do not generate an image**
+    * Implement the image through a Shopify image picker so it can easily be replaced
+    
+    **Right column – Content**
+    
+    * Approximately **52–55% of the available width**
+    * Vertically centered relative to the image
+    
+    Display the following content:
+    
+    Small uppercase eyebrow:
+    
+    **UNSER UNTERNEHMEN**
+    
+    Main headline:
+    
+    **International verwurzelt.
+    Persönlich verbunden.**
+    
+    First paragraph:
+    
+    Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden.
+    
+    Second paragraph:
+    
+    Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines internationalen Gesundheitslieferanten mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.
+    
+    ### Typography and visual hierarchy
+    
+    Follow the existing DocMed typography and design system.
+    
+    * Eyebrow: small uppercase blue text
+    * Headline: large, bold, dark navy
+    * Body copy: dark navy/grey
+    * Comfortable line-height for readability
+    * Clear spacing between eyebrow, headline and paragraphs
+    * Keep paragraph width controlled so lines do not become excessively long
+    * Do not add unnecessary decorative elements
+    * No CTA button in this section
+    * No icons
+    * No cards around the content
+    
+    The overall appearance should be **clean, premium, trustworthy and spacious**, consistent with the other About Us sections.
+    
+    ### Spacing
+    
+    Use generous but controlled vertical spacing.
+    
+    On desktop:
+    
+    * Maintain a clear gap between image and text
+    * Approximately 40–60 px column gap depending on the existing theme spacing
+    * The image and content should visually form one coherent section
+    * Use consistent top and bottom padding with the other About Us sections
+    
+    Do not hard-code excessive fixed heights. The section height should primarily be determined by its content.
+    
+    ### Responsive behavior
+    
+    The section must be fully responsive across **large desktop, desktop, tablet and mobile**.
+    
+    #### Large desktop / desktop
+    
+    * Keep the two-column layout
+    * Image left, content right
+    * Approximately 45/55 width distribution
+    * Vertically center both columns
+    * Keep the image large enough to create visual balance with the text
+    * Prevent the text column from becoming excessively wide on very large screens by respecting the theme's maximum content width
+    
+    #### Tablet
+    
+    Keep the two-column layout while there is enough space.
+    
+    * Reduce the column gap
+    * Reduce headline size proportionally
+    * Reduce section padding
+    * Allow both columns to approach a 50/50 distribution if this improves readability
+    * The image must continue to crop naturally with `object-fit: cover`
+    
+    If the text becomes too narrow or creates excessive line wrapping, automatically switch to the stacked mobile layout rather than squeezing both columns together.
+    
+    #### Mobile
+    
+    Switch to a **single-column layout**.
+    
+    Order:
+    
+    1. Image
+    2. Eyebrow
+    3. Headline
+    4. First paragraph
+    5. Second paragraph
+    
+    The image should therefore remain **above the text on mobile**, matching the visual storytelling of the desktop version.
+    
+    Mobile requirements:
+    
+    * Image width: 100% of the content area
+    * Use an appropriate landscape/mobile aspect ratio
+    * Do not make the image excessively tall
+    * Maintain rounded corners
+    * Use `object-fit: cover`
+    * Keep the relevant image subject visible
+    * Text should be left-aligned
+    * Headline should scale down fluidly
+    * Avoid awkward headline breaks where possible
+    * Paragraphs must remain comfortably readable
+    * Use approximately the existing theme's mobile horizontal page padding
+    * Reduce the gap between image and text compared with desktop
+    * No horizontal scrolling
+    * No clipped content
+    * No overlapping elements
+    
+    For very narrow mobile screens, ensure that all typography scales appropriately without becoming too small.
+    
+    ### Shopify Theme Editor requirements
+    
+    Build this as a reusable Shopify section and make the f, die section soll genau so ausshene wie die About us hero abschnitt nur das das bild recht & nicht links ist, den text weiter links & das bild weiter rechts , nein das bild auf die linke seite & den etxt auf die recht nutze die ganze breite, breitr & nicht so hoch 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}.ai-about-{{ ai_gen_id }}{display:block;width:100%;max-width:100%;margin:0 auto;padding:{{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;color:{{ block.settings.text_color }}}.ai-about-{{ ai_gen_id }}__inner{width:100%;max-width:{{ block.settings.content_max_width }}px;margin:0 auto;display:grid;grid-template-columns:minmax(0,48fr) minmax(0,52fr);gap:{{ block.settings.column_gap }}px;align-items:center}.ai-about-{{ ai_gen_id }}__media{grid-column:1;grid-row:1;width:100%;aspect-ratio:1.65/1;overflow:hidden;border-radius:{{ block.settings.image_radius }}px;background:#eef3f5}.ai-about-{{ ai_gen_id }}__media img{display:block;width:100%;height:100%;object-fit:cover}.ai-about-{{ ai_gen_id }}__placeholder{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#74818b}.ai-about-{{ ai_gen_id }}__placeholder svg{width:100%;height:100%}.ai-about-{{ ai_gen_id }}__empty-state{position:absolute;bottom:18px;left:50%;width:calc(100% - 32px);transform:translateX(-50%);padding:8px 12px;border-radius:4px;background:rgba(255,255,255,.92);color:#354552;text-align:center;font-size:13px}.ai-about-{{ ai_gen_id }}__content{grid-column:2;grid-row:1;max-width:620px;padding:8px 0}.ai-about-{{ ai_gen_id }}__eyebrow{margin:0 0 18px;color:{{ block.settings.accent_color }};font-size:13px;font-weight:700;letter-spacing:.14em;line-height:1.4;text-transform:uppercase}.ai-about-{{ ai_gen_id }}__heading{margin:0 0 26px;color:{{ block.settings.heading_color }};font-family:{{ block.settings.heading_font.family }},sans-serif;font-size:clamp(32px,3.1vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.08}.ai-about-{{ ai_gen_id }}__copy{max-width:590px;color:{{ block.settings.text_color }};font-family:{{ block.settings.body_font.family }},sans-serif;font-size:16px;line-height:1.75}.ai-about-{{ ai_gen_id }}__copy p{margin:0 0 18px}.ai-about-{{ ai_gen_id }}__copy p:last-child{margin-bottom:0}@media screen and (max-width:1100px){.ai-about-{{ ai_gen_id }}__inner{gap:35px;grid-template-columns:minmax(0,50fr) minmax(0,50fr)}.ai-about-{{ ai_gen_id }}__heading{font-size:clamp(30px,4vw,42px)}}@media screen and (max-width:749px){.ai-about-{{ ai_gen_id }}{padding:{{ block.settings.mobile_padding_top }}px 16px {{ block.settings.mobile_padding_bottom }}px}.ai-about-{{ ai_gen_id }}__inner{display:flex;flex-direction:column;align-items:stretch;gap:{{ block.settings.mobile_gap }}px}.ai-about-{{ ai_gen_id }}__media{order:1;aspect-ratio:1.7/1}.ai-about-{{ ai_gen_id }}__content{order:2;max-width:none;padding:0}.ai-about-{{ ai_gen_id }}__eyebrow{margin-bottom:14px;font-size:12px}.ai-about-{{ ai_gen_id }}__heading{margin-bottom:20px;font-size:clamp(30px,8vw,38px);line-height:1.12}.ai-about-{{ ai_gen_id }}__copy{font-size:15px;line-height:1.7}}{% endstyle %}
+<section class="ai-about-{{ ai_gen_id }}" {{ block.shopify_attributes }}><div class="ai-about-{{ ai_gen_id }}__inner"><div class="ai-about-{{ ai_gen_id }}__media">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1800 }}" alt="{{ block.settings.image.alt | default: block.settings.image_alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">{% else %}<div class="ai-about-{{ ai_gen_id }}__placeholder">{{ 'image' | placeholder_svg_tag }}<div class="ai-about-{{ ai_gen_id }}__empty-state">Füge ein Unternehmensbild hinzu</div></div>{% endif %}</div><div class="ai-about-{{ ai_gen_id }}__content"><p class="ai-about-{{ ai_gen_id }}__eyebrow">{{ block.settings.eyebrow }}</p><h2 class="ai-about-{{ ai_gen_id }}__heading">{{ block.settings.heading | newline_to_br }}</h2><div class="ai-about-{{ ai_gen_id }}__copy">{{ block.settings.body_copy }}</div></div></div></section>
+{% schema %}{"name":"Unternehmensvorstellung","settings":[{"type":"image_picker","id":"image","label":"Unternehmensbild"},{"type":"text","id":"image_alt","label":"Bildbeschreibung","default":"DocMed Unternehmensstandort"},{"type":"text","id":"eyebrow","label":"Eyebrow","default":"UNSER UNTERNEHMEN"},{"type":"textarea","id":"heading","label":"Überschrift","default":"International verwurzelt.\nPersönlich verbunden."},{"type":"richtext","id":"body_copy","label":"Text","default":"<p>Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden.</p><p>Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines internationalen Gesundheitslieferanten mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.</p>"},{"type":"range","id":"content_max_width","label":"Inhaltsbreite","min":1200,"max":1800,"step":50,"unit":"px","default":1800},{"type":"range","id":"column_gap","label":"Spaltenabstand","min":20,"max":80,"step":5,"unit":"px","default":60},{"type":"range","id":"image_radius","label":"Bildradius","min":0,"max":24,"step":2,"unit":"px","default":8},{"type":"font_picker","id":"heading_font","label":"Überschrift Schrift","default":"poppins_n4"},{"type":"font_picker","id":"body_font","label":"Text Schrift","default":"manrope_n4"},{"type":"color","id":"accent_color","label":"Akzentfarbe","default":"#126fd3"},{"type":"color","id":"heading_color","label":"Überschriftfarbe","default":"#011f2d"},{"type":"color","id":"text_color","label":"Textfarbe","default":"#1d2e40"},{"type":"range","id":"padding_top","label":"Abstand oben","min":0,"max":120,"step":10,"unit":"px","default":70},{"type":"range","id":"padding_bottom","label":"Abstand unten","min":0,"max":120,"step":10,"unit":"px","default":70},{"type":"range","id":"mobile_padding_top","label":"Mobil Abstand oben","min":0,"max":80,"step":5,"unit":"px","default":40},{"type":"range","id":"mobile_padding_bottom","label":"Mobil Abstand unten","min":0,"max":80,"step":5,"unit":"px","default":40},{"type":"range","id":"mobile_gap","label":"Mobil Abstand","min":16,"max":48,"step":4,"unit":"px","default":28}],"presets":[{"name":"Unternehmensvorstellung"}],"tag":null,"class":"about-company-block"}{% endschema %}
