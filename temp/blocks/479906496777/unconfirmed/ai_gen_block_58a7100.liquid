@@ -1,0 +1,165 @@
+{% doc %}
+  @prompt
+    Create a small responsive **handwritten statement section** for the DocMed About Us page based on the attached visual reference.
+    
+    The purpose of this section is to create a short, emotional visual break between larger content sections.
+    
+    ### Content
+    
+    Default German text:
+    
+    **Gesundheit
+    kennt keine Grenzen.**
+    
+    The text must be completely editable through the Shopify Theme Editor and must support Shopify's normal storefront translations.
+    
+    For the English storefront, I want to be able to display:
+    
+    **Health
+    knows no borders.**
+    
+    Do **not** hard-code the German text into the design, an image, SVG or CSS.
+    
+    The statement must be rendered as actual HTML text so that different translations can be displayed depending on the storefront language.
+    
+    ### Design
+    
+    The statement should look like a **natural handwritten signature/message**, similar to the attached reference.
+    
+    Use:
+    
+    * Elegant handwritten/script typography
+    * DocMed dark blue/navy
+    * Slightly informal but professional handwriting
+    * Generous whitespace around the statement
+    * No background image
+    * No card
+    * No border
+    * No button
+    
+    The text should feel like a small personal statement rather than a normal website headline.
+    
+    ### Underline
+    
+    Add a subtle handwritten-style curved underline underneath the statement, similar to the reference.
+    
+    The underline should be decorative only.
+    
+    It can be implemented as:
+    
+    * SVG
+    * CSS
+    * Another lightweight responsive solution
+    
+    The underline must automatically adapt to the width of the statement and should not contain any text.
+    
+    ### Alignment
+    
+    On desktop, center the statement horizontally within the page.
+    
+    The overall content should remain relatively compact and should **not span the entire width of the page**.
+    
+    Example visual structure:
+    
+    ```
+                    Gesundheit
+                  kennt keine Grenzen.
+                       _______
+    ```
+    
+    The handwriting can have a slight natural angle/variation similar to the reference, but readability is more important than perfectly reproducing real handwriting.
+    
+    ### Responsive behavior
+    
+    The section must be fully responsive.
+    
+    **Desktop**
+    
+    * Large handwritten statement
+    * Centered horizontally
+    * Generous whitespace above and below
+    * Maximum width approximately 500–650 px
+    
+    **Tablet**
+    
+    * Reduce font size proportionally
+    * Maintain centered alignment
+    * Keep the underline positioned correctly
+    
+    **Mobile**
+    
+    * Statement remains centered
+    * Font size scales down automatically
+    * Allow a natural two-line layout
+    * Do not allow individual words to be awkwardly clipped
+    * Underline scales proportionally
+    * Reduce vertical padding
+    * No horizontal scrolling
+    
+    Use responsive typography with `clamp()` where appropriate instead of multiple hard-coded font sizes.
+    
+    ### IMPORTANT – Multilingual support
+    
+    This section must work correctly with the multilingual Shopify storefront.
+    
+    The text must be translatable using Shopify's translation system / Translate & Adapt.
+    
+    Example:
+    
+    German:
+    **Gesundheit kennt keine Grenzen.**
+    
+    English:
+    **Health knows no borders.**
+    
+    Do not create separate German and English sections.
+    
+    Use **one section with translatable text content**, so Shopify automatically displays the correct translation depending on the selected storefront language.
+    
+    The line break should ideally remain controllable through the text setting or adapt naturally depending on the translation.
+    
+    ### Shopify Theme Editor
+    
+    Create editable settings for:
+    
+    * Statement text
+    * Text color
+    * Font size
+    * Font / handwriting style if technically possible
+    * Maximum width
+    * Alignment
+    * Underline on/off
+    * Underline color
+    * Section top padding
+    * Section bottom padding
+    
+    Use an available handwritten/script web-safe or theme-compatible font. Do not load an unnecessarily large external font library solely for this section.
+    
+    The final result should feel **personal, human and understated**, providing a visual contrast to the more structured corporate sections of the DocMed About Us page.
+    , dünner #, text in einer zeile über die voll breite 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-statement-{{ ai_gen_id }} { display: block; width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; margin: 0 auto; padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px; box-sizing: border-box; }
+  .ai-statement__inner-{{ ai_gen_id }} { width: 100%; max-width: none; margin: 0 auto; text-align: {{ block.settings.alignment }}; }
+  .ai-statement__text-{{ ai_gen_id }} { margin: 0; color: {{ block.settings.text_color }}; font-family: {{ block.settings.handwriting_font.family }}, cursive; font-style: italic; font-weight: 400; font-size: clamp(2rem, 6vw, {{ block.settings.font_size }}px); line-height: 1.08; letter-spacing: -0.025em; white-space: nowrap; }
+  .ai-statement__text-{{ ai_gen_id }} p { margin: 0; }
+  .ai-statement__text-{{ ai_gen_id }} br { display: none; }
+  .ai-statement__underline-{{ ai_gen_id }} { display: block; width: min(42vw, 560px); height: auto; margin: 12px auto 0; color: {{ block.settings.underline_color }}; }
+  .ai-statement__underline-{{ ai_gen_id }} path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1; }
+  @media screen and (max-width: 749px) {
+    .ai-statement-{{ ai_gen_id }} { padding-right: 16px; padding-left: 16px; }
+    .ai-statement__text-{{ ai_gen_id }} { font-size: clamp(2rem, 10vw, {{ block.settings.font_size }}px); white-space: normal; overflow-wrap: normal; word-break: normal; }
+    .ai-statement__text-{{ ai_gen_id }} br { display: initial; }
+    .ai-statement__underline-{{ ai_gen_id }} { width: min(78vw, 320px); margin-top: 9px; }
+  }
+{% endstyle %}
+<div class="ai-statement-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-statement__inner-{{ ai_gen_id }}">
+    <div class="ai-statement__text-{{ ai_gen_id }}">{{ block.settings.statement_text }}</div>
+    {% if block.settings.show_underline %}<svg class="ai-statement__underline-{{ ai_gen_id }}" viewBox="0 0 400 38" role="presentation" aria-hidden="true" preserveAspectRatio="none"><path d="M8 18 C62 30, 111 25, 165 17 S271 4, 323 16 C350 22, 373 23, 392 15"></path></svg>{% endif %}
+  </div>
+</div>
+{% schema %}
+{"name":"Handwritten statement","settings":[{"type":"header","content":"Statement"},{"type":"richtext","id":"statement_text","label":"Text","default":"<p>Gesundheit<br>kennt keine Grenzen.</p>"},{"type":"font_picker","id":"handwriting_font","label":"Handwriting font","default":"serif"},{"type":"color","id":"text_color","label":"Text color","default":"#1D2E40"},{"type":"range","id":"font_size","label":"Font size","min":40,"max":100,"step":5,"unit":"px","default":70},{"type":"range","id":"max_width","label":"Maximum width","min":300,"max":650,"step":10,"unit":"px","default":560},{"type":"select","id":"alignment","label":"Alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],"default":"center"},{"type":"header","content":"Underline"},{"type":"checkbox","id":"show_underline","label":"Show underline","default":true},{"type":"color","id":"underline_color","label":"Underline color","default":"#1D2E40"},{"type":"header","content":"Spacing"},{"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"padding_top","label":"Top padding","min":20,"max":140,"step":10,"unit":"px","default":80},{"type":"range","id":"padding_bottom","label":"Bottom padding","min":20,"max":140,"step":10,"unit":"px","default":80}],"presets":[{"name":"Handwritten statement"}],"tag":null,"class":"handwritten-statement-block"}
+{% endschema %}
