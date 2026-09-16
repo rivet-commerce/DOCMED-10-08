@@ -21,121 +21,69 @@
         "padding_bottom": 4
       }
     },
-    "image_with_text_b79KA3": {
-      "type": "image-with-text",
+    "178957001005f422cd": {
+      "type": "_blocks",
       "blocks": {
-        "heading_MLEHkw": {
-          "type": "heading",
+        "ai_gen_block_06285d6_NwYjFi": {
+          "type": "ai_gen_block_06285d6",
           "settings": {
-            "subheading": "",
-            "heading": "<strong>Über uns </strong>",
-            "heading_size": "h2"
-          }
-        },
-        "text_VB98PK": {
-          "type": "text",
-          "settings": {
-            "show_icon": "hide",
-            "content_icon": "none",
-            "text": "<p>Die <strong>DocMed GmbH</strong> ist ein international tätiges Unternehmen mit Sitz in Bochum, Deutschland, das sich auf den Vertrieb von <strong>medizinischen Produkten</strong> und <strong>Pflegehilfsmitteln</strong> spezialisiert hat. Als <strong>zuverlässiger Partner im Gesundheitswesen</strong> beliefern wir sowohl <strong>Pflegedienste, Arztpraxen, Kliniken</strong> als auch <strong>Privatkunden</strong> mit einem umfangreichen Sortiment an hochwertigen Medizinprodukten – schnell, sicher und bedarfsgerecht.</p><p>Unser Fokus liegt auf <strong>digitaler Zugänglichkeit</strong> und einem <strong>kundenfreundlichen Einkaufserlebnis</strong>. Über unseren modernen <strong>Online-Shop für Medizinprodukte</strong> können unsere Kunden rund um die Uhr bestellen – bequem von zuhause oder direkt aus der Praxis. Ob <strong>Inkontinenzmaterial, Blutzuckerteststreifen, Verbandsstoffe, Pflegebedarf</strong> oder <strong>medizinische Geräte</strong>: Bei DocMed finden Sie geprüfte Qualität zu fairen Preisen.</p><p>Als zukunftsorientiertes Unternehmen setzen wir auf ein dynamisches Geschäftsmodell, das <strong>Effizienz, Verlässlichkeit und Innovation</strong> vereint. Dank automatisierter Prozesse, schneller Lieferlogistik und persönlichem Kundenservice schaffen wir die Basis für eine moderne und unkomplizierte Gesundheitsversorgung – sowohl im stationären als auch im ambulanten Bereich.</p><p>Unser Ziel: Die medizinische Versorgung von morgen aktiv mitgestalten – <strong>digital, flexibel und menschlich</strong>. Vertrauen Sie auf unsere Erfahrung, unsere Fachkompetenz und unser starkes Netzwerk im medizinischen Handel.</p><p><strong>DocMed GmbH – Ihr Spezialist für medizinischen Fachbedarf und digitale Gesundheitslösungen.<br/><br/></strong>Im Dienste ihrer Gesundheit.<br/><br/></p>",
-            "text_style": "body"
-          }
-        },
-        "button_RkjUGH": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "link_window": true,
-            "view_all_style": "link"
-          }
+            "eyebrow": "Weltweit wachsen. Persönlich bleiben.",
+            "heading": "Über uns",
+            "paragraph": "<p>Für uns ist Gesundheitswesen zutiefst persönlich. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist – ein Patient, eine Gesundheitsfachkraft, ein Betreuer oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte.</p>",
+            "closing": "Bei DocMed verlieren wir das niemals aus den Augen.",
+            "image_position": "center center",
+            "desktop_width_percent": 100,
+            "desktop_image_height": 500,
+            "image_right_margin": 20,
+            "column_gap": 25,
+            "padding_vertical": 40,
+            "mobile_padding": 30,
+            "image_radius": 8,
+            "background_color": "#ffffff",
+            "text_color": "#1d2e40",
+            "heading_color": "#011f2d",
+            "eyebrow_color": "#1d2e40"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_MLEHkw",
-        "text_VB98PK",
-        "button_RkjUGH"
+        "ai_gen_block_06285d6_NwYjFi"
       ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Image_6106a767-6c6b-4119-a29d-87b573905e60.jpg",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
+      "name": "About Us hero",
+      "settings": {}
     },
-    "image_banner_m6XTMX": {
-      "type": "image-banner",
+    "17895699243fe8d158": {
+      "type": "_blocks",
       "blocks": {
-        "banner_with_text_T6hhzK": {
-          "type": "banner_with_text",
+        "ai_gen_block_980f42d_U6jfF7": {
+          "type": "ai_gen_block_980f42d",
           "settings": {
-            "image": "shopify://shop_images/Image.jpg",
-            "image_overlay_opacity": 0,
-            "banner_width": 100,
-            "text_caption": "",
-            "outline_text": false,
-            "heading": "",
-            "heading_size": "h0",
-            "subheading": "",
-            "text": "",
-            "text_style": "body",
-            "show_banner_timer": false,
-            "wb_bannerdate": "",
-            "button_label_1": "",
-            "button_link_1": "",
-            "link_window": true,
-            "view_all_style": "link",
-            "button_label_11": "",
-            "button_link_11": "",
-            "link_window1": true,
-            "view_all_style1": "link",
-            "show_text_box": false,
-            "space_around": 10,
-            "container_overlay_opacity": 40,
-            "desktop_content_position": "middle-left",
-            "desktop_content_alignment": "left",
-            "color_scheme": "",
-            "image_behavior": "none"
-          }
+            "desktop_width_percent": 100,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "background_color": "#eef5f7",
+            "icon_color": "#1d2e40",
+            "text_color": "#1d2e40",
+            "divider_color": "#c7d8de",
+            "item_1_text": "<p><strong>Hauptsitz in</strong>Bochum, Deutschland</p>",
+            "item_2_text": "<p><strong>Kunden in</strong>mehr als 50 Ländern</p>",
+            "item_3_text": "<p><strong>Zuverlässige</strong>Qualität</p>",
+            "item_4_text": "<p><strong>Persönlich.</strong>International. Verlässlich.</p>"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "banner_with_text_T6hhzK"
+        "ai_gen_block_980f42d_U6jfF7"
       ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "full_width": false,
-        "title": "",
-        "heading_size": "h1",
-        "head_align": "center",
-        "heading_color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
-        "head_space": true,
-        "description": "",
-        "description_style": "body",
-        "button_label": "",
-        "button_link": "",
-        "view_all_style": "link",
-        "show_view_all": true,
-        "image_height": "large",
-        "show_gap": true,
-        "section_color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
+      "name": "Company facts bar",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "image_with_text_b79KA3",
-    "image_banner_m6XTMX"
+    "178957001005f422cd",
+    "17895699243fe8d158"
   ]
 }
