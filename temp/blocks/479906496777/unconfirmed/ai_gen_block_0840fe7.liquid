@@ -1,6 +1,320 @@
+{% doc %}
+  @prompt
+    Create a responsive **Company Facts / Trust Bar section** for the DocMed About Us page based on the attached visual reference.
+    
+    The section should be a clean horizontal information bar containing **four equally weighted items**, each consisting of a simple line icon and a short text.
+    
+    ### Desktop layout
+    
+    Create one full-width horizontal section with a very light blue/grey background.
+    
+    Inside the normal DocMed content width, display **4 items in one row**:
+    
+    **Item 1**
+    
+    * Icon: Globe / world icon
+    * Text:
+      **Hauptsitz in**
+      **Bochum, Deutschland**
+    
+    **Item 2**
+    
+    * Icon: People / customers icon
+    * Text:
+      **Kunden in**
+      **mehr als 50 Ländern**
+    
+    **Item 3**
+    
+    * Icon: Shield with checkmark
+    * Text:
+      **Zuverlässige**
+      **Qualität**
+    
+    **Item 4**
+    
+    * Icon: Heart outline
+    * Text:
+      **Persönlich.**
+      **International. Verlässlich.**
+    
+    ### Visual design
+    
+    Match the visual style of the reference:
+    
+    * Very light blue/grey section background
+    * Dark DocMed navy/blue icons
+    * Dark navy text
+    * Minimal and professional healthcare appearance
+    * Use simple **outline icons**, not filled or illustrated icons
+    * All icons should use the same visual style, stroke width and approximate size
+    * Icons should be clearly visible but should not dominate the text
+    * Position the icon on the left and the text on the right for every item
+    * Vertically center icon and text
+    * Keep generous whitespace around each item
+    * Use consistent spacing between icon and text
+    * Text should be compact and left-aligned
+    * Use the existing DocMed typography and colors from the theme
+    
+    Separate the four items with subtle **vertical divider lines**.
+    
+    The dividers should not touch the top or bottom edge of the section. They should be vertically centered and approximately 50–60% of the section height.
+    
+    Do not add cards, shadows, buttons, borders around individual items or unnecessary decorative elements.
+    
+    ### Desktop proportions
+    
+    The four items should occupy approximately **25% width each**.
+    
+    Keep all four items visually balanced even though their text lengths differ.
+    
+    The section should have a relatively compact height, similar to a trust/USP bar rather than a full content section.
+    
+    ### Responsive behavior
+    
+    The section must be fully responsive for desktop, tablet and mobile.
+    
+    **Desktop:**
+    
+    * 4 items in one horizontal row
+    * Approximately 25% width per item
+    * Vertical divider between each item
+    * Icon left, text right
+    * All items vertically centered
+    
+    **Tablet:**
+    
+    * If enough horizontal space is available, keep all 4 items in one row with reduced spacing and slightly smaller icons.
+    * If the content becomes too compressed, automatically switch to a **2 × 2 grid**.
+    * In the 2 × 2 layout, maintain equal item sizes and consistent alignment.
+    * Do not allow text or icons to overlap.
+    
+    **Mobile:**
+    
+    * Display the items in a **2 × 2 grid** rather than one long horizontal row.
+    * Each item should occupy approximately 50% width.
+    * Keep the icon above the text or to the left of the text depending on which produces the cleaner layout at the available width.
+    * Prefer centered icon and text alignment on narrow mobile screens.
+    * Maintain equal spacing and visual balance between all four items.
+    * Replace the desktop-only vertical dividers with subtle grid separators if needed.
+    * Avoid excessive section height.
+    * Ensure all text remains readable without becoming extremely small.
+    * No horizontal scrolling.
+    
+    For very narrow screens, the layout may switch to **1 item per row** if necessary for readability.
+    
+    ### Shopify requirements
+    
+    Build this as a reusable Shopify section.
+    
+    Create Theme Editor settings for:
+    
+    * Background color
+    * Icon color
+    * Text color
+    * Individual text for all 4 items
+    * Icons for all 4 items
+    * Section top and bottom padding
+    
+    If possible, structure each USP as a Shopify **block**, so individual items can later be edited, reordered, added or removed without changing the Liquid code.
+    
+    Use the existing DocMed theme's:
+    
+    * Content width
+    * Typography
+    * Colors
+    * Breakpoints
+    * Spacing system
+    
+    Do not introduce a separate design system.
+    
+    The section should visually connect directly to the About Us hero section above it and feel like a compact trust bar that immediately communicates DocMed's **location, international reach, quality and personal service**.
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-company-facts-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__inner {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: {{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__item {
+    min-width: 0;
+    min-height: 72px;
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__item + .ai-company-facts-{{ ai_gen_id }}__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: {{ block.settings.divider_color }};
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__icon {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__text {
+    margin: 0;
+    font-family: var(--font-body-family, Manrope, sans-serif);
+    font-size: 14px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+  }
+
+  .ai-company-facts-{{ ai_gen_id }}__text strong {
+    display: block;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 990px) {
+    .ai-company-facts-{{ ai_gen_id }}__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item {
+      padding: 14px 20px;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item:nth-child(odd)::before {
+      display: none;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item:nth-child(n + 3)::after {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 0;
+      height: 1px;
+      background: {{ block.settings.divider_color }};
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .ai-company-facts-{{ ai_gen_id }}__inner {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item {
+      padding: 13px 10px;
+      gap: 9px;
+      justify-content: center;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__icon {
+      flex-basis: 25px;
+      width: 25px;
+      height: 25px;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__text {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .ai-company-facts-{{ ai_gen_id }}__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item:nth-child(n + 2)::after,
+    .ai-company-facts-{{ ai_gen_id }}__item + .ai-company-facts-{{ ai_gen_id }}__item::before {
+      display: none;
+    }
+
+    .ai-company-facts-{{ ai_gen_id }}__item + .ai-company-facts-{{ ai_gen_id }}__item {
+      border-top: 1px solid {{ block.settings.divider_color }};
+    }
+  }
+{% endstyle %}
+
+<div class="ai-company-facts-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-company-facts-{{ ai_gen_id }}__inner">
+    {% for i in (1..4) %}
+      {% liquid
+        assign icon_key = 'item_' | append: i | append: '_icon'
+        assign text_key = 'item_' | append: i | append: '_text'
+        assign icon = block.settings[icon_key]
+        assign text = block.settings[text_key]
+      %}
+      <div class="ai-company-facts-{{ ai_gen_id }}__item">
+        <span class="ai-company-facts-{{ ai_gen_id }}__icon" aria-hidden="true">
+          {% case icon %}
+            {% when 'globe' %}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9S9.5 5.5 12 3z"></path></svg>
+            {% when 'people' %}<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a6 6 0 0 1 12 0v1M16 5a3 3 0 0 1 0 6M18 13a5 5 0 0 1 3 4v1"></path></svg>
+            {% when 'shield' %}<svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"></path><path d="M8 12l2.5 2.5L16 9"></path></svg>
+            {% when 'heart' %}<svg viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.5-8.8 10.3-8.8 10.3S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5z"></path></svg>
+          {% endcase %}
+        </span>
+        <p class="ai-company-facts-{{ ai_gen_id }}__text">{{ text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Company facts bar",
+  "settings": [
+    {"type":"header","content":"Layout"},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"range","id":"padding_top","label":"Top padding","min":8,"max":48,"step":4,"unit":"px","default":20},
+    {"type":"range","id":"padding_bottom","label":"Bottom padding","min":8,"max":48,"step":4,"unit":"px","default":20},
+    {"type":"header","content":"Colors"},
+    {"type":"color","id":"background_color","label":"Background","default":"#eef5f7"},
+    {"type":"color","id":"icon_color","label":"Icons","default":"#1d2e40"},
+    {"type":"color","id":"text_color","label":"Text","default":"#1d2e40"},
+    {"type":"color","id":"divider_color","label":"Dividers","default":"#c7d8de"},
+    {"type":"header","content":"Facts"},
+    {"type":"select","id":"item_1_icon","label":"Item 1 icon","options":[{"value":"globe","label":"Globe"},{"value":"people","label":"People"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"}],"default":"globe"},
+    {"type":"richtext","id":"item_1_text","label":"Item 1 text","default":"<p><strong>Hauptsitz in</strong>Bochum, Deutschland</p>"},
+    {"type":"select","id":"item_2_icon","label":"Item 2 icon","options":[{"value":"globe","label":"Globe"},{"value":"people","label":"People"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"}],"default":"people"},
+    {"type":"richtext","id":"item_2_text","label":"Item 2 text","default":"<p><strong>Kunden in</strong>mehr als 50 Ländern</p>"},
+    {"type":"select","id":"item_3_icon","label":"Item 3 icon","options":[{"value":"globe","label":"Globe"},{"value":"people","label":"People"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"}],"default":"shield"},
+    {"type":"richtext","id":"item_3_text","label":"Item 3 text","default":"<p><strong>Zuverlässige</strong>Qualität</p>"},
+    {"type":"select","id":"item_4_icon","label":"Item 4 icon","options":[{"value":"globe","label":"Globe"},{"value":"people","label":"People"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"}],"default":"heart"},
+    {"type":"richtext","id":"item_4_text","label":"Item 4 text","default":"<p><strong>Persönlich.</strong>International. Verlässlich.</p>"}
+  ],
+  "presets": [{"name":"Company facts bar"}],
+  "tag": null,
+  "class": "company-facts-bar"
+}
 {% endschema %}
