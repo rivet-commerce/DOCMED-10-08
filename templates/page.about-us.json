@@ -184,6 +184,48 @@
         "ai_gen_block_58a7100_nF3JkH"
       ],
       "settings": {}
+    },
+    "1789572582dfd28f3b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_83293b1_ENJdbK": {
+          "type": "ai_gen_block_83293b1",
+          "settings": {
+            "eyebrow": "WELTWEIT WACHSEN. PERSÖNLICH BLEIBEN.",
+            "heading": "In mehr als 50 Ländern",
+            "body": "Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen hält, denen wir dienen.",
+            "stat_one_number": "50+",
+            "stat_one_label": "Länder weltweit",
+            "stat_two_number": "100000+",
+            "stat_two_label": "Zufriedene Kunden",
+            "stat_three_number": "12000+",
+            "stat_three_label": "Produkte im Sortiment",
+            "image_fit": "cover",
+            "image_height": 520,
+            "tablet_image_height": 400,
+            "mobile_image_height": 300,
+            "desktop_width_percent": 100,
+            "section_padding": 70,
+            "tablet_padding": 50,
+            "mobile_padding": 40,
+            "column_gap": 50,
+            "tablet_gap": 30,
+            "image_radius": 8,
+            "background_color": "#F7FAFC",
+            "heading_color": "#1D2E40",
+            "body_color": "#405466",
+            "accent_color": "#126FD3",
+            "separator_color": "#D8E2EA",
+            "image_background": "#EEF4F8"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_83293b1_ENJdbK"
+      ],
+      "name": "Global reach",
+      "settings": {}
     }
   },
   "order": [
@@ -192,6 +234,7 @@
     "17895699243fe8d158",
     "178957048752928a69",
     "1789571628255c629e",
-    "1789572259dc59f630"
+    "1789572259dc59f630",
+    "1789572582dfd28f3b"
   ]
 }
