@@ -1,6 +1,185 @@
-{% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
-{% endschema %}
+{% doc %}
+  @prompt
+    Create a responsive **Mission, Vision & Growth section** for the DocMed About Us page based on the attached visual reference.
+    
+    The section should contain **three equal content columns on desktop**:
+    
+    1. Unsere Mission
+    2. Unsere Vision
+    3. Weltweit wachsen. Persönlich bleiben.
+    
+    The handwritten text **“Gesundheit kennt keine Grenzen.” must NOT be included.** Remove this element completely and do not replace it with another decorative element.
+    
+    ### Desktop layout
+    
+    Use the existing DocMed page container and maximum content width.
+    
+    Create **3 equal columns** in one horizontal row.
+    
+    Each column should contain:
+    
+    1. Editable icon
+    2. Small eyebrow/label
+    3. Main heading
+    4. Body text
+    
+    Use subtle vertical divider lines between the three columns.
+    
+    The dividers should:
+    
+    * Be light grey / light blue
+    * Not touch the top or bottom of the section
+    * Visually separate the content without making the columns look like individual cards
+    
+    Do not use cards, shadows or separate backgrounds for the individual columns.
+    
+    ### Column 1 – Mission
+    
+    Editable icon at the top.
+    
+    Small label:
+    
+    **Unsere Mission**
+    
+    Heading:
+    
+    **Bessere Gesundheit zugänglicher machen.**
+    
+    Body:
+    
+    Unsere Mission ist es, Menschen dabei zu helfen, ihre Gesundheit zu verbessern, zu schützen und zu verwalten, indem wir hochwertige Gesundheitsprodukte und Lösungen zugänglicher machen.
+    
+    Wir verbinden Einzelpersonen, Gesundheitsfachkräfte und Organisationen mit den Produkten und Lösungen, die sie brauchen, indem wir unser breites Portfolio mit flexibler Beschaffung, zuverlässigem Service und einem Verständnis für individuelle Anforderungen kombinieren.
+    
+    Ob wir Gesundheitsfachkräfte bei der Versorgung anderer unterstützen oder Einzelpersonen dabei helfen, ihre eigenen Gesundheits- und Wohlbefindensziele zu verfolgen, unser Zweck bleibt derselbe: einen sinnvollen Beitrag zu besserer Gesundheit zu leisten.
+    
+    ### Column 2 – Vision
+    
+    Editable icon at the top.
+    
+    Small label:
+    
+    **Unsere Vision**
+    
+    Heading:
+    
+    **Unseren globalen Einfluss im Gesundheitswesen für die Zukunft vorantreiben.**
+    
+    Body:
+    
+    Unsere Vision ist es, die Position von DocMed als führender globaler Gesundheitsanbieter auszubauen und dabei die Stärke der internationalen Verteilung mit einem wachsenden Portfolio unserer eigenen Produkte und Marken zu kombinieren.
+    
+    Technologie ist ein wichtiger Teil dieser Zukunft. Durch die Nutzung von Digitalisierung und künstlicher Intelligenz verstehen wir Märkte besser, arbeiten effizienter, reagieren schneller und verbessern kontinuierlich, wie wir unsere Kunden bedienen.
+    
+    Gleichzeitig ermöglicht uns die Entwicklung unserer eigenen Produkte, über Verteilung hinauszugehen und eine größere Rolle bei der Schaffung von Gesundheitslösungen selbst zu spielen.
+    
+    Während wir weiterhin wachsen, bewahren wir, was DocMed besonders macht: Geschwindigkeit, Flexibilität, hohe Standards und Nähe zu unseren Kunden und Partnern.
+    
+    Wir liefern die Fähigkeiten eines globalen Gesundheitsunternehmens und bewahren gleichzeitig die Agilität und den persönlichen Ansatz, der uns hierher gebracht hat.
+    
+    ### Column 3 – Growth
+    
+    Editable icon at the top.
+    
+    Heading:
+    
+    **Weltweit wachsen.
+    Persönlich bleiben.**
+    
+    Body:
+    
+    Unsere Märkte werden sich weiter erweitern. Unser Portfolio wird weiter wachsen. Wir werden mehr unserer eigenen Produkte entwickeln und weiterhin neue Technologien annehmen.
+    
+    Aber der Zweck hinter unserem Wachstum bleibt zutiefst menschlich: Menschen und Gesundheitsorganisationen dabei zu helfen, auf Produkte und Lösungen zuzugreifen, die einen sinnvollen Unterschied für Gesundheit und Wohlbefinden machen können.
+    
+    **Global in unserem Ausmaß.
+    Persönlich in unserem Ansatz.**
+    
+    Do not include any handwritten typography underneath this content.
+    
+    ### IMPORTANT – Icons must be editable
+    
+    Do **not hard-code the icons**.
+    
+    I want to choose and replace the icon for every column myself through the Shopify Theme Editor.
+    
+    Each column should therefore have its own **icon/image picker**.
+    
+    Allow me to:
+    
+    * Upload an SVG or image icon
+    * Replace the icon independently for each column
+    * Remove an icon completely
+    * Adjust the icon size if possible
+    
+    Do not generate the icons as CSS graphics.
+    
+    Default icon styling:
+    
+    * DocMed blue
+    * Approximately 32–40 px on desktop
+    * Consistent size across all three columns
+    * Positioned above the label/heading
+    * Left aligned
+    
+    If Shopify's image picker does not allow recoloring uploaded SVGs/images, preserve the original icon color rather than applying filters that could reduce image quality.
+    
+    ### Typography
+    
+    Follow the existing DocMed typography.
+    
+    Labels:
+    
+    * Small
+    * DocMed blue
+    * Medium/semi-bold
+    
+    Headings:
+    
+    * Dark navy
+    * Bold
+    * Clear hierarchy
+    * Similar visual size across all three columns
+    
+    Body:
+    
+    * Dark navy/grey
+    * Comfortable line-height
+    * Easy to scan
+    * Left aligned
+    
+    The third column should not contain any handwritten/script font.
+    
+    ### Responsive behavior
+    
+    The section must be fully responsive across desktop, tablet and mobile.
+    
+    #### Desktop
+    
+    Display:
+    
+    **Mission | Vision | Growth**
+    
+    in one horizonta, abtand ziwchen icon & text kleiner machen 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-mission-vision-{{ ai_gen_id }}{display:block;width:{{ block.settings.desktop_width_percent }}%;max-width:100%;margin:0 auto;background:{{ block.settings.background_color }};color:{{ block.settings.body_color }}}
+  .ai-mission-vision-{{ ai_gen_id }}__inner{width:100%;max-width:{{ block.settings.content_max_width }}px;margin:0 auto;padding:{{ block.settings.vertical_padding }}px 24px}
+  .ai-mission-vision-{{ ai_gen_id }}__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ai-mission-vision-{{ ai_gen_id }}__column{position:relative;padding:0 32px}
+  .ai-mission-vision-{{ ai_gen_id }}__column:first-child{padding-left:0}.ai-mission-vision-{{ ai_gen_id }}__column:last-child{padding-right:0}
+  .ai-mission-vision-{{ ai_gen_id }}__column+.ai-mission-vision-{{ ai_gen_id }}__column:before{content:'';position:absolute;top:8px;bottom:8px;left:0;width:1px;background:{{ block.settings.divider_color }}}
+  .ai-mission-vision-{{ ai_gen_id }}__icon-wrap{display:flex;align-items:center;min-height:{{ block.settings.icon_size }}px;margin-bottom:10px}
+  .ai-mission-vision-{{ ai_gen_id }}__icon{display:block;width:{{ block.settings.icon_size }}px;height:{{ block.settings.icon_size }}px;object-fit:contain;object-position:left center}
+  .ai-mission-vision-{{ ai_gen_id }}__icon-placeholder{width:{{ block.settings.icon_size }}px;height:{{ block.settings.icon_size }}px}.ai-mission-vision-{{ ai_gen_id }}__icon-placeholder svg{display:block;width:100%;height:100%;fill:{{ block.settings.accent_color }};color:{{ block.settings.accent_color }}}
+  .ai-mission-vision-{{ ai_gen_id }}__eyebrow{margin:0 0 10px;color:{{ block.settings.accent_color }};font-family:{{ block.settings.body_font.family }},{{ block.settings.body_font.fallback_families }};font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.4}
+  .ai-mission-vision-{{ ai_gen_id }}__heading{margin:0 0 20px;color:{{ block.settings.heading_color }};font-family:{{ block.settings.heading_font.family }},{{ block.settings.heading_font.fallback_families }};font-size:{{ block.settings.heading_size }}px;font-weight:700;line-height:1.2}
+  .ai-mission-vision-{{ ai_gen_id }}__body{color:{{ block.settings.body_color }};font-family:{{ block.settings.body_font.family }},{{ block.settings.body_font.fallback_families }};font-size:{{ block.settings.body_size }}px;line-height:1.7}.ai-mission-vision-{{ ai_gen_id }}__body p{margin:0 0 16px}.ai-mission-vision-{{ ai_gen_id }}__body p:last-child{margin-bottom:0}
+  @media screen and (max-width:989px){.ai-mission-vision-{{ ai_gen_id }}__column{padding:0 20px}.ai-mission-vision-{{ ai_gen_id }}__heading{font-size:{{ block.settings.heading_size | times: 0.9 }}px}}
+  @media screen and (max-width:749px){.ai-mission-vision-{{ ai_gen_id }}__inner{padding:{{ block.settings.mobile_padding }}px 20px}.ai-mission-vision-{{ ai_gen_id }}__grid{display:block}.ai-mission-vision-{{ ai_gen_id }}__column,.ai-mission-vision-{{ ai_gen_id }}__column:first-child,.ai-mission-vision-{{ ai_gen_id }}__column:last-child{padding:0}.ai-mission-vision-{{ ai_gen_id }}__column+.ai-mission-vision-{{ ai_gen_id }}__column{margin-top:36px;padding-top:36px}.ai-mission-vision-{{ ai_gen_id }}__column+.ai-mission-vision-{{ ai_gen_id }}__column:before{top:0;right:0;bottom:auto;left:0;width:100%;height:1px}}
+{% endstyle %}
+<mission-vision-growth-{{ ai_gen_id }} class="ai-mission-vision-{{ ai_gen_id }}" {{ block.shopify_attributes }}><div class="ai-mission-vision-{{ ai_gen_id }}__inner"><div class="ai-mission-vision-{{ ai_gen_id }}__grid">
+{% assign columns = 'mission,vision,growth' | split: ',' %}{% for column in columns %}<article class="ai-mission-vision-{{ ai_gen_id }}__column"><div class="ai-mission-vision-{{ ai_gen_id }}__icon-wrap">{% assign icon_key = column | append: '_icon' %}{% if block.settings[icon_key] != blank %}<img class="ai-mission-vision-{{ ai_gen_id }}__icon" src="{{ block.settings[icon_key] | image_url: width: 160 }}" alt="" loading="lazy" width="{{ block.settings.icon_size }}" height="{{ block.settings.icon_size }}">{% elsif block.settings.show_placeholder_icons %}<div class="ai-mission-vision-{{ ai_gen_id }}__icon-placeholder">{{ 'image' | placeholder_svg_tag }}</div>{% endif %}</div>{% if column != 'growth' %}{% assign label_key = column | append: '_label' %}<p class="ai-mission-vision-{{ ai_gen_id }}__eyebrow">{{ block.settings[label_key] }}</p>{% endif %}{% assign heading_key = column | append: '_heading' %}{% assign body_key = column | append: '_body' %}<h2 class="ai-mission-vision-{{ ai_gen_id }}__heading">{{ block.settings[heading_key] }}</h2><div class="ai-mission-vision-{{ ai_gen_id }}__body">{{ block.settings[body_key] }}</div></article>{% endfor %}
+</div></div></mission-vision-growth-{{ ai_gen_id }}>
+{% schema %}{"name":"Mission vision growth","settings":[{"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"content_max_width","label":"Content max width","min":1000,"max":1800,"step":50,"unit":"px","default":1500},{"type":"range","id":"vertical_padding","label":"Desktop spacing","min":20,"max":120,"step":10,"unit":"px","default":70},{"type":"range","id":"mobile_padding","label":"Mobile spacing","min":20,"max":80,"step":10,"unit":"px","default":50},{"type":"image_picker","id":"mission_icon","label":"Mission icon"},{"type":"image_picker","id":"vision_icon","label":"Vision icon"},{"type":"image_picker","id":"growth_icon","label":"Growth icon"},{"type":"checkbox","id":"show_placeholder_icons","label":"Show icon placeholders","default":false},{"type":"range","id":"icon_size","label":"Icon size","min":24,"max":64,"step":4,"unit":"px","default":36},{"type":"color","id":"accent_color","label":"Accent","default":"#126fd3"},{"type":"color","id":"heading_color","label":"Headings","default":"#011f2d"},{"type":"color","id":"body_color","label":"Body text","default":"#1d2e40"},{"type":"color","id":"divider_color","label":"Dividers","default":"#c7dce5"},{"type":"color","id":"background_color","label":"Background","default":"#ffffff"},{"type":"font_picker","id":"heading_font","label":"Heading font","default":"poppins_n4"},{"type":"font_picker","id":"body_font","label":"Body font","default":"manrope_n4"},{"type":"range","id":"heading_size","label":"Heading size","min":20,"max":42,"step":2,"unit":"px","default":28},{"type":"range","id":"body_size","label":"Body size","min":13,"max":20,"step":1,"unit":"px","default":16},{"type":"text","id":"mission_label","label":"Mission label","default":"Unsere Mission"},{"type":"text","id":"mission_heading","label":"Mission heading","default":"Bessere Gesundheit zugänglicher machen."},{"type":"richtext","id":"mission_body","label":"Mission body","default":"<p>Unsere Mission ist es, Menschen dabei zu helfen, ihre Gesundheit zu verbessern, zu schützen und zu verwalten.</p>"},{"type":"text","id":"vision_label","label":"Vision label","default":"Unsere Vision"},{"type":"text","id":"vision_heading","label":"Vision heading","default":"Unseren globalen Einfluss im Gesundheitswesen für die Zukunft vorantreiben."},{"type":"richtext","id":"vision_body","label":"Vision body","default":"<p>Unsere Vision ist es, die Position von DocMed als führender globaler Gesundheitsanbieter auszubauen.</p>"},{"type":"text","id":"growth_heading","label":"Growth heading","default":"Weltweit wachsen. Persönlich bleiben."},{"type":"richtext","id":"growth_body","label":"Growth body","default":"<p>Unsere Märkte werden sich weiter erweitern. Unser Portfolio wird weiter wachsen.</p>"}],"presets":[{"name":"Mission vision growth"}],"tag":null,"class":"mission-vision-growth-block"}{% endschema %}
