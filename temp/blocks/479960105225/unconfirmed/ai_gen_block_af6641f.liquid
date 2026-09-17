@@ -1,6 +1,380 @@
+{% doc %}
+  @prompt
+    Erstelle eine neue responsive Shopify Section für unsere „Über uns“-Seite.
+    
+    Die Section soll auf dem Desktop aus zwei gleichwertigen Bereichen bestehen: einer linken Seite und einer rechten Seite.
+    
+    Linke Seite
+    
+    Die linke Seite soll entsprechend dem bestehenden Layout aufgebaut sein und Platz für den Hauptinhalt bzw. das Bild der Section bieten.
+    
+    Das Bild soll im Shopify Theme Editor frei auswählbar und austauschbar sein.
+    
+    Rechte Seite
+    
+    Die rechte Seite soll optisch genauso strukturiert sein wie in meiner Vorlage.
+    
+    Wichtig: Die Inhalte auf der rechten Seite sollen NICHT nebeneinander als Karten oder Grid dargestellt werden.
+    
+    Stattdessen sollen mehrere einzelne Icon-Text-Elemente vertikal in einer einzigen Linie untereinander angeordnet werden.
+    
+    Jedes Element besteht aus:
+    
+    einem Icon
+    direkt darunter einer kurzen Überschrift
+    darunter einem kurzen Beschreibungstext
+    
+    Alle drei Bestandteile müssen horizontal zentriert ausgerichtet sein.
+    
+    Der Aufbau soll beispielsweise so aussehen:
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    Zwischen den einzelnen Elementen soll ausreichend Abstand bestehen, sodass die Inhalte klar voneinander getrennt sind.
+    
+    Icons
+    
+    Die Icons dürfen nicht fest im Code hinterlegt sein.
+    
+    Für jedes Element möchte ich im Shopify Theme Editor selbst ein Icon auswählen bzw. hochladen können.
+    
+    Jedes Icon soll individuell auswählbar sein.
+    
+    Zusätzlich möchte ich die Icon-Größe über den Theme Editor einstellen können.
+    
+    Alle Icons sollen innerhalb der Section einheitlich dargestellt und mittig über dem jeweiligen Text positioniert werden.
+    
+    Blocks
+    
+    Die Icon-Text-Elemente sollen als Shopify Blocks umgesetzt werden.
+    
+    Dadurch möchte ich im Theme Editor:
+    
+    neue Elemente hinzufügen
+    Elemente entfernen
+    Reihenfolge per Drag & Drop verändern
+    Icon auswählen
+    Überschrift eingeben
+    Beschreibungstext eingeben
+    
+    können.
+    
+    Die Anzahl der Elemente darf nicht fest im Code definiert sein.
+    
+    Ausrichtung Desktop
+    
+    Auf Desktop:
+    
+    zweispaltiges Layout
+    linke und rechte Seite nebeneinander
+    rechte Seite vertikal aufgebaut
+    alle Icon-Text-Elemente exakt mittig ausgerichtet
+    Icons, Überschriften und Texte befinden sich jeweils untereinander
+    die gesamte rechte Spalte soll optisch mittig innerhalb ihrer Fläche positioniert sein
+    ausreichend Weißraum zwischen den einzelnen Elementen
+    
+    Die rechte Seite darf NICHT automatisch zu einem 2- oder 3-spaltigen Icon-Grid werden.
+    
+    Sie muss immer eine einzelne vertikale Spalte bleiben.
+    
+    Mobile Darstellung
+    
+    Die Section muss vollständig responsiv sein.
+    
+    Auf Mobilgeräten sollen die beiden Hauptbereiche untereinander dargestellt werden.
+    
+    Reihenfolge:
+    
+    linker Bereich bzw. Bild
+    rechter Bereich mit den Icon-Text-Elementen
+    
+    Die Icon-Text-Elemente bleiben auch mobil untereinander angeordnet.
+    
+    Jedes Element bleibt vollständig zentriert:
+    
+    Icon
+    ↓
+    Überschrift
+    ↓
+    Text
+    
+    Bitte auf Mobilgeräten:
+    
+    ausreichenden Abstand zwischen den einzelnen Elementen verwenden
+    keine zu großen Icons verwenden
+    Textbreite begrenzen, damit die Texte gut lesbar bleiben
+    keine horizontalen Überläufe erzeugen
+    angemessene Seitenabstände verwenden
+    die Section für kleine Smartphone-Displays optimieren
+    Einstellungen im Theme Editor
+    
+    Folgende Einstellungen sollen editierbar sein:
+    
+    Bild der linken Seite
+    Bildposition
+    Hintergrundfarbe der gesamten Section
+    Textfarbe
+    Überschriftfarbe
+    Icon-Größe
+    Abstand zwischen den einzelnen Icon-Elementen
+    Abstand oben und unten innerhalb der Section
+    Verhältnis bzw. Breite der linken und rechten Spalte
+    
+    Für jeden Icon-Block:
+    
+    Icon / Bild auswählen
+    Überschrift
+    Beschreibungstext
+    Design
+    
+    Das Design soll:
+    
+    clean
+    professionell
+    modern
+    hochwertig
+    minimalistisch
+    
+    wirken und zu einem professionellen Onlineshop für medizinischen Praxisbedarf passen.
+    
+    Keine unnötigen Karten, Rahmen, Schatten oder farbigen Boxen um die einzelnen Elemente verwenden.
+    
+    Die Icon-Text-Inhalte sollen frei und sauber auf dem Hintergrund stehen.
+    
+    Nutze für Schriftarten, Überschriften und Farben möglichst die bestehenden Einstellungen des Shopify Themes, damit die Section optisch zum restlichen Shop passt.
+    
+    Technische Anforderungen
+    Shopify Online Store 2.0 kompatibel
+    sauberes Liquid, HTML und CSS
+    keine externen Bibliotheken
+    keine fest codierten Inhalte
+    alle Inhalte über den Theme Editor steuerbar
+    semantisches HTML
+    responsive für Desktop, Tablet und Mobile
+    bestehende Theme-Dateien und andere Sections nicht verändern
+    nur diese neue Section erstellen
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-about-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-about-{{ ai_gen_id }}__inner {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: {{ block.settings.vertical_padding }}px 24px;
+    display: grid;
+    grid-template-columns: minmax(0, {{ block.settings.left_column_width }}fr) minmax(0, {{ block.settings.right_column_width }}fr);
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+  }
+
+  .ai-about-{{ ai_gen_id }}__media {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_radius }}px;
+    line-height: 0;
+  }
+
+  .ai-about-{{ ai_gen_id }}__media img,
+  .ai-about-{{ ai_gen_id }}__placeholder svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: {{ block.settings.image_fit }};
+  }
+
+  .ai-about-{{ ai_gen_id }}__placeholder {
+    position: relative;
+    background: #edf2f4;
+  }
+
+  .ai-about-{{ ai_gen_id }}__placeholder svg {
+    color: #80909a;
+  }
+
+  .ai-about-{{ ai_gen_id }}__empty {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    color: #52616b;
+    font-family: {{ settings.type_body_font.family }}, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .ai-about-{{ ai_gen_id }}__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: {{ block.settings.item_spacing }}px;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .ai-about-{{ ai_gen_id }}__item {
+    width: min(100%, 440px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ai-about-{{ ai_gen_id }}__icon {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin-bottom: 16px;
+    object-fit: contain;
+  }
+
+  .ai-about-{{ ai_gen_id }}__icon-placeholder {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin-bottom: 16px;
+    border: 1px solid {{ block.settings.text_color }};
+    border-radius: 50%;
+    opacity: .35;
+  }
+
+  .ai-about-{{ ai_gen_id }}__title {
+    margin: 0 0 8px;
+    color: {{ block.settings.heading_color }};
+    font-family: {{ settings.type_header_font.family }}, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .ai-about-{{ ai_gen_id }}__text {
+    max-width: 38ch;
+    margin: 0;
+    font-family: {{ settings.type_body_font.family }}, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-about-{{ ai_gen_id }}__inner {
+      width: 100%;
+      padding: {{ block.settings.vertical_padding | times: 0.75 }}px 20px;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .ai-about-{{ ai_gen_id }}__media {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .ai-about-{{ ai_gen_id }}__icon,
+    .ai-about-{{ ai_gen_id }}__icon-placeholder {
+      width: min({{ block.settings.icon_size }}px, 64px);
+      height: min({{ block.settings.icon_size }}px, 64px);
+    }
+
+    .ai-about-{{ ai_gen_id }}__content {
+      gap: {{ block.settings.item_spacing | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-about-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-about-{{ ai_gen_id }}__inner">
+    <div class="ai-about-{{ ai_gen_id }}__media">
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url: width: 1400 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+      {% else %}
+        <div class="ai-about-{{ ai_gen_id }}__placeholder">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-about-{{ ai_gen_id }}__empty">Bild im Theme Editor auswählen</div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-about-{{ ai_gen_id }}__content">
+      {% if block.settings.item_1_title != blank or block.settings.item_1_text != blank or block.settings.item_1_icon %}
+        <div class="ai-about-{{ ai_gen_id }}__item">
+          {% if block.settings.item_1_icon %}<img class="ai-about-{{ ai_gen_id }}__icon" src="{{ block.settings.item_1_icon | image_url: width: 256 }}" alt="" loading="lazy">{% else %}<span class="ai-about-{{ ai_gen_id }}__icon-placeholder" aria-hidden="true"></span>{% endif %}
+          {% if block.settings.item_1_title != blank %}<h2 class="ai-about-{{ ai_gen_id }}__title">{{ block.settings.item_1_title }}</h2>{% endif %}
+          {% if block.settings.item_1_text != blank %}<p class="ai-about-{{ ai_gen_id }}__text">{{ block.settings.item_1_text }}</p>{% endif %}
+        </div>
+      {% endif %}
+      {% if block.settings.item_2_title != blank or block.settings.item_2_text != blank or block.settings.item_2_icon %}
+        <div class="ai-about-{{ ai_gen_id }}__item">
+          {% if block.settings.item_2_icon %}<img class="ai-about-{{ ai_gen_id }}__icon" src="{{ block.settings.item_2_icon | image_url: width: 256 }}" alt="" loading="lazy">{% else %}<span class="ai-about-{{ ai_gen_id }}__icon-placeholder" aria-hidden="true"></span>{% endif %}
+          {% if block.settings.item_2_title != blank %}<h2 class="ai-about-{{ ai_gen_id }}__title">{{ block.settings.item_2_title }}</h2>{% endif %}
+          {% if block.settings.item_2_text != blank %}<p class="ai-about-{{ ai_gen_id }}__text">{{ block.settings.item_2_text }}</p>{% endif %}
+        </div>
+      {% endif %}
+      {% if block.settings.item_3_title != blank or block.settings.item_3_text != blank or block.settings.item_3_icon %}
+        <div class="ai-about-{{ ai_gen_id }}__item">
+          {% if block.settings.item_3_icon %}<img class="ai-about-{{ ai_gen_id }}__icon" src="{{ block.settings.item_3_icon | image_url: width: 256 }}" alt="" loading="lazy">{% else %}<span class="ai-about-{{ ai_gen_id }}__icon-placeholder" aria-hidden="true"></span>{% endif %}
+          {% if block.settings.item_3_title != blank %}<h2 class="ai-about-{{ ai_gen_id }}__title">{{ block.settings.item_3_title }}</h2>{% endif %}
+          {% if block.settings.item_3_text != blank %}<p class="ai-about-{{ ai_gen_id }}__text">{{ block.settings.item_3_text }}</p>{% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Über uns mit Vorteilen",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "image_picker", "id": "image", "label": "Bild" },
+    { "type": "select", "id": "image_fit", "label": "Bildposition", "options": [{ "value": "cover", "label": "Ausfüllen" }, { "value": "contain", "label": "Ganz anzeigen" }], "default": "cover" },
+    { "type": "range", "id": "left_column_width", "label": "Breite linke Spalte", "min": 1, "max": 3, "step": 1, "default": 1 },
+    { "type": "range", "id": "right_column_width", "label": "Breite rechte Spalte", "min": 1, "max": 3, "step": 1, "default": 1 },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "vertical_padding", "label": "Abstand oben und unten", "min": 20, "max": 120, "step": 5, "unit": "px", "default": 60 },
+    { "type": "range", "id": "image_radius", "label": "Bildradius", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 8 },
+    { "type": "header", "content": "Farben und Abstände" },
+    { "type": "color", "id": "background_color", "label": "Hintergrund", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1d2e40" },
+    { "type": "color", "id": "heading_color", "label": "Überschrift", "default": "#1d2e40" },
+    { "type": "range", "id": "icon_size", "label": "Icon-Größe", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "item_spacing", "label": "Abstand zwischen Elementen", "min": 16, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "header", "content": "Element 1" },
+    { "type": "image_picker", "id": "item_1_icon", "label": "Icon" },
+    { "type": "text", "id": "item_1_title", "label": "Überschrift" },
+    { "type": "textarea", "id": "item_1_text", "label": "Beschreibung" },
+    { "type": "header", "content": "Element 2" },
+    { "type": "image_picker", "id": "item_2_icon", "label": "Icon" },
+    { "type": "text", "id": "item_2_title", "label": "Überschrift" },
+    { "type": "textarea", "id": "item_2_text", "label": "Beschreibung" },
+    { "type": "header", "content": "Element 3" },
+    { "type": "image_picker", "id": "item_3_icon", "label": "Icon" },
+    { "type": "text", "id": "item_3_title", "label": "Überschrift" },
+    { "type": "textarea", "id": "item_3_text", "label": "Beschreibung" }
+  ],
+  "presets": [{ "name": "Über uns mit Vorteilen" }],
+  "tag": null,
+  "class": "about-benefits-block"
+}
 {% endschema %}
