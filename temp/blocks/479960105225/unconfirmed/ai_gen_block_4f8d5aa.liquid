@@ -1,6 +1,43 @@
+{% doc %}
+  @prompt
+    Erstelle eine zweispaltige „Über uns“-Section nach folgendem Aufbau:
+    
+    Linke Seite: Große, fett gesetzte Überschrift und darunter zwei separate Textabsätze. Der Text ist linksbündig und vertikal mittig zur rechten Bildfläche ausgerichtet.
+    
+    Rechte Seite: Ein großes, frei auswählbares Unternehmensbild mit leicht abgerundeten Ecken. Das Bild soll ungefähr 50 % der Section-Breite einnehmen und sich proportional an die Höhe des Inhalts anpassen.
+    
+    Desktop: Text links, Bild rechts, beide Bereiche gleich breit mit großzügigem Abstand dazwischen.
+    Mobil: Text oben, Bild darunter.
+    
+    Überschrift, beide Textabsätze und Bild müssen im Shopify-Editor individuell bearbeitbar sein. Keine Buttons, Rahmen oder zusätzlichen Elemente.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-about-{{ ai_gen_id }} { display: block; width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; margin: 0 auto; color: {{ block.settings.text_color }}; }
+  .ai-about-{{ ai_gen_id }}__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: {{ block.settings.column_gap }}px; }
+  .ai-about-{{ ai_gen_id }}__content { text-align: left; }
+  .ai-about-{{ ai_gen_id }}__heading { margin: 0 0 {{ block.settings.heading_spacing }}px; color: {{ block.settings.text_color }}; font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }}; font-size: {{ block.settings.heading_size }}px; font-weight: 700; line-height: 1.1; }
+  .ai-about-{{ ai_gen_id }}__paragraph { margin: 0 0 {{ block.settings.paragraph_spacing }}px; color: {{ block.settings.text_color }}; font-family: {{ block.settings.body_font.family }}, {{ block.settings.body_font.fallback_families }}; font-size: {{ block.settings.body_size }}px; line-height: 1.6; }
+  .ai-about-{{ ai_gen_id }}__paragraph:last-child { margin-bottom: 0; }
+  .ai-about-{{ ai_gen_id }}__media, .ai-about-{{ ai_gen_id }}__media img { display: block; width: 100%; }
+  .ai-about-{{ ai_gen_id }}__media { overflow: hidden; border-radius: {{ block.settings.image_radius }}px; }
+  .ai-about-{{ ai_gen_id }}__media img { height: auto; }
+  .ai-about-{{ ai_gen_id }}__placeholder { display: flex; align-items: center; justify-content: center; min-height: 320px; background: #eef2f4; color: #52616b; }
+  .ai-about-{{ ai_gen_id }}__placeholder svg { display: block; width: 100%; height: 100%; max-height: 420px; }
+  @media screen and (max-width: 749px) { .ai-about-{{ ai_gen_id }} { width: 100%; } .ai-about-{{ ai_gen_id }}__grid { grid-template-columns: 1fr; gap: {{ block.settings.mobile_gap }}px; } .ai-about-{{ ai_gen_id }}__heading { font-size: {{ block.settings.mobile_heading_size }}px; } }
+{% endstyle %}
+<about-section-{{ ai_gen_id }} class="ai-about-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-about-{{ ai_gen_id }}__grid">
+    <div class="ai-about-{{ ai_gen_id }}__content">
+      {% if block.settings.heading != blank %}<h2 class="ai-about-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>{% endif %}
+      {% if block.settings.paragraph_one != blank %}<div class="ai-about-{{ ai_gen_id }}__paragraph">{{ block.settings.paragraph_one }}</div>{% endif %}
+      {% if block.settings.paragraph_two != blank %}<div class="ai-about-{{ ai_gen_id }}__paragraph">{{ block.settings.paragraph_two }}</div>{% endif %}
+    </div>
+    <div class="ai-about-{{ ai_gen_id }}__media">
+      {% if block.settings.image %}<img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">{% else %}<div class="ai-about-{{ ai_gen_id }}__placeholder">{{ 'image' | placeholder_svg_tag }}</div>{% endif %}
+    </div>
+  </div>
+</about-section-{{ ai_gen_id }}>
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{"name":"Über uns zweispaltig","settings":[{"type":"header","content":"Inhalt"},{"type":"text","id":"heading","label":"Überschrift","default":"Über uns"},{"type":"richtext","id":"paragraph_one","label":"Erster Absatz","default":"<p>Wir stehen für Qualität, Verlässlichkeit und fachkundige Lösungen.</p>"},{"type":"richtext","id":"paragraph_two","label":"Zweiter Absatz","default":"<p>Unser Team unterstützt Sie mit Erfahrung und persönlicher Beratung.</p>"},{"type":"image_picker","id":"image","label":"Unternehmensbild"},{"type":"header","content":"Layout"},{"type":"range","id":"desktop_width_percent","label":"Desktop-Breite","min":50,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"column_gap","label":"Abstand","min":20,"max":120,"step":5,"unit":"px","default":65},{"type":"range","id":"mobile_gap","label":"Abstand mobil","min":16,"max":60,"step":4,"unit":"px","default":32},{"type":"range","id":"image_radius","label":"Bildradius","min":0,"max":30,"step":2,"unit":"px","default":8},{"type":"header","content":"Typografie"},{"type":"font_picker","id":"heading_font","label":"Überschriftenschrift","default":"poppins_n4"},{"type":"font_picker","id":"body_font","label":"Textschrift","default":"manrope_n4"},{"type":"range","id":"heading_size","label":"Überschriftengröße","min":28,"max":72,"step":4,"unit":"px","default":48},{"type":"range","id":"mobile_heading_size","label":"Überschrift mobil","min":24,"max":52,"step":4,"unit":"px","default":36},{"type":"range","id":"body_size","label":"Textgröße","min":14,"max":24,"step":1,"unit":"px","default":17},{"type":"range","id":"heading_spacing","label":"Abstand unter Überschrift","min":8,"max":40,"step":4,"unit":"px","default":20},{"type":"range","id":"paragraph_spacing","label":"Absatzabstand","min":8,"max":40,"step":4,"unit":"px","default":20},{"type":"color","id":"text_color","label":"Textfarbe","default":"#1d2e40"}],"presets":[{"name":"Über uns zweispaltig"}],"tag":null,"class":"about-section-block"}
 {% endschema %}
