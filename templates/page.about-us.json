@@ -32,7 +32,7 @@
             "paragraph": "<p>Für uns ist Gesundheitswesen zutiefst persönlich. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist, ein Patient, eine Gesundheitsfachkraft, ein Betreuer oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte.</p>",
             "closing": "Bei DocMed verlieren wir das niemals aus den Augen.",
             "image_position": "center center",
-            "desktop_width_percent": 100,
+            "desktop_width_percent": 50,
             "desktop_image_height": 500,
             "image_right_margin": 20,
             "column_gap": 25,
@@ -62,7 +62,7 @@
             "desktop_width_percent": 100,
             "padding_top": 20,
             "padding_bottom": 20,
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "icon_color": "#1d2e40",
             "text_color": "#1d2e40",
             "divider_color": "#c7d8de",
@@ -167,12 +167,12 @@
           "settings": {
             "statement_text": "<p>Gesundheit<br/>kennt keine Grenzen.</p>",
             "handwriting_font": "abel_n4",
-            "text_color": "#1D2E40",
+            "text_color": "#1d2e40",
             "font_size": 70,
             "max_width": 560,
             "alignment": "center",
             "show_underline": false,
-            "underline_color": "#1D2E40",
+            "underline_color": "#1d2e40",
             "desktop_width_percent": 100,
             "padding_top": 20,
             "padding_bottom": 20
@@ -184,48 +184,6 @@
         "ai_gen_block_58a7100_nF3JkH"
       ],
       "settings": {}
-    },
-    "1789572582dfd28f3b": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_83293b1_ENJdbK": {
-          "type": "ai_gen_block_83293b1",
-          "settings": {
-            "eyebrow": "WELTWEIT WACHSEN. PERSÖNLICH BLEIBEN.",
-            "heading": "In mehr als 50 Ländern",
-            "body": "Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen hält, denen wir dienen.",
-            "stat_one_number": "50+",
-            "stat_one_label": "Länder weltweit",
-            "stat_two_number": "100000+",
-            "stat_two_label": "Zufriedene Kunden",
-            "stat_three_number": "12000+",
-            "stat_three_label": "Produkte im Sortiment",
-            "image_fit": "cover",
-            "image_height": 520,
-            "tablet_image_height": 400,
-            "mobile_image_height": 300,
-            "desktop_width_percent": 100,
-            "section_padding": 70,
-            "tablet_padding": 50,
-            "mobile_padding": 40,
-            "column_gap": 50,
-            "tablet_gap": 30,
-            "image_radius": 8,
-            "background_color": "#F7FAFC",
-            "heading_color": "#1D2E40",
-            "body_color": "#405466",
-            "accent_color": "#126FD3",
-            "separator_color": "#D8E2EA",
-            "image_background": "#EEF4F8"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_83293b1_ENJdbK"
-      ],
-      "name": "Global reach",
-      "settings": {}
     }
   },
   "order": [
@@ -234,7 +192,6 @@
     "17895699243fe8d158",
     "178957048752928a69",
     "1789571628255c629e",
-    "1789572259dc59f630",
-    "1789572582dfd28f3b"
+    "1789572259dc59f630"
   ]
 }
