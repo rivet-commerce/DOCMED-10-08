@@ -259,8 +259,8 @@
           "type": "ai_gen_block_26c89de",
           "settings": {
             "eyebrow": "Unsere Vorteile",
-            "heading": "Verlässlich ausgestattet",
-            "copy": "<p>Entdecken Sie zuverlässige Lösungen für Praxis, Labor und Ausbildung.</p><p>Wir unterstützen Sie mit ausgewählten Produkten und persönlicher Beratung.</p>",
+            "heading": "Internationale Reichweite. Persönlicher Service.",
+            "copy": "<p>Unsere Kunden sind vielfältig, und das sind auch ihre Bedürfnisse. Ein Krankenhaus hat andere Anforderungen als ein Distributor. Eine Arztpraxis hat andere Prioritäten als ein privater Kunde.</p><p>Wir verstehen diese Unterschiede.</p>",
             "desktop_width_percent": 100,
             "section_height": 480,
             "desktop_side_padding": 20,
@@ -282,7 +282,7 @@
             "divider_thickness": 1,
             "heading_font": "poppins_n4",
             "eyebrow_size": 12,
-            "heading_size_desktop": 48,
+            "heading_size_desktop": 40,
             "heading_size_mobile": 32,
             "copy_size_desktop": 17,
             "copy_size_mobile": 16,
@@ -293,12 +293,18 @@
             "text_color": "#1d2e40",
             "copy_color": "#405466",
             "label_color": "#1d2e40",
-            "label_1": "Zuverlässige Qualität",
-            "label_2": "Schnelle Lieferung",
-            "label_3": "Persönliche Beratung",
-            "label_4": "Geprüfte Produkte",
-            "label_5": "Für Profis entwickelt",
-            "label_6": "Kompetenter Service"
+            "icon_1": "shopify://shop_images/icons8-krankenhaus-100_246e8885-c0a5-468e-95de-d48347cd782e.png",
+            "label_1": "Krankenhaus",
+            "icon_2": "shopify://shop_images/icons8-stethoskop-100_e612ce44-b877-412a-9724-3846e8c5ac34.png",
+            "label_2": "Arztpraxen",
+            "icon_3": "shopify://shop_images/icons8-apotheke-100_29bf1c05-4ac4-4d63-931b-7781303545c8.png",
+            "label_3": "Apotheken",
+            "icon_4": "shopify://shop_images/icons8-lkw-100.png",
+            "label_4": "Distributoren",
+            "icon_5": "shopify://shop_images/icons8-benutzergruppen-100_ed86805b-fa82-4fe2-a484-28fe18c45185.png",
+            "label_5": "Organisationen",
+            "icon_6": "shopify://shop_images/icons8-geschlechtsneutraler-benutzer-100.png",
+            "label_6": "Privat Kunden"
           },
           "blocks": {}
         }
@@ -306,7 +312,6 @@
       "block_order": [
         "ai_gen_block_26c89de_xDUQRK"
       ],
-      "disabled": true,
       "name": "Text and icon grid",
       "settings": {}
     },
