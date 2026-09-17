@@ -124,6 +124,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Garantia legal: ",
+      "learn_more": "Saiba mais",
+      "title": "Garantia legal de conformidade",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "De",
       "choose_options": "Choose options",
@@ -189,6 +195,8 @@
       "ad": "Ad",
       "view_full_details": "Ver informações completas",
       "include_taxes": "Tributo incluído.",
+      "shipping_label": "Frete",
+      "shipping_calculated_html": "{{ shipping }} calculado no checkout.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frete<\/a> calculado no checkout.",
       "choose_product_options": "Escolha opções para {{ product_name }}",
       "value_unavailable": "{{ option_value }} – indisponível",

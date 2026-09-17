@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "法定保証：",
+      "learn_more": "詳細を見る",
+      "title": "法定適合性保証",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "から",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       "ad": "Ad",
       "view_full_details": "詳細を表示する",
       "include_taxes": "税込",
+      "shipping_label": "配送料",
+      "shipping_calculated_html": "{{ shipping }}はチェックアウト時に計算されます。",
       "shipping_policy_html": "<a href=\"{{ link }}\">配送料<\/a>はチェックアウト時に計算されます。",
       "choose_product_options": "{{ product_name }}のオプションを選択する",
       "value_unavailable": "{{ option_value }}は利用できません",

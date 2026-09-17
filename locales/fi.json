@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Lakisääteinen virhevastuu: ",
+      "learn_more": "Lue lisää",
+      "title": "Lakisääteinen virhevastuu",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Mistä",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Näytä kaikki tiedot",
       "include_taxes": "Sisältää veron.",
+      "shipping_label": "Toimituskulut",
+      "shipping_calculated_html": "{{ shipping }} lasketaan kassalla.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut<\/a> lasketaan kassalla.",
       "choose_product_options": "Valitse vaihtoehtoja tuotteelle {{ product_name }}",
       "value_unavailable": "{{ option_value }} – Ei ole käytettävissä",

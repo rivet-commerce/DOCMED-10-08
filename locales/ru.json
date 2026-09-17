@@ -125,6 +125,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Законная гарантия: ",
+      "learn_more": "Подробнее",
+      "title": "Законная гарантия соответствия",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "От",
       "choose_options": "Choose options",
@@ -190,6 +196,8 @@
       "ad": "Ad",
       "view_full_details": "Просмотреть всю информацию",
       "include_taxes": "Сумма налога включена.",
+      "shipping_label": "Стоимость доставки",
+      "shipping_calculated_html": "{{ shipping }} рассчитывается при оформлении заказа.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Стоимость доставки<\/a> рассчитывается при оформлении заказа.",
       "choose_product_options": "Выберите варианты для {{ product_name }}",
       "value_unavailable": "{{ option_value }} — Недоступно",

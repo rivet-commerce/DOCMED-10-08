@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Yasal garanti: ",
+      "learn_more": "Daha fazla bilgi",
+      "title": "Yasal uygunluk garantisi",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "From",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Tüm ayrıntıları görüntüle",
       "include_taxes": "Vergi dahildir.",
+      "shipping_label": "Kargo",
+      "shipping_calculated_html": "{{ shipping }}, ödeme sayfasında hesaplanır.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Kargo<\/a>, ödeme sayfasında hesaplanır.",
       "choose_product_options": "{{ product_name }} için seçenekleri belirle",
       "value_unavailable": "{{ option_value }} - Kullanılamıyor",

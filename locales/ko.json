@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "법정 보증: ",
+      "learn_more": "자세히 보기",
+      "title": "법정 적합성 보증",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "에서",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       "ad": "Ad",
       "view_full_details": "전체 세부 정보 보기",
       "include_taxes": "세금이 포함됩니다.",
+      "shipping_label": "배송료",
+      "shipping_calculated_html": "{{ shipping }}는 결제 시 계산됩니다.",
       "shipping_policy_html": "<a href=\"{{ link }}\">배송료<\/a>는 결제 시 계산됩니다.",
       "choose_product_options": "{{ product_name }}의 옵션 선택",
       "value_unavailable": "{{ option_value }} - 사용할 수 없음",

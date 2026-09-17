@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Garansi hukum: ",
+      "learn_more": "Pelajari lebih lanjut",
+      "title": "Garansi kesesuaian menurut hukum",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Dari",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Lihat detail lengkap",
       "include_taxes": "Termasuk pajak.",
+      "shipping_label": "Biaya pengiriman",
+      "shipping_calculated_html": "{{ shipping }} dihitung saat checkout.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Biaya pengiriman<\/a> dihitung saat checkout.",
       "choose_product_options": "Pilih opsi untuk {{ product_name }}",
       "value_unavailable": "{{ option_value }} - Tidak tersedia",

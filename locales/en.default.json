@@ -132,6 +132,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Legal guarantee: ",
+      "learn_more": "Learn more",
+      "title": "Legal guarantee of conformity",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "availability": {
       "in_stock": "in stock",
       "inbound": "Inbound",
@@ -218,6 +224,8 @@
       "xr_button": "View in your space",
       "xr_button_label": "View in your space, loads item in augmented reality window",
       "include_taxes": "Tax included.",
+      "shipping_label": "Shipping",
+      "shipping_calculated_html": "{{ shipping }} calculated at checkout.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
     },
     "modal": {

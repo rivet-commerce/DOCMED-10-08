@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "法定保固：",
+      "learn_more": "了解更多",
+      "title": "法定合規保固",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "从",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "查看完整資訊",
       "include_taxes": "內含稅金。",
+      "shipping_label": "運費",
+      "shipping_calculated_html": "結帳時計算{{ shipping }}。",
       "shipping_policy_html": "結帳時計算<a href=\"{{ link }}\">運費<\/a>。",
       "choose_product_options": "選擇 {{ product_name }} 的選項",
       "value_unavailable": "{{ option_value }} (無法供貨)",

@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Wettelijke garantie: ",
+      "learn_more": "Meer informatie",
+      "title": "Wettelijke conformiteitsgarantie",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Van",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       "ad": "Ad",
       "view_full_details": "Alle details bekijken",
       "include_taxes": "Inclusief btw.",
+      "shipping_label": "Verzendkosten",
+      "shipping_calculated_html": "{{ shipping }} worden berekend bij de checkout.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Verzendkosten<\/a> worden berekend bij de checkout.",
       "choose_product_options": "Opties kiezen voor {{ product_name }}",
       "value_unavailable": "{{ option_value }} - Niet beschikbaar",

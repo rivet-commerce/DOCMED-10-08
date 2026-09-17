@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "法定保修：",
+      "learn_more": "了解更多",
+      "title": "法定合规保修",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "从",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "查看完整详细信息",
       "include_taxes": "含税费。",
+      "shipping_label": "运费",
+      "shipping_calculated_html": "结账时计算的{{ shipping }}。",
       "shipping_policy_html": "结账时计算的<a href=\"{{ link }}\">运费<\/a>。",
       "choose_product_options": "选择用于 {{ product_name }} 的选项",
       "value_unavailable": "{{ option_value }} - 不可用",

@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Kellékszavatosság: ",
+      "learn_more": "További információ",
+      "title": "Törvényes kellékszavatosság",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Tól",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Minden részlet megtekintése",
       "include_taxes": "Tartalmazza az adót.",
+      "shipping_label": "szállítási költséget",
+      "shipping_calculated_html": "A {{ shipping }} a megrendeléskor számítjuk ki.",
       "shipping_policy_html": "A <a href=\"{{ link }}\">szállítási költséget<\/a> a megrendeléskor számítjuk ki.",
       "choose_product_options": "Termékváltozatok – {{ product_name }}",
       "value_unavailable": "{{ option_value }} – Nincs készleten",

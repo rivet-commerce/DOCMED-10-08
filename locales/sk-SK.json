@@ -125,6 +125,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Zákonná záruka: ",
+      "learn_more": "Zistiť viac",
+      "title": "Zákonná záruka zhody",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Z",
       "choose_options": "Choose options",
@@ -190,6 +196,8 @@
       "ad": "Ad",
       "view_full_details": "Zobraziť všetky podrobnosti",
       "include_taxes": "Vrátane dane.",
+      "shipping_label": "Doprava",
+      "shipping_calculated_html": "{{ shipping }} sa vypočíta pri platbe.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Doprava<\/a> sa vypočíta pri platbe.",
       "choose_product_options": "Vyberte možnosti pre: {{ product_name }}",
       "value_unavailable": "{{ option_value }} – nedostupné",

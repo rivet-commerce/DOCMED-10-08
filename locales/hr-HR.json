@@ -124,6 +124,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Zakonsko jamstvo: ",
+      "learn_more": "Saznajte više",
+      "title": "Zakonsko jamstvo za sukladnost",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Od",
       "choose_options": "Choose options",
@@ -189,6 +195,8 @@
       "ad": "Ad",
       "view_full_details": "Prikaži sve pojedinosti",
       "include_taxes": "Porez je uključen.",
+      "shipping_label": "Poštarina",
+      "shipping_calculated_html": "{{ shipping }} se obračunava prilikom završetka kupnje.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina <\/a> se obračunava prilikom završetka kupnje.",
       "choose_product_options": "Odaberite željene opcije za {{ product_name }}",
       "value_unavailable": "{{ option_value }} – nedostupno",

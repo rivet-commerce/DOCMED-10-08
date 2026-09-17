@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Законова гаранция: ",
+      "learn_more": "Научете повече",
+      "title": "Законова гаранция за съответствие",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "От",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       "ad": "Ad",
       "view_full_details": "Покажи пълните подробности",
       "include_taxes": "С включени данъци.",
+      "shipping_label": "Доставката",
+      "shipping_calculated_html": "{{ shipping }} се изчислява при плащане.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Доставката<\/a> се изчислява при плащане.",
       "choose_product_options": "Изберете опции за {{ product_name }}",
       "value_unavailable": "{{ option_value }} – неналично",

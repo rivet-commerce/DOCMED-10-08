@@ -125,6 +125,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Gwarancja ustawowa: ",
+      "learn_more": "Dowiedz się więcej",
+      "title": "Ustawowa gwarancja zgodności towaru",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Z",
       "choose_options": "Choose options",
@@ -190,6 +196,8 @@
       "ad": "Ad",
       "view_full_details": "Pokaż kompletne dane",
       "include_taxes": "Z wliczonym podatkiem.",
+      "shipping_label": "Koszt wysyłki",
+      "shipping_calculated_html": "{{ shipping }} obliczony przy realizacji zakupu.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Koszt wysyłki<\/a> obliczony przy realizacji zakupu.",
       "choose_product_options": "Wybierz opcje dla {{ product_name }}",
       "value_unavailable": "{{ option_value }} - niedostępny",

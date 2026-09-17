@@ -124,6 +124,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Garanție legală: ",
+      "learn_more": "Află mai multe",
+      "title": "Garanția legală de conformitate",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "De",
       "choose_options": "Choose options",
@@ -189,6 +195,8 @@
       "ad": "Ad",
       "view_full_details": "Vedeți detaliile complete",
       "include_taxes": "Taxe incluse.",
+      "shipping_label": "Taxele de expediere",
+      "shipping_calculated_html": "{{ shipping }} sunt calculate la finalizarea comenzii.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Taxele de expediere<\/a> sunt calculate la finalizarea comenzii.",
       "choose_product_options": "Alege opțiunile pentru {{ product_name }}",
       "value_unavailable": "{{ option_value }} – Indisponibil",

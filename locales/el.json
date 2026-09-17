@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Νόμιμη εγγύηση: ",
+      "learn_more": "Μάθετε περισσότερα",
+      "title": "Νόμιμη εγγύηση συμμόρφωσης",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Από",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Προβολή όλων των λεπτομερειών",
       "include_taxes": "Ο φόρος συμπεριλαμβάνεται.",
+      "shipping_label": "έξοδα αποστολής",
+      "shipping_calculated_html": "Τα {{ shipping }} υπολογίζονται κατά την ολοκλήρωση της αγοράς.",
       "shipping_policy_html": "Τα <a href=\"{{ link }}\">έξοδα αποστολής<\/a> υπολογίζονται κατά την ολοκλήρωση της αγοράς.",
       "choose_product_options": "Ορίστε επιλογές για {{ product_name }}",
       "value_unavailable": "{{ option_value }} - Μη διαθέσιμο",

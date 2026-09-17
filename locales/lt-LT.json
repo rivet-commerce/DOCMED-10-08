@@ -125,6 +125,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Teisinė garantija: ",
+      "learn_more": "Sužinoti daugiau",
+      "title": "Teisinė atitikties garantija",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "da",
       "choose_options": "Choose options",
@@ -190,6 +196,8 @@
       "ad": "Ad",
       "view_full_details": "Žiūrėti visą informaciją",
       "include_taxes": "Mokesčiai įtraukti.",
+      "shipping_label": "Siuntimo išlaidos",
+      "shipping_calculated_html": "{{ shipping }} apskaičiuojamos atsiskaitant.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Siuntimo išlaidos<\/a> apskaičiuojamos atsiskaitant.",
       "choose_product_options": "Rinktis {{ product_name }} variantus",
       "value_unavailable": "{{ option_value }} – neturime",

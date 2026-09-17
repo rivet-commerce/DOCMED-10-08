@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Lagstadgad reklamationsrätt: ",
+      "learn_more": "Läs mer",
+      "title": "Lagstadgad reklamationsrätt",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Från",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "Visa alla uppgifter",
       "include_taxes": "Skatt ingår.",
+      "shipping_label": "Frakt",
+      "shipping_calculated_html": "{{ shipping }} beräknas i kassan.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frakt<\/a> beräknas i kassan.",
       "choose_product_options": "Välj alternativ för {{ product_name }}",
       "value_unavailable": "{{ option_value }} – inte tillgängligt",

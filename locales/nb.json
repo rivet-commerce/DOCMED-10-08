@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Lovbestemt reklamasjonsrett: ",
+      "learn_more": "Les mer",
+      "title": "Lovbestemt reklamasjonsrett",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "Fra",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       "ad": "Ad",
       "view_full_details": "Vis alle detaljer",
       "include_taxes": "Avgift inkludert.",
+      "shipping_label": "Frakt",
+      "shipping_calculated_html": "{{ shipping }} beregnes ved kassen.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frakt<\/a> beregnes ved kassen.",
       "choose_product_options": "Velg alternativer for {{ product_name }}",
       "value_unavailable": "{{ option_value }} – utilgjengelig",

@@ -123,6 +123,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "การรับประกันตามกฎหมาย: ",
+      "learn_more": "เรียนรู้เพิ่มเติม",
+      "title": "การรับประกันความสอดคล้องตามกฎหมาย",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "จาก",
       "choose_options": "Choose options",
@@ -188,6 +194,8 @@
       },
       "view_full_details": "ดูรายละเอียดทั้งหมด",
       "include_taxes": "รวมภาษี",
+      "shipping_label": "ค่าจัดส่ง",
+      "shipping_calculated_html": "{{ shipping }}ที่คำนวณในขั้นตอนการชำระเงิน",
       "shipping_policy_html": "<a href=\"{{ link }}\">ค่าจัดส่ง<\/a>ที่คำนวณในขั้นตอนการชำระเงิน",
       "choose_product_options": "เลือกตัวเลือกสำหรับ {{ product_name }}",
       "value_unavailable": "{{ option_value }} ไม่พร้อมจำหน่าย",

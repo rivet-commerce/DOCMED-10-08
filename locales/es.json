@@ -124,6 +124,12 @@
     "product_lck_desc": "Add product description here"
   },
   "products": {
+    "guarantee": {
+      "line": "Garantía legal: ",
+      "learn_more": "Más información",
+      "title": "Garantía legal de conformidad",
+      "file": "Legal_guarantee_notice_EN.svg"
+    },
     "product": {
       "from": "De",
       "choose_options": "Choose options",
@@ -189,6 +195,8 @@
       },
       "view_full_details": "Ver todos los detalles",
       "include_taxes": "Impuesto incluido.",
+      "shipping_label": "gastos de envío",
+      "shipping_calculated_html": "Los {{ shipping }} se calculan en la pantalla de pago.",
       "shipping_policy_html": "Los <a href=\"{{ link }}\">gastos de envío<\/a> se calculan en la pantalla de pago.",
       "choose_product_options": "Elegir opciones para {{ product_name }}",
       "value_unavailable": "{{ option_value }}: no disponible",
