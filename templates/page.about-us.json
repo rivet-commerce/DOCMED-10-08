@@ -387,7 +387,6 @@
             "mobile_padding": 50,
             "mission_icon": "shopify://shop_images/icons8-ziel-100_91b92d3c-34ed-4b6c-ab2b-33d8e9bf9c77.png",
             "vision_icon": "shopify://shop_images/icons8-sichtbar-100.png",
-            "growth_icon": "shopify://shop_images/icons8-wachstum-100.png",
             "show_placeholder_icons": false,
             "icon_size": 60,
             "accent_color": "#7fc7cf",
@@ -405,8 +404,8 @@
             "vision_label": "Unsere Vision",
             "vision_heading": "",
             "vision_body": "<p>Unsere Vision ist es, die Position von DocMed als führender globaler Gesundheitsanbieter auszubauen und dabei die Stärke der internationalen Verteilung mit einem wachsenden Portfolio unserer eigenen Produkte und Marken zu kombinieren.</p><p>Technologie ist ein wichtiger Teil dieser Zukunft. Durch die Nutzung von Digitalisierung und künstlicher Intelligenz verstehen wir Märkte besser, arbeiten effizienter, reagieren schneller und verbessern kontinuierlich, wie wir unsere Kunden bedienen.</p><p>Gleichzeitig ermöglicht uns die Entwicklung unserer eigenen Produkte, über Verteilung hinauszugehen und eine größere Rolle bei der Schaffung von Gesundheitslösungen selbst zu spielen.</p><p>Während wir weiterhin wachsen, bewahren wir, was DocMed besonders macht: Geschwindigkeit, Flexibilität, hohe Standards und Nähe zu unseren Kunden und Partnern.</p><p>Wir liefern die Fähigkeiten eines globalen Gesundheitsunternehmens und bewahren gleichzeitig die Agilität und den persönlichen Ansatz, der uns hierher gebracht hat.</p><p></p>",
-            "growth_heading": "Weltweit wachsen. Persönlich bleiben.",
-            "growth_body": "<p>Unsere Märkte werden sich weiter erweitern. Unser Portfolio wird weiter wachsen. Wir werden mehr unserer eigenen Produkte entwickeln und weiterhin neue Technologien annehmen.</p><p>Aber der Zweck hinter unserem Wachstum bleibt zutiefst menschlich: Menschen und Gesundheitsorganisationen dabei zu helfen, auf Produkte und Lösungen zuzugreifen, die einen sinnvollen Unterschied für Gesundheit und Wohlbefinden machen können.</p><p>Global in unserem Ausmaß. Persönlich in unserem Ansatz.</p><p></p>"
+            "growth_heading": "",
+            "growth_body": ""
           },
           "blocks": {}
         }
