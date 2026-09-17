@@ -32,7 +32,7 @@
             "paragraph": "<p>Für uns ist Gesundheitswesen zutiefst persönlich. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist, ein Patient, eine Gesundheitsfachkraft, ein Betreuer oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte.</p>",
             "closing": "Bei DocMed verlieren wir das niemals aus den Augen.",
             "image_position": "center center",
-            "desktop_width_percent": 85,
+            "desktop_width_percent": 65,
             "desktop_image_height": 500,
             "image_right_margin": 20,
             "column_gap": 25,
@@ -120,30 +120,34 @@
     "1789633021ad949fb0": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_4f8d5aa_U3iQ7J": {
-          "type": "ai_gen_block_4f8d5aa",
+        "ai_gen_block_d45c3d0_kHAQEM": {
+          "type": "ai_gen_block_d45c3d0",
           "settings": {
-            "heading": "Gesundheitswesen mit Zweck",
-            "paragraph_one": "<p>Das richtige Gesundheitsprodukt kann einen bedeutsamen Unterschied machen. Es kann einer Gesundheitsfachkraft helfen, bessere Versorgung zu leisten, ein Krankenhaus oder eine Arztpraxis mit dem zu versorgen, was es braucht, oder einer Person helfen, ihre Gesundheit zu schützen, zu verwalten oder zu verbessern.</p><p>Unsere Aufgabe besteht darin, diese Produkte und Lösungen zugänglich zu machen: zuverlässig, effizient und mit der Qualität, die das Gesundheitswesen fordert.</p><p></p>",
-            "paragraph_two": "<p>Diese Verantwortung prägt, wie wir unser Portfolio aufbauen, unsere Partner wählen und unsere Kunden bedienen. Denn im Gesundheitswesen ist Vertrauen mehr als Teil eines guten Service. Es ist das Fundament unserer Arbeit.</p>",
-            "desktop_width_percent": 75,
-            "column_gap": 65,
-            "mobile_gap": 32,
-            "image_radius": 8,
-            "heading_font": "poppins_n4",
-            "body_font": "manrope_n4",
-            "heading_size": 44,
-            "mobile_heading_size": 36,
+            "heading": "<h2>Verlässliche Lösungen für Ihre Praxis</h2>",
+            "body_text": "",
+            "desktop_width_percent": 80,
+            "section_height": 550,
+            "text_column_percent": 1,
+            "image_column_percent": 1,
+            "desktop_padding": 60,
+            "spacing_top": 40,
+            "spacing_bottom": 40,
+            "mobile_side_spacing": 15,
+            "mobile_padding": 28,
+            "mobile_text_height": 300,
+            "mobile_image_height": 320,
+            "heading_size_desktop": 48,
+            "heading_size_mobile": 32,
             "body_size": 17,
-            "heading_spacing": 20,
-            "paragraph_spacing": 20,
+            "background_color": "#ffffff",
+            "heading_color": "#1d2e40",
             "text_color": "#1d2e40"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_4f8d5aa_U3iQ7J"
+        "ai_gen_block_d45c3d0_kHAQEM"
       ],
       "name": "Gesundheitswesen mit Zweck",
       "settings": {}
@@ -156,8 +160,8 @@
           "settings": {
             "eyebrow": "",
             "title": "Internationale Reichweite. Persönlicher Service.",
-            "body": "<p>Unsere Kunden sind vielfältig, und das sind auch ihre Bedürfnisse. Ein Krankenhaus hat andere Anforderungen als ein Distributor. Eine Arztpraxis hat andere Prioritäten als ein privater Kunde.</p><p>Wir verstehen diese Unterschiede.</p><p>Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren und schnell zu reagieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen, denen wir dienen, hält.</p><p>Ob eine Anforderung unkompliziert oder komplexer ist, unser Ziel ist es, die Zusammenarbeit mit DocMed einfach, reaktiv und zuverlässig zu gestalten.</p><p>Denn egal wie weit unsere Reichweite sich erstreckt, unsere Kunden fühlen sich niemals wie nur eine weitere Bestellnummer. Wir glauben, dass langfristige Beziehungen durch Vertrauen, Zuverlässigkeit und echtes Verständnis dafür aufgebaut werden, was unsere Kunden brauchen.</p><p></p>",
-            "desktop_width_percent": 75,
+            "body": "<p>Unsere Kunden sind vielfältig, und das sind auch ihre Bedürfnisse. Ein Krankenhaus hat andere Anforderungen als ein Distributor. Eine Arztpraxis hat andere Prioritäten als ein privater Kunde.</p><p><strong>Wir verstehen diese Unterschiede.</strong></p><p>Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren und schnell zu reagieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen, denen wir dienen, hält.</p><p>Ob eine Anforderung unkompliziert oder komplexer ist, unser Ziel ist es, die Zusammenarbeit mit DocMed einfach, reaktiv und zuverlässig zu gestalten.</p><p>Denn egal wie weit unsere Reichweite sich erstreckt, unsere Kunden fühlen sich niemals wie nur eine weitere Bestellnummer. Wir glauben, dass langfristige Beziehungen durch Vertrauen, Zuverlässigkeit und echtes Verständnis dafür aufgebaut werden, was unsere Kunden brauchen.</p><p></p>",
+            "desktop_width_percent": 55,
             "mobile_width_percent": 90,
             "image_1": "shopify://shop_images/icons8-krankenhaus-100_246e8885-c0a5-468e-95de-d48347cd782e.png",
             "label_1": "Krankenhäuser",
