@@ -1,6 +1,208 @@
+{% doc %}
+  @prompt
+    Erstelle eine neue responsive Shopify Section mit zwei Bereichen.
+    
+    Links:
+    
+    kleine Eyebrow-Überschrift
+    große Hauptüberschrift
+    mehrere Textabsätze
+    alles linksbündig
+    alle Texte im Theme Editor editierbar
+    
+    Rechts:
+    
+    Icon-Raster mit 2 Spalten und 3 Reihen
+    insgesamt 6 Felder
+    pro Feld nur Icon + kurze Überschrift
+    alles zentriert
+    dezente Trennlinien zwischen Spalten und Reihen
+    Icons und Überschriften im Theme Editor auswählbar/editierbar
+    
+    Desktop: Text links, Icon-Raster rechts, ca. 50/50.
+    
+    Mobile: Text oben, Icon-Raster darunter, möglichst weiterhin 2 Spalten.
+    
+    Cleanes, modernes Design ohne Karten, Schatten oder unnötigen Leerraum. Bestehende Theme-Schriften und Farben verwenden.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-feature-split-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #1d2e40;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 96px);
+    padding: 24px 0;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__copy {
+    text-align: left;
+    max-width: 620px;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__eyebrow {
+    margin: 0 0 14px;
+    color: #466276;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__title {
+    margin: 0 0 20px;
+    color: #1d2e40;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__body {
+    color: #405567;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__body p {
+    margin: 0 0 14px;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid #d9e1e5;
+    border-left: 1px solid #d9e1e5;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__item {
+    display: flex;
+    min-height: 142px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 16px;
+    border-right: 1px solid #d9e1e5;
+    border-bottom: 1px solid #d9e1e5;
+    text-align: center;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__icon {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    color: #1d2e40;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+  }
+
+  .ai-feature-split-{{ ai_gen_id }}__label {
+    margin: 0;
+    color: #1d2e40;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-feature-split-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-feature-split-{{ ai_gen_id }}__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 16px 0;
+    }
+
+    .ai-feature-split-{{ ai_gen_id }}__title {
+      font-size: 34px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-feature-split-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-feature-split-{{ ai_gen_id }}__inner">
+    <div class="ai-feature-split-{{ ai_gen_id }}__copy">
+      {% if block.settings.eyebrow != blank %}<p class="ai-feature-split-{{ ai_gen_id }}__eyebrow">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+      {% if block.settings.title != blank %}<h2 class="ai-feature-split-{{ ai_gen_id }}__title">{{ block.settings.title | escape }}</h2>{% endif %}
+      {% if block.settings.body != blank %}<div class="ai-feature-split-{{ ai_gen_id }}__body">{{ block.settings.body }}</div>{% endif %}
+    </div>
+    <div class="ai-feature-split-{{ ai_gen_id }}__grid">
+      {% for i in (1..6) %}
+        {% liquid
+          assign icon_key = 'icon_' | append: i
+          assign label_key = 'label_' | append: i
+          assign icon = block.settings[icon_key]
+          assign label = block.settings[label_key]
+        %}
+        <div class="ai-feature-split-{{ ai_gen_id }}__item">
+          <span class="ai-feature-split-{{ ai_gen_id }}__icon" aria-hidden="true">
+            {% case icon %}
+              {% when 'check' %}<svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
+              {% when 'shield' %}<svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 2.9 8.4 7 10 4.1-1.6 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              {% when 'heart' %}<svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 8.8 2.8Z"/></svg>
+              {% when 'star' %}<svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></svg>
+              {% when 'plus' %}<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              {% else %}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></svg>
+            {% endcase %}
+          </span>
+          {% if label != blank %}<p class="ai-feature-split-{{ ai_gen_id }}__label">{{ label | escape }}</p>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Text and icon grid",
+  "settings": [
+    {"type":"header","content":"Text content"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Our expertise"},
+    {"type":"text","id":"title","label":"Heading","default":"Reliable solutions for your everyday work"},
+    {"type":"richtext","id":"body","label":"Text","default":"<p>Discover dependable products and thoughtful service designed around your needs.</p><p>We combine clinical quality with practical expertise to help you make confident decisions.</p>"},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"header","content":"Icon grid"},
+    {"type":"select","id":"icon_1","label":"Icon 1","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"check"},
+    {"type":"text","id":"label_1","label":"Heading 1","default":"Trusted quality"},
+    {"type":"select","id":"icon_2","label":"Icon 2","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"shield"},
+    {"type":"text","id":"label_2","label":"Heading 2","default":"Safe and reliable"},
+    {"type":"select","id":"icon_3","label":"Icon 3","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"heart"},
+    {"type":"text","id":"label_3","label":"Heading 3","default":"Focused on people"},
+    {"type":"select","id":"icon_4","label":"Icon 4","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"star"},
+    {"type":"text","id":"label_4","label":"Heading 4","default":"Proven expertise"},
+    {"type":"select","id":"icon_5","label":"Icon 5","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"plus"},
+    {"type":"text","id":"label_5","label":"Heading 5","default":"Practical solutions"},
+    {"type":"select","id":"icon_6","label":"Icon 6","options":[{"value":"check","label":"Check"},{"value":"shield","label":"Shield"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"},{"value":"plus","label":"Plus"},{"value":"clock","label":"Clock"}],"default":"clock"},
+    {"type":"text","id":"label_6","label":"Heading 6","default":"Fast support"}
+  ],
+  "presets":[{"name":"Text and icon grid"}],
+  "tag":null,
+  "class":"text-icon-grid-block"
+}
 {% endschema %}
