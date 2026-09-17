@@ -117,41 +117,6 @@
       "name": "This is DocMed",
       "settings": {}
     },
-    "1789633021ad949fb0": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_d45c3d0_kHAQEM": {
-          "type": "ai_gen_block_d45c3d0",
-          "settings": {
-            "heading": "<h2>Verlässliche Lösungen für Ihre Praxis</h2>",
-            "body_text": "",
-            "desktop_width_percent": 80,
-            "section_height": 550,
-            "text_column_percent": 1,
-            "image_column_percent": 1,
-            "desktop_padding": 60,
-            "spacing_top": 40,
-            "spacing_bottom": 40,
-            "mobile_side_spacing": 15,
-            "mobile_padding": 28,
-            "mobile_text_height": 300,
-            "mobile_image_height": 320,
-            "heading_size_desktop": 48,
-            "heading_size_mobile": 32,
-            "body_size": 17,
-            "background_color": "#ffffff",
-            "heading_color": "#1d2e40",
-            "text_color": "#1d2e40"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_d45c3d0_kHAQEM"
-      ],
-      "name": "Gesundheitswesen mit Zweck",
-      "settings": {}
-    },
     "178963159110fff91b": {
       "type": "_blocks",
       "blocks": {
@@ -259,7 +224,6 @@
     "178957001005f422cd",
     "17895699243fe8d158",
     "178957048752928a69",
-    "1789633021ad949fb0",
     "178963159110fff91b",
     "1789571628255c629e",
     "1789572259dc59f630"
