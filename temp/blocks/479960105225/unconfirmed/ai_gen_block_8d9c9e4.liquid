@@ -1,6 +1,197 @@
-{% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
-{% endschema %}
+{% doc %}
+  @prompt
+    Erstelle eine neue responsive Shopify Section für unsere „Über uns“-Seite.
+    
+    Die Section soll auf dem Desktop aus zwei gleichwertigen Bereichen bestehen: einer linken Seite und einer rechten Seite.
+    
+    Linke Seite
+    
+    Die linke Seite soll entsprechend dem bestehenden Layout aufgebaut sein und Platz für den Hauptinhalt bzw. das Bild der Section bieten.
+    
+    Das Bild soll im Shopify Theme Editor frei auswählbar und austauschbar sein.
+    
+    Rechte Seite
+    
+    Die rechte Seite soll optisch genauso strukturiert sein wie in meiner Vorlage.
+    
+    Wichtig: Die Inhalte auf der rechten Seite sollen NICHT nebeneinander als Karten oder Grid dargestellt werden.
+    
+    Stattdessen sollen mehrere einzelne Icon-Text-Elemente vertikal in einer einzigen Linie untereinander angeordnet werden.
+    
+    Jedes Element besteht aus:
+    
+    einem Icon
+    direkt darunter einer kurzen Überschrift
+    darunter einem kurzen Beschreibungstext
+    
+    Alle drei Bestandteile müssen horizontal zentriert ausgerichtet sein.
+    
+    Der Aufbau soll beispielsweise so aussehen:
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    ICON
+    
+    Überschrift
+    
+    Beschreibungstext
+    
+    Zwischen den einzelnen Elementen soll ausreichend Abstand bestehen, sodass die Inhalte klar voneinander getrennt sind.
+    
+    Icons
+    
+    Die Icons dürfen nicht fest im Code hinterlegt sein.
+    
+    Für jedes Element möchte ich im Shopify Theme Editor selbst ein Icon auswählen bzw. hochladen können.
+    
+    Jedes Icon soll individuell auswählbar sein.
+    
+    Zusätzlich möchte ich die Icon-Größe über den Theme Editor einstellen können.
+    
+    Alle Icons sollen innerhalb der Section einheitlich dargestellt und mittig über dem jeweiligen Text positioniert werden.
+    
+    Blocks
+    
+    Die Icon-Text-Elemente sollen als Shopify Blocks umgesetzt werden.
+    
+    Dadurch möchte ich im Theme Editor:
+    
+    neue Elemente hinzufügen
+    Elemente entfernen
+    Reihenfolge per Drag & Drop verändern
+    Icon auswählen
+    Überschrift eingeben
+    Beschreibungstext eingeben
+    
+    können.
+    
+    Die Anzahl der Elemente darf nicht fest im Code definiert sein.
+    
+    Ausrichtung Desktop
+    
+    Auf Desktop:
+    
+    zweispaltiges Layout
+    linke und rechte Seite nebeneinander
+    rechte Seite vertikal aufgebaut
+    alle Icon-Text-Elemente exakt mittig ausgerichtet
+    Icons, Überschriften und Texte befinden sich jeweils untereinander
+    die gesamte rechte Spalte soll optisch mittig innerhalb ihrer Fläche positioniert sein
+    ausreichend Weißraum zwischen den einzelnen Elementen
+    
+    Die rechte Seite darf NICHT automatisch zu einem 2- oder 3-spaltigen Icon-Grid werden.
+    
+    Sie muss immer eine einzelne vertikale Spalte bleiben.
+    
+    Mobile Darstellung
+    
+    Die Section muss vollständig responsiv sein.
+    
+    Auf Mobilgeräten sollen die beiden Hauptbereiche untereinander dargestellt werden.
+    
+    Reihenfolge:
+    
+    linker Bereich bzw. Bild
+    rechter Bereich mit den Icon-Text-Elementen
+    
+    Die Icon-Text-Elemente bleiben auch mobil untereinander angeordnet.
+    
+    Jedes Element bleibt vollständig zentriert:
+    
+    Icon
+    ↓
+    Überschrift
+    ↓
+    Text
+    
+    Bitte auf Mobilgeräten:
+    
+    ausreichenden Abstand zwischen den einzelnen Elementen verwenden
+    keine zu großen Icons verwenden
+    Textbreite begrenzen, damit die Texte gut lesbar bleiben
+    keine horizontalen Überläufe erzeugen
+    angemessene Seitenabstände verwenden
+    die Section für kleine Smartphone-Displays optimieren
+    Einstellungen im Theme Editor
+    
+    Folgende Einstellungen sollen editierbar sein:
+    
+    Bild der linken Seite
+    Bildposition
+    Hintergrundfarbe der gesamten Section
+    Textfarbe
+    Überschriftfarbe
+    Icon-Größe
+    Abstand zwischen den einzelnen Icon-Elementen
+    Abstand oben und unten innerhalb der Section
+    Verhältnis bzw. Breite der linken und rechten Spalte
+    
+    Für jeden Icon-Block:
+    
+    Icon / Bild auswählen
+    Überschrift
+    Beschreibungstext
+    Design
+    
+    Das Design soll:
+    
+    clean
+    professionell
+    modern
+    hochwertig
+    minimalistisch
+    
+    wirken und zu einem professionellen Onlineshop für medizinischen Praxisbedarf passen.
+    
+    Keine unnötigen Karten, Rahmen, Schatten oder farbigen Boxen um die einzelnen Elemente verwenden.
+    
+    Die Icon-Text-Inhalte sollen frei und sauber auf dem Hintergrund stehen.
+    
+    Nutze für Schriftarten, Überschriften und Farben möglichst die bestehenden Einstellungen des Shopify Themes, damit die Section optisch zum restlichen Shop passt.
+    
+    Technische Anforderungen
+    Shopify Online Store 2.0 kompatibel
+    sauberes Liquid, HTML und CSS
+    keine externen Bibliotheken
+    keine fest codierten Inhalte
+    alle Inhalte über den Theme Editor steuerbar
+    semantisches HTML
+    responsive für Desktop, Tablet und Mobile
+    bestehende Theme-Dateien und andere Sections nicht verändern
+    nur diese neue Section erstellen, Überarbeite die rechte Seite exakt nach dem Referenzbild.
+    
+    Die rechte Seite soll aus einem 2-spaltigen Raster mit 3 Reihen bestehen, also insgesamt 6 Icon-Felder.
+    
+    Jedes Feld enthält nur:
+    
+    ein Icon
+    direkt darunter eine kurze Überschrift
+    
+    Kein zusätzlicher Beschreibungstext.
+    
+    Alle Icons und Überschriften zentriert ausrichten.
+    
+    Zwischen den beiden Spalten und zwischen den Reihen sollen dezente Trennlinien wie im Referenzbild angezeigt werden.
+    
+    Die Icons möchte ich im Theme Editor selbst auswählen können. Auch die Überschrift jedes Feldes soll editierbar sein.
+    
+    Desktop: 2 Spalten × 3 Reihen.
+    
+    Mobile: ebenfalls sauber responsiv darstellen, idealerweise weiterhin 2 Spalten, solange genug Platz vorhanden ist. Bei sehr schmalen Displays darf auf 1 Spalte umgebrochen werden.
+    
+    Keine Karten, Schatten oder zusätzlichen Texte hinzufügen., viel zu groß kleiner das ganze in höhe & breite
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}.ai-about-{{ai_gen_id}}{display:block;width:100%;background:{{block.settings.background_color}}}.ai-about-{{ai_gen_id}}__inner{width:{{block.settings.desktop_width_percent}}%;max-width:1100px;margin:auto;padding:{{block.settings.vertical_padding}}px 18px;display:grid;grid-template-columns:minmax(0,{{block.settings.left_column_width}}fr) minmax(0,{{block.settings.right_column_width}}fr);gap:32px;align-items:center}.ai-about-{{ai_gen_id}}__media{width:100%;overflow:hidden;border-radius:{{block.settings.image_radius}}px;line-height:0}.ai-about-{{ai_gen_id}}__media img,.ai-about-{{ai_gen_id}}__placeholder svg{display:block;width:100%;aspect-ratio:1;object-fit:{{block.settings.image_fit}}}.ai-about-{{ai_gen_id}}__placeholder{position:relative;background:#edf2f4}.ai-about-{{ai_gen_id}}__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ai-about-{{ai_gen_id}}__item{display:flex;min-height:112px;padding:18px 12px;flex-direction:column;align-items:center;justify-content:center;text-align:center}.ai-about-{{ai_gen_id}}__item:nth-child(odd){border-right:1px solid {{block.settings.divider_color}}}.ai-about-{{ai_gen_id}}__item:nth-child(n+3){border-top:1px solid {{block.settings.divider_color}}}.ai-about-{{ai_gen_id}}__icon,.ai-about-{{ai_gen_id}}__icon-placeholder{width:{{block.settings.icon_size}}px;height:{{block.settings.icon_size}}px;margin-bottom:10px;object-fit:contain}.ai-about-{{ai_gen_id}}__icon-placeholder{border:1px solid {{block.settings.text_color}};border-radius:50%;opacity:.35}.ai-about-{{ai_gen_id}}__title{margin:0;color:{{block.settings.heading_color}};font-size:14px;line-height:1.25}@media(max-width:749px){.ai-about-{{ai_gen_id}}__inner{width:100%;padding:{{block.settings.vertical_padding | times:0.6}}px 16px;grid-template-columns:1fr;gap:24px}.ai-about-{{ai_gen_id}}__media{max-width:460px;margin:auto}.ai-about-{{ai_gen_id}}__item{min-height:96px;padding:14px 8px}.ai-about-{{ai_gen_id}}__icon,.ai-about-{{ai_gen_id}}__icon-placeholder{width:min({{block.settings.icon_size}}px,42px);height:min({{block.settings.icon_size}}px,42px)}}@media(max-width:359px){.ai-about-{{ai_gen_id}}__grid{grid-template-columns:1fr}.ai-about-{{ai_gen_id}}__item:nth-child(odd){border-right:0}.ai-about-{{ai_gen_id}}__item:not(:first-child){border-top:1px solid {{block.settings.divider_color}}}}
+{% endstyle %}<div class="ai-about-{{ai_gen_id}}" {{block.shopify_attributes}}><div class="ai-about-{{ai_gen_id}}__inner"><div class="ai-about-{{ai_gen_id}}__media">{%if block.settings.image%}<img src="{{block.settings.image|image_url:width:1000}}" alt="{{block.settings.image.alt|escape}}" loading="lazy">{%else%}<div class="ai-about-{{ai_gen_id}}__placeholder">{{'image'|placeholder_svg_tag}}</div>{%endif%}</div><div class="ai-about-{{ai_gen_id}}__grid">{%for i in (1..6)%}{%assign icon_key='item_'|append:i|append:'_icon'%}{%assign title_key='item_'|append:i|append:'_title'%}{%assign icon=block.settings[icon_key]%}{%assign title=block.settings[title_key]%}<div class="ai-about-{{ai_gen_id}}__item">{%if icon%}<img class="ai-about-{{ai_gen_id}}__icon" src="{{icon|image_url:width:160}}" alt="" loading="lazy">{%else%}<span class="ai-about-{{ai_gen_id}}__icon-placeholder"></span>{%endif%}<h2 class="ai-about-{{ai_gen_id}}__title">{{title}}</h2></div>{%endfor%}</div></div></div>
+{% schema %}{"name":"Über uns mit Vorteilen","settings":[{"type":"image_picker","id":"image","label":"Bild"},{"type":"select","id":"image_fit","label":"Bildposition","options":[{"value":"cover","label":"Ausfüllen"},{"value":"contain","label":"Ganz anzeigen"}],"default":"cover"},{"type":"range","id":"left_column_width","label":"Breite linke Spalte","min":1,"max":3,"step":1,"default":1},{"type":"range","id":"right_column_width","label":"Breite rechte Spalte","min":1,"max":3,"step":1,"default":1},{"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":90},{"type":"range","id":"vertical_padding","label":"Abstand oben und unten","min":10,"max":80,"step":5,"unit":"px","default":30},{"type":"range","id":"image_radius","label":"Bildradius","min":0,"max":24,"step":2,"unit":"px","default":6},{"type":"color","id":"background_color","label":"Hintergrund","default":"#ffffff"},{"type":"color","id":"text_color","label":"Text","default":"#1d2e40"},{"type":"color","id":"heading_color","label":"Überschrift","default":"#1d2e40"},{"type":"color","id":"divider_color","label":"Trennlinien","default":"#d9e1e5"},{"type":"range","id":"icon_size","label":"Icon-Größe","min":20,"max":80,"step":4,"unit":"px","default":40},{"type":"image_picker","id":"item_1_icon","label":"Feld 1 Icon"},{"type":"text","id":"item_1_title","label":"Feld 1 Überschrift","default":"Qualität"},{"type":"image_picker","id":"item_2_icon","label":"Feld 2 Icon"},{"type":"text","id":"item_2_title","label":"Feld 2 Überschrift","default":"Kompetenz"},{"type":"image_picker","id":"item_3_icon","label":"Feld 3 Icon"},{"type":"text","id":"item_3_title","label":"Feld 3 Überschrift","default":"Zuverlässigkeit"},{"type":"image_picker","id":"item_4_icon","label":"Feld 4 Icon"},{"type":"text","id":"item_4_title","label":"Feld 4 Überschrift","default":"Service"},{"type":"image_picker","id":"item_5_icon","label":"Feld 5 Icon"},{"type":"text","id":"item_5_title","label":"Feld 5 Überschrift","default":"Innovation"},{"type":"image_picker","id":"item_6_icon","label":"Feld 6 Icon"},{"type":"text","id":"item_6_title","label":"Feld 6 Überschrift","default":"Vertrauen"}],"presets":[{"name":"Über uns mit Vorteilen"}],"tag":null,"class":"about-benefits-block"}{% endschema %}
