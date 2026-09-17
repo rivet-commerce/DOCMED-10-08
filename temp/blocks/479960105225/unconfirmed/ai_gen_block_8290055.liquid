@@ -1,6 +1,111 @@
+{% doc %}
+  @prompt
+    Erstelle eine neue responsive Shopify Section mit zwei Bereichen.
+    
+    Links:
+    
+    kleine Eyebrow-Überschrift
+    große Hauptüberschrift
+    mehrere Textabsätze
+    alles linksbündig
+    alle Texte im Theme Editor editierbar
+    
+    Rechts:
+    
+    Icon-Raster mit 2 Spalten und 3 Reihen
+    insgesamt 6 Felder
+    pro Feld nur Icon + kurze Überschrift
+    alles zentriert
+    dezente Trennlinien zwischen Spalten und Reihen
+    Icons und Überschriften im Theme Editor auswählbar/editierbar
+    
+    Desktop: Text links, Icon-Raster rechts, ca. 50/50.
+    
+    Mobile: Text oben, Icon-Raster darunter, möglichst weiterhin 2 Spalten.
+    
+    Cleanes, modernes Design ohne Karten, Schatten oder unnötigen Leerraum. Bestehende Theme-Schriften und Farben verwenden., Baue die rechte Seite als 2-spaltiges × 3-zeiliges Raster wie im zweiten Screenshot auf.
+    
+    Jede Zelle enthält oben ein frei auswählbares Icon/Bild, das ich selbst im Shopify-Editor hochladen kann.
+    Icon-Größe: ca. 42 × 42 px, für alle Icons einheitlich.
+    Darunter steht der jeweilige Text zentriert.
+    Kein vollständiger Rahmen um jede einzelne Zelle. Stattdessen nur dezente horizontale und vertikale Trennlinien zwischen den Elementen, wie im zweiten Screenshot.
+    Keine äußere Umrandung des gesamten Rasters.
+    Gleichmäßige Abstände und identische Zellgrößen.
+    Auf Mobile weiterhin sauber als 2-spaltiges Raster darstellen.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-feature-split-{{ ai_gen_id }} { display:block; width:{{ block.settings.desktop_width_percent }}%; max-width:100%; margin:0 auto; color:#1d2e40; }
+  .ai-feature-split-{{ ai_gen_id }}__inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(32px,6vw,96px); padding:24px 0; }
+  .ai-feature-split-{{ ai_gen_id }}__copy { text-align:left; max-width:620px; }
+  .ai-feature-split-{{ ai_gen_id }}__eyebrow { margin:0 0 14px; color:#466276; font-size:12px; font-weight:700; letter-spacing:.12em; line-height:1.4; text-transform:uppercase; }
+  .ai-feature-split-{{ ai_gen_id }}__title { margin:0 0 20px; color:#1d2e40; font-size:clamp(30px,4vw,52px); font-weight:600; line-height:1.08; }
+  .ai-feature-split-{{ ai_gen_id }}__body { color:#405567; font-size:16px; line-height:1.7; }
+  .ai-feature-split-{{ ai_gen_id }}__body p { margin:0 0 14px; }
+  .ai-feature-split-{{ ai_gen_id }}__body p:last-child { margin-bottom:0; }
+  .ai-feature-split-{{ ai_gen_id }}__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ai-feature-split-{{ ai_gen_id }}__item { display:flex; min-height:150px; align-items:center; justify-content:center; flex-direction:column; gap:14px; padding:24px 16px; text-align:center; }
+  .ai-feature-split-{{ ai_gen_id }}__item:nth-child(odd) { border-right:1px solid #d9e1e5; }
+  .ai-feature-split-{{ ai_gen_id }}__item:nth-child(n+3) { border-top:1px solid #d9e1e5; }
+  .ai-feature-split-{{ ai_gen_id }}__icon { display:flex; width:42px; height:42px; align-items:center; justify-content:center; color:#1d2e40; }
+  .ai-feature-split-{{ ai_gen_id }}__icon img { display:block; width:42px; height:42px; object-fit:contain; }
+  .ai-feature-split-{{ ai_gen_id }}__fallback { width:42px; height:42px; color:#1d2e40; }
+  .ai-feature-split-{{ ai_gen_id }}__fallback svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
+  .ai-feature-split-{{ ai_gen_id }}__label { margin:0; color:#1d2e40; font-size:15px; font-weight:600; line-height:1.35; }
+  @media screen and (max-width:749px) {
+    .ai-feature-split-{{ ai_gen_id }} { width:100%; }
+    .ai-feature-split-{{ ai_gen_id }}__inner { grid-template-columns:1fr; gap:32px; padding:16px 0; }
+    .ai-feature-split-{{ ai_gen_id }}__title { font-size:34px; }
+  }
+{% endstyle %}
+
+<div class="ai-feature-split-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-feature-split-{{ ai_gen_id }}__inner">
+    <div class="ai-feature-split-{{ ai_gen_id }}__copy">
+      {% if block.settings.eyebrow != blank %}<p class="ai-feature-split-{{ ai_gen_id }}__eyebrow">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+      {% if block.settings.title != blank %}<h2 class="ai-feature-split-{{ ai_gen_id }}__title">{{ block.settings.title | escape }}</h2>{% endif %}
+      {% if block.settings.body != blank %}<div class="ai-feature-split-{{ ai_gen_id }}__body">{{ block.settings.body }}</div>{% endif %}
+    </div>
+    <div class="ai-feature-split-{{ ai_gen_id }}__grid">
+      {% for i in (1..6) %}
+        {% liquid
+          assign image_key = 'image_' | append: i
+          assign label_key = 'label_' | append: i
+          assign image = block.settings[image_key]
+          assign label = block.settings[label_key]
+        %}
+        <div class="ai-feature-split-{{ ai_gen_id }}__item">
+          <span class="ai-feature-split-{{ ai_gen_id }}__icon" aria-hidden="true">
+            {% if image %}<img src="{{ image | image_url: width: 84 }}" alt="" width="42" height="42" loading="lazy">
+            {% else %}<span class="ai-feature-split-{{ ai_gen_id }}__fallback">{{ 'image' | placeholder_svg_tag }}</span>{% endif %}
+          </span>
+          {% if label != blank %}<p class="ai-feature-split-{{ ai_gen_id }}__label">{{ label | escape }}</p>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name":"Text and image grid",
+  "settings":[
+    {"type":"header","content":"Text content"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Our expertise"},
+    {"type":"text","id":"title","label":"Heading","default":"Reliable solutions for your everyday work"},
+    {"type":"richtext","id":"body","label":"Text","default":"<p>Discover dependable products and thoughtful service designed around your needs.</p><p>We combine clinical quality with practical expertise to help you make confident decisions.</p>"},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"header","content":"Grid items"},
+    {"type":"image_picker","id":"image_1","label":"Image 1"}, {"type":"text","id":"label_1","label":"Text 1","default":"Trusted quality"},
+    {"type":"image_picker","id":"image_2","label":"Image 2"}, {"type":"text","id":"label_2","label":"Text 2","default":"Safe and reliable"},
+    {"type":"image_picker","id":"image_3","label":"Image 3"}, {"type":"text","id":"label_3","label":"Text 3","default":"Focused on people"},
+    {"type":"image_picker","id":"image_4","label":"Image 4"}, {"type":"text","id":"label_4","label":"Text 4","default":"Proven expertise"},
+    {"type":"image_picker","id":"image_5","label":"Image 5"}, {"type":"text","id":"label_5","label":"Text 5","default":"Practical solutions"},
+    {"type":"image_picker","id":"image_6","label":"Image 6"}, {"type":"text","id":"label_6","label":"Text 6","default":"Fast support"}
+  ],
+  "presets":[{"name":"Text and image grid"}],
+  "tag":null,
+  "class":"text-image-grid-block"
+}
 {% endschema %}
