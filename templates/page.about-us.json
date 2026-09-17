@@ -99,37 +99,43 @@
       "name": "Company facts bar",
       "settings": {}
     },
-    "178957048752928a69": {
+    "17896350094c440529": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_db621ff_rrAnwr": {
-          "type": "ai_gen_block_db621ff",
+        "ai_gen_block_fbdc425_AVyGTf": {
+          "type": "ai_gen_block_fbdc425",
           "settings": {
-            "image_alt": "",
-            "eyebrow": "",
-            "heading": "International verwurzelt.\nPersönlich verbunden.",
-            "body_copy": "<p>Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit freiverkäuflichen pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden.</p><p>Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines internationalen Gesundheitslieferanten mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.</p>",
-            "content_max_width": 1500,
+            "heading": "Reliable solutions for your practice",
+            "paragraph_one": "<p>Discover professional products and dependable support for your daily work.</p>",
+            "paragraph_two": "<p>We combine practical expertise with carefully selected quality to help you work with confidence.</p>",
+            "desktop_width_percent": 100,
+            "content_width": 1500,
+            "section_height": 550,
+            "image_column_percent": "50",
             "column_gap": 60,
-            "image_radius": 8,
-            "heading_font": "poppins_n4",
-            "body_font": "manrope_n4",
-            "accent_color": "#126fd3",
-            "heading_color": "#011f2d",
-            "text_color": "#1d2e40",
-            "padding_top": 70,
-            "padding_bottom": 70,
+            "desktop_side_padding": 20,
+            "mobile_side_padding": 20,
+            "padding_top": 60,
+            "padding_bottom": 60,
             "mobile_padding_top": 40,
             "mobile_padding_bottom": 40,
-            "mobile_gap": 28
+            "image_height": 500,
+            "mobile_image_height": 320,
+            "image_radius": 8,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 32,
+            "text_size_desktop": 17,
+            "text_size_mobile": 16,
+            "background_color": "#ffffff",
+            "heading_color": "#1d2e40",
+            "text_color": "#1d2e40"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_db621ff_rrAnwr"
+        "ai_gen_block_fbdc425_AVyGTf"
       ],
-      "name": "This is DocMed",
       "settings": {}
     },
     "178963159110fff91b": {
@@ -162,6 +168,7 @@
       "block_order": [
         "ai_gen_block_6f7c2a4_9V9eit"
       ],
+      "disabled": true,
       "name": "Text and image grid",
       "settings": {}
     },
@@ -204,33 +211,8 @@
       "block_order": [
         "ai_gen_block_7b316a8_VyJdRB"
       ],
+      "disabled": true,
       "name": "Mission Vision Grwoth",
-      "settings": {}
-    },
-    "1789572259dc59f630": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_58a7100_nF3JkH": {
-          "type": "ai_gen_block_58a7100",
-          "settings": {
-            "statement_text": "<p>Gesundheit<br/>kennt keine Grenzen.</p>",
-            "handwriting_font": "abel_n4",
-            "text_color": "#1d2e40",
-            "font_size": 70,
-            "max_width": 560,
-            "alignment": "center",
-            "show_underline": false,
-            "underline_color": "#1d2e40",
-            "desktop_width_percent": 100,
-            "padding_top": 20,
-            "padding_bottom": 20
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_58a7100_nF3JkH"
-      ],
       "settings": {}
     }
   },
@@ -238,9 +220,8 @@
     "main",
     "178957001005f422cd",
     "17895699243fe8d158",
-    "178957048752928a69",
+    "17896350094c440529",
     "178963159110fff91b",
-    "1789571628255c629e",
-    "1789572259dc59f630"
+    "1789571628255c629e"
   ]
 }
