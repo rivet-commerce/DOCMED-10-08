@@ -1,6 +1,41 @@
+{% doc %}
+  @prompt
+    Erstelle dieselbe vollständig responsive Text-Bild-Section wie zuvor, aber gespiegelt:
+    
+    Desktop: Text links, Bild rechts. Der Textbereich enthält eine große, fette Überschrift und darunter zwei getrennte Fließtext-Absätze. Das große rechteckige Bild rechts hat leicht abgerundete Ecken. Beide Spalten sind ungefähr 50/50 aufgeteilt und vertikal mittig ausgerichtet.
+    
+    Im Shopify-Editor müssen wieder alle Einstellungen anpassbar sein: Section-Breite und -Höhe, Seitenabstand Desktop/Mobile, Padding oben/unten, Spaltenverhältnis und Spaltenabstand, Bildbreite/-höhe, Überschriftgröße Desktop/Mobile, Textgröße Desktop/Mobile sowie Hintergrund-, Überschrift- und Textfarbe.
+    
+    Mobile: Text oben, Bild darunter. Beide müssen exakt dieselbe Breite und dieselben Seitenabstände haben. Die Section muss auf Desktop, Tablet und Mobile vollständig responsiv sein und sich exakt am gleichen Content-Raster wie die anderen Sections ausrichten., wieso isz das bild so extrem groß & hoch ???
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-text-image-{{ ai_gen_id }}{display:block;width:100%;background:{{ block.settings.background_color }};}
+  .ai-text-image-{{ ai_gen_id }}__inner{width:{{ block.settings.section_width }}%;max-width:1500px;min-height:{{ block.settings.section_height }}px;margin:0 auto;padding:{{ block.settings.padding_top }}px {{ block.settings.desktop_side_padding }}px {{ block.settings.padding_bottom }}px;display:grid;grid-template-columns:{{ block.settings.text_column_width }}% 1fr;gap:{{ block.settings.column_gap }}px;align-items:center;box-sizing:border-box;}
+  .ai-text-image-{{ ai_gen_id }}__content{min-width:0;color:{{ block.settings.text_color }};}
+  .ai-text-image-{{ ai_gen_id }}__heading{margin:0 0 24px;color:{{ block.settings.heading_color }};font-size:{{ block.settings.heading_size_desktop }}px;line-height:1.12;font-weight:700;}
+  .ai-text-image-{{ ai_gen_id }}__paragraph{margin:0 0 18px;color:{{ block.settings.text_color }};font-size:{{ block.settings.text_size_desktop }}px;line-height:1.6;}
+  .ai-text-image-{{ ai_gen_id }}__paragraph:last-child{margin-bottom:0;}
+  .ai-text-image-{{ ai_gen_id }}__media{width:{{ block.settings.image_width }}%;height:{{ block.settings.image_height_desktop }}px;justify-self:end;overflow:hidden;border-radius:{{ block.settings.image_radius }}px;}
+  .ai-text-image-{{ ai_gen_id }}__media img,.ai-text-image-{{ ai_gen_id }}__placeholder{display:block;width:100%;height:100%;object-fit:cover;}
+  .ai-text-image-{{ ai_gen_id }}__placeholder{position:relative;background:#eef2f4;color:#52616b;}
+  .ai-text-image-{{ ai_gen_id }}__placeholder svg{width:100%;height:100%;}
+  .ai-text-image-{{ ai_gen_id }}__empty-state{position:absolute;right:16px;bottom:16px;left:16px;padding:10px 14px;background:rgba(255,255,255,.92);color:#334550;text-align:center;font-size:13px;}
+  @media screen and (max-width:989px){.ai-text-image-{{ ai_gen_id }}__inner{width:100%;padding-right:{{ block.settings.desktop_side_padding | times: 0.75 | round }}px;padding-left:{{ block.settings.desktop_side_padding | times: 0.75 | round }}px;}.ai-text-image-{{ ai_gen_id }}__heading{font-size:{{ block.settings.heading_size_mobile }}px;}.ai-text-image-{{ ai_gen_id }}__paragraph{font-size:{{ block.settings.text_size_mobile }}px;}}
+  @media screen and (max-width:749px){.ai-text-image-{{ ai_gen_id }}__inner{min-height:0;padding:{{ block.settings.padding_top }}px {{ block.settings.mobile_side_padding }}px {{ block.settings.padding_bottom }}px;display:flex;flex-direction:column;align-items:stretch;gap:{{ block.settings.column_gap }}px;}.ai-text-image-{{ ai_gen_id }}__content,.ai-text-image-{{ ai_gen_id }}__media{width:100%;max-width:100%;}.ai-text-image-{{ ai_gen_id }}__media{height:{{ block.settings.image_height_mobile }}px;justify-self:auto;}}
+{% endstyle %}
+<div class="ai-text-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-image-{{ ai_gen_id }}__inner">
+    <div class="ai-text-image-{{ ai_gen_id }}__content">
+      {% if block.settings.heading != blank %}<h2 class="ai-text-image-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>{% endif %}
+      {% if block.settings.paragraph_one != blank %}<div class="ai-text-image-{{ ai_gen_id }}__paragraph">{{ block.settings.paragraph_one }}</div>{% endif %}
+      {% if block.settings.paragraph_two != blank %}<div class="ai-text-image-{{ ai_gen_id }}__paragraph">{{ block.settings.paragraph_two }}</div>{% endif %}
+    </div>
+    <div class="ai-text-image-{{ ai_gen_id }}__media">
+      {% if block.settings.image %}<img src="{{ block.settings.image | image_url: width: 1800 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">{% else %}<div class="ai-text-image-{{ ai_gen_id }}__placeholder">{{ 'image' | placeholder_svg_tag }}<div class="ai-text-image-{{ ai_gen_id }}__empty-state">Bild im Theme-Editor hinzufügen</div></div>{% endif %}
+    </div>
+  </div>
+</div>
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{"name":"Text-Bild gespiegelt","settings":[{"type":"header","content":"Inhalt"},{"type":"text","id":"heading","label":"Überschrift","default":"Verlässliche Lösungen für Ihre Praxis"},{"type":"richtext","id":"paragraph_one","label":"Absatz 1","default":"<p>Entdecken Sie hochwertige Produkte und Lösungen für professionelle Diagnostik und medizinische Ausbildung.</p>"},{"type":"richtext","id":"paragraph_two","label":"Absatz 2","default":"<p>Wir unterstützen Sie mit zuverlässiger Qualität, fachkundigem Service und einer sorgfältig ausgewählten Produktwelt.</p>"},{"type":"image_picker","id":"image","label":"Bild"},{"type":"header","content":"Layout"},{"type":"range","id":"section_width","label":"Section-Breite","min":50,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"section_height","label":"Section-Höhe","min":300,"max":800,"step":50,"unit":"px","default":450},{"type":"range","id":"desktop_side_padding","label":"Seitenabstand Desktop","min":0,"max":120,"step":10,"unit":"px","default":40},{"type":"range","id":"mobile_side_padding","label":"Seitenabstand Mobile","min":0,"max":40,"step":5,"unit":"px","default":20},{"type":"range","id":"padding_top","label":"Padding oben","min":0,"max":120,"step":10,"unit":"px","default":40},{"type":"range","id":"padding_bottom","label":"Padding unten","min":0,"max":120,"step":10,"unit":"px","default":40},{"type":"range","id":"text_column_width","label":"Text-Spaltenbreite","min":40,"max":60,"step":5,"unit":"%","default":50},{"type":"range","id":"column_gap","label":"Spaltenabstand","min":0,"max":100,"step":5,"unit":"px","default":40},{"type":"range","id":"image_width","label":"Bildbreite Desktop","min":80,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"image_height_desktop","label":"Bildhöhe Desktop","min":240,"max":600,"step":20,"unit":"px","default":400},{"type":"range","id":"image_height_mobile","label":"Bildhöhe Mobile","min":180,"max":500,"step":20,"unit":"px","default":280},{"type":"range","id":"image_radius","label":"Bild-Ecken","min":0,"max":24,"step":2,"unit":"px","default":8},{"type":"header","content":"Typografie"},{"type":"range","id":"heading_size_desktop","label":"Überschrift Desktop","min":24,"max":72,"step":4,"unit":"px","default":48},{"type":"range","id":"heading_size_mobile","label":"Überschrift Mobile","min":22,"max":48,"step":2,"unit":"px","default":32},{"type":"range","id":"text_size_desktop","label":"Text Desktop","min":14,"max":24,"step":1,"unit":"px","default":17},{"type":"range","id":"text_size_mobile","label":"Text Mobile","min":14,"max":22,"step":1,"unit":"px","default":16},{"type":"header","content":"Farben"},{"type":"color","id":"background_color","label":"Hintergrund","default":"#ffffff"},{"type":"color","id":"heading_color","label":"Überschrift","default":"#1d2e40"},{"type":"color","id":"text_color","label":"Text","default":"#334550"}],"presets":[{"name":"Text-Bild gespiegelt"}],"tag":null,"class":"text-image-section"}
 {% endschema %}
