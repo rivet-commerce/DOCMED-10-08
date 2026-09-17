@@ -414,42 +414,10 @@
             "divider_width": 1
           },
           "blocks": {}
-        },
-        "ai_gen_block_7b316a8_VyJdRB": {
-          "type": "ai_gen_block_7b316a8",
-          "settings": {
-            "desktop_width_percent": 100,
-            "content_max_width": 1500,
-            "vertical_padding": 70,
-            "mobile_padding": 50,
-            "mission_icon": "shopify://shop_images/icons8-ziel-100_91b92d3c-34ed-4b6c-ab2b-33d8e9bf9c77.png",
-            "vision_icon": "shopify://shop_images/icons8-sichtbar-100.png",
-            "show_placeholder_icons": false,
-            "icon_size": 60,
-            "accent_color": "#7fc7cf",
-            "heading_color": "#011f2d",
-            "body_color": "#1d2e40",
-            "divider_color": "#7fc7cf",
-            "background_color": "#ffffff",
-            "heading_font": "poppins_n4",
-            "body_font": "manrope_n4",
-            "heading_size": 28,
-            "body_size": 16,
-            "mission_label": "Unsere Mission",
-            "mission_heading": "Bessere Gesundheit zugänglicher machen.",
-            "mission_body": "<p>Unsere Mission ist es, Menschen dabei zu helfen, ihre Gesundheit zu verbessern, zu schützen und zu verwalten, indem wir hochwertige Gesundheitsprodukte und Lösungen zugänglicher machen.</p><p>Wir verbinden Einzelpersonen, Gesundheitsfachkräfte und Organisationen mit den Produkten und Lösungen, die sie brauchen, indem wir unser breites Portfolio mit flexibler Beschaffung, zuverlässigem Service und einem Verständnis für individuelle Anforderungen kombinieren.</p><p>Ob wir Gesundheitsfachkräfte bei der Versorgung anderer unterstützen oder Einzelpersonen dabei helfen, ihre eigenen Gesundheits- und Wohlbefindensziele zu verfolgen, unser Zweck bleibt derselbe:</p><p>einen sinnvollen Beitrag zu besserer Gesundheit zu leisten.</p><p></p>",
-            "vision_label": "Unsere Vision",
-            "vision_heading": "",
-            "vision_body": "<p>Unsere Vision ist es, die Position von DocMed als führender globaler Gesundheitsanbieter auszubauen und dabei die Stärke der internationalen Verteilung mit einem wachsenden Portfolio unserer eigenen Produkte und Marken zu kombinieren.</p><p>Technologie ist ein wichtiger Teil dieser Zukunft. Durch die Nutzung von Digitalisierung und künstlicher Intelligenz verstehen wir Märkte besser, arbeiten effizienter, reagieren schneller und verbessern kontinuierlich, wie wir unsere Kunden bedienen.</p><p>Gleichzeitig ermöglicht uns die Entwicklung unserer eigenen Produkte, über Verteilung hinauszugehen und eine größere Rolle bei der Schaffung von Gesundheitslösungen selbst zu spielen.</p><p>Während wir weiterhin wachsen, bewahren wir, was DocMed besonders macht: Geschwindigkeit, Flexibilität, hohe Standards und Nähe zu unseren Kunden und Partnern.</p><p>Wir liefern die Fähigkeiten eines globalen Gesundheitsunternehmens und bewahren gleichzeitig die Agilität und den persönlichen Ansatz, der uns hierher gebracht hat.</p><p></p>",
-            "growth_heading": "",
-            "growth_body": ""
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_8f7e947_Dpzg8A",
-        "ai_gen_block_7b316a8_VyJdRB"
+        "ai_gen_block_8f7e947_Dpzg8A"
       ],
       "name": "Mission Vision Grwoth",
       "settings": {}
