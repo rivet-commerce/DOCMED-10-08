@@ -117,6 +117,38 @@
       "name": "This is DocMed",
       "settings": {}
     },
+    "178963159110fff91b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6f7c2a4_9V9eit": {
+          "type": "ai_gen_block_6f7c2a4",
+          "settings": {
+            "eyebrow": "",
+            "title": "Internationale Reichweite. Persönlicher Service.",
+            "body": "<p>Unsere Kunden sind vielfältig, und das sind auch ihre Bedürfnisse. Ein Krankenhaus hat andere Anforderungen als ein Distributor. Eine Arztpraxis hat andere Prioritäten als ein privater Kunde.</p><p>Wir verstehen diese Unterschiede.</p><p>Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren und schnell zu reagieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen, denen wir dienen, hält.</p><p>Ob eine Anforderung unkompliziert oder komplexer ist, unser Ziel ist es, die Zusammenarbeit mit DocMed einfach, reaktiv und zuverlässig zu gestalten.</p><p>Denn egal wie weit unsere Reichweite sich erstreckt, unsere Kunden fühlen sich niemals wie nur eine weitere Bestellnummer. Wir glauben, dass langfristige Beziehungen durch Vertrauen, Zuverlässigkeit und echtes Verständnis dafür aufgebaut werden, was unsere Kunden brauchen.</p><p></p>",
+            "desktop_width_percent": 95,
+            "mobile_width_percent": 90,
+            "image_1": "shopify://shop_images/icons8-krankenhaus-100_246e8885-c0a5-468e-95de-d48347cd782e.png",
+            "label_1": "Krankenhäuser",
+            "image_2": "shopify://shop_images/icons8-stethoskop-100_e612ce44-b877-412a-9724-3846e8c5ac34.png",
+            "label_2": "Arztpraxen",
+            "image_3": "shopify://shop_images/icons8-apotheke-100_29bf1c05-4ac4-4d63-931b-7781303545c8.png",
+            "label_3": "Apotheken",
+            "image_4": "shopify://shop_images/icons8-lkw-100.png",
+            "label_4": "Distributoren",
+            "image_5": "shopify://shop_images/icons8-benutzergruppen-100_ed86805b-fa82-4fe2-a484-28fe18c45185.png",
+            "label_5": "Organisationen",
+            "image_6": "shopify://shop_images/icons8-geschlechtsneutraler-benutzer-100.png",
+            "label_6": "Priavte Kunden"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6f7c2a4_9V9eit"
+      ],
+      "settings": {}
+    },
     "1789571628255c629e": {
       "type": "_blocks",
       "blocks": {
@@ -184,38 +216,6 @@
         "ai_gen_block_58a7100_nF3JkH"
       ],
       "settings": {}
-    },
-    "1789630919636a8f72": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_8d9c9e4_JXLrCt": {
-          "type": "ai_gen_block_8d9c9e4",
-          "settings": {
-            "image_fit": "cover",
-            "left_column_width": 1,
-            "right_column_width": 1,
-            "desktop_width_percent": 100,
-            "vertical_padding": 30,
-            "image_radius": 6,
-            "background_color": "#ffffff",
-            "text_color": "#1d2e40",
-            "heading_color": "#1d2e40",
-            "divider_color": "#d9e1e5",
-            "icon_size": 40,
-            "item_1_title": "Qualität",
-            "item_2_title": "Kompetenz",
-            "item_3_title": "Zuverlässigkeit",
-            "item_4_title": "Service",
-            "item_5_title": "Innovation",
-            "item_6_title": "Vertrauen"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_8d9c9e4_JXLrCt"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -223,8 +223,8 @@
     "178957001005f422cd",
     "17895699243fe8d158",
     "178957048752928a69",
+    "178963159110fff91b",
     "1789571628255c629e",
-    "1789572259dc59f630",
-    "1789630919636a8f72"
+    "1789572259dc59f630"
   ]
 }
