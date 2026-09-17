@@ -176,6 +176,46 @@
       ],
       "settings": {}
     },
+    "blocks_eDcWXb": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_fbdc425_WHjKmb": {
+          "type": "ai_gen_block_fbdc425",
+          "settings": {
+            "heading": "Ein umfassendes Portfolio. Mehr Möglichkeiten",
+            "paragraph_one": "<p>Gesundheitsbedarf ist vielfältig, und unser Portfolio spiegelt das wider.</p><p>DocMed bietet ein breites Spektrum von (OTC) pharmazeutischen, medizinischen und Gesundheitsprodukten über Bereiche einschließlich Hygiene und Desinfektion, Diagnostik, Wundversorgung, Krankenhaus- und Praxisbedarf, Laborprodukte, Notfallmedizin, Medizingeräte, Gesundheit und Wohlbefinden und weitere.</p>",
+            "paragraph_two": "<p>Aber unsere Stärke geht über die Breite unseres Portfolios hinaus.</p><p>Unser internationales Lieferantennetzwerk und unser flexibles Beschaffungsmodell ermöglichen es uns, schnell auf verändernde Anforderungen zu reagieren, spezifische Produkte zu beschaffen und bei Bedarf erhebliche Mengen zu liefern</p>",
+            "desktop_width_percent": 100,
+            "content_width": 1400,
+            "section_height": 550,
+            "image_column_percent": "50",
+            "column_gap": 35,
+            "desktop_side_padding": 10,
+            "mobile_side_padding": 20,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "mobile_padding_top": 40,
+            "mobile_padding_bottom": 40,
+            "image_height": 500,
+            "mobile_image_height": 320,
+            "image_radius": 8,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 40,
+            "text_size_desktop": 17,
+            "text_size_mobile": 16,
+            "background_color": "#ffffff",
+            "heading_color": "#1d2e40",
+            "text_color": "#1d2e40"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_fbdc425_WHjKmb"
+      ],
+      "name": "Weltweit wachsen. Persönlich bleiben.",
+      "settings": {}
+    },
     "1789635657dc4d143c": {
       "type": "_blocks",
       "blocks": {
@@ -284,6 +324,7 @@
     "17895699243fe8d158",
     "17896350094c440529",
     "1789635901a937c807",
+    "blocks_eDcWXb",
     "1789635657dc4d143c",
     "1789571628255c629e"
   ]
