@@ -363,7 +363,7 @@
         "ai_gen_block_c446732_9HHN9y": {
           "type": "ai_gen_block_c446732",
           "settings": {
-            "section_width": 75,
+            "section_width": 100,
             "min_height": 520,
             "side_padding_desktop": 40,
             "side_padding_mobile": 20,
