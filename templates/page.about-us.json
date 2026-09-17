@@ -139,6 +139,43 @@
       "name": "Weltweit wachsen. Persönlich bleiben.",
       "settings": {}
     },
+    "1789635901a937c807": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_791d73f_ERxwTy": {
+          "type": "ai_gen_block_791d73f",
+          "settings": {
+            "heading": "Gesundheitswesen mit Zweck",
+            "paragraph_one": "<p>Das richtige Gesundheitsprodukt kann einen bedeutsamen Unterschied machen. Es kann einer Gesundheitsfachkraft helfen, bessere Versorgung zu leisten, ein Krankenhaus oder eine Arztpraxis mit dem zu versorgen, was es braucht, oder einer Person helfen, ihre Gesundheit zu schützen, zu verwalten oder zu verbessern.</p><p></p>",
+            "paragraph_two": "<p>Unsere Aufgabe besteht darin, diese Produkte und Lösungen zugänglich zu machen: zuverlässig, effizient und mit der Qualität, die das Gesundheitswesen fordert.</p><p>Diese Verantwortung prägt, wie wir unser Portfolio aufbauen, unsere Partner wählen und unsere Kunden bedienen. Denn im Gesundheitswesen ist Vertrauen mehr als Teil eines guten Service. Es ist das Fundament unserer Arbeit.</p><p></p>",
+            "section_width": 100,
+            "section_height": 450,
+            "desktop_side_padding": 40,
+            "mobile_side_padding": 20,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "text_column_width": 50,
+            "column_gap": 40,
+            "image_width": 100,
+            "image_height_desktop": 400,
+            "image_height_mobile": 280,
+            "image_radius": 8,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 40,
+            "text_size_desktop": 17,
+            "text_size_mobile": 16,
+            "background_color": "#ffffff",
+            "heading_color": "#1d2e40",
+            "text_color": "#334550"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_791d73f_ERxwTy"
+      ],
+      "settings": {}
+    },
     "1789635657dc4d143c": {
       "type": "_blocks",
       "blocks": {
@@ -193,6 +230,7 @@
       "block_order": [
         "ai_gen_block_26c89de_xDUQRK"
       ],
+      "disabled": true,
       "name": "Text and icon grid",
       "settings": {}
     },
@@ -245,6 +283,7 @@
     "178957001005f422cd",
     "17895699243fe8d158",
     "17896350094c440529",
+    "1789635901a937c807",
     "1789635657dc4d143c",
     "1789571628255c629e"
   ]
