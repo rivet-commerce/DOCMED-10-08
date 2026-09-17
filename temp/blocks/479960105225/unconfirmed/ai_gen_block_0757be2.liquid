@@ -1,6 +1,296 @@
+{% doc %}
+  @prompt
+    Erstelle eine zweispaltige Text-Bild-Section. Auf Desktop steht links der Textbereich mit großer Überschrift und mehreren Absätzen, rechts ein großes Bild. Beide Spalten sollen jeweils ca. 50 % einnehmen und gleich hoch sein. Das Bild füllt die rechte Fläche vollständig aus und wird nicht verzerrt.
+    
+    Im Shopify-Editor möchte ich folgende Einstellungen selbst anpassen können: Gesamtbreite der Section, Höhe der Section, Verhältnis zwischen Text- und Bildbreite, Überschriftgröße Desktop, Überschriftgröße Mobile, Innenabstände sowie Abstand nach oben und unten.
+    
+    Auf Mobile werden Text oben und Bild darunter angezeigt. Zusätzlich soll die Breite der Section auf Mobile separat einstellbar sein, damit ich den seitlichen Abstand zum Bildschirmrand selbst bestimmen kann. Überschrift, Text und Bild müssen frei bearbeitbar sein.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-image-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: {{ block.settings.margin_top }}px auto {{ block.settings.margin_bottom }}px;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__layout {
+    display: grid;
+    grid-template-columns: {{ block.settings.text_width_percent }}% calc(100% - {{ block.settings.text_width_percent }}%);
+    height: {{ block.settings.section_height }}px;
+    overflow: hidden;
+    background: #ffffff;
+    color: #1d2e40;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: {{ block.settings.content_padding }}px;
+    overflow-y: auto;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__heading {
+    margin: 0 0 20px;
+    font-size: {{ block.settings.heading_size_desktop }}px;
+    line-height: 1.12;
+    color: inherit;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__heading p,
+  .ai-text-image-{{ ai_gen_id }}__body p {
+    margin: 0 0 1em;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__heading p:last-child,
+  .ai-text-image-{{ ai_gen_id }}__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__media {
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    background: #eef2f4;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #52616b;
+  }
+
+  .ai-text-image-{{ ai_gen_id }}__placeholder svg {
+    width: 70%;
+    height: 70%;
+    max-width: 320px;
+    max-height: 320px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-text-image-{{ ai_gen_id }} {
+      width: {{ block.settings.mobile_width_percent }}%;
+    }
+
+    .ai-text-image-{{ ai_gen_id }}__layout {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .ai-text-image-{{ ai_gen_id }}__content {
+      min-height: {{ block.settings.mobile_text_height }}px;
+      padding: {{ block.settings.content_padding | times: 0.75 }}px;
+      order: 1;
+    }
+
+    .ai-text-image-{{ ai_gen_id }}__heading {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .ai-text-image-{{ ai_gen_id }}__media {
+      height: {{ block.settings.mobile_image_height }}px;
+      order: 2;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-text-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-image-{{ ai_gen_id }}__layout">
+    <div class="ai-text-image-{{ ai_gen_id }}__content">
+      {% if block.settings.heading != blank %}
+        <div class="ai-text-image-{{ ai_gen_id }}__heading">{{ block.settings.heading }}</div>
+      {% endif %}
+      {% if block.settings.body != blank %}
+        <div class="ai-text-image-{{ ai_gen_id }}__body">{{ block.settings.body }}</div>
+      {% endif %}
+    </div>
+    <div class="ai-text-image-{{ ai_gen_id }}__media">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 2000 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+      {% else %}
+        <div class="ai-text-image-{{ ai_gen_id }}__placeholder">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Text image section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<h2>Reliable solutions for your practice</h2>"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Text",
+      "default": "<p>Discover professional products and dependable support for everyday medical and laboratory work.</p><p>Our solutions combine practical use, quality and confidence.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "mobile_width_percent",
+      "label": "Mobile width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Section height",
+      "min": 300,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "text_width_percent",
+      "label": "Text width",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_height",
+      "label": "Mobile text height",
+      "min": 180,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 180,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "header",
+      "content": "Typography and spacing"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size desktop",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min": 20,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Inner spacing",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text image section"
+    }
+  ],
+  "tag": null,
+  "class": "text-image-section"
+}
 {% endschema %}
