@@ -353,12 +353,18 @@
             "icon_text_color": "#1d2e40",
             "icon_color": "#1d2e40",
             "divider_color": "#b8c2c9",
-            "label_1": "Your benefit",
-            "label_2": "Your benefit",
-            "label_3": "Your benefit",
-            "label_4": "Your benefit",
-            "label_5": "Your benefit",
-            "label_6": "Your benefit"
+            "icon_1": "shopify://shop_images/icons8-krankenhaus-100_246e8885-c0a5-468e-95de-d48347cd782e.png",
+            "label_1": "Krankenhäuser",
+            "icon_2": "shopify://shop_images/icons8-apotheke-100_29bf1c05-4ac4-4d63-931b-7781303545c8.png",
+            "label_2": "Apotheken",
+            "icon_3": "shopify://shop_images/icons8-stethoskop-100_e612ce44-b877-412a-9724-3846e8c5ac34.png",
+            "label_3": "Arztpraxen",
+            "icon_4": "shopify://shop_images/icons8-lkw-100.png",
+            "label_4": "Distributoren",
+            "icon_5": "shopify://shop_images/icons8-benutzergruppen-100_ed86805b-fa82-4fe2-a484-28fe18c45185.png",
+            "label_5": "Organisationen",
+            "icon_6": "shopify://shop_images/icons8-geschlechtsneutraler-benutzer-100.png",
+            "label_6": "Privat Kunden"
           },
           "blocks": {}
         }
