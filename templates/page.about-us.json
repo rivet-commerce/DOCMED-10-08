@@ -161,7 +161,7 @@
             "image_height_mobile": 280,
             "image_radius": 8,
             "heading_size_desktop": 44,
-            "heading_size_mobile": 40,
+            "heading_size_mobile": 34,
             "text_size_desktop": 17,
             "text_size_mobile": 16,
             "background_color": "#ffffff",
@@ -182,8 +182,8 @@
         "ai_gen_block_fbdc425_WHjKmb": {
           "type": "ai_gen_block_fbdc425",
           "settings": {
-            "heading": "Ein umfassendes Portfolio. Mehr Möglichkeiten",
-            "paragraph_one": "<p>Gesundheitsbedarf ist vielfältig, und unser Portfolio spiegelt das wider.</p><p>DocMed bietet ein breites Spektrum von (OTC) pharmazeutischen, medizinischen und Gesundheitsprodukten über Bereiche einschließlich Hygiene und Desinfektion, Diagnostik, Wundversorgung, Krankenhaus- und Praxisbedarf, Laborprodukte, Notfallmedizin, Medizingeräte, Gesundheit und Wohlbefinden und weitere.</p>",
+            "heading": "Ein umfassendes Portfolio. Mehr Möglichkeiten.",
+            "paragraph_one": "<p>Gesundheitsbedarf ist vielfältig, und unser Portfolio spiegelt das wider.</p><p>DocMed bietet ein breites Spektrum von freiverkäuflichen pharmazeutischen, medizinischen und Gesundheitsprodukten über Bereiche einschließlich Hygiene und Desinfektion, Diagnostik, Wundversorgung, Krankenhaus- und Praxisbedarf, Laborprodukte, Notfallmedizin, Medizingeräte, Gesundheit und Wohlbefinden und weitere.</p>",
             "paragraph_two": "<p>Aber unsere Stärke geht über die Breite unseres Portfolios hinaus.</p><p>Unser internationales Lieferantennetzwerk und unser flexibles Beschaffungsmodell ermöglichen es uns, schnell auf verändernde Anforderungen zu reagieren, spezifische Produkte zu beschaffen und bei Bedarf erhebliche Mengen zu liefern</p>",
             "desktop_width_percent": 100,
             "content_width": 1400,
