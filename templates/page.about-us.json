@@ -139,38 +139,60 @@
       "name": "Weltweit wachsen. Persönlich bleiben.",
       "settings": {}
     },
-    "178963159110fff91b": {
+    "1789635657dc4d143c": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_6f7c2a4_9V9eit": {
-          "type": "ai_gen_block_6f7c2a4",
+        "ai_gen_block_26c89de_xDUQRK": {
+          "type": "ai_gen_block_26c89de",
           "settings": {
-            "eyebrow": "",
-            "title": "Internationale Reichweite. Persönlicher Service.",
-            "body": "<p>Unsere Kunden sind vielfältig, und das sind auch ihre Bedürfnisse. Ein Krankenhaus hat andere Anforderungen als ein Distributor. Eine Arztpraxis hat andere Prioritäten als ein privater Kunde.</p><p><strong>Wir verstehen diese Unterschiede.</strong></p><p>Unsere digitalen und effizienten Prozesse ermöglichen es uns, über Märkte hinweg zu operieren und schnell zu reagieren, während unser persönlicher Ansatz uns nah bei den Menschen und Organisationen, denen wir dienen, hält.</p><p>Ob eine Anforderung unkompliziert oder komplexer ist, unser Ziel ist es, die Zusammenarbeit mit DocMed einfach, reaktiv und zuverlässig zu gestalten.</p><p>Denn egal wie weit unsere Reichweite sich erstreckt, unsere Kunden fühlen sich niemals wie nur eine weitere Bestellnummer. Wir glauben, dass langfristige Beziehungen durch Vertrauen, Zuverlässigkeit und echtes Verständnis dafür aufgebaut werden, was unsere Kunden brauchen.</p><p></p>",
-            "desktop_width_percent": 50,
-            "mobile_width_percent": 90,
-            "image_1": "shopify://shop_images/icons8-krankenhaus-100_246e8885-c0a5-468e-95de-d48347cd782e.png",
-            "label_1": "Krankenhäuser",
-            "image_2": "shopify://shop_images/icons8-stethoskop-100_e612ce44-b877-412a-9724-3846e8c5ac34.png",
-            "label_2": "Arztpraxen",
-            "image_3": "shopify://shop_images/icons8-apotheke-100_29bf1c05-4ac4-4d63-931b-7781303545c8.png",
-            "label_3": "Apotheken",
-            "image_4": "shopify://shop_images/icons8-lkw-100.png",
-            "label_4": "Distributoren",
-            "image_5": "shopify://shop_images/icons8-benutzergruppen-100_ed86805b-fa82-4fe2-a484-28fe18c45185.png",
-            "label_5": "Organisationen",
-            "image_6": "shopify://shop_images/icons8-geschlechtsneutraler-benutzer-100.png",
-            "label_6": "Priavte Kunden"
+            "eyebrow": "Unsere Vorteile",
+            "heading": "Verlässlich ausgestattet",
+            "copy": "<p>Entdecken Sie zuverlässige Lösungen für Praxis, Labor und Ausbildung.</p><p>Wir unterstützen Sie mit ausgewählten Produkten und persönlicher Beratung.</p>",
+            "desktop_width_percent": 100,
+            "section_height": 480,
+            "desktop_side_padding": 20,
+            "mobile_side_padding": 16,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "text_column_width": 45,
+            "column_gap": 60,
+            "mobile_content_gap": 35,
+            "icon_area_color": "#ffffff",
+            "icon_area_radius": 8,
+            "icon_area_padding": 20,
+            "icon_size": 48,
+            "icon_color": "#1d2e40",
+            "icon_treatment": "none",
+            "item_spacing": 12,
+            "mobile_item_spacing": 10,
+            "divider_color": "#d9e0e5",
+            "divider_thickness": 1,
+            "heading_font": "poppins_n4",
+            "eyebrow_size": 12,
+            "heading_size_desktop": 48,
+            "heading_size_mobile": 32,
+            "copy_size_desktop": 17,
+            "copy_size_mobile": 16,
+            "label_size": 15,
+            "background_color": "#f5f8fa",
+            "eyebrow_color": "#1d2e40",
+            "heading_color": "#1d2e40",
+            "text_color": "#1d2e40",
+            "copy_color": "#405466",
+            "label_color": "#1d2e40",
+            "label_1": "Zuverlässige Qualität",
+            "label_2": "Schnelle Lieferung",
+            "label_3": "Persönliche Beratung",
+            "label_4": "Geprüfte Produkte",
+            "label_5": "Für Profis entwickelt",
+            "label_6": "Kompetenter Service"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_6f7c2a4_9V9eit"
+        "ai_gen_block_26c89de_xDUQRK"
       ],
-      "disabled": true,
-      "name": "Text and image grid",
       "settings": {}
     },
     "1789571628255c629e": {
@@ -222,7 +244,7 @@
     "178957001005f422cd",
     "17895699243fe8d158",
     "17896350094c440529",
-    "178963159110fff91b",
+    "1789635657dc4d143c",
     "1789571628255c629e"
   ]
 }
