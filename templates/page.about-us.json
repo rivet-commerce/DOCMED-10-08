@@ -24,31 +24,46 @@
     "178957001005f422cd": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_06285d6_NwYjFi": {
-          "type": "ai_gen_block_06285d6",
+        "ai_gen_block_cc88d0a_H4tJAt": {
+          "type": "ai_gen_block_cc88d0a",
           "settings": {
             "eyebrow": "Weltweit wachsen. Persönlich bleiben.",
             "heading": "Über DocMed",
-            "paragraph": "<p>Für uns ist Gesundheitswesen zutiefst persönlich. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist, ein Patient, eine Gesundheitsfachkraft, ein Betreuer oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte.</p>",
+            "body": "Für uns ist Gesundheitswesen zutiefst persönlich. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist – ein Patient, ein Gesundheitsfachkraft, ein Betreuer oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte.",
             "closing": "Bei DocMed verlieren wir das niemals aus den Augen.",
-            "image_position": "center center",
-            "desktop_width_percent": 50,
-            "desktop_image_height": 500,
-            "image_right_margin": 20,
-            "column_gap": 25,
-            "padding_vertical": 40,
-            "mobile_padding": 30,
+            "desktop_width_percent": 100,
+            "content_max_width": 1500,
+            "section_height": 650,
+            "desktop_side_padding": 20,
+            "mobile_side_padding": 20,
+            "space_top": 80,
+            "space_bottom": 80,
+            "text_column_percent": 50,
+            "column_gap": 72,
+            "mobile_content_gap": 36,
+            "eyebrow_size": 13,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 40,
+            "body_size_desktop": 17,
+            "body_size_mobile": 16,
+            "image_width": 700,
+            "image_height": 600,
+            "image_height_mobile": 360,
             "image_radius": 8,
-            "background_color": "#ffffff",
-            "text_color": "#1d2e40",
-            "heading_color": "#011f2d",
-            "eyebrow_color": "#1d2e40"
+            "background_color": "#FFFFFF",
+            "text_color": "#1D2E40",
+            "eyebrow_color": "#7FC7CF",
+            "heading_color": "#1D2E40",
+            "body_color": "#1D2E40",
+            "closing_color": "#1D2E40",
+            "image_placeholder_color": "#F1F5F7",
+            "placeholder_color": "#6B7C8C"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_06285d6_NwYjFi"
+        "ai_gen_block_cc88d0a_H4tJAt"
       ],
       "name": "About Us hero",
       "settings": {}
