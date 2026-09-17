@@ -1,6 +1,69 @@
+{% doc %}
+  @prompt
+    Erstelle eine zweispaltige Text-Bild-Section. Auf Desktop steht links der Textbereich mit großer Überschrift und mehreren Absätzen, rechts ein großes Bild. Beide Spalten sollen ungefähr 50 % einnehmen und gleich hoch sein.
+    
+    Im Shopify-Editor möchte ich Gesamtbreite und Höhe der Section, Verhältnis der Spalten, Innenabstände, Abstände oben/unten sowie Überschriftgröße für Desktop und Mobile separat einstellen können. Zusätzlich müssen Hintergrundfarbe, Überschriftfarbe und Textfarbe frei wählbar sein.
+    
+    Auf Mobile werden Text oben und Bild darunter dargestellt. Der gesamte Inhalt inklusive Überschrift und Fließtext soll zentriert ausgerichtet sein. Die Section-Breite bzw. der seitliche Abstand auf Mobile muss separat einstellbar sein.
+    
+    Überschrift, Texte und Bild sind im Shopify-Editor frei bearbeitbar.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-text-image-{{ ai_gen_id }} { display:block; width:{{ block.settings.desktop_width_percent }}%; max-width:100%; margin:{{ block.settings.spacing_top }}px auto {{ block.settings.spacing_bottom }}px; background:{{ block.settings.background_color }}; color:{{ block.settings.text_color }}; }
+  .ai-text-image-{{ ai_gen_id }}__layout { display:grid; grid-template-columns:minmax(0,{{ block.settings.text_column_percent }}fr) minmax(0,{{ block.settings.image_column_percent }}fr); min-height:{{ block.settings.section_height }}px; }
+  .ai-text-image-{{ ai_gen_id }}__content { display:flex; flex-direction:column; justify-content:center; padding:{{ block.settings.desktop_padding }}px; text-align:left; }
+  .ai-text-image-{{ ai_gen_id }}__heading { margin:0 0 24px; color:{{ block.settings.heading_color }}; font-size:{{ block.settings.heading_size_desktop }}px; line-height:1.1; }
+  .ai-text-image-{{ ai_gen_id }}__heading p,.ai-text-image-{{ ai_gen_id }}__copy p { margin:0 0 1em; }
+  .ai-text-image-{{ ai_gen_id }}__heading p:last-child,.ai-text-image-{{ ai_gen_id }}__copy p:last-child { margin-bottom:0; }
+  .ai-text-image-{{ ai_gen_id }}__copy { color:{{ block.settings.text_color }}; font-size:{{ block.settings.body_size }}px; line-height:1.6; }
+  .ai-text-image-{{ ai_gen_id }}__media,.ai-text-image-{{ ai_gen_id }}__placeholder { min-height:{{ block.settings.section_height }}px; width:100%; overflow:hidden; }
+  .ai-text-image-{{ ai_gen_id }}__media img { display:block; width:100%; height:100%; min-height:{{ block.settings.section_height }}px; object-fit:cover; }
+  .ai-text-image-{{ ai_gen_id }}__placeholder { position:relative; display:flex; align-items:center; justify-content:center; background:#eef2f4; color:#53636d; }
+  .ai-text-image-{{ ai_gen_id }}__placeholder svg { width:100%; height:100%; max-width:420px; max-height:420px; }
+  .ai-text-image-{{ ai_gen_id }}__empty-state { position:absolute; bottom:20px; left:20px; right:20px; text-align:center; font-size:14px; }
+  @media screen and (max-width:749px) { .ai-text-image-{{ ai_gen_id }} { width:calc(100% - {{ block.settings.mobile_side_spacing | times: 2 }}px); margin-top:{{ block.settings.spacing_top | times: 0.7 }}px; margin-bottom:{{ block.settings.spacing_bottom | times: 0.7 }}px; } .ai-text-image-{{ ai_gen_id }}__layout { display:flex; flex-direction:column; min-height:0; } .ai-text-image-{{ ai_gen_id }}__content { min-height:{{ block.settings.mobile_text_height }}px; padding:{{ block.settings.mobile_padding }}px; text-align:center; align-items:center; } .ai-text-image-{{ ai_gen_id }}__heading { font-size:{{ block.settings.heading_size_mobile }}px; } .ai-text-image-{{ ai_gen_id }}__media,.ai-text-image-{{ ai_gen_id }}__placeholder,.ai-text-image-{{ ai_gen_id }}__media img { min-height:{{ block.settings.mobile_image_height }}px; height:{{ block.settings.mobile_image_height }}px; } }
+{% endstyle %}
+<div class="ai-text-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-image-{{ ai_gen_id }}__layout">
+    <div class="ai-text-image-{{ ai_gen_id }}__content">
+      {% if block.settings.heading != blank %}<div class="ai-text-image-{{ ai_gen_id }}__heading">{{ block.settings.heading }}</div>{% endif %}
+      {% if block.settings.body_text != blank %}<div class="ai-text-image-{{ ai_gen_id }}__copy">{{ block.settings.body_text }}</div>{% endif %}
+    </div>
+    {% if block.settings.image != blank %}<div class="ai-text-image-{{ ai_gen_id }}__media"><img src="{{ block.settings.image | image_url: width: 1800 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"></div>{% else %}<div class="ai-text-image-{{ ai_gen_id }}__placeholder">{{ 'image' | placeholder_svg_tag }}<div class="ai-text-image-{{ ai_gen_id }}__empty-state">Füge im Shopify-Editor ein Bild hinzu.</div></div>{% endif %}
+  </div>
+</div>
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name":"Text-Bild-Section",
+  "settings":[
+    {"type":"header","content":"Inhalt"},
+    {"type":"richtext","id":"heading","label":"Überschrift","default":"<h2>Verlässliche Lösungen für Ihre Praxis</h2>"},
+    {"type":"richtext","id":"body_text","label":"Text","default":"<p>Entdecken Sie professionelle Produkte und kompetente Unterstützung für Ihre diagnostischen Anforderungen.</p><p>Wir stehen für Qualität, Sicherheit und zuverlässigen Service.</p>"},
+    {"type":"image_picker","id":"image","label":"Bild"},
+    {"type":"header","content":"Layout"},
+    {"type":"range","id":"desktop_width_percent","label":"Gesamtbreite Desktop","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"range","id":"section_height","label":"Höhe Desktop","min":300,"max":900,"step":25,"unit":"px","default":550},
+    {"type":"range","id":"text_column_percent","label":"Textspalte","min":1,"max":3,"step":1,"default":1},
+    {"type":"range","id":"image_column_percent","label":"Bildspalte","min":1,"max":3,"step":1,"default":1},
+    {"type":"range","id":"desktop_padding","label":"Innenabstand Desktop","min":20,"max":120,"step":10,"unit":"px","default":60},
+    {"type":"range","id":"spacing_top","label":"Abstand oben","min":0,"max":120,"step":10,"unit":"px","default":40},
+    {"type":"range","id":"spacing_bottom","label":"Abstand unten","min":0,"max":120,"step":10,"unit":"px","default":40},
+    {"type":"header","content":"Mobile"},
+    {"type":"range","id":"mobile_side_spacing","label":"Seitlicher Abstand","min":0,"max":40,"step":5,"unit":"px","default":15},
+    {"type":"range","id":"mobile_padding","label":"Innenabstand Mobile","min":16,"max":60,"step":4,"unit":"px","default":28},
+    {"type":"range","id":"mobile_text_height","label":"Texthöhe Mobile","min":180,"max":600,"step":20,"unit":"px","default":300},
+    {"type":"range","id":"mobile_image_height","label":"Bildhöhe Mobile","min":180,"max":600,"step":20,"unit":"px","default":320},
+    {"type":"header","content":"Typografie und Farben"},
+    {"type":"range","id":"heading_size_desktop","label":"Überschrift Desktop","min":24,"max":72,"step":4,"unit":"px","default":48},
+    {"type":"range","id":"heading_size_mobile","label":"Überschrift Mobile","min":22,"max":52,"step":2,"unit":"px","default":32},
+    {"type":"range","id":"body_size","label":"Textgröße","min":14,"max":24,"step":1,"unit":"px","default":17},
+    {"type":"color","id":"background_color","label":"Hintergrund","default":"#ffffff"},
+    {"type":"color","id":"heading_color","label":"Überschrift","default":"#1d2e40"},
+    {"type":"color","id":"text_color","label":"Text","default":"#1d2e40"}
+  ],
+  "presets":[{"name":"Text-Bild-Section"}],
+  "tag":null,
+  "class":"text-image-section"
+}
 {% endschema %}
