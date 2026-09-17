@@ -414,10 +414,47 @@
             "divider_width": 1
           },
           "blocks": {}
+        },
+        "ai_gen_block_4b69c2e_ddjNXe": {
+          "type": "ai_gen_block_4b69c2e",
+          "settings": {
+            "heading": "Weltweit wachsen. Persöhnlich bleiben",
+            "body_text": "<p>Unsere Märkte werden sich weiter erweitern. Unser Portfolio wird weiter wachsen. Wir werden mehr unserer eigenen Produkte entwickeln und weiterhin neue Technologien annehmen.</p><p>Aber der Zweck hinter unserem Wachstum bleibt zutiefst menschlich: Menschen und Gesundheitsorganisationen dabei zu helfen, auf Produkte und Lösungen zuzugreifen, die einen sinnvollen Unterschied für Gesundheit und Wohlbefinden machen können.</p>",
+            "claim": "",
+            "max_section_width": 1500,
+            "max_text_width": 900,
+            "min_height": 300,
+            "text_alignment": "center",
+            "desktop_side_padding": 10,
+            "tablet_side_padding": 10,
+            "mobile_side_padding": 20,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 32,
+            "body_size_desktop": 18,
+            "body_size_mobile": 16,
+            "body_line_height": 1.6,
+            "paragraph_spacing": 20,
+            "heading_text_gap": 32,
+            "heading_color": "#1D2E40",
+            "body_text_color": "#1D2E40",
+            "background_color": "#FFFFFF",
+            "accent_width": 80,
+            "accent_thickness": 2,
+            "accent_spacing": 50,
+            "accent_color": "#7FC7CF",
+            "claim_size": 12,
+            "claim_letter_spacing": 2,
+            "claim_spacing": 24,
+            "claim_color": "#1D2E40"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_8f7e947_Dpzg8A"
+        "ai_gen_block_8f7e947_Dpzg8A",
+        "ai_gen_block_4b69c2e_ddjNXe"
       ],
       "name": "Mission Vision Grwoth",
       "settings": {}
