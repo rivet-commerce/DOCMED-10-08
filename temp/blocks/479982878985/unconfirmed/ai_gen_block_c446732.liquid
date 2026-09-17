@@ -1,6 +1,162 @@
+{% doc %}
+  @prompt
+    Erstelle eine vollständig responsive Motto-/Philosophie-Section für eine moderne „Über uns“-Seite. Die Section muss sich exakt am gleichen Content-Raster und denselben Seitenabständen wie alle anderen Sections orientieren.
+    
+    Desktop: Die Section besteht aus 3 Bereichen nebeneinander. Links stehen eine kleine Eyebrow in Großbuchstaben, die große Hauptüberschrift „Global in unserem Ausmaß. Persönlich in unserem Ansatz.“ und ein kurzer Beschreibungstext. In der Mitte befindet sich ein großes, frei auswählbares Bild, z. B. eine Weltkugel. Rechts stehen zwei Informationsblöcke untereinander. Jeder Block enthält links ein frei auswählbares Icon und rechts eine Überschrift mit Beschreibung. Zwischen den beiden Blöcken befindet sich eine feine horizontale Trennlinie. Keine Karten oder sichtbaren äußeren Rahmen.
+    
+    Mobile: Alles wird untereinander angeordnet: zuerst Eyebrow, Hauptüberschrift und Beschreibung, danach das große Bild und anschließend die beiden Informationsblöcke. Die Informationsblöcke bleiben als Icon links + Überschrift und Text rechts aufgebaut. Zwischen ihnen bleibt die dezente horizontale Trennlinie. Alle Elemente verwenden exakt dieselbe mobile Content-Breite und denselben Seitenabstand. Nichts darf überlaufen oder horizontal scrollen.
+    
+    Im Shopify-Editor muss alles individuell anpassbar sein: Section-Breite und Mindesthöhe, Seitenabstand Desktop und Mobile, Padding oben/unten, Abstände zwischen den Bereichen, Verhältnis der drei Desktop-Spalten, Bildbreite und -höhe Desktop/Mobile, Bild-Rundung, Eyebrow-Text und -Größe, Hauptüberschrift und Schriftgröße Desktop/Mobile, Beschreibung und Textgröße Desktop/Mobile, beide Icons inklusive Icon-Größe Desktop/Mobile, beide Überschriften und Beschreibungen, Abstände innerhalb der Informationsblöcke sowie Farbe/Stärke der Trennlinie.
+    
+    Zusätzlich müssen Section-Hintergrundfarbe, Eyebrow-Farbe, Überschriftfarbe, Textfarbe und Farben der beiden Icon-Hintergründe einstellbar sein.
+    
+    Die Section muss für Desktop, Tablet und Mobile vollständig responsiv sein. Größen dürfen nicht einfach starr übernommen werden, sondern müssen sich sinnvoll an die Bildschirmbreite anpassen. Auf Mobile müssen insbesondere Überschrift, Bild und Icons automatisch kleiner dargestellt werden können.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-philosophy-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    box-sizing: border-box;
+  }
+  .ai-philosophy-{{ ai_gen_id }}, .ai-philosophy-{{ ai_gen_id }} * { box-sizing: border-box; }
+  .ai-philosophy__inner-{{ ai_gen_id }} {
+    width: {{ block.settings.section_width }}%;
+    max-width: 100%;
+    min-height: {{ block.settings.min_height }}px;
+    margin: 0 auto;
+    padding: {{ block.settings.padding_top }}px {{ block.settings.side_padding_desktop }}px {{ block.settings.padding_bottom }}px;
+    display: grid;
+    grid-template-columns: minmax(0, {{ block.settings.column_one }}fr) minmax(0, {{ block.settings.column_two }}fr) minmax(0, {{ block.settings.column_three }}fr);
+    gap: clamp(24px, {{ block.settings.area_gap }}px, 96px);
+    align-items: center;
+  }
+  .ai-philosophy__eyebrow-{{ ai_gen_id }} { margin: 0 0 {{ block.settings.text_gap }}px; color: {{ block.settings.eyebrow_color }}; font-size: {{ block.settings.eyebrow_size }}px; line-height: 1.25; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+  .ai-philosophy__title-{{ ai_gen_id }} { margin: 0 0 {{ block.settings.text_gap }}px; color: {{ block.settings.heading_color }}; font-size: clamp(28px, {{ block.settings.heading_size_desktop }}px, 64px); line-height: 1.08; letter-spacing: -.025em; }
+  .ai-philosophy__description-{{ ai_gen_id }} { margin: 0; color: {{ block.settings.text_color }}; font-size: clamp(15px, {{ block.settings.description_size_desktop }}px, 24px); line-height: 1.6; }
+  .ai-philosophy__media-{{ ai_gen_id }} { width: 100%; max-width: {{ block.settings.image_width_desktop }}px; height: {{ block.settings.image_height_desktop }}px; justify-self: center; overflow: hidden; border-radius: {{ block.settings.image_radius }}px; }
+  .ai-philosophy__media-{{ ai_gen_id }} img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ai-philosophy__placeholder-{{ ai_gen_id }} { width: 100%; height: 100%; position: relative; background: #eef3f5; color: #5b6870; display: flex; align-items: center; justify-content: center; }
+  .ai-philosophy__placeholder-{{ ai_gen_id }} svg { width: 100%; height: 100%; }
+  .ai-philosophy__empty-{{ ai_gen_id }} { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center; font-size: 13px; }
+  .ai-philosophy__items-{{ ai_gen_id }} { display: flex; flex-direction: column; }
+  .ai-philosophy__item-{{ ai_gen_id }} { display: grid; grid-template-columns: {{ block.settings.icon_size_desktop }}px minmax(0, 1fr); gap: {{ block.settings.item_gap }}px; align-items: start; padding: {{ block.settings.item_padding }}px 0; }
+  .ai-philosophy__item-{{ ai_gen_id }} + .ai-philosophy__item-{{ ai_gen_id }} { border-top: {{ block.settings.divider_width }}px solid {{ block.settings.divider_color }}; }
+  .ai-philosophy__icon-{{ ai_gen_id }} { width: {{ block.settings.icon_size_desktop }}px; height: {{ block.settings.icon_size_desktop }}px; border-radius: 50%; overflow: hidden; background: {{ block.settings.icon_background_one }}; display: flex; align-items: center; justify-content: center; }
+  .ai-philosophy__item:last-child .ai-philosophy__icon-{{ ai_gen_id }} { background: {{ block.settings.icon_background_two }}; }
+  .ai-philosophy__icon-{{ ai_gen_id }} img { width: 100%; height: 100%; object-fit: contain; }
+  .ai-philosophy__icon-placeholder-{{ ai_gen_id }} { width: 55%; height: 55%; border: 2px solid currentColor; border-radius: 50%; }
+  .ai-philosophy__item-title-{{ ai_gen_id }} { margin: 0 0 8px; color: {{ block.settings.heading_color }}; font-size: {{ block.settings.item_heading_size }}px; line-height: 1.25; }
+  .ai-philosophy__item-text-{{ ai_gen_id }} { margin: 0; color: {{ block.settings.text_color }}; font-size: {{ block.settings.item_text_size }}px; line-height: 1.55; }
+  @media screen and (max-width: 989px) {
+    .ai-philosophy__inner-{{ ai_gen_id }} { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; }
+    .ai-philosophy__copy-{{ ai_gen_id }} { grid-column: 1 / -1; }
+    .ai-philosophy__items-{{ ai_gen_id }} { align-self: center; }
+  }
+  @media screen and (max-width: 749px) {
+    .ai-philosophy__inner-{{ ai_gen_id }} { width: 100%; min-height: 0; padding: {{ block.settings.padding_top_mobile }}px {{ block.settings.side_padding_mobile }}px {{ block.settings.padding_bottom_mobile }}px; display: flex; flex-direction: column; align-items: stretch; gap: {{ block.settings.area_gap_mobile }}px; }
+    .ai-philosophy__copy-{{ ai_gen_id }} { width: 100%; }
+    .ai-philosophy__eyebrow-{{ ai_gen_id }} { font-size: {{ block.settings.eyebrow_size_mobile }}px; }
+    .ai-philosophy__title-{{ ai_gen_id }} { font-size: {{ block.settings.heading_size_mobile }}px; }
+    .ai-philosophy__description-{{ ai_gen_id }} { font-size: {{ block.settings.description_size_mobile }}px; }
+    .ai-philosophy__media-{{ ai_gen_id }} { width: 100%; max-width: 100%; height: {{ block.settings.image_height_mobile }}px; }
+    .ai-philosophy__item-{{ ai_gen_id }} { grid-template-columns: {{ block.settings.icon_size_mobile }}px minmax(0, 1fr); }
+    .ai-philosophy__icon-{{ ai_gen_id }} { width: {{ block.settings.icon_size_mobile }}px; height: {{ block.settings.icon_size_mobile }}px; }
+  }
+{% endstyle %}
+
+<section class="ai-philosophy-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-philosophy__inner-{{ ai_gen_id }}">
+    <div class="ai-philosophy__copy-{{ ai_gen_id }}">
+      {% if block.settings.eyebrow != blank %}<p class="ai-philosophy__eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+      {% if block.settings.heading != blank %}<h2 class="ai-philosophy__title-{{ ai_gen_id }}">{{ block.settings.heading | escape }}</h2>{% endif %}
+      {% if block.settings.description != blank %}<div class="ai-philosophy__description-{{ ai_gen_id }}">{{ block.settings.description }}</div>{% endif %}
+    </div>
+    <div class="ai-philosophy__media-{{ ai_gen_id }}">
+      {% if block.settings.image %}<img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">{% else %}<div class="ai-philosophy__placeholder-{{ ai_gen_id }}">{{ 'image' | placeholder_svg_tag }}<span class="ai-philosophy__empty-{{ ai_gen_id }}">Bild für die Philosophie hinzufügen</span></div>{% endif %}
+    </div>
+    <div class="ai-philosophy__items-{{ ai_gen_id }}">
+      {% for i in (1..2) %}
+        {% liquid
+          assign icon_key = 'icon_' | append: i
+          assign title_key = 'item_title_' | append: i
+          assign text_key = 'item_text_' | append: i
+          assign icon = block.settings[icon_key]
+          assign item_title = block.settings[title_key]
+          assign item_text = block.settings[text_key]
+        %}
+        <div class="ai-philosophy__item-{{ ai_gen_id }}">
+          <div class="ai-philosophy__icon-{{ ai_gen_id }}">{% if icon %}<img src="{{ icon | image_url: width: 160 }}" alt="" loading="lazy">{% else %}<span class="ai-philosophy__icon-placeholder-{{ ai_gen_id }}"></span>{% endif %}</div>
+          <div><h3 class="ai-philosophy__item-title-{{ ai_gen_id }}">{{ item_title | escape }}</h3><div class="ai-philosophy__item-text-{{ ai_gen_id }}">{{ item_text }}</div></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Motto und Philosophie",
+  "tag": null,
+  "class": "philosophy-block",
+  "settings": [
+    {"type":"header","content":"Layout"},
+    {"type":"range","id":"section_width","label":"Section width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"range","id":"min_height","label":"Minimum height","min":200,"max":900,"step":10,"unit":"px","default":520},
+    {"type":"range","id":"side_padding_desktop","label":"Desktop side padding","min":0,"max":120,"step":4,"unit":"px","default":40},
+    {"type":"range","id":"side_padding_mobile","label":"Mobile side padding","min":12,"max":48,"step":4,"unit":"px","default":20},
+    {"type":"range","id":"padding_top","label":"Desktop top padding","min":0,"max":160,"step":8,"unit":"px","default":72},
+    {"type":"range","id":"padding_bottom","label":"Desktop bottom padding","min":0,"max":160,"step":8,"unit":"px","default":72},
+    {"type":"range","id":"padding_top_mobile","label":"Mobile top padding","min":0,"max":100,"step":4,"unit":"px","default":48},
+    {"type":"range","id":"padding_bottom_mobile","label":"Mobile bottom padding","min":0,"max":100,"step":4,"unit":"px","default":48},
+    {"type":"range","id":"area_gap","label":"Desktop area gap","min":16,"max":80,"step":4,"unit":"px","default":32},
+    {"type":"range","id":"area_gap_mobile","label":"Mobile area gap","min":16,"max":64,"step":4,"unit":"px","default":32},
+    {"type":"range","id":"column_one","label":"Left column ratio","min":1,"max":5,"step":1,"default":2},
+    {"type":"range","id":"column_two","label":"Middle column ratio","min":1,"max":5,"step":1,"default":2},
+    {"type":"range","id":"column_three","label":"Right column ratio","min":1,"max":5,"step":1,"default":2},
+    {"type":"header","content":"Content"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Unsere Philosophie"},
+    {"type":"text","id":"heading","label":"Heading","default":"Global in unserem Ausmaß. Persönlich in unserem Ansatz."},
+    {"type":"richtext","id":"description","label":"Description","default":"<p>Wir verbinden globale Perspektiven mit persönlicher Beratung und schaffen Lösungen, auf die sich Menschen verlassen können.</p>"},
+    {"type":"image_picker","id":"image","label":"Main image"},
+    {"type":"image_picker","id":"icon_1","label":"First icon"},
+    {"type":"text","id":"item_title_1","label":"First title","default":"Global gedacht"},
+    {"type":"richtext","id":"item_text_1","label":"First description","default":"<p>Wir denken über Grenzen hinweg und bringen Wissen, Qualität und Verlässlichkeit zusammen.</p>"},
+    {"type":"image_picker","id":"icon_2","label":"Second icon"},
+    {"type":"text","id":"item_title_2","label":"Second title","default":"Persönlich begleitet"},
+    {"type":"richtext","id":"item_text_2","label":"Second description","default":"<p>Wir hören zu, beraten individuell und bleiben auch nach dem Kauf an Ihrer Seite.</p>"},
+    {"type":"header","content":"Typography"},
+    {"type":"range","id":"eyebrow_size","label":"Eyebrow size","min":10,"max":24,"step":1,"unit":"px","default":12},
+    {"type":"range","id":"eyebrow_size_mobile","label":"Mobile eyebrow size","min":10,"max":20,"step":1,"unit":"px","default":11},
+    {"type":"range","id":"heading_size_desktop","label":"Desktop heading size","min":28,"max":64,"step":2,"unit":"px","default":48},
+    {"type":"range","id":"heading_size_mobile","label":"Mobile heading size","min":24,"max":44,"step":2,"unit":"px","default":32},
+    {"type":"range","id":"description_size_desktop","label":"Desktop description size","min":14,"max":24,"step":1,"unit":"px","default":17},
+    {"type":"range","id":"description_size_mobile","label":"Mobile description size","min":14,"max":20,"step":1,"unit":"px","default":16},
+    {"type":"range","id":"text_gap","label":"Text spacing","min":8,"max":32,"step":4,"unit":"px","default":16},
+    {"type":"range","id":"item_heading_size","label":"Info heading size","min":14,"max":26,"step":1,"unit":"px","default":18},
+    {"type":"range","id":"item_text_size","label":"Info text size","min":13,"max":20,"step":1,"unit":"px","default":15},
+    {"type":"header","content":"Image and info blocks"},
+    {"type":"range","id":"image_width_desktop","label":"Desktop image width","min":200,"max":700,"step":10,"unit":"px","default":520},
+    {"type":"range","id":"image_height_desktop","label":"Desktop image height","min":200,"max":700,"step":10,"unit":"px","default":460},
+    {"type":"range","id":"image_height_mobile","label":"Mobile image height","min":180,"max":500,"step":10,"unit":"px","default":300},
+    {"type":"range","id":"image_radius","label":"Image rounding","min":0,"max":40,"step":2,"unit":"px","default":8},
+    {"type":"range","id":"icon_size_desktop","label":"Desktop icon size","min":32,"max":96,"step":4,"unit":"px","default":56},
+    {"type":"range","id":"icon_size_mobile","label":"Mobile icon size","min":28,"max":72,"step":4,"unit":"px","default":44},
+    {"type":"range","id":"item_gap","label":"Info internal gap","min":8,"max":32,"step":4,"unit":"px","default":16},
+    {"type":"range","id":"item_padding","label":"Info block spacing","min":8,"max":48,"step":4,"unit":"px","default":20},
+    {"type":"range","id":"divider_width","label":"Divider thickness","min":1,"max":4,"step":1,"unit":"px","default":1},
+    {"type":"header","content":"Colors"},
+    {"type":"color","id":"background_color","label":"Background","default":"#ffffff"},
+    {"type":"color","id":"eyebrow_color","label":"Eyebrow","default":"#1d2e40"},
+    {"type":"color","id":"heading_color","label":"Heading","default":"#1d2e40"},
+    {"type":"color","id":"text_color","label":"Text","default":"#40505d"},
+    {"type":"color","id":"icon_background_one","label":"First icon background","default":"#dceff1"},
+    {"type":"color","id":"icon_background_two","label":"Second icon background","default":"#e9eef2"},
+    {"type":"color","id":"divider_color","label":"Divider","default":"#cbd5da"}
+  ],
+  "presets": [{"name":"Motto und Philosophie"}]
+}
 {% endschema %}
