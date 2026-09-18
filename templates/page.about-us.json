@@ -266,7 +266,7 @@
             "mobile_min_height": 500,
             "desktop_side_padding": 40,
             "mobile_side_padding": 20,
-            "padding_vertical": 80,
+            "padding_vertical": 0,
             "mobile_padding_vertical": 50,
             "text_column_ratio": 2,
             "icon_column_ratio": 3,
