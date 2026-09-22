@@ -175,6 +175,22 @@
             "logo_title": ""
           }
         },
+        "logo_image_yaQkVB": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/embecta_937f747c-5cc6-4c2e-baa5-66d16dabc20d.png",
+            "link": "shopify://collections/embecta",
+            "logo_title": ""
+          }
+        },
+        "logo_image_xftVfT": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Becton_Dickson_7162cb9c-7847-4ec6-b2b4-8e7c0db3aec1.png",
+            "link": "shopify://collections/bd-becton-dickinson",
+            "logo_title": ""
+          }
+        },
         "logo_image_iW8WJG": {
           "type": "logo_image",
           "settings": {
@@ -252,6 +268,8 @@
         "logo_image_QKRCtr",
         "logo_image_AwXje8",
         "logo_image_WRmKmT",
+        "logo_image_yaQkVB",
+        "logo_image_xftVfT",
         "logo_image_iW8WJG",
         "logo_image_KGxt8L",
         "logo_image_7UDiWc",
