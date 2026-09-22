@@ -207,51 +207,11 @@
             "logo_title": ""
           }
         },
-        "logo_image_hX3ywt": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/nobamed-verbandsmaterial.png",
-            "link": "shopify://collections/nobamed",
-            "logo_title": ""
-          }
-        },
-        "logo_image_4iADWW": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Logos_Section.png",
-            "link": "shopify://collections/wundmed",
-            "logo_title": ""
-          }
-        },
         "logo_image_QKRCtr": {
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/B._Braun.png",
             "link": "shopify://collections/b-braun",
-            "logo_title": ""
-          }
-        },
-        "logo_image_6gwQBa": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/3M.png",
-            "link": "shopify://collections/3m",
-            "logo_title": ""
-          }
-        },
-        "logo_image_tN3d77": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Logos_Section_1.png",
-            "link": "shopify://collections/smith-nephew",
-            "logo_title": ""
-          }
-        },
-        "logo_image_44zJh9": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_23.png",
-            "link": "shopify://collections/burnshield",
             "logo_title": ""
           }
         },
@@ -287,14 +247,6 @@
             "logo_title": ""
           }
         },
-        "logo_image_CRxQGj": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/AMBU.png",
-            "link": "shopify://collections/ambu",
-            "logo_title": ""
-          }
-        },
         "logo_image_bUYncj": {
           "type": "logo_image",
           "settings": {
@@ -318,14 +270,6 @@
             "link": "shopify://collections/beurer",
             "logo_title": ""
           }
-        },
-        "logo_image_zNybhw": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/images.png",
-            "link": "shopify://collections/johnson-johnson",
-            "logo_title": ""
-          }
         }
       },
       "block_order": [
@@ -336,21 +280,14 @@
         "logo_image_KGxt8L",
         "logo_image_7UDiWc",
         "logo_image_MnUrUA",
-        "logo_image_hX3ywt",
-        "logo_image_4iADWW",
         "logo_image_QKRCtr",
-        "logo_image_6gwQBa",
-        "logo_image_tN3d77",
-        "logo_image_44zJh9",
         "logo_image_YJwcNA",
         "logo_image_EaT3LD",
         "logo_image_CJQYtE",
         "logo_image_JaGRcj",
-        "logo_image_CRxQGj",
         "logo_image_bUYncj",
         "logo_image_4pef3A",
-        "logo_image_zQAWKd",
-        "logo_image_zNybhw"
+        "logo_image_zQAWKd"
       ],
       "name": "t:sections.logo_bar.presets.name",
       "settings": {
@@ -728,6 +665,7 @@
             "reviewPhotosType_carousel": "small",
             "reviewPhotosType_rotator": "small",
             "writeReview": true,
+            "writeReview_rotator": true,
             "fixedReviewsHeight": false
           }
         }
