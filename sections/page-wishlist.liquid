@@ -24,7 +24,7 @@
                 class="col-6 col-md-4 col-lg-3 bls__product-load bls__wl-product-js bls__product-preload-js bls__wishlist-list"
                 data-product-handle="{{ item.handle }}"
               >
-                {%- render 'product-item' | product: item | is_wishlist_page: true -%}
+                {%- render 'product-item', product: item, is_wishlist_page: true -%}
               </div>
             {%- endfor -%}
           </div>
@@ -77,3 +77,13 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'product-item' | product: item | is_wishlist_page: true -%}"
+  to: "{%- render 'product-item', product: item, is_wishlist_page: true -%}"
+  position: 1090..1158
+{% endcomment %}
