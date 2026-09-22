@@ -151,11 +151,11 @@
     "logo_bar_c7Hgqz": {
       "type": "logo-bar",
       "blocks": {
-        "logo_image_TKbeR9": {
+        "logo_image_QKRCtr": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/M_lnlycke_Logo.png",
-            "link": "shopify://collections/molnlycke",
+            "image": "shopify://shop_images/B._Braun.png",
+            "link": "shopify://collections/b-braun",
             "logo_title": ""
           }
         },
@@ -167,11 +167,11 @@
             "logo_title": ""
           }
         },
-        "logo_image_qaDF6g": {
+        "logo_image_WRmKmT": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/Design_ohne_Titel_1_957d03a1-06b0-438a-ba01-c605987dd96f.png",
-            "link": "shopify://collections/bsn",
+            "image": "shopify://shop_images/sarstedt_72b28b00-1c91-4204-89fa-aa38d54b8a2a.png",
+            "link": "shopify://collections/sarstedt",
             "logo_title": ""
           }
         },
@@ -199,46 +199,6 @@
             "logo_title": ""
           }
         },
-        "logo_image_MnUrUA": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/essity_hygeneartikel.png",
-            "link": "shopify://collections/essity",
-            "logo_title": ""
-          }
-        },
-        "logo_image_QKRCtr": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/B._Braun.png",
-            "link": "shopify://collections/b-braun",
-            "logo_title": ""
-          }
-        },
-        "logo_image_YJwcNA": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Cederroth_1.png",
-            "link": "shopify://collections/cederroth",
-            "logo_title": ""
-          }
-        },
-        "logo_image_EaT3LD": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Logos_Section_2_57c3c2f0-3bce-4fc3-bffe-4c816e5c55cc.png",
-            "link": "shopify://collections/docmed-gmbh",
-            "logo_title": ""
-          }
-        },
-        "logo_image_CJQYtE": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Hansaplast_1.png",
-            "link": "shopify://collections/hansaplast",
-            "logo_title": ""
-          }
-        },
         "logo_image_JaGRcj": {
           "type": "logo_image",
           "settings": {
@@ -247,19 +207,35 @@
             "logo_title": ""
           }
         },
-        "logo_image_bUYncj": {
+        "logo_image_pQaETA": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/Design_ohne_Titel_e06dc6fd-65e9-46d4-bce7-bbb1d783bc16.png",
-            "link": "shopify://collections/kreuterhof",
+            "image": "shopify://shop_images/Burmeier_4f19164c-0a50-47ea-b94f-154c880c90d6.png",
+            "link": "shopify://collections/burmeier",
             "logo_title": ""
           }
         },
-        "logo_image_4pef3A": {
+        "logo_image_qaDF6g": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/Design-ohne-Titel-2022-07-02T123221.623.png",
-            "link": "shopify://collections/burmeier",
+            "image": "shopify://shop_images/Design_ohne_Titel_1_957d03a1-06b0-438a-ba01-c605987dd96f.png",
+            "link": "shopify://collections/bsn",
+            "logo_title": ""
+          }
+        },
+        "logo_image_TKbeR9": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/M_lnlycke_Logo.png",
+            "link": "shopify://collections/molnlycke",
+            "logo_title": ""
+          }
+        },
+        "logo_image_YJwcNA": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Cederroth_1.png",
+            "link": "shopify://collections/cederroth",
             "logo_title": ""
           }
         },
@@ -273,20 +249,17 @@
         }
       },
       "block_order": [
-        "logo_image_TKbeR9",
+        "logo_image_QKRCtr",
         "logo_image_AwXje8",
-        "logo_image_qaDF6g",
+        "logo_image_WRmKmT",
         "logo_image_iW8WJG",
         "logo_image_KGxt8L",
         "logo_image_7UDiWc",
-        "logo_image_MnUrUA",
-        "logo_image_QKRCtr",
-        "logo_image_YJwcNA",
-        "logo_image_EaT3LD",
-        "logo_image_CJQYtE",
         "logo_image_JaGRcj",
-        "logo_image_bUYncj",
-        "logo_image_4pef3A",
+        "logo_image_pQaETA",
+        "logo_image_qaDF6g",
+        "logo_image_TKbeR9",
+        "logo_image_YJwcNA",
         "logo_image_zQAWKd"
       ],
       "name": "t:sections.logo_bar.presets.name",
