@@ -231,6 +231,14 @@
             "logo_title": ""
           }
         },
+        "logo_image_apJqnz": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/bode_8b0609fc-9065-435c-bcd3-f1aff0816c3f.png",
+            "link": "shopify://collections/bode-chemie-gmbh",
+            "logo_title": ""
+          }
+        },
         "logo_image_TKbeR9": {
           "type": "logo_image",
           "settings": {
@@ -267,6 +275,7 @@
         "logo_image_7UDiWc",
         "logo_image_JaGRcj",
         "logo_image_pQaETA",
+        "logo_image_apJqnz",
         "logo_image_TKbeR9",
         "logo_image_pa6qz7",
         "logo_image_YJwcNA"
