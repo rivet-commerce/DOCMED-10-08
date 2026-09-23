@@ -263,6 +263,14 @@
             "logo_title": ""
           }
         },
+        "logo_image_mYTbbH": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Heine.png",
+            "link": "shopify://collections/heine-optotechnik-gmbh-co-kg",
+            "logo_title": ""
+          }
+        },
         "logo_image_8nzcKi": {
           "type": "logo_image",
           "settings": {
@@ -303,6 +311,7 @@
         "logo_image_TKbeR9",
         "logo_image_pa6qz7",
         "logo_image_YJwcNA",
+        "logo_image_mYTbbH",
         "logo_image_8nzcKi",
         "logo_image_fUH9XD",
         "logo_image_GzmFN3"
