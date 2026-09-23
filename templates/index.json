@@ -167,6 +167,22 @@
             "logo_title": ""
           }
         },
+        "logo_image_7UDiWc": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Schuelke.png",
+            "link": "shopify://collections/schulke-mayr",
+            "logo_title": ""
+          }
+        },
+        "logo_image_JaGRcj": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/client_logo-roche.png",
+            "link": "shopify://collections/roche",
+            "logo_title": ""
+          }
+        },
         "logo_image_WRmKmT": {
           "type": "logo_image",
           "settings": {
@@ -191,14 +207,6 @@
             "logo_title": ""
           }
         },
-        "logo_image_iW8WJG": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Hartmann.png",
-            "link": "shopify://collections/hartmann",
-            "logo_title": ""
-          }
-        },
         "logo_image_KGxt8L": {
           "type": "logo_image",
           "settings": {
@@ -207,27 +215,11 @@
             "logo_title": ""
           }
         },
-        "logo_image_7UDiWc": {
+        "logo_image_iW8WJG": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/Schuelke.png",
-            "link": "shopify://collections/schulke-mayr",
-            "logo_title": ""
-          }
-        },
-        "logo_image_JaGRcj": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/client_logo-roche.png",
-            "link": "shopify://collections/roche",
-            "logo_title": ""
-          }
-        },
-        "logo_image_pQaETA": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Burmeier_4f19164c-0a50-47ea-b94f-154c880c90d6.png",
-            "link": "shopify://collections/burmeier",
+            "image": "shopify://shop_images/Hartmann.png",
+            "link": "shopify://collections/hartmann",
             "logo_title": ""
           }
         },
@@ -236,6 +228,14 @@
           "settings": {
             "image": "shopify://shop_images/bode_8b0609fc-9065-435c-bcd3-f1aff0816c3f.png",
             "link": "shopify://collections/bode-chemie-gmbh",
+            "logo_title": ""
+          }
+        },
+        "logo_image_pQaETA": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Burmeier_4f19164c-0a50-47ea-b94f-154c880c90d6.png",
+            "link": "shopify://collections/burmeier",
             "logo_title": ""
           }
         },
@@ -267,15 +267,15 @@
       "block_order": [
         "logo_image_QKRCtr",
         "logo_image_AwXje8",
+        "logo_image_7UDiWc",
+        "logo_image_JaGRcj",
         "logo_image_WRmKmT",
         "logo_image_yaQkVB",
         "logo_image_xftVfT",
-        "logo_image_iW8WJG",
         "logo_image_KGxt8L",
-        "logo_image_7UDiWc",
-        "logo_image_JaGRcj",
-        "logo_image_pQaETA",
+        "logo_image_iW8WJG",
         "logo_image_apJqnz",
+        "logo_image_pQaETA",
         "logo_image_TKbeR9",
         "logo_image_pa6qz7",
         "logo_image_YJwcNA"
