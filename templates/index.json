@@ -263,6 +263,14 @@
             "logo_title": ""
           }
         },
+        "logo_image_GzmFN3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/meditrade_e1e64b11-2f20-4242-a72d-d7901ca04c98.png",
+            "link": "shopify://collections/medirade",
+            "logo_title": ""
+          }
+        },
         "logo_image_mYTbbH": {
           "type": "logo_image",
           "settings": {
@@ -286,14 +294,6 @@
             "link": "shopify://collections/schmitz",
             "logo_title": ""
           }
-        },
-        "logo_image_GzmFN3": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/meditrade_e1e64b11-2f20-4242-a72d-d7901ca04c98.png",
-            "link": "shopify://collections/medirade",
-            "logo_title": ""
-          }
         }
       },
       "block_order": [
@@ -311,10 +311,10 @@
         "logo_image_TKbeR9",
         "logo_image_pa6qz7",
         "logo_image_YJwcNA",
+        "logo_image_GzmFN3",
         "logo_image_mYTbbH",
         "logo_image_8nzcKi",
-        "logo_image_fUH9XD",
-        "logo_image_GzmFN3"
+        "logo_image_fUH9XD"
       ],
       "name": "t:sections.logo_bar.presets.name",
       "settings": {
