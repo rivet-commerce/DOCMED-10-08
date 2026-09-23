@@ -263,6 +263,14 @@
             "logo_title": ""
           }
         },
+        "logo_image_8nzcKi": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Litttmann.png",
+            "link": "shopify://collections/littmann",
+            "logo_title": ""
+          }
+        },
         "logo_image_fUH9XD": {
           "type": "logo_image",
           "settings": {
@@ -295,6 +303,7 @@
         "logo_image_TKbeR9",
         "logo_image_pa6qz7",
         "logo_image_YJwcNA",
+        "logo_image_8nzcKi",
         "logo_image_fUH9XD",
         "logo_image_GzmFN3"
       ],
