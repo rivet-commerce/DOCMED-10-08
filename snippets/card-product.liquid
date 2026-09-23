@@ -559,7 +559,7 @@
             {%- endif -%}
             {% if settings.percentage == true %}
               <span class="badge percent__badge-sale {% if price_difference_percent == null %}hidden{% endif %}">
-                {{ price_difference_percent -}}
+                - {{ price_difference_percent -}}
                 {{- 'products.product.off_price' | t }}
               </span>
             {% endif %}

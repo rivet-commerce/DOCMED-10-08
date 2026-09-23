@@ -5276,6 +5276,57 @@ html body .wbprofpay .wbprofpayinr .list-payment{
     background: #1D2E40 !important;
   }
 }
+
+/* Bestseller slider arrows: disabled state swaps the enabled colours. */
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button[disabled] {
+  background: #fff !important;
+  border: 1px solid #1D2E40 !important;
+  opacity: 1 !important;
+}
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button[disabled] .icon {
+  color: #1D2E40 !important;
+}
+/* .button:hover:after fills the button with --color-bg-button-hover (white
+   here), which hides the caret. Keep the overlay off and just shade the
+   background on hover instead. */
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button::after,
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button:hover::after {
+  width: 0 !important;
+}
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button:hover {
+  background: #2E4459 !important;
+}
+.wb_home_sbtn.slider-buttons .slider-button.featured-collection__button[disabled]:hover {
+  background: #EDF0F3 !important;
+}
+
+/* Logo-bar arrows: background and caret swapped from the theme default -
+   white circle, dark caret, identical on both arrows in every state.
+   prev/next are named explicitly so the enabled arrow matches the
+   [disabled] one's specificity. */
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--prev,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--next,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn[disabled] {
+  background: #fff !important;
+  border: 1px solid #1D2E40 !important;
+  opacity: 1 !important;
+}
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--prev .icon,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--next .icon,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn[disabled] .icon {
+  color: #1D2E40 !important;
+}
+/* .button:hover:after repaints the whole button on hover - keep it off so
+   only the background shade changes. */
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn::after,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn:hover::after {
+  width: 0 !important;
+}
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--prev:hover,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--next:hover,
+.wb_home_sbtn.slider-buttons button.slider-button.log-btn[disabled]:hover {
+  background: #DDE3E9 !important;
+}
 .swiper-button-next::after, .swiper-button-prev::after {
    color:#fff;
 }
@@ -5330,10 +5381,11 @@ button:has(.cus-card-svg){
 }
 
 .card__badge .badge {
-  background: #F2F2F2 !important;
+  background: #ffdae1 !important;
   color: #E60023 !important;
   font-weight:900;
   font-size:16px;
+  border-radius: 20px;
 }
 
 

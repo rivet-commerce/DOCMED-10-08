@@ -18,6 +18,7 @@ slider-component.slider-component-full-width {
   min-width: auto;
   min-height: auto;
   padding: 0;
+  border-radius: 50%;
 }
 /* .wb_home_sbtn .slider-button span{
   width: calc(4.2rem + var(--buttons-border-width) * 2);
