@@ -231,6 +231,14 @@
             "logo_title": ""
           }
         },
+        "logo_image_pa6qz7": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Cleartest_044e8be0-eb92-49f0-803d-09f73ca3e035.png",
+            "link": "shopify://collections/cleartest",
+            "logo_title": ""
+          }
+        },
         "logo_image_qaDF6g": {
           "type": "logo_image",
           "settings": {
@@ -254,14 +262,6 @@
             "link": "shopify://collections/cederroth",
             "logo_title": ""
           }
-        },
-        "logo_image_zQAWKd": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Design_ohne_Titel_a9efb0b4-fa9b-423c-af08-2b739d36572f.png",
-            "link": "shopify://collections/beurer",
-            "logo_title": ""
-          }
         }
       },
       "block_order": [
@@ -275,10 +275,10 @@
         "logo_image_7UDiWc",
         "logo_image_JaGRcj",
         "logo_image_pQaETA",
+        "logo_image_pa6qz7",
         "logo_image_qaDF6g",
         "logo_image_TKbeR9",
-        "logo_image_YJwcNA",
-        "logo_image_zQAWKd"
+        "logo_image_YJwcNA"
       ],
       "name": "t:sections.logo_bar.presets.name",
       "settings": {
