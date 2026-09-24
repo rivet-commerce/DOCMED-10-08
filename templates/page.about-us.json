@@ -24,47 +24,38 @@
     "178957001005f422cd": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_cc88d0a_H4tJAt": {
-          "type": "ai_gen_block_cc88d0a",
+        "ai_gen_block_791d73f_itKF3L": {
+          "type": "ai_gen_block_791d73f",
           "settings": {
-            "eyebrow": "",
             "heading": "Über DocMed",
-            "body": "Für uns steht im Gesundheitswesen immer der Mensch im Mittelpunkt. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist, ein Patient, Medizinisches Fachpersonal, ein Pfleger oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte. Bei DocMed verlieren wir das niemals aus den Augen.\n\nVon unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit freiverkäuflichen pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden.\n\nWährend wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines Internationalen Anbieters für Medizin- und Gesundheitsbedarf mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.",
-            "closing": "",
+            "paragraph_one": "<p>Für uns steht im Gesundheitswesen immer der Mensch im Mittelpunkt. Hinter jedem medizinischen Produkt steht jemand, der darauf angewiesen ist, ein Patient, Medizinisches Fachpersonal, ein Pfleger oder eine Person, die ihre Gesundheit und ihr Wohlbefinden verbessern möchte. Bei DocMed verlieren wir das niemals aus den Augen.</p>",
+            "paragraph_two": "<p>Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit freiverkäuflichen pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden.<br/>Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines Internationalen Anbieters für Medizin- und Gesundheitsbedarf mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.</p>",
             "image": "shopify://shop_images/17887.jpg",
-            "desktop_width_percent": 100,
-            "content_max_width": 1500,
+            "section_width": 100,
             "section_height": 550,
-            "desktop_side_padding": 35,
+            "desktop_side_padding": 40,
             "mobile_side_padding": 20,
-            "space_top": 20,
-            "space_bottom": 0,
-            "text_column_percent": 50,
-            "column_gap": 64,
-            "mobile_content_gap": 36,
-            "eyebrow_size": 13,
-            "heading_size_desktop": 44,
-            "heading_size_mobile": 40,
-            "body_size_desktop": 17,
-            "body_size_mobile": 16,
-            "image_width": 650,
-            "image_height": 450,
-            "image_height_mobile": 360,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "text_column_width": 50,
+            "column_gap": 50,
+            "image_width": 100,
+            "image_height_desktop": 400,
+            "image_height_mobile": 280,
             "image_radius": 8,
+            "heading_size_desktop": 44,
+            "heading_size_mobile": 34,
+            "text_size_desktop": 17,
+            "text_size_mobile": 16,
             "background_color": "#ffffff",
-            "text_color": "#1d2e40",
-            "eyebrow_color": "#7fc7cf",
             "heading_color": "#1d2e40",
-            "body_color": "#1d2e40",
-            "closing_color": "#1d2e40",
-            "image_placeholder_color": "#f1f5f7",
-            "placeholder_color": "#6b7c8c"
+            "text_color": "#334550"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_cc88d0a_H4tJAt"
+        "ai_gen_block_791d73f_itKF3L"
       ],
       "name": "About Us hero",
       "settings": {}
