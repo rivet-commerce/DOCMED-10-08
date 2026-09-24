@@ -161,6 +161,38 @@
     </div>
   </div>
 {% endif %}
+{%- comment -%}
+  Keep the announcement bar pinned to the top while scrolling. The sticky
+  header sits right below it, offset by --announcement-bar-height (see
+  .section-header.shopify-section-header-sticky in base.css). The height is
+  measured live, so it follows mobile/desktop changes, wrapping text, and
+  pages where the bar is not rendered at all (height 0).
+{%- endcomment -%}
+{% style %}
+  #shopify-section-{{ section.id }} {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  #shopify-section-{{ section.id }} .announcement--bar {
+    background: #eef6f8;
+  }
+{% endstyle %}
+<script>
+  (function () {
+    var bar = document.getElementById('shopify-section-{{ section.id }}');
+    if (!bar) return;
+    var setHeight = function () {
+      document.documentElement.style.setProperty('--announcement-bar-height', bar.offsetHeight + 'px');
+    };
+    setHeight();
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(setHeight).observe(bar);
+    } else {
+      window.addEventListener('resize', setHeight);
+    }
+  })();
+</script>
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",

@@ -2577,6 +2577,11 @@ product-info .loading-overlay:not(.hidden) ~ *,
     position: sticky;
     top: 0;
 }
+/* The announcement bar is sticky too (sections/announcement-bar.liquid), so
+   the header pins directly below it instead of sliding underneath. */
+.section-header.shopify-section-header-sticky {
+    top: var(--announcement-bar-height, 0px);
+}
 .shopify-section-header-hidden {
     top: calc(-1 * var(--header-height));
 }
@@ -5528,6 +5533,23 @@ button:has(.cus-card-svg){
   .header.header--top-left > .wbcategories {
     grid-column: 2;
     grid-row: 1;
+  }
+  /* Menü dropdown: anchor it to the header's left edge (in line with the
+     logo) rather than to the button. The flyout beside it is sized as
+     "viewport/page width minus 380px" from that edge, so opening it from the
+     button - which now sits right of the logo - pushed it off-screen. */
+  .header.header--top-left {
+    position: relative;
+  }
+  .header.header--top-left .wbcategories header-drawer,
+  .header.header--top-left .wbcategories desktop-webi-menu,
+  .header.header--top-left .wbcategories desktop-webi-menu.open {
+    position: static;
+  }
+  .header.header--top-left .wbcategories #menu-drawer {
+    left: 0;
+    right: auto;
+    margin: 5px 0 0;
   }
   .header.header--top-left > details-modal.header__search {
     display: block;

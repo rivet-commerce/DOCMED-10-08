@@ -146,7 +146,7 @@
     }
     .psearch-hidden .section-header.shopify-section-header-sticky{
       position: sticky;
-      top: 0;
+      top: var(--announcement-bar-height, 0px);
     }
   {%- endif -%}
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
