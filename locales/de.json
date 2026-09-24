@@ -50,7 +50,8 @@
     },
     "search": {
       "search": "z.B. Produkt, EAN, SKU, PZN",
-      "reset": "Suchbegriff zurücksetzen"
+      "reset": "Suchbegriff zurücksetzen",
+      "submit": "Suchen"
     },
     "cart": {
       "view": "Warenkorb ansehen ({{ count }})",

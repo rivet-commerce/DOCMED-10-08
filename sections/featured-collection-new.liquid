@@ -190,6 +190,23 @@
     color: #fff !important;
   }
 }
+
+/* Mobile: base.css wraps .wb_button_combo onto its own full-width row.
+   Keep the arrows beside the heading so the section stays compact. */
+@media screen and (max-width: 767px) {
+  .section-featured-collection-new .title-wrapper-with-link {
+    flex-wrap: nowrap;
+  }
+
+  .section-featured-collection-new .title-wrapper-with-link .heading {
+    min-width: 0;
+  }
+
+  .section-featured-collection-new .title-wrapper-with-link .wb_button_combo {
+    width: auto;
+    flex: 0 0 auto;
+  }
+}
 </style>
 
     <div class="color-{{ section.settings.color_scheme }}_ isolate gradient_ feaprod {% if section.settings.image != blank %} image_with_product {% endif %}">

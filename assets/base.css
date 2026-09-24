@@ -5281,6 +5281,7 @@ html body .wbprofpay .wbprofpayinr .list-payment{
 .wb_home_sbtn.slider-buttons .slider-button.featured-collection__button[disabled] {
   background: #fff !important;
   border: 1px solid #1D2E40 !important;
+  box-sizing: border-box !important;
   opacity: 1 !important;
 }
 .wb_home_sbtn.slider-buttons .slider-button.featured-collection__button[disabled] .icon {
@@ -5309,6 +5310,7 @@ html body .wbprofpay .wbprofpayinr .list-payment{
 .wb_home_sbtn.slider-buttons button.slider-button.log-btn[disabled] {
   background: #fff !important;
   border: 1px solid #1D2E40 !important;
+  box-sizing: border-box !important;
   opacity: 1 !important;
 }
 .wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--prev .icon,
@@ -5326,6 +5328,53 @@ html body .wbprofpay .wbprofpayinr .list-payment{
 .wb_home_sbtn.slider-buttons button.slider-button.log-btn.slider-button--next:hover,
 .wb_home_sbtn.slider-buttons button.slider-button.log-btn[disabled]:hover {
   background: #DDE3E9 !important;
+}
+
+/* Brand strip layout: circle size, tighter gaps, arrows aligned to the
+   .page-width edge and centred on the circle row. Kept here alongside the
+   arrow colours so the whole strip is described in one place. */
+.wblogos {
+  --brand-circle-size: 100px;
+  --brand-arrow-size: 40px;
+}
+
+@media screen and (min-width: 750px) {
+  .wblogos .logo-bar__container.grid {
+    flex-wrap: nowrap !important;
+    column-gap: 12px !important;
+  }
+  .wblogos .logo-bar__container .logo-bar-item {
+    width: var(--brand-circle-size) !important;
+    min-width: var(--brand-circle-size) !important;
+    max-width: var(--brand-circle-size) !important;
+    margin-right: 0 !important;
+    flex: 0 0 auto !important;
+  }
+  /* The wrapper's 5rem side padding is 50px (root font-size is 62.5%), so
+     -50px lands the arrows exactly on the .page-width edge - the same edge
+     the section below the strip stops at. */
+  .wblogos .wb_home_sbtn .log-btn.slider-button.slider-button--prev {
+    left: calc(-1 * var(--brand-arrow-size) - 10px) !important;
+  }
+  .wblogos .wb_home_sbtn .log-btn.slider-button.slider-button--next {
+    right: calc(-1 * var(--brand-arrow-size) - 10px) !important;
+  }
+  /* The arrows live in the title row, which is .content-container and so
+     position:relative (base.css:3339) - that row, not the slider component,
+     is their containing block. Its bottom edge (100%) is exactly the top of
+     the circle row, so push down half a circle and back up half an arrow. */
+  .wblogos .wb_home_sbtn .log-btn.slider-button {
+    top: calc(100% + (var(--brand-circle-size) - var(--brand-arrow-size)) / 2) !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile: the strip is swipeable, so drop the arrows entirely. */
+@media screen and (max-width: 749px) {
+  .wblogos .wb_home_sbtn .log-btn.slider-button {
+    display: none !important;
+  }
 }
 .swiper-button-next::after, .swiper-button-prev::after {
    color:#fff;
@@ -5461,3 +5510,209 @@ button:has(.cus-card-svg){
         height: max-content !important;
       }
 } */
+/* Desktop header (logo position "top-left"): logo, "Menü" button, search and
+   account/cart icons share one row, instead of the menu + search sitting in a
+   second bar below the logo. The categories nav is rendered into the header
+   (see wb_categories_nav in sections/header.liquid) and the header's own search,
+   which is also the mobile one, is shown here instead of the bar's copy. */
+@media screen and (min-width: 992px) {
+  .header.header--top-left {
+    grid-template-areas: none;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    column-gap: 3rem;
+  }
+  .header.header--top-left > .header__heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .header.header--top-left > .wbcategories {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .header.header--top-left > details-modal.header__search {
+    display: block;
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .header.header--top-left > .header__icons {
+    grid-column: 4;
+    grid-row: 1;
+  }
+  /* Search results dropdown: full viewport width under the header. The
+     .page-width class on the dropdown caps it at --page-width, which with the
+     -50vw offset pushed it off-centre to the left. The header copy also carries
+     an inline overflow: scroll for mobile, which paints empty scrollbars here. */
+  .header.header--top-left .predictive-search.predictive-search--header {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+    right: auto !important;
+    margin-left: -50vw !important;
+    overflow: hidden !important;
+  }
+
+  /* Search field: rounded field with a search icon on the left and a dark
+     "Suchen" button inside it on the right. */
+  .header.header--top-left .header__search .field_wbinput {
+    height: 52px;
+    padding: 4px 4px 4px 48px;
+    column-gap: 8px;
+    background: #fff;
+    border: 1px solid #D5DCE3;
+    border-radius: 999px;
+    transition: border-color var(--duration-short) ease, box-shadow var(--duration-short) ease;
+  }
+  .header.header--top-left .header__search .field_wbinput:focus-within {
+    border-color: #1D2E40;
+    box-shadow: 0 0 0 3px rgba(29, 46, 64, 0.08);
+  }
+  .header.header--top-left .header__search .field_wbinput::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    background: #1D2E40;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7'/%3E%3Cpath d='m20 20-4.5-4.5'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7'/%3E%3Cpath d='m20 20-4.5-4.5'/%3E%3C/svg%3E") center / contain no-repeat;
+    pointer-events: none;
+  }
+  /* Drop the theme's thick grey ring (inline style in header.liquid) - the
+     wrapper above draws the border now. */
+  .header.header--top-left .header__search .field_wbinput .field::before,
+  .header.header--top-left .header__search .field_wbinput .field::after {
+    display: none;
+  }
+  .header.header--top-left .header__search .field {
+    height: 100%;
+    align-items: center;
+  }
+  /* Plain placeholder instead of the floating label. */
+  .header.header--top-left .header__search .field__label {
+    display: none;
+  }
+  .header.header--top-left .header__search .search__input.field__input,
+  .header.header--top-left .header__search .search__input.field__input:focus,
+  .header.header--top-left .header__search .search__input.field__input:not(:placeholder-shown) {
+    height: 100%;
+    margin: 0;
+    padding: 0 40px 0 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 15px !important;
+    color: #1D2E40;
+  }
+  .header.header--top-left .header__search .search__input::placeholder {
+    color: #80899B;
+    opacity: 1;
+  }
+  .header.header--top-left .header__search .field__button.reset__button,
+  .header.header--top-left .header__search .search-modal__form .modal__close-button.link {
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+  }
+  .header.header--top-left .header__search .search__button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 22px;
+    border-radius: 999px;
+    background: #1D2E40;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+    width: 140px;
+  }
+  .header.header--top-left .header__search .search__button::before,
+  .header.header--top-left .header__search .search__button::after {
+    border-radius: 999px;
+    box-shadow: none;
+  }
+  .header.header--top-left .header__search .search__button:hover {
+    background: #2C425A;
+  }
+  .header.header--top-left .header__search .search__button > span:first-child {
+    display: flex;
+  }
+  .header.header--top-left .header__search .search.search-modal__form .search__button svg,
+  .header.header--top-left .header__search .search.search-modal__form .search__button:hover svg {
+    fill: #fff;
+  }
+  .header.header--top-left .header__search .search__button-label {
+    display: inline;
+    color: #fff;
+  }
+  /* With the menu and search moved up, the bar below is empty unless it holds
+     a contact number or a secondary menu. */
+  .page-width:has(> .header--top-left) ~ .wbmenuup.header__inline-menu:not(:has(.contact_main, .wbsecmenu)) {
+    display: none;
+  }
+}
+
+/* "Suchen" text on the search button is only shown in the desktop header
+   (see the min-width: 992px header block above); elsewhere it stays icon-only. */
+.search__button-label {
+  display: none;
+}
+
+/* Mobile/tablet header search (logo position "top-left"): a plain rounded
+   field with no button, as in the mobile design. The keyboard's search/enter
+   key submits the form. */
+@media screen and (max-width: 991px) {
+  .header.header--top-left .header__search .search__button {
+    display: none;
+  }
+  .header.header--top-left .header__search .field_wbinput {
+    height: 44px;
+    background: #fff;
+    border: 1px solid #C9D1D9;
+    border-radius: 10px;
+    transition: border-color var(--duration-short) ease;
+  }
+  .header.header--top-left .header__search .field_wbinput:focus-within {
+    border-color: #1D2E40;
+  }
+  /* Drop the theme's thick grey ring (inline style in header.liquid). */
+  .header.header--top-left .header__search .field_wbinput .field::before,
+  .header.header--top-left .header__search .field_wbinput .field::after {
+    display: none;
+  }
+  .header.header--top-left .header__search .field {
+    height: 100%;
+    align-items: center;
+  }
+  /* Plain placeholder instead of the floating label. */
+  .header.header--top-left .header__search .field__label {
+    display: none;
+  }
+  .header.header--top-left .header__search .search__input.field__input,
+  .header.header--top-left .header__search .search__input.field__input:focus,
+  .header.header--top-left .header__search .search__input.field__input:not(:placeholder-shown) {
+    height: 100%;
+    margin: 0;
+    padding: 0 44px 0 14px;
+    background: transparent;
+    box-shadow: none;
+    color: #1D2E40;
+  }
+  .header.header--top-left .header__search .search__input::placeholder {
+    color: #5B5F67;
+    opacity: 1;
+  }
+  .header.header--top-left .header__search .field__button.reset__button,
+  .header.header--top-left .header__search .search-modal__form .modal__close-button.link {
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+  }
+}
