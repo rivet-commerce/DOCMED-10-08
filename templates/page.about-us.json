@@ -333,11 +333,11 @@
             "mission_icon": "target",
             "mission_label": "Unsere Mission",
             "mission_heading": "Was uns antreibt",
-            "mission_text": "<p>Unsere Mission ist es, Menschen dabei zu helfen, ihre Gesundheit zu verbessern, zu schützen und aktiv zu gestalten, indem wir hochwertige Medizinprodukte und Lösungen zugänglicher machen.</p><p>Wir verbinden Einzelpersonen, Medizinisches Fachpersonal und Organisationen mit den Produkten und Lösungen, die sie brauchen, indem wir unser breites Portfolio mit flexibler Beschaffung, zuverlässigem Service und einem Verständnis für individuelle Anforderungen kombinieren.</p><p>Ob wir Ärzte bei der Versorgung anderer unterstützen oder Einzelpersonen dabei helfen, ihre eigenen Gesundheits- und Wohlbefindensziele zu verfolgen, unser Zweck bleibt derselbe: einen sinnvollen Beitrag zu besserer Gesundheit zu leisten.</p><p></p>",
+            "mission_text": "<p>&nbsp;Unsere Mission ist es, Menschen dabei zu helfen, ihre Gesundheit zu verbessern, zu schützen und aktiv zu gestalten, indem wir hochwertige Gesundheitsprodukte und Lösungen zugänglicher machen.&nbsp;</p><p>Wir verbinden Einzelpersonen, Medizinisches Fachpersonal und Organisationen mit den Produkten und Lösungen, die sie brauchen, indem wir unser breites Portfolio mit flexibler Beschaffung, zuverlässigem Service und einem Verständnis für individuelle Anforderungen kombinieren.&nbsp;</p><p>Ob wir medizinische Fachkräfte bei der Versorgung anderer unterstützen oder Menschen dabei helfen, ihre eigenen Ziele für Gesundheit und Wohlbefinden zu verfolgen – unser Anspruch bleibt derselbe:&nbsp;&nbsp;<em>einen spürbaren Beitrag zu besserer Gesundheit zu leisten.</em>&nbsp;</p>",
             "vision_icon": "eye",
             "vision_label": "Unsere Vision",
             "vision_heading": "Wohin wir wollen",
-            "vision_text": "<p>Unsere Vision ist es, die Position von DocMed als führender globaler Anbieter im Gesundheitswesen auszubauen und dabei die Stärke der internationalen Verteilung mit einem wachsenden Portfolio unserer eigenen Produkte und Marken zu kombinieren.</p><p>Technologie ist ein wichtiger Teil dieser Zukunft. Durch die Nutzung von Digitalisierung und künstlicher Intelligenz verstehen wir Märkte besser, arbeiten effizienter, reagieren schneller und verbessern kontinuierlich, wie wir unsere Kunden unterstützen.</p><p>Gleichzeitig ermöglicht uns die Entwicklung unserer eigenen Produkte, über Vertrieb hinauszugehen und eine größere Rolle bei der Schaffung von Gesundheitslösungen selbst zu spielen.</p><p>Während wir weiterhin wachsen, bewahren wir, was DocMed besonders macht: Geschwindigkeit, Flexibilität, hohe Standards und Nähe zu unseren Kunden und Partnern.</p><p>Wir liefern die Fähigkeiten eines globalen Gesundheitsunternehmens und bewahren gleichzeitig die Agilität und den persönlichen Ansatz, der uns hierher gebracht hat.</p><p></p>",
+            "vision_text": "<p>Unsere Vision ist es, die Position von DocMed als führender globaler Anbieter im Gesundheitswesen auszubauen und dabei die Stärke der internationalen Verteilung mit einem wachsenden Portfolio unserer eigenen Produkte und Marken zu kombinieren.&nbsp;</p><p>Technologie ist ein wichtiger Teil dieser Zukunft. Durch die Nutzung von Digitalisierung und künstlicher Intelligenz verstehen wir Märkte besser, arbeiten effizienter, reagieren schneller und verbessern kontinuierlich, wie wir unsere Kunden unterstützen. Gleichzeitig ermöglicht uns die Entwicklung unserer eigenen Produkte, über die reine Distribution hinauszugehen und selbst eine größere Rolle bei der Schaffung von Lösungen für das Gesundheitswesen zu übernehmen.&nbsp;</p><p>Während wir weiterhin wachsen, bewahren wir, was DocMed auszeichnet: Geschwindigkeit, Flexibilität, hohe Standards und Nähe zu unseren Kunden und Partnern. Wir verbinden die Leistungsfähigkeit eines global agierenden Gesundheitsunternehmens mit der Agilität und persönlichen Betreuung, die uns von Anfang an geprägt haben.&nbsp;</p>",
             "icon_color": "#1d2e40",
             "icon_size": 50,
             "icon_size_mobile": 40,
@@ -359,7 +359,7 @@
           "type": "ai_gen_block_4b69c2e",
           "settings": {
             "heading": "Unsere Zukunft",
-            "body_text": "<p>Neue Märkte, ein wachsendes Portfolio, eigene Produktentwicklungen und innovative Technologien prägen unseren weiteren Weg.</p><p>Aber der Zweck hinter unserem Wachstum bleibt zutiefst menschlich: Menschen und Medizinische Einrichtungen dabei zu helfen, auf Produkte und Lösungen zuzugreifen, die einen sinnvollen Unterschied für Gesundheit und Wohlbefinden machen können.</p>",
+            "body_text": "<p>Unsere Märkte werden sich weiterentwickeln. Unser Portfolio wird weiter wachsen. &nbsp;Wir werden mehr Eigenprodukte entwickeln und neue Technologien konsequent nutzen. Doch hinter unserem Wachstum steht weiterhin ein zutiefst menschliches Ziel: Menschen und Organisationen im Gesundheitswesen den Zugang zu Produkten und Lösungen zu ermöglichen, die Gesundheit und Wohlbefinden spürbar verbessern können.</p>",
             "claim": "",
             "max_section_width": 1500,
             "max_text_width": 900,
@@ -405,7 +405,7 @@
         "ai_gen_block_8ebbf2c_iJcFR6": {
           "type": "ai_gen_block_8ebbf2c",
           "settings": {
-            "heading": "Global in unserem Ausmaß. Persönlich in unserem Ansatz.",
+            "heading": "Global in unserer Ausrichtung. Persönlich in unserem Handeln. ",
             "globe_image": "shopify://shop_images/ChatGPT_Image_17._Sept._2026_12_22_21.png",
             "icon_one": "shopify://shop_images/icons8-welt-100.png",
             "title_one": "Global gedacht",
