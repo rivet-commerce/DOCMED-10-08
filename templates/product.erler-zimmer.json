@@ -24,12 +24,12 @@
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
-        "65491c3f-abb9-4bd5-9728-1b439626a36f": {
-          "type": "sku",
-          "settings": {}
-        },
         "title_jnyBi3": {
           "type": "title",
+          "settings": {}
+        },
+        "65491c3f-abb9-4bd5-9728-1b439626a36f": {
+          "type": "sku",
           "settings": {}
         },
         "custom_liquid_DTYCHG": {
@@ -80,8 +80,8 @@
       },
       "block_order": [
         "judge_me_reviews_preview_badge_kkYMgJ",
-        "65491c3f-abb9-4bd5-9728-1b439626a36f",
         "title_jnyBi3",
+        "65491c3f-abb9-4bd5-9728-1b439626a36f",
         "custom_liquid_DTYCHG",
         "ve_Uazb3B",
         "price",
@@ -275,6 +275,7 @@
             "variant": "carousel",
             "headerType_rotator": "top",
             "headerType_carousel": "top",
+            "navigationType": "arrows",
             "customContentIndex": 31,
             "font": "default",
             "themeId": "light",
@@ -292,6 +293,7 @@
             "reviewPhotosType_carousel": "small",
             "reviewPhotosType_rotator": "small",
             "writeReview": true,
+            "writeReview_rotator": true,
             "fixedReviewsHeight": false
           }
         }
