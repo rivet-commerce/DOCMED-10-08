@@ -12,6 +12,33 @@
     "f4fc861e-a8e9-4733-8984-e73213d48588": {
       "type": "slideshow_custom",
       "blocks": {
+        "slide_dt4d3K": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image": "shopify://shop_images/Banner_Dr.S_Destop.png",
+            "image_overlay_opacity": 0,
+            "text_caption": "",
+            "outline_text": false,
+            "heading": "",
+            "heading_size": "h1",
+            "font_color": "",
+            "subheading": "",
+            "description": "",
+            "text_style": "body",
+            "button_label": "",
+            "link": "shopify://collections/dr-schumacher-gmbh",
+            "link_window": false,
+            "view_all_style": "solid",
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
         "slide_HiqrFT": {
           "type": "slide",
           "settings": {
@@ -42,6 +69,7 @@
         }
       },
       "block_order": [
+        "slide_dt4d3K",
         "slide_HiqrFT"
       ],
       "settings": {
