@@ -409,6 +409,7 @@
     },
     "custom_featured_coll_sec_hqKMU6": {
       "type": "custom-featured-coll-sec",
+      "disabled": true,
       "name": "Push Produkte ",
       "settings": {
         "cus-bg-color": "#f5f5f7",
