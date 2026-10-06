@@ -201,9 +201,9 @@
       "settings": {
         "heading": "Welche Artikel sind laut Sprechstundenbedarfsvereinbarung erstattungsfähig?",
         "description": "<p>Bitte entnehmen Sie der Übersicht, welcher Sprechstundenbedarf durch die jeweilige KV anerkennt wird. Klicken Sie auf ihre zuständige Region und sie werden zu den jeweiligen SSB-Vereinbarungen weitergeleitet.</p>",
-        "menu_1": "ssb",
-        "menu_2": "ssb-2",
-        "menu_3": "ssb-3"
+        "menu_1": "",
+        "menu_2": "",
+        "menu_3": ""
       }
     },
     "hero_banner_mN4LwE": {
@@ -362,70 +362,6 @@
         "padding_top": 32,
         "padding_bottom": 0
       }
-    },
-    "contact_form_6NR8Re": {
-      "type": "contact-form",
-      "blocks": {
-        "text_GTLje6": {
-          "type": "text",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Name",
-            "required_field": false
-          }
-        },
-        "email_pq3MfB": {
-          "type": "email",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Email",
-            "required_field": true
-          }
-        },
-        "phone_CpbNYx": {
-          "type": "phone",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Telefon",
-            "required_field": true
-          }
-        },
-        "message_MxJJe3": {
-          "type": "message",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Ihre Nachricht...",
-            "required_field": false
-          }
-        }
-      },
-      "block_order": [
-        "text_GTLje6",
-        "email_pq3MfB",
-        "phone_CpbNYx",
-        "message_MxJJe3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h0",
-        "head_align": "left",
-        "heading_color_scheme": "accent-2",
-        "head_space": true,
-        "description": "",
-        "description_style": "body",
-        "enable_all": "text",
-        "contact_iframe_code": "",
-        "texttitle": "<strong>Sie benötigen Hilfe ?</strong>",
-        "demotext": "Ob für den privaten oder professionellen Gebrauch – wir helfen Ihnen, die optimale Lösung zu finden. Kontaktieren Sie uns!",
-        "contacttitle": "<strong>Kontaktdaten</strong>",
-        "contsubtext": "<h2>DocMed Kundenservice</h2>",
-        "footer_contact_no": "<p><strong>0234 - 357 905 59</strong></p>",
-        "show_social": true,
-        "contactfollow": "",
-        "color_scheme": "background-2",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -436,7 +372,6 @@
     "menu_table_NBe9gT",
     "hero_banner_mN4LwE",
     "our_story_UrNcGU",
-    "collapsible_content_c4cb4d",
-    "contact_form_6NR8Re"
+    "collapsible_content_c4cb4d"
   ]
 }
