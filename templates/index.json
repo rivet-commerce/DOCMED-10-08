@@ -18,6 +18,7 @@
             "enable_video_looping": false,
             "auto_play_video": false,
             "video_url": "",
+            "image": "shopify://shop_images/Ihr_Partner_fuer_Medizinbedarf.png",
             "image_overlay_opacity": 0,
             "text_caption": "",
             "outline_text": false,
