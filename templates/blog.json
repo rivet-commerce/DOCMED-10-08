@@ -80,75 +80,6 @@
         "padding_bottom": 0
       }
     },
-    "main_blog_9E36ia": {
-      "type": "main-blog",
-      "blocks": {
-        "categories_wMKCmY": {
-          "type": "categories",
-          "settings": {
-            "heading": "Heading",
-            "blog_categories": "<p>news</p>"
-          }
-        },
-        "banner_9WCRaF": {
-          "type": "Banner",
-          "settings": {
-            "heading": "Heading",
-            "link": ""
-          }
-        },
-        "products_WaKafh": {
-          "type": "Products",
-          "settings": {
-            "heading": "Heading",
-            "card_style": "standard",
-            "bg_card": "transparent",
-            "bg_text": "transparent",
-            "blog_product": []
-          }
-        },
-        "tag_8gePFG": {
-          "type": "Tag",
-          "settings": {
-            "heading": "Heading"
-          }
-        },
-        "recentpost_c6UQxK": {
-          "type": "recentpost",
-          "settings": {
-            "heading": "Heading",
-            "blog_recentview": "headphone"
-          }
-        }
-      },
-      "block_order": [
-        "categories_wMKCmY",
-        "banner_9WCRaF",
-        "products_WaKafh",
-        "tag_8gePFG",
-        "recentpost_c6UQxK"
-      ],
-      "name": "t:sections.main-blog.name",
-      "settings": {
-        "headingmain_color_scheme": "",
-        "show_sidebar": false,
-        "sidebar_position": "left",
-        "heading_color_scheme": "",
-        "layout": "grid",
-        "show_image": true,
-        "image_height": "medium",
-        "columns_desktop": 2,
-        "date_position": "below",
-        "show_date": true,
-        "show_author": false,
-        "show_cmment": false,
-        "show_read_more_button": true,
-        "secerpt": "truncate",
-        "read_more_style": "link",
-        "padding_top": 0,
-        "padding_bottom": 60
-      }
-    },
     "newsletter_6PAWGf": {
       "type": "newsletter",
       "blocks": {
@@ -180,12 +111,81 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "main_blog_9Jmxim": {
+      "type": "main-blog",
+      "blocks": {
+        "categories_AMgtDf": {
+          "type": "categories",
+          "settings": {
+            "heading": "Heading",
+            "blog_categories": "<p>news</p>"
+          }
+        },
+        "banner_yGw3bt": {
+          "type": "Banner",
+          "settings": {
+            "heading": "Heading",
+            "link": ""
+          }
+        },
+        "products_dNGFLH": {
+          "type": "Products",
+          "settings": {
+            "heading": "Heading",
+            "card_style": "standard",
+            "bg_card": "transparent",
+            "bg_text": "transparent",
+            "blog_product": []
+          }
+        },
+        "tag_PfKXVj": {
+          "type": "Tag",
+          "settings": {
+            "heading": "Heading"
+          }
+        },
+        "recentpost_QTen7G": {
+          "type": "recentpost",
+          "settings": {
+            "heading": "Heading",
+            "blog_recentview": "headphone"
+          }
+        }
+      },
+      "block_order": [
+        "categories_AMgtDf",
+        "banner_yGw3bt",
+        "products_dNGFLH",
+        "tag_PfKXVj",
+        "recentpost_QTen7G"
+      ],
+      "name": "t:sections.main-blog.name",
+      "settings": {
+        "headingmain_color_scheme": "",
+        "show_sidebar": false,
+        "sidebar_position": "left",
+        "heading_color_scheme": "",
+        "layout": "collage",
+        "show_image": true,
+        "image_height": "medium",
+        "columns_desktop": 3,
+        "date_position": "below",
+        "show_date": false,
+        "show_author": false,
+        "show_cmment": false,
+        "show_read_more_button": true,
+        "secerpt": "show",
+        "read_more_style": "link",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "breadcrumb_rkT8dJ",
     "slideshow_pWzrAC",
-    "main_blog_9E36ia",
-    "newsletter_6PAWGf"
+    "newsletter_6PAWGf",
+    "main_blog_9Jmxim"
   ]
 }
