@@ -197,99 +197,6 @@
         "note_text": "Die abgebildeten Vorteile für Mitarbeitende können je nach Abteilung und Position variieren."
       }
     },
-    "image_banner_bGdbLe": {
-      "type": "image-banner",
-      "blocks": {
-        "banner_with_text_Vz9NVp": {
-          "type": "banner_with_text",
-          "settings": {
-            "image": "shopify://shop_images/Image_6106a767-6c6b-4119-a29d-87b573905e60.jpg",
-            "image_overlay_opacity": 0,
-            "banner_width": 50,
-            "text_caption": "",
-            "outline_text": false,
-            "heading": "",
-            "heading_size": "h0",
-            "subheading": "",
-            "text": "",
-            "text_style": "body",
-            "show_banner_timer": false,
-            "wb_bannerdate": "",
-            "button_label_1": "",
-            "button_link_1": "",
-            "link_window": true,
-            "view_all_style": "link",
-            "button_label_11": "",
-            "button_link_11": "",
-            "link_window1": true,
-            "view_all_style1": "link",
-            "show_text_box": false,
-            "space_around": 10,
-            "container_overlay_opacity": 40,
-            "desktop_content_position": "middle-left",
-            "desktop_content_alignment": "left",
-            "color_scheme": "",
-            "image_behavior": "none"
-          }
-        },
-        "banner_with_text_RBaPYr": {
-          "type": "banner_with_text",
-          "settings": {
-            "image": "shopify://shop_images/Image.jpg",
-            "image_overlay_opacity": 0,
-            "banner_width": 48,
-            "text_caption": "",
-            "outline_text": false,
-            "heading": "",
-            "heading_size": "h0",
-            "subheading": "",
-            "text": "",
-            "text_style": "body",
-            "show_banner_timer": false,
-            "wb_bannerdate": "",
-            "button_label_1": "",
-            "button_link_1": "",
-            "link_window": true,
-            "view_all_style": "link",
-            "button_label_11": "",
-            "button_link_11": "",
-            "link_window1": true,
-            "view_all_style1": "link",
-            "show_text_box": false,
-            "space_around": 10,
-            "container_overlay_opacity": 40,
-            "desktop_content_position": "middle-left",
-            "desktop_content_alignment": "left",
-            "color_scheme": "",
-            "image_behavior": "none"
-          }
-        }
-      },
-      "block_order": [
-        "banner_with_text_Vz9NVp",
-        "banner_with_text_RBaPYr"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "full_width": false,
-        "title": "",
-        "heading_size": "h1",
-        "head_align": "center",
-        "heading_color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
-        "head_space": true,
-        "description": "",
-        "description_style": "body",
-        "button_label": "",
-        "button_link": "",
-        "view_all_style": "link",
-        "show_view_all": true,
-        "image_height": "large",
-        "show_gap": true,
-        "section_color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
     "contact_form_jLG7qh": {
       "type": "contact-form",
       "blocks": {
@@ -359,7 +266,6 @@
     "about_comapny_pWGYPA",
     "main",
     "benefits_cqda3C",
-    "image_banner_bGdbLe",
     "contact_form_jLG7qh"
   ]
 }
