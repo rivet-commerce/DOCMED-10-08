@@ -80,48 +80,9 @@
         "padding_bottom": 0
       }
     },
-    "newsletter_6PAWGf": {
-      "type": "newsletter",
-      "blocks": {
-        "heading_QFpXmb": {
-          "type": "heading",
-          "settings": {
-            "heading": "Jetzt anmelden!",
-            "heading_size": "h1"
-          }
-        },
-        "email_form_yfKNwJ": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "heading_QFpXmb",
-        "email_form_yfKNwJ"
-      ],
-      "settings": {
-        "full_width": false,
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
-        "mobile_content_alignment": "center",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "main_blog_9Jmxim": {
       "type": "main-blog",
       "blocks": {
-        "categories_AMgtDf": {
-          "type": "categories",
-          "settings": {
-            "heading": "Heading",
-            "blog_categories": "<p>news</p>"
-          }
-        },
         "banner_yGw3bt": {
           "type": "Banner",
           "settings": {
@@ -154,7 +115,6 @@
         }
       },
       "block_order": [
-        "categories_AMgtDf",
         "banner_yGw3bt",
         "products_dNGFLH",
         "tag_PfKXVj",
@@ -180,12 +140,44 @@
         "padding_top": 0,
         "padding_bottom": 60
       }
+    },
+    "newsletter_6PAWGf": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_QFpXmb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Jetzt anmelden!",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_yfKNwJ": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_QFpXmb",
+        "email_form_yfKNwJ"
+      ],
+      "settings": {
+        "full_width": false,
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "breadcrumb_rkT8dJ",
     "slideshow_pWzrAC",
-    "newsletter_6PAWGf",
-    "main_blog_9Jmxim"
+    "main_blog_9Jmxim",
+    "newsletter_6PAWGf"
   ]
 }
