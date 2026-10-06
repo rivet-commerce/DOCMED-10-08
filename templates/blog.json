@@ -95,8 +95,8 @@
           "settings": {
             "heading": "Heading",
             "card_style": "standard",
-            "bg_card": "transparent",
-            "bg_text": "transparent",
+            "bg_card": "rgba(0,0,0,0)",
+            "bg_text": "rgba(0,0,0,0)",
             "blog_product": []
           }
         },
@@ -126,7 +126,7 @@
         "show_sidebar": false,
         "sidebar_position": "left",
         "heading_color_scheme": "",
-        "layout": "collage",
+        "layout": "grid",
         "show_image": true,
         "image_height": "medium",
         "columns_desktop": 3,
