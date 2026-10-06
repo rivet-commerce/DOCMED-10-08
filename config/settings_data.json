@@ -142,7 +142,13 @@
     "simage_ratio": "square",
     "search_quick_links": "",
     "search_collection": "suchleistenvorschlage",
-    "collection_list": [],
+    "collection_list": [
+      "b-braun",
+      "sarstedt",
+      "roche",
+      "embecta",
+      "desinfektionsmittel"
+    ],
     "search_blog": "",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
