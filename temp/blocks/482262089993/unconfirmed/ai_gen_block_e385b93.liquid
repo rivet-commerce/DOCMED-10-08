@@ -1,0 +1,63 @@
+{% doc %}
+  @prompt
+    Baue die Section „Wissen & Ratgeber“ komplett neu als eigenständige, vollständig responsive Shopify-Section im DocMed-Design. Die Section soll sich dynamisch an unterschiedliche Bildschirmgrößen anpassen und sowohl auf großen Desktop-Monitoren als auch auf kleineren Laptops, Tablets und Smartphones sauber funktionieren.
+    Wichtig ist insbesondere die maximale Höhe auf Desktop: Die gesamte Section soll so kompakt aufgebaut sein, dass sie auf einem typischen 14-Zoll-Laptop möglichst vollständig innerhalb eines Viewports sichtbar bleibt, ohne dass der Nutzer erst stark scrollen muss. Deshalb soll die Höhe der Section begrenzt bzw. intelligent responsiv gesteuert werden. Bilder, Abstände, Textmengen und Card-Höhen müssen sich so anpassen, dass die Section nicht unnötig hoch wird. Wenn nötig, sollen Teasertexte begrenzt, Bilder etwas flacher dargestellt und vertikale Abstände reduziert werden. Es sollte nach Möglichkeit eine Einstellung für eine maximale Desktop-Höhe bzw. eine kompakte Darstellung geben.
+    Auf Desktop beginnt die Section mit einer kleinen Eyebrow wie „DOCMED RATGEBER“, darunter der Überschrift „Wissen & Ratgeber“ und einem kurzen Einführungstext. Rechts oben steht ein sekundärer Button „Alle Beiträge ansehen →“.
+    Darunter folgt ein zweispaltiges Editorial-Layout. Links befindet sich ein großer Featured-Artikel mit Bild, optionalem Badge, Kategorie, Titel, kurzem Teaser und „Jetzt lesen →“. Rechts befinden sich drei weitere Blogartikel untereinander. Die rechte Spalte soll breit sein und nahezu bis an den rechten Rand der Section reichen. Die beiden Bereiche sollen ungefähr 50/50 aufgeteilt sein und nicht den Eindruck erzeugen, dass die rechte Seite nur eine schmale Sidebar ist.
+    Die Höhe aller Inhalte soll dabei aufeinander abgestimmt werden. Der Featured-Artikel links und die drei kleineren Artikel rechts sollen zusammen ungefähr dieselbe Gesamthöhe haben. Dadurch entsteht eine geschlossene, kompakte Section ohne unnötige Leerflächen.
+    Die Section-Breite muss im Theme Editor einstellbar sein. Ich möchte beispielsweise zwischen schmal, standard, breit und full width wählen oder alternativ eine maximale Breite selbst definieren können. Zusätzlich sollen sich Spaltenverhältnis, Abstand zwischen den Spalten, Innenabstände oben und unten, Bildhöhe, Bild-Seitenverhältnis und Anzahl der zusätzlichen Blogartikel konfigurieren lassen.
+    Auch die komplette Farbgestaltung soll im Shopify Theme Editor editierbar sein. Ich möchte insbesondere folgende Farben individuell einstellen können:
+    - Eyebrow-Farbe
+    - Hauptüberschrift
+    - Beschreibungstext
+    - Kategoriebezeichnungen
+    - Blogtitel
+    - Teasertexte
+    - CTA-Text
+    - Linkfarbe
+    - Hintergrundfarbe der Section
+    - Hintergrundfarbe der Cards
+    - Border-Farbe
+    - Badge-Hintergrund und Badge-Text
+    - Hover-Farben
+    Die Buttons müssen ebenfalls vollständig anpassbar sein. Einstellbar sein sollen:
+    - Button-Hintergrundfarbe
+    - Button-Textfarbe
+    - Border-Farbe
+    - Hover-Hintergrund
+    - Hover-Textfarbe
+    - Border Radius
+    - Button-Höhe
+    - horizontales Padding
+    - Schriftgröße
+    - optional Outline- oder Filled-Style
+    Dadurch soll die Section nicht fest auf bestimmte Farben programmiert sein, sondern flexibel an unterschiedliche Bereiche des Shops angepasst werden können. Als Standardwerte können die DocMed CI-Farben #1D2E40 und #7FC7CF verwendet werden.
+    Auf Mobile soll die Section ein eigenes responsives Layout bekommen und nicht einfach nur die Desktop-Version verkleinert werden. Oben stehen Eyebrow, Überschrift und eine kurze Beschreibung. Danach folgt der Featured-Artikel als große Card über fast die gesamte Bildschirmbreite. Das Bild steht oben, darunter Kategorie, Titel, ein kurzer Teaser und der CTA.
+    Die weiteren Blogartikel werden darunter als kompakte horizontale Cards dargestellt. Links befindet sich ein einheitlich großes Vorschaubild, rechts stehen Kategorie, Titel, ein kurzer Teaser und „Jetzt lesen →“. Die Karten sollen fast die gesamte Bildschirmbreite nutzen und nur etwa 16–20 px Außenabstand haben.
+    Damit die mobile Section nicht zu lang wird, sollen Titel und Teaser automatisch begrenzt werden. Titel beispielsweise auf maximal drei Zeilen und Teaser auf zwei bis drei Zeilen. Die Bildgrößen sollen konsistent bleiben und die Card-Höhen möglichst einheitlich sein.
+    Am Ende der mobilen Section steht ein vollbreiter sekundärer Button „Alle Beiträge ansehen →“.
+    Die Section soll sich automatisch an die verfügbare Bildschirmbreite und -höhe anpassen. Es darf keine horizontalen Überläufe geben. Abstände, Schriftgrößen und Bildgrößen sollen über responsive Breakpoints angepasst werden.
+    Zusätzlich möchte ich im Theme Editor möglichst separate Einstellungen für Desktop, Tablet und Mobile haben, insbesondere für:
+    - Section Max Width
+    - maximale Section-Höhe
+    - Padding oben/unten
+    - Spaltenabstand
+    - Bildhöhe
+    - Card-Abstände
+    - Schriftgrößen
+    - Anzahl der sichtbaren Artikel
+    - Textbegrenzung / Line Clamp
+    - Button-Größe
+    - mobile Reihenfolge
+    Das Ziel ist eine sehr kompakte, moderne und hochwertige Blog-Section, die auf ein, Featured-Badge muss an eine andere Position
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+.dm-badge-position-{{ai_gen_id}}{position:absolute;z-index:2;padding:5px 9px;border-radius:99px;background:{{block.settings.badge_bg}};color:{{block.settings.badge_text}};font-size:11px;font-weight:700;{% case block.settings.badge_position %}{% when 'top_left' %}top:12px;left:12px;{% when 'bottom_left' %}bottom:12px;left:12px;{% when 'bottom_right' %}bottom:12px;right:12px;{% else %}top:12px;right:12px;{% endcase %}}
+{% endstyle %}
+<div class="dm-knowledge-badge-wrap-{{ai_gen_id}}" {{block.shopify_attributes}} style="position:relative;min-height:72px;width:100%;background:{{block.settings.section_bg}}">
+{% if block.settings.badge != blank %}<span class="dm-badge-position-{{ai_gen_id}}">{{block.settings.badge | escape}}</span>{% endif %}
+</div>
+{% schema %}
+{"name":"Badge-Position","settings":[{"type":"text","id":"badge","label":"Badge-Text","default":"Empfehlung"},{"type":"select","id":"badge_position","label":"Badge-Position","options":[{"value":"top_left","label":"Oben links"},{"value":"top_right","label":"Oben rechts"},{"value":"bottom_left","label":"Unten links"},{"value":"bottom_right","label":"Unten rechts"}],"default":"top_right"},{"type":"color","id":"badge_bg","label":"Badge-Hintergrund","default":"#1D2E40"},{"type":"color","id":"badge_text","label":"Badge-Textfarbe","default":"#FFFFFF"},{"type":"color","id":"section_bg","label":"Hintergrund","default":"#FFFFFF"},{"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100}],"presets":[{"name":"Badge-Position"}],"tag":null,"class":"docmed-badge-position"}
+{% endschema %}
