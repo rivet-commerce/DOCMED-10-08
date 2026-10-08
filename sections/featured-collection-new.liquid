@@ -90,6 +90,12 @@
    
   {%- endstyle -%}
  <style>
+.heading-description {
+  font-size: 14px;
+  margin: 0;
+  font-family: 'Manrope';
+}
+
 .section-featured-collection-new {
  /* background: #F1F3F7;*/
 }
@@ -212,6 +218,9 @@
     <div class="color-{{ section.settings.color_scheme }}_ isolate gradient_ feaprod {% if section.settings.image != blank %} image_with_product {% endif %}">
     <div class="collection section-{{ section.id }}-padding {% unless section.settings.full_width == true %}page-width{% endunless %} {% if section.settings.full_width %} collection--full-width{% endif %} slider-arrow--{{ section.settings.arrow_position }}">
       <slider-component class="slider-mobile-gutter {% if show_desktop_slider %} slider-component-desktop{% endif %} {% if section.settings.image != blank %} img_with_product {% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% if section.settings.heading_description != blank %}
+          <p class="heading-description">{{ section.settings.heading_description }}</p>
+        {% endif %}
         <div class="{{ section.settings.head_align }} title-wrapper-with-link title-wrapper color-{{ section.settings.heading_color_scheme }}_ content-container">
           <div class="heading inline-richtext">
             {%- if section.settings.title != blank -%}
@@ -542,6 +551,11 @@
       "type": "collection",
       "id": "collection",
       "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "text",
+      "id": "heading_description",
+      "label": "Heading Description"
     },
     {
       "type": "header",
