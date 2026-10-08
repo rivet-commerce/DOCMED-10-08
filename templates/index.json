@@ -835,48 +835,55 @@
     "17914666578698ff2f": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_4807a3d_qJPYti": {
-          "type": "ai_gen_block_4807a3d",
+        "ai_gen_block_7a8597c_yEwwQr": {
+          "type": "ai_gen_block_7a8597c",
           "settings": {
             "eyebrow": "DOCMED RATGEBER",
             "heading": "Wissen & Ratgeber",
-            "description": "Fundiertes Wissen und praktische Orientierung für Diagnostik, Labor und medizinischen Alltag.",
-            "cta_text": "Alle Beiträge ansehen",
-            "cta_link": "",
-            "featured_article": "news/sterile-oder-unsterile-kompressen-wann-welche",
-            "article_list": [
-              "news/skills-lab",
-              "news/welche-kanulen-eignen-sich-zur-blutentnahme"
-            ],
-            "additional_count": 3,
+            "description": "Fundiertes Wissen und praktische Orientierung für Medizin, Diagnostik und Labor.",
+            "all_label": "Alle Beiträge ansehen",
+            "all_link": "shopify://blogs/news",
             "read_label": "Jetzt lesen",
+            "featured_article": "news/skills-lab",
+            "more_articles": [
+              "news/sterile-oder-unsterile-kompressen-wann-welche",
+              "news/jahresendbudget-pflegeschulen-sinnvoll-nutzen",
+              "news/welches-anatomische-modell-fuer-medizinische-ausbildung"
+            ],
             "show_badge": true,
             "badge_text": "Beliebter Beitrag",
-            "content_max_width": 1400,
-            "featured_column_percent": 50,
-            "column_gap": 24,
-            "padding_top": 56,
-            "padding_bottom": 56,
-            "padding_horizontal": 24,
-            "image_ratio": "1.72 / 1",
-            "small_image_ratio": "3 / 4",
-            "mobile_padding_top": 36,
-            "mobile_padding_bottom": 36,
-            "mobile_padding_horizontal": 16,
-            "mobile_gap": 16,
-            "mobile_order": "featured_first",
-            "background_color": "#F8FBFC"
+            "article_count": 3,
+            "max_width": "1500",
+            "desktop_width_percent": 100,
+            "featured_ratio": 50,
+            "column_gap": 28,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "featured_image_height": 380,
+            "small_image_size": 140,
+            "mobile_padding": 25,
+            "mobile_card_gap": 16,
+            "mobile_image_size": 90,
+            "mobile_feature_height": 260,
+            "mobile_feature_first": true,
+            "corner_radius": 10,
+            "button_color": "#1D2E40",
+            "button_text_color": "#FFFFFF",
+            "button_hover_color": "#7FC7CF",
+            "button_hover_text_color": "#1D2E40",
+            "background_color": "#FFFFFF"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_4807a3d_qJPYti"
+        "ai_gen_block_7a8597c_yEwwQr"
       ],
       "settings": {}
     },
     "featured_blog_97NRwq": {
       "type": "featured-blog",
+      "disabled": true,
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "heading": "",
