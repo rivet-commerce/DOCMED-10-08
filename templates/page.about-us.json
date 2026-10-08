@@ -24,26 +24,24 @@
     "178957001005f422cd": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_fbdc425_MJdYzC": {
-          "type": "ai_gen_block_fbdc425",
+        "ai_gen_block_791d73f_itKF3L": {
+          "type": "ai_gen_block_791d73f",
           "settings": {
-            "image": "shopify://shop_images/17887.jpg",
             "heading": "Über DocMed",
-            "paragraph_one": "<p><strong>Global wachsen. Persönlich bleiben.</strong><br/><br/>Für uns ist das Gesundheitswesen etwas zutiefst Persönliches.&nbsp;Hinter jedem Medizinprodukt steht jemand, der darauf angewiesen ist: ein Patient, medizinisches Fachpersonal, ein Pfleger oder jemand, der seine Gesundheit und sein Wohlbefinden erhalten oder verbessern möchte. Bei DocMed verlieren wir das niemals aus den Augen.&nbsp;<br/><br/>Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit freiverkäuflichen pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden. Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines Internationalen Anbieters für Medizin- und Gesundheitsbedarf mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.</p>",
-            "paragraph_two": "",
-            "desktop_width_percent": 100,
-            "content_width": 1500,
+            "paragraph_one": "<p><strong>Global wachsen. Persönlich bleiben.</strong><br/><br/>Für uns ist das Gesundheitswesen etwas zutiefst Persönliches.&nbsp;Hinter jedem Medizinprodukt steht jemand, der darauf angewiesen ist: ein Patient, medizinisches Fachpersonal, ein Pfleger oder jemand, der seine Gesundheit und sein Wohlbefinden erhalten oder verbessern möchte. Bei DocMed verlieren wir das niemals aus den Augen.&nbsp;</p>",
+            "paragraph_two": "<p>Von unserem Hauptsitz in Bochum, Deutschland, beliefern wir Kunden in mehr als 50 Ländern mit freiverkäuflichen pharmazeutischen Produkten, Medizinprodukten und Gesundheitslösungen. Unsere Kunden reichen von Krankenhäusern, Arztpraxen und Apotheken bis zu Distributoren, Gesundheitsorganisationen und privaten Kunden. Während wir unsere Präsenz über Produkte, Märkte und Länder hinweg erweitern, ist unsere Ambition klar: die Fähigkeiten eines Internationalen Anbieters für Medizin- und Gesundheitsbedarf mit der Flexibilität und dem persönlichen Ansatz eines vertrauenswürdigen Partners zu verbinden.</p>",
+            "image": "shopify://shop_images/17887.jpg",
+            "section_width": 100,
             "section_height": 550,
-            "image_column_percent": "50",
-            "column_gap": 35,
-            "desktop_side_padding": 10,
+            "desktop_side_padding": 40,
             "mobile_side_padding": 20,
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "mobile_padding_top": 40,
-            "mobile_padding_bottom": 40,
-            "image_height": 400,
-            "mobile_image_height": 320,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "text_column_width": 50,
+            "column_gap": 50,
+            "image_width": 100,
+            "image_height_desktop": 400,
+            "image_height_mobile": 280,
             "image_radius": 8,
             "heading_size_desktop": 44,
             "heading_size_mobile": 34,
@@ -51,13 +49,13 @@
             "text_size_mobile": 16,
             "background_color": "#ffffff",
             "heading_color": "#1d2e40",
-            "text_color": "#1d2e40"
+            "text_color": "#334550"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_fbdc425_MJdYzC"
+        "ai_gen_block_791d73f_itKF3L"
       ],
       "name": "About Us hero",
       "settings": {}
