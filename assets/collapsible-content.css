@@ -64,6 +64,7 @@
 }
 .collapsible-row-layout .accordion .accordion__content {
   padding-top: 0;
+  overflow: hidden;
 }
 .collapsible-content-wrapper-narrow {
   margin: 0 auto;
