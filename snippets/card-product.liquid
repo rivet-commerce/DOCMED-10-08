@@ -901,7 +901,7 @@
                 {%- assign availability_dot_class = 'availability-dot--in' -%}
               {%- endif -%}
 
-              <div>
+              {% comment %} <div>
                 <p
                   class="product__availability no-js-hidden"
                   id="Availability-{{ section.id }}-{{ card_product.id }}"
@@ -1345,7 +1345,7 @@
                     </script>
                   {% endif %}
                 </div>
-              </div>
+              </div> {% endcomment %}
               {%- if enable_listdesc != blank -%}
                 <p class="wblistpdesc cardhide_toggle">
                   {{ card_product.description | strip_html | truncatewords: 20 }}
