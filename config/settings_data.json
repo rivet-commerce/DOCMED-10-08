@@ -161,7 +161,7 @@
     "drawer_free_away": "",
     "drawer_free_away_after": "",
     "cart_drawer_collection": "",
-    "show_cartpayment": true,
+    "show_cartpayment": false,
     "upsellp": false,
     "wbuphead": "Passende Produkte",
     "upsellcollection": "",

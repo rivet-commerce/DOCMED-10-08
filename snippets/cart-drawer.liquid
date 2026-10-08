@@ -592,7 +592,7 @@
             <span>{{ 'sections.cart.checkout' | t }}</span>
           </button>
         </div>
-        {% comment %} {%- if settings.show_cartpayment -%}
+        {%- if settings.show_cartpayment -%}
           <div class="cartdrawfpay text-center">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
             <ul>
@@ -601,7 +601,7 @@
               {%- endfor -%}
             </ul>
           </div>
-        {%- endif -%} {% endcomment %}
+        {%- endif -%}
       </div>
       
       <div class="sh-payment-icons-container">
