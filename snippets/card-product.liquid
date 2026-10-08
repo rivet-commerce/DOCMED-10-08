@@ -871,7 +871,7 @@
                   </p>
                 {%- endif -%}
 
-                {%- assign current_variant = card_product.selected_or_first_available_variant -%}
+                {% comment %} {%- assign current_variant = card_product.selected_or_first_available_variant -%}
                 {%- assign initial_ve = current_variant.metafields.custom.unit -%}
 
                 <p
@@ -884,7 +884,7 @@
                 >
                   <span class="visually-hidden">Packaging unit:</span>
                   <b>VE</b>: <span data-ve-text>{{ initial_ve }}</span>&nbsp;
-                </p>
+                </p> {% endcomment %}
               </div>
               {%- assign current_variant = card_product.selected_or_first_available_variant -%}
 
