@@ -858,7 +858,7 @@
                   <span class="visually-hidden">PZN:</span>
                   <b>PZN</b>: <span data-pzn-text>{{ initial_pzn }}</span>
                 </p>
-                {%- assign ve = card_product.metafields.custom.ve -%}
+                {% comment %} {%- assign ve = card_product.metafields.custom.ve -%}
 
                 {%- if ve and ve != blank -%}
                   <p
@@ -869,7 +869,7 @@
                     <span class="visually-hidden">Packaging unit:</span>
                     <span><b>VE</b>:&nbsp;{{ ve }}&nbsp;</span>
                   </p>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
 
                 {%- assign current_variant = card_product.selected_or_first_available_variant -%}
                 {%- assign initial_ve = current_variant.metafields.custom.unit -%}
