@@ -173,7 +173,7 @@
         <div class="wbblank"><div class="wbblankinner"></div></div>
       {%- endif -%}
       <div class="wbsortbar{% if section.settings.filter_type == 'horizontal' or section.settings.filter_type == 'drawer' %} wbmobilefil{% endif %}">
-        <div class="wbglbtn {% if section.settings.filter_type == 'drawer' %} large-up-hide medium-hide {% endif %}">
+        <div class="wbglbtn {% if section.settings.filter_type == 'drawer' %} large-up-hide medium-hide {% endif %}" style="opacity: 0;">
           <button
             class="gridv wblistgridbtn focus-inset {% if section.settings.default_grid == 'four_col' %} active {% endif %} {% if section.settings.default_grid == 'three_col' %} active_mobile {% endif %}"
             aria-label="grid"

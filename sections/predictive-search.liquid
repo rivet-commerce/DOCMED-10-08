@@ -22,6 +22,25 @@
     <div id="predictive-search-results-groups-wrapper" class="{% if first_column_results_size > 0 %}predictive-search__results-groups-wrapper{% endif %}{% if predictive_search.resources.products.size < 0 %} predictive-search__results-groups-wrapper--no-products{% endif %}{% if predictive_search.resources.queries.size < 0 and predictive_search.resources.collections.size < 0 and predictive_search.resources.pages.size < 0 and predictive_search.resources.articles.size < 0 %} predictive-search__results-groups-wrapper--no-suggestions{% endif %}"> 
       {%- if first_column_results_size > 0 -%}
         <div class="predictive-search__result-group seachbar-left content-border">
+          {% if predictive_search.resources.collections.size > 0 %}
+            <div class="predictive-search__collection-wrapper">
+              <h2 id="predictive-search-pages-desktop" class="predictive-search__heading caption-with-letter-spacing">
+                {{- 'templates.search.collections' | t -}}
+              </h2>
+              <ul id="predictive-search-results-queries-list" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-queries">
+                {%- for collection in predictive_search.resources.collections -%}
+                  <li id="predictive-search-option-collection-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
+                    <a href="{{ collection.url }}" class="predictive-search__item predictive-search__item-1 link link--text" tabindex="-1">
+                      <div class="predictive-search__item-content predictive-search__item-content--centered">
+                        <p class="predictive-search__item-heading">{{ collection.title }}</p>
+                      </div>
+                      <div style="font-size: 26px; line-height: 20px;">></div>
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {% endif %}
           {%- if predictive_search.resources.queries.size > 0 -%}
             <div class="search-suggestions">
               <h2 id="predictive-search-queries" class="predictive-search__heading caption-with-letter-spacing">
@@ -40,24 +59,6 @@
               </ul>
             </div>
           {%- endif -%}
-          {% if predictive_search.resources.collections.size > 0 %}
-            <div class="predictive-search__collection-wrapper">
-              <h2 id="predictive-search-pages-desktop" class="predictive-search__heading caption-with-letter-spacing">
-                {{- 'templates.search.collections' | t -}}
-              </h2>
-              <ul id="predictive-search-results-queries-list" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-queries">
-                {%- for collection in predictive_search.resources.collections -%}
-                  <li id="predictive-search-option-collection-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
-                    <a href="{{ collection.url }}" class="predictive-search__item link link--text" tabindex="-1">
-                      <div class="predictive-search__item-content predictive-search__item-content--centered">
-                        <p class="predictive-search__item-heading">{{ collection.title }}</p>
-                      </div>
-                    </a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
-          {% endif %}
           {%- if predictive_search.resources.pages.size > 0 -%}
             <div class="predictive-search__pages-wrapper">
               <h2 id="predictive-search-pages-desktop" class="predictive-search__heading caption-with-letter-spacing">
@@ -101,7 +102,7 @@
           <div class="search_result-products search__results content-border">
             <div class="heading-wrapper">
               <div class="default-content-heading">{{- 'wbcustomlabel.wballtext.popular_products' | t -}}</div>
-              <a href="{{ routes.all_products_collection_url }}" class="default-heading-link">{{- 'wbcustomlabel.wballtext.all_products' | t -}}</a>
+              <a href="{{ routes.all_products_collection_url }}" class="default-heading-link">{{- 'wbcustomlabel.wballtext.all_products' | t | append: "&nbsp&nbsp→" -}}</a>
             </div>
             <ul id="predictive-search-results-products-list" class="predictive-search__results-list list-unstyled grid" role="group" aria-labelledby="predictive-search-products">
               {%- for product in predictive_search.resources.products -%} 

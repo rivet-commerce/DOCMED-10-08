@@ -102,17 +102,17 @@ Usage:
             {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
               <div class="article-card__excerpt ">
                 {%- if article.excerpt.size > 0 -%}
-                  {%- if section.settings.secerpt == 'show' -%}
+                  {% comment %} {%- if section.settings.secerpt == 'show' -%} {% endcomment %}
                     {{ article.excerpt }}
-                  {%- elsif section.settings.secerpt == 'truncate' -%}
+                  {% comment %} {%- elsif section.settings.secerpt == 'truncate' -%}
                     {{ article.excerpt | truncatewords: 15 }}
-                  {%- endif -%}
+                  {%- endif -%} {% endcomment %}
                 {%- else -%}
-                  {%- if section.settings.secerpt == 'show' -%}
+                  {% comment %} {%- if section.settings.secerpt == 'show' -%} {% endcomment %}
                     {{ article.content }}
-                  {%- elsif section.settings.secerpt == 'truncate' -%}
+                  {% comment %} {%- elsif section.settings.secerpt == 'truncate' -%}
                     {{ article.content | truncatewords: 15 }}
-                  {%- endif -%}
+                  {%- endif -%} {% endcomment %}
                 {%- endif -%}
               </div>
             {%- endif -%}

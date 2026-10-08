@@ -31,6 +31,7 @@
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: auto;
 }
 .blog__read_more a.button {
   text-align: center
@@ -57,6 +58,9 @@
 .blog .card__information {
   margin-bottom: 0;
   line-height: normal;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .blog .card--standard.card--text.article-card > .card__content{
   padding: 0;

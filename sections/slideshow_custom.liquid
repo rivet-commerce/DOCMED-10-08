@@ -73,6 +73,13 @@
     margin: 0 auto;
   }
   }
+  /* Slide button hover: the slide's colour scheme sets both the hover fill and
+     the hover label to white, so on the white text box the button vanished.
+     Use a slightly lighter navy with a white label instead. */
+  #shopify-section-{{ section.id }} .slideshow__text .button {
+    --color-bg-button-hover: 44, 66, 90;
+    --color-button-hover-text: 255, 255, 255;
+  }
 {%- endstyle -%}
 {% if section.settings.default_font != true %}
   {%- style -%}
