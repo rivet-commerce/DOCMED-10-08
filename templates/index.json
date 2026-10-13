@@ -134,7 +134,7 @@
       "settings": {
         "slide_heading_font": "open_sans_n4",
         "default_font": false,
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "small",
         "show_menu": true,
         "main_mega_menu": "top-10",
