@@ -672,25 +672,25 @@
     "collapsible_content_7yExeM": {
       "type": "collapsible-content",
       "blocks": {
+        "collapsible_row_RmECNq": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "Wo kann ich meine Rechnung finden ?",
+            "icon": "none",
+            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
+            "row_content": "<p>Ihre Rechnung finden Sie in Ihrer Bestellbestätigung, Versandbestätigung sowie in der Zustellbestätigung per E-Mail.&nbsp;<br/><br/>In diesen E-Mails befindet sich der Button <strong>„Rechnung herunterladen“</strong>, über den Sie Ihre Rechnung bequem als PDF herunterladen können.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_TtCwqK": {
           "type": "collapsible_row",
           "settings": {
-            "default_open": true,
+            "default_open": false,
             "heading": "Wie kann ich eine Bestellung aufgeben?",
             "icon": "none",
             "custom_image": "shopify://shop_images/cart-shopping-solid-full_2.svg",
             "row_content": "<p>Sie können Ihre Bestellung bequem über unseren Online-Shop aufgeben, indem Sie die gewünschten Produkte in den Warenkorb legen und dem Bestellprozess folgen.<br/><br/>Alternativ haben Sie die Möglichkeit, <strong>ein individuelles Angebot anzufordern</strong> oder Ihre Bestellung <strong>telefonisch oder per E-Mail</strong> bei unserem Team aufzugeben. Wir beraten Sie dabei gerne persönlich und unterstützen Sie bei der Produktauswahl sowie der Abwicklung.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_nNB3gV": {
-          "type": "collapsible_row",
-          "settings": {
-            "default_open": true,
-            "heading": "Kann ich ein Angebot anfordern & per Rechnung bestellen?",
-            "icon": "none",
-            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
-            "row_content": "<p>Ja, wir bieten unsere Artikel sowohl für <strong>B2B- als auch für B2C-Kunden</strong> an.<br/><br/>Gerne erstellen wir Ihnen ein individuelles Angebot. Nach Bestätigung des Angebots ist eine Bestellung per <strong>Rechnung (Vorkasse)</strong> möglich.<br/><br/>Bitte kontaktieren Sie uns hierzu über unser Kontaktformular oder per E-Mail und teilen Sie uns die gewünschten Artikel, Mengen sowie Ihre Rechnungs- und Lieferadresse mit.</p>",
             "page": ""
           }
         },
@@ -716,6 +716,17 @@
             "page": ""
           }
         },
+        "collapsible_row_nNB3gV": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "Kann ich ein Angebot anfordern & per Rechnung bestellen?",
+            "icon": "none",
+            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
+            "row_content": "<p>Ja, wir bieten unsere Artikel sowohl für <strong>B2B- als auch für B2C-Kunden</strong> an.<br/><br/>Gerne erstellen wir Ihnen ein individuelles Angebot. Nach Bestätigung des Angebots ist eine Bestellung per <strong>Rechnung (Vorkasse)</strong> möglich.<br/><br/>Bitte kontaktieren Sie uns hierzu über unser Kontaktformular oder per E-Mail und teilen Sie uns die gewünschten Artikel, Mengen sowie Ihre Rechnungs- und Lieferadresse mit.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_aKQRid": {
           "type": "collapsible_row",
           "settings": {
@@ -729,10 +740,11 @@
         }
       },
       "block_order": [
+        "collapsible_row_RmECNq",
         "collapsible_row_TtCwqK",
-        "collapsible_row_nNB3gV",
         "collapsible_row_pMzWYg",
         "collapsible_row_b9jDni",
+        "collapsible_row_nNB3gV",
         "collapsible_row_aKQRid"
       ],
       "name": "FAQ",
