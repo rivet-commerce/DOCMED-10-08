@@ -615,6 +615,9 @@ a:hover .predictive-search__item-content p{
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
+  #predictive-search-results-groups-wrapper .search_result-products:only-child ul.predictive-search__results-list li div {
+    width: 100%;
+  }
 }
 @media (min-width: 576px) and (max-width: 767px){
   .search_default ul.contains-card--product, .search_default ul.blog__posts.articles-wrapper, .search_result-products ul{
