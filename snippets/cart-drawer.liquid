@@ -571,7 +571,11 @@
             </p>
           </div>
           <div class="totals">
-            <span class="totals__subtotal">Versand</span>
+            {% if localization.country == "Deutschland" %}
+              <span class="totals__subtotal">Versand</span>
+            {% else %}
+              <span class="totals__subtotal">Shipping</span>
+            {% endif %}
             <p style="font-size: 14px;">Wird im Checkout berechnet</p>
           </div>
         </div>
