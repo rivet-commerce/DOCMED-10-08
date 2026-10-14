@@ -46,7 +46,7 @@
 </style>
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %} color-{{ settings.drawer_color_scheme }} gradient">
   <div id="CartDrawer" class="cart-drawer">
-    {{ localization | json }}
+    {{ localization.country | json }}
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <subcart-drawer
       class="global-settings-drawer {% unless settings.upsellp == true %}is-emptyrmv {% endunless %}"
