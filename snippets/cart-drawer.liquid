@@ -162,7 +162,7 @@
               endif
             -%}
             <div class="wbship">
-              {% if localization.country.iso_code == 'DE' %}
+              {% if localization.country == 'Deutschland' %}
                 <div class="wbship_wrapper{% if cart.total_price >= shipminprice %} wbship_full_wrapper{% endif %}">
                   {% if cart.total_price >= shipminprice %}
                     {% render 'icon-bell' %}
