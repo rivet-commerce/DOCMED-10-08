@@ -573,10 +573,11 @@
           <div class="totals">
             {% if localization.country == "Deutschland" %}
               <span class="totals__subtotal">Versand</span>
+              <p style="font-size: 14px;">Wird im Checkout berechnet</p>
             {% else %}
               <span class="totals__subtotal">Shipping</span>
+              <p style="font-size: 14px;">Calculated at checkout</p>
             {% endif %}
-            <p style="font-size: 14px;">Wird im Checkout berechnet</p>
           </div>
         </div>
         <div class="cart__ctas cartdrawbtn" {{ block.shopify_attributes }}>
