@@ -282,6 +282,9 @@ button.predictive-search__item.predictive-search__item--term {
   .predictive-search.predictive-search--header .search_default .search-default_data:only-child {
     margin: 0;
   }
+  .wbsearch_inner, #predictive-search-results {
+    padding: 0 10px;
+  }
 }
 #predictive-search-results-groups-wrapper .search_result-products ul li > div {
   width: 100%;
