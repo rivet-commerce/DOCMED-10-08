@@ -147,7 +147,7 @@
           "settings": {
             "icon": "none",
             "header": "Informationen",
-            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p><p><strong>Lieferinformationen: </strong>{{ product.metafields.custom.lieferumfang | metafield_tag }}</p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>",
+            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&nbsp;</p><p><strong>Lieferinformationen:&nbsp;</strong></p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>",
             "product_description": false
           }
         }
@@ -314,6 +314,7 @@
             "reviewPhotosType_carousel": "small",
             "reviewPhotosType_rotator": "small",
             "writeReview": true,
+            "writeReview_rotator": true,
             "fixedReviewsHeight": false
           }
         }
