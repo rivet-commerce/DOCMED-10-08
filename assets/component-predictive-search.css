@@ -278,6 +278,11 @@ button.predictive-search__item.predictive-search__item--term {
 .predictive-search.predictive-search--header .search_default .search-default_data:only-child, #predictive-search-results-groups-wrapper .search_result-products ul li, .predictive-search li.product__col_wrapper, .predictive-search li.blog_col_wrapper{
   width: 100%;
 }
+@media screen and (max-width: 750px) {
+  .predictive-search.predictive-search--header .search_default .search-default_data:only-child {
+    margin: 0;
+  }
+}
 #predictive-search-results-groups-wrapper .search_result-products ul li > div {
   width: 100%;
 }
