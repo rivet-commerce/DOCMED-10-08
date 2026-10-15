@@ -278,6 +278,9 @@ button.predictive-search__item.predictive-search__item--term {
 .predictive-search.predictive-search--header .search_default .search-default_data:only-child, #predictive-search-results-groups-wrapper .search_result-products ul li, .predictive-search li.product__col_wrapper, .predictive-search li.blog_col_wrapper{
   width: 100%;
 }
+#predictive-search-results-groups-wrapper .search_result-products ul li > div {
+  width: 100%;
+}
 .predictive-search__result-group.seachbar-left:last-child{
   margin-right: 0;
 }
