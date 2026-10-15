@@ -2580,7 +2580,8 @@ product-info .loading-overlay:not(.hidden) ~ *,
 /* The announcement bar is sticky too (sections/announcement-bar.liquid), so
    the header pins directly below it instead of sliding underneath. */
 .section-header.shopify-section-header-sticky {
-    top: var(--announcement-bar-height, 0px);
+    /* top: var(--announcement-bar-height, 0px); */
+    top: -100px;
 }
 .shopify-section-header-hidden {
     top: calc(-1 * var(--header-height));
