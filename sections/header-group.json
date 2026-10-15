@@ -94,7 +94,7 @@
         "main_drop_menu": "click",
         "color_schememenu": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
         "color__dropmenu": "accent-2",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "head_shadow": "head_shadow_all",
         "margin_bottom": 0,
         "enable_country_selector": false,
