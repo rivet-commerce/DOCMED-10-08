@@ -868,6 +868,11 @@
       "step_one": {
         "consent_agreement": "Durch das Fortfahren stimmen Sie unseren AGB zu."
       }
+    },
+    "returns_and_cancellations": {
+      "estimated_refund_summary_card": {
+        "item_subtotal_label": "Zwischensumme inkl. Mwst"
+      }
     }
   }
 }
