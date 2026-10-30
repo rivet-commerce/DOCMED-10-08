@@ -47,8 +47,13 @@
             "enable_video_looping": false,
             "auto_play_video": false,
             "video_url": "",
+<<<<<<< HEAD
             "image": "shopify://shop_images/LifeSaveAir_Notfallausruestung_im_Klinikambiente.png",
             "mobile_image": "shopify://shop_images/a30cb813-e964-4b50-af4a-a99ceb3da9b9.png",
+=======
+            "image": "shopify://shop_images/a30cb813-e964-4b50-af4a-a99ceb3da9b9.png",
+            "mobile_image": "shopify://shop_images/4b7a9dba-a423-4867-8ebb-f4aad8ea19c7.png",
+>>>>>>> 2fa7fb69a26a95b570c49b391f1474931a00dace
             "image_overlay_opacity": 0,
             "text_caption": "",
             "outline_text": false,
