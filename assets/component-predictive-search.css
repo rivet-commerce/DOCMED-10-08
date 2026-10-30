@@ -278,6 +278,17 @@ button.predictive-search__item.predictive-search__item--term {
 .predictive-search.predictive-search--header .search_default .search-default_data:only-child, #predictive-search-results-groups-wrapper .search_result-products ul li, .predictive-search li.product__col_wrapper, .predictive-search li.blog_col_wrapper{
   width: 100%;
 }
+@media screen and (max-width: 750px) {
+  .predictive-search.predictive-search--header .search_default .search-default_data:only-child {
+    margin: 0;
+  }
+  .wbsearch_inner, #predictive-search-results {
+    padding: 0 10px;
+  }
+}
+#predictive-search-results-groups-wrapper .search_result-products ul li > div {
+  width: 100%;
+}
 .predictive-search__result-group.seachbar-left:last-child{
   margin-right: 0;
 }
@@ -614,6 +625,9 @@ a:hover .predictive-search__item-content p{
   #predictive-search-results-groups-wrapper .search_result-products:only-child ul.predictive-search__results-list li {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+  #predictive-search-results-groups-wrapper .search_result-products:only-child ul.predictive-search__results-list li div {
+    width: 100%;
   }
 }
 @media (min-width: 576px) and (max-width: 767px){

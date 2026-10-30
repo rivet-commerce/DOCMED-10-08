@@ -67,34 +67,11 @@
             "show_colorswatch": true
           }
         },
-        "offer_9QtRKa": {
-          "type": "offer",
-          "disabled": true,
-          "settings": {
-            "heading": "",
-            "icon": "truck",
-            "content": "<p><strong>Auf Lager: </strong>In 1-3 Werktagen geliefert</p>",
-            "icon2": "none",
-            "content2": "",
-            "icon_color": "#17af40"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "sectionheroes_md_divider_9JBeQc": {
-          "type": "shopify://apps/sectionheroes/blocks/md_divider/019abad6-4363-7418-bd8f-a8feb1296bd6",
-          "settings": {
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "height": 0.5,
-            "color": "#bdbdbd",
-            "width": 100,
-            "position": "center"
           }
         }
       },
@@ -108,16 +85,14 @@
         "price",
         "products_variants_7NcCUy",
         "variant_picker_PMkhTg",
-        "offer_9QtRKa",
-        "buy_buttons",
-        "sectionheroes_md_divider_9JBeQc"
+        "buy_buttons"
       ],
       "settings": {
         "ghs_image": "ghs-image-list-efsixrhk",
         "enable_sticky_info": true,
         "media_size": "small",
         "constrain_to_viewport": true,
-        "media_fit": "cover",
+        "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "none",
@@ -147,7 +122,7 @@
           "settings": {
             "icon": "none",
             "header": "Informationen",
-            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p><p><strong>Lieferinformationen: </strong>{{ product.metafields.custom.lieferumfang | metafield_tag }}</p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>",
+            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&nbsp;</p><p><strong>Lieferinformationen:&nbsp;</strong></p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>",
             "product_description": false
           }
         }
@@ -246,46 +221,6 @@
         "padding_bottom": 60
       }
     },
-    "custom_featured_coll_sec_EgVBEz": {
-      "type": "custom-featured-coll-sec",
-      "disabled": true,
-      "name": "Push Produkte ",
-      "settings": {
-        "cus-bg-color": "#ffffff",
-        "collection": "push-products",
-        "heading": ""
-      }
-    },
-    "apps_Nb3q6E": {
-      "type": "apps",
-      "blocks": {
-        "forms_inline_znJeBF": {
-          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "837708",
-            "text_color": "#1d2e40",
-            "button_background_color": "#1d2e40",
-            "button_label_color": "#ffffff",
-            "links_color": "#7fc7cf",
-            "errors_color": "#e02229",
-            "text_alignment": "center",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 24,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "forms_inline_znJeBF"
-      ],
-      "settings": {
-        "include_margins": true,
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
     "apps_hTtqNU": {
       "type": "apps",
       "blocks": {
@@ -293,6 +228,7 @@
           "type": "shopify://apps/google-reviews/blocks/carousel-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
           "settings": {
             "contentIndex": "1",
+            "tag": "",
             "variant": "carousel",
             "headerType_rotator": "top",
             "headerType_carousel": "top",
@@ -314,6 +250,7 @@
             "reviewPhotosType_carousel": "small",
             "reviewPhotosType_rotator": "small",
             "writeReview": true,
+            "writeReview_rotator": true,
             "fixedReviewsHeight": false
           }
         }
@@ -326,70 +263,6 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
-    },
-    "contact_form_wNtY4c": {
-      "type": "contact-form",
-      "blocks": {
-        "text_jEjcyw": {
-          "type": "text",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Name",
-            "required_field": false
-          }
-        },
-        "email_c3Fk3W": {
-          "type": "email",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Email",
-            "required_field": true
-          }
-        },
-        "phone_bDUQrJ": {
-          "type": "phone",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Telefon",
-            "required_field": true
-          }
-        },
-        "message_QVCXwm": {
-          "type": "message",
-          "settings": {
-            "field_label": "",
-            "label_placeholder": "Ihre Nachricht...",
-            "required_field": false
-          }
-        }
-      },
-      "block_order": [
-        "text_jEjcyw",
-        "email_c3Fk3W",
-        "phone_bDUQrJ",
-        "message_QVCXwm"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h0",
-        "head_align": "left",
-        "heading_color_scheme": "",
-        "head_space": true,
-        "description": "",
-        "description_style": "body",
-        "enable_all": "text",
-        "contact_iframe_code": "",
-        "texttitle": "<strong>Wir sind für Sie da!</strong>",
-        "demotext": "Haben Sie Fragen zum Produkt ?",
-        "contacttitle": "",
-        "contsubtext": "",
-        "footer_contact_no": "<h3><strong>0234 - 357 905 59</strong></h3>",
-        "show_social": false,
-        "contactfollow": "",
-        "color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
@@ -397,9 +270,6 @@
     "main",
     "ss_product_tabs_2_bzCJFz",
     "related-products",
-    "custom_featured_coll_sec_EgVBEz",
-    "apps_Nb3q6E",
-    "apps_hTtqNU",
-    "contact_form_wNtY4c"
+    "apps_hTtqNU"
   ]
 }

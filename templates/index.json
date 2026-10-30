@@ -14,6 +14,7 @@
       "blocks": {
         "slide_a9zrFH": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "enable_video_looping": false,
             "auto_play_video": false,
@@ -46,7 +47,8 @@
             "enable_video_looping": false,
             "auto_play_video": false,
             "video_url": "",
-            "image": "shopify://shop_images/Banner_Dr.S_Destop.png",
+            "image": "shopify://shop_images/LifeSaveAir_Notfallausruestung_im_Klinikambiente.png",
+            "mobile_image": "shopify://shop_images/a30cb813-e964-4b50-af4a-a99ceb3da9b9.png",
             "image_overlay_opacity": 0,
             "text_caption": "",
             "outline_text": false,
@@ -57,7 +59,7 @@
             "description": "",
             "text_style": "body",
             "button_label": "",
-            "link": "shopify://collections/dr-schumacher-gmbh",
+            "link": "https://www.docmed.de/products/lifesaveair-rettungspumpe-bei-erstickungsnotfallen?variant=57451170955529",
             "link_window": false,
             "view_all_style": "solid",
             "box_align": "middle-left",
@@ -427,6 +429,7 @@
       "settings": {
         "color_scheme": "background-2",
         "collection": "bestseller",
+        "heading_description": "UNSERE EMPFEHLUNGEN",
         "title": "<strong>Gut. Besser. Bestseller.</strong>",
         "heading_size": "h1",
         "head_align": "left",
@@ -491,16 +494,6 @@
         "swipe_on_mobile": true,
         "padding_top": 16,
         "padding_bottom": 36
-      }
-    },
-    "custom_featured_coll_sec_hqKMU6": {
-      "type": "custom-featured-coll-sec",
-      "disabled": true,
-      "name": "Push Produkte ",
-      "settings": {
-        "cus-bg-color": "#f5f5f7",
-        "collection": "push-products",
-        "heading": ""
       }
     },
     "cus_new_collectin_list_sec_ftM88k": {
@@ -667,28 +660,102 @@
       "name": "Top Kategorien",
       "settings": {}
     },
+    "featured_collection_new_GrN9My": {
+      "type": "featured-collection-new",
+      "disabled": true,
+      "name": "Bestseller",
+      "settings": {
+        "color_scheme": "background-2",
+        "collection": "medizinische-ausbildung-simulation",
+        "heading_description": "Medizinische Ausbildung & Simulation, Anatomiemodelle",
+        "title": "Medizinische Ausbildung & Simulation",
+        "heading_size": "h1",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": false,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 25,
+        "columns_desktop": 5,
+        "show_row_on_desktop": 1,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "view_button_pos": "top",
+        "enable_desktop_slider": true,
+        "arrow_position": "top",
+        "card_style": "card",
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "show_quantity": false,
+        "show_vendor": true,
+        "show_sku": true,
+        "show_rating": true,
+        "enable_quick_add": false,
+        "quicklook_style": "link",
+        "show_count_timer": false,
+        "color_swatchhover": false,
+        "enable_addtocart": true,
+        "show_variants": false,
+        "show_variant_label": false,
+        "picker_type": "button",
+        "show_colorswatch": true,
+        "cardstock_bar": false,
+        "stock_inventory": false,
+        "max_stock": 150,
+        "limited_stock_cut_off": 10,
+        "limited_stock_message": "Only {stock_number} units left",
+        "instock_message": "{stock_number} in stock",
+        "continue_selling_message": "Re-stocking soon",
+        "limited_stock_color": "#ff0000",
+        "in_stock_color": "#008a00",
+        "continue_selling_color": "#ff0000",
+        "banner_position": "left",
+        "box_align": "top",
+        "text_alignment": "center",
+        "show_text_box": false,
+        "imgcolor_scheme": "",
+        "show_banner_timer": false,
+        "wb_bannerdate": "",
+        "text_caption": "Image text",
+        "outline_text": false,
+        "heading": "Heading",
+        "bnrheading_size": "h1",
+        "sub_heading": "Sub Heading",
+        "button_label": "Button label",
+        "button_link": "",
+        "link_window": true,
+        "button_style_secondary": "link",
+        "card_color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 36
+      }
+    },
     "collapsible_content_7yExeM": {
       "type": "collapsible-content",
       "blocks": {
+        "collapsible_row_RmECNq": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "Wo kann ich meine Rechnung finden ?",
+            "icon": "none",
+            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
+            "row_content": "<p>Ihre Rechnung finden Sie in Ihrer Bestellbestätigung, Versandbestätigung sowie in der Zustellbestätigung per E-Mail.&nbsp;<br/><br/>In diesen E-Mails befindet sich der Button <strong>„Rechnung herunterladen“</strong>, über den Sie Ihre Rechnung bequem als PDF herunterladen können.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_TtCwqK": {
           "type": "collapsible_row",
           "settings": {
-            "default_open": true,
+            "default_open": false,
             "heading": "Wie kann ich eine Bestellung aufgeben?",
             "icon": "none",
             "custom_image": "shopify://shop_images/cart-shopping-solid-full_2.svg",
             "row_content": "<p>Sie können Ihre Bestellung bequem über unseren Online-Shop aufgeben, indem Sie die gewünschten Produkte in den Warenkorb legen und dem Bestellprozess folgen.<br/><br/>Alternativ haben Sie die Möglichkeit, <strong>ein individuelles Angebot anzufordern</strong> oder Ihre Bestellung <strong>telefonisch oder per E-Mail</strong> bei unserem Team aufzugeben. Wir beraten Sie dabei gerne persönlich und unterstützen Sie bei der Produktauswahl sowie der Abwicklung.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_nNB3gV": {
-          "type": "collapsible_row",
-          "settings": {
-            "default_open": true,
-            "heading": "Kann ich ein Angebot anfordern & per Rechnung bestellen?",
-            "icon": "none",
-            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
-            "row_content": "<p>Ja, wir bieten unsere Artikel sowohl für <strong>B2B- als auch für B2C-Kunden</strong> an.<br/><br/>Gerne erstellen wir Ihnen ein individuelles Angebot. Nach Bestätigung des Angebots ist eine Bestellung per <strong>Rechnung (Vorkasse)</strong> möglich.<br/><br/>Bitte kontaktieren Sie uns hierzu über unser Kontaktformular oder per E-Mail und teilen Sie uns die gewünschten Artikel, Mengen sowie Ihre Rechnungs- und Lieferadresse mit.</p>",
             "page": ""
           }
         },
@@ -714,6 +781,17 @@
             "page": ""
           }
         },
+        "collapsible_row_nNB3gV": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "Kann ich ein Angebot anfordern & per Rechnung bestellen?",
+            "icon": "none",
+            "custom_image": "shopify://shop_images/receipt-solid-full.svg",
+            "row_content": "<p>Ja, wir bieten unsere Artikel sowohl für <strong>B2B- als auch für B2C-Kunden</strong> an.<br/><br/>Gerne erstellen wir Ihnen ein individuelles Angebot. Nach Bestätigung des Angebots ist eine Bestellung per <strong>Rechnung (Vorkasse)</strong> möglich.<br/><br/>Bitte kontaktieren Sie uns hierzu über unser Kontaktformular oder per E-Mail und teilen Sie uns die gewünschten Artikel, Mengen sowie Ihre Rechnungs- und Lieferadresse mit.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_aKQRid": {
           "type": "collapsible_row",
           "settings": {
@@ -727,10 +805,11 @@
         }
       },
       "block_order": [
+        "collapsible_row_RmECNq",
         "collapsible_row_TtCwqK",
-        "collapsible_row_nNB3gV",
         "collapsible_row_pMzWYg",
         "collapsible_row_b9jDni",
+        "collapsible_row_nNB3gV",
         "collapsible_row_aKQRid"
       ],
       "name": "FAQ",
@@ -758,6 +837,7 @@
           "type": "shopify://apps/google-reviews/blocks/carousel-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
           "settings": {
             "contentIndex": "1",
+            "tag": "",
             "variant": "carousel",
             "headerType_rotator": "top",
             "headerType_carousel": "top",
@@ -828,11 +908,80 @@
         "columns": "3",
         "text_align": "justify",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 0
       }
+    },
+    "17914666578698ff2f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_79ae04d_9XXeqL": {
+          "type": "ai_gen_block_79ae04d",
+          "settings": {
+            "eyebrow": "DOCMED RATGEBER",
+            "heading": "Wissen & Ratgeber",
+            "description": "Fundiertes Wissen und praktische Orientierung für Ihren medizinischen Alltag.",
+            "featured_article": "news/skills-lab",
+            "blog": "news",
+            "badge": "",
+            "read_label": "Jetzt lesen",
+            "all_label": "Alle Beiträge ansehen",
+            "width_mode": "wide",
+            "custom_max_width": 1500,
+            "desktop_width_percent": 100,
+            "featured_ratio": 50,
+            "column_gap": 24,
+            "article_count": 3,
+            "feature_image_height": 250,
+            "mobile_image_height": 190,
+            "list_image_width": 130,
+            "card_gap": 10,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "tablet_padding": 30,
+            "mobile_padding": 25,
+            "title_lines": 3,
+            "teaser_lines": 2,
+            "mobile_teaser_lines": 2,
+            "feature_title_size": 23,
+            "list_title_size": 18,
+            "teaser_size": 14,
+            "section_bg": "#ffffff",
+            "eyebrow_color": "#7fc7cf",
+            "title_color": "#1d2e40",
+            "description_color": "#405263",
+            "category_color": "#1d2e40",
+            "blog_title_color": "#1d2e40",
+            "teaser_color": "#405263",
+            "link_color": "#1d2e40",
+            "card_bg": "#ffffff",
+            "card_hover_bg": "#f1fafb",
+            "hover_text": "#1d2e40",
+            "border_color": "#d9e2e8",
+            "badge_bg": "#1d2e40",
+            "badge_text": "#ffffff",
+            "card_radius": 8,
+            "button_style": "outline",
+            "button_bg": "#1d2e40",
+            "button_text": "#ffffff",
+            "button_border": "#1d2e40",
+            "button_hover_bg": "#f1fafb",
+            "button_hover_text": "#1d2e40",
+            "button_radius": 6,
+            "button_height": 44,
+            "button_padding": 20,
+            "button_font_size": 14
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_79ae04d_9XXeqL"
+      ],
+      "settings": {}
     },
     "featured_blog_97NRwq": {
       "type": "featured-blog",
+      "disabled": true,
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "heading": "",
@@ -962,12 +1111,13 @@
     "3f381c47-733a-4027-b7cc-15a524815a39",
     "logo_bar_c7Hgqz",
     "featured_collection_new_pzAqae",
-    "custom_featured_coll_sec_hqKMU6",
     "cus_new_collectin_list_sec_ftM88k",
     "1784206876eb42a083",
+    "featured_collection_new_GrN9My",
     "collapsible_content_7yExeM",
     "1769257728e37c44bc",
     "text_columns_tjFfPx",
+    "17914666578698ff2f",
     "featured_blog_97NRwq",
     "contact_form_MtCmVQ",
     "1784204548fd4a1085"

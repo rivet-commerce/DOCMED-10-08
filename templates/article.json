@@ -12,14 +12,14 @@
     "main": {
       "type": "main-article",
       "settings": {
-        "show_sidebar": true,
+        "show_sidebar": false,
         "sidebar_position": "left",
         "heading_color_scheme": "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1",
         "image_height": "medium",
         "blog_show_date": false,
         "show_tag": false,
         "blog_show_author": false,
-        "image_corners": "circle",
+        "image_corners": "original",
         "share_label": "Teilen",
         "show_social": true,
         "color_scheme": "background-1",

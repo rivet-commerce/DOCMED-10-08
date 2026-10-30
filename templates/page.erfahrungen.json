@@ -96,8 +96,7 @@
             "textColor": "#404040",
             "transparent": 1,
             "solidShadow": false,
-            "photoType": "large",
-            "showMap": true
+            "photoType": "large"
           }
         }
       },

@@ -1,0 +1,3 @@
+# Temporary files written while saving (e.g. section-main-product.css.tmp.38588.7d7b588ce477)
+**/*.tmp.*
+*.tmp.*

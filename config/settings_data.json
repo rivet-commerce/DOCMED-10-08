@@ -20,7 +20,7 @@
     "page_width": 1500,
     "spacing_grid_horizontal": 20,
     "spacing_grid_vertical": 20,
-    "animations_reveal_on_scroll": true,
+    "animations_reveal_on_scroll": false,
     "animations_hover_elements": "default",
     "show_marquee": false,
     "mark_width": 40,
@@ -322,7 +322,7 @@
       },
       "scheme-77b2cfd5-6085-45ba-893c-34c1568058e1": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#F8FCFE",
           "background_gradient": "",
           "text": "#1d2e40",
           "button": "#1d2e40",
