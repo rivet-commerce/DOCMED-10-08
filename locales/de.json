@@ -332,7 +332,7 @@
       "subtotal": "Zwischensumme",
       "new_subtotal": "Neue Zwischensumme",
       "note": "Spezielle Bestellanweisungen",
-      "checkout": "Jetzt sicher zur Kasse",
+      "checkout": "Sicher zur Kasse",
       "empty": "Ihr Warenkorb ist leer",
       "cart_error": "Beim Aktualisieren ihres Warenkorbs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       "cart_quantity_error_html": "Sie können Ihrem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
@@ -867,11 +867,6 @@
     "sign_in": {
       "step_one": {
         "consent_agreement": "Durch das Fortfahren stimmen Sie unseren AGB zu."
-      }
-    },
-    "returns_and_cancellations": {
-      "estimated_refund_summary_card": {
-        "item_subtotal_label": "Zwischensumme inkl. Mwst"
       }
     }
   }
