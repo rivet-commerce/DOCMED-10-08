@@ -332,7 +332,7 @@
       "subtotal": "Zwischensumme",
       "new_subtotal": "Neue Zwischensumme",
       "note": "Spezielle Bestellanweisungen",
-      "checkout": "Sicher zur Kasse",
+      "checkout": "Jetzt sicher zur Kasse",
       "empty": "Ihr Warenkorb ist leer",
       "cart_error": "Beim Aktualisieren ihres Warenkorbs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       "cart_quantity_error_html": "Sie können Ihrem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
