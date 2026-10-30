@@ -15,6 +15,71 @@ if (!customElements.get('media-gallery')) {
         mediaToSwitch.querySelector('button').addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
       });
       if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
+      if (this.classList.contains('docmed-gallery')) this.initDocmedGallery();
+    }
+
+    initDocmedGallery() {
+      this.querySelectorAll('[data-gallery-step]').forEach((button) => {
+        button.addEventListener('click', () => this.stepMedia(Number(button.dataset.galleryStep)));
+      });
+      // Cap the desktop thumbnail column at the image box height
+      new ResizeObserver(() => {
+        this.style.setProperty('--dg-viewer-height', `${this.elements.viewer.offsetHeight}px`);
+      }).observe(this.elements.viewer);
+      this.moreButton = this.querySelector('.docmed-gallery__more');
+      if (this.moreButton) {
+        this.moreButton.addEventListener('click', () => {
+          this.classList.add('docmed-gallery--expanded');
+          this.updateDocmedGallery();
+        });
+      }
+      this.updateDocmedGallery();
+    }
+
+    // Thumbnails of other variants' images are hidden by CSS (all but the first)
+    getVisibleThumbnails() {
+      return Array.from(this.elements.thumbnails.querySelectorAll('[data-target]')).filter(
+        (item) => !item.classList.contains('thumbnail-list_item--variant') || item === item.parentElement.firstElementChild
+      );
+    }
+
+    stepMedia(step) {
+      const items = this.getVisibleThumbnails();
+      if (items.length < 2) return;
+      const current = items.findIndex((item) => item.querySelector('[aria-current]'));
+      const next = items[(current + step + items.length) % items.length];
+      this.setActiveMedia(next.dataset.target, false);
+    }
+
+    updateDocmedGallery() {
+      const items = this.getVisibleThumbnails();
+      const current = Math.max(0, items.findIndex((item) => item.querySelector('[aria-current]')));
+
+      const dots = this.querySelector('.docmed-gallery__dots');
+      if (dots) {
+        if (dots.children.length !== items.length) dots.innerHTML = items.map(() => '<span></span>').join('');
+        Array.from(dots.children).forEach((dot, index) => dot.classList.toggle('is-active', index === current));
+      }
+
+      // Desktop: show 4 thumbnails plus a "+N" tile when there are more than 5
+      const limit = 5;
+      const shown = limit - 1;
+      let collapsed = items.length > limit && !this.classList.contains('docmed-gallery--expanded');
+      if (collapsed && current >= shown) {
+        this.classList.add('docmed-gallery--expanded');
+        collapsed = false;
+      }
+      items.forEach((item, index) => item.classList.toggle('docmed-gallery__thumb--overflow', collapsed && index >= shown));
+      if (this.moreButton) {
+        this.moreButton.hidden = !collapsed;
+        this.moreButton.querySelector('.docmed-gallery__more-count').textContent = `+${items.length - shown}`;
+      }
+
+      // Keep the active thumbnail in view in the vertical desktop column
+      const list = items[current] && items[current].parentElement;
+      if (list && list.scrollHeight > list.clientHeight + 1) {
+        list.scrollTo({ top: items[current].offsetTop - (list.clientHeight - items[current].clientHeight) / 2, behavior: 'smooth' });
+      }
     }
 
     // onSlideChanged(event) {
@@ -68,6 +133,7 @@ if (!customElements.get('media-gallery')) {
 
       this.elements.thumbnails.querySelectorAll('button').forEach((element) => element.removeAttribute('aria-current'));
       thumbnail.querySelector('button').setAttribute('aria-current', true);
+      if (this.classList.contains('docmed-gallery')) this.updateDocmedGallery();
       if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
 
       this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });

@@ -36,6 +36,7 @@
 -%}
 <media-gallery
   id="MediaGallery-{{ section.id }}{{ id_append }}"
+  {% unless is_duplicate %}class="docmed-gallery"{% endunless %}
   role="region"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
@@ -106,6 +107,24 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
+    {%- if media_count > 1 and is_duplicate != true -%}
+      <button
+        type="button"
+        class="docmed-gallery__arrow docmed-gallery__arrow--prev no-js-hidden"
+        data-gallery-step="-1"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+      >
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button
+        type="button"
+        class="docmed-gallery__arrow docmed-gallery__arrow--next no-js-hidden"
+        data-gallery-step="1"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    {%- endif -%}
     {%- unless is_duplicate -%}
       <div class="slider-buttons no-js-hidden quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
         {% comment %} <button
@@ -278,6 +297,15 @@
       >
         {% render 'icon-caret' %}
       </button>
+      {%- unless is_duplicate -%}
+        <button type="button" class="docmed-gallery__more" hidden>
+          <span class="docmed-gallery__more-count"></span>
+          <span class="docmed-gallery__more-label">weitere Bilder</span>
+        </button>
+      {%- endunless -%}
     </slider-component>
+    {%- unless is_duplicate -%}
+      <div class="docmed-gallery__dots" aria-hidden="true"></div>
+    {%- endunless -%}
   {%- endif -%}
 </media-gallery>
