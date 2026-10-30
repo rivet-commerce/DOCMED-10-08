@@ -2067,3 +2067,240 @@ product-recommendations .wbvariantbadges{
     display: inline-flex;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* DocMed product gallery: fixed image box, thumbnails, arrows, dots    */
+/* ------------------------------------------------------------------ */
+.docmed-gallery {
+  --dg-border: rgba(var(--color-foreground), 0.1);
+  --dg-radius: 12px;
+  --dg-active: rgb(var(--color-button));
+  --dg-thumb-size: 96px;
+  display: block;
+}
+
+/* Fixed, square image box; every image is fitted inside it */
+.docmed-gallery [id^="GalleryViewer"] {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--dg-border);
+  border-radius: var(--dg-radius);
+  background: #fff;
+  overflow: hidden;
+}
+.docmed-gallery .product__media-list {
+  margin: 0 !important;
+  padding: 0 !important;
+  column-gap: 0 !important;
+  scroll-padding-left: 0;
+  scrollbar-width: none;
+}
+.docmed-gallery .product__media-list::-webkit-scrollbar {
+  display: none;
+}
+.docmed-gallery .product__media-list .product__media-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+.docmed-gallery .product-media-container {
+  --aspect-ratio: 1 !important;
+  --ratio-percent: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.docmed-gallery .product-media-container .media,
+.docmed-gallery .product-media-container.constrain-height .media {
+  padding-top: 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent;
+}
+.docmed-gallery .product-media-container .media > img {
+  object-fit: contain !important;
+  padding: 6%;
+}
+.docmed-gallery [id^="GalleryViewer"] .slider-buttons {
+  display: none !important;
+}
+
+/* Prev / next arrows on the image box (mobile + tablet) */
+.docmed-gallery__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--dg-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: rgb(var(--color-foreground));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.docmed-gallery__arrow:hover {
+  background: #fff;
+  border-color: rgba(var(--color-foreground), 0.25);
+}
+.docmed-gallery__arrow--prev {
+  left: 12px;
+}
+.docmed-gallery__arrow--next {
+  right: 12px;
+}
+
+/* Thumbnails */
+.docmed-gallery [id^="GalleryThumbnails"] {
+  margin-top: 12px;
+}
+.docmed-gallery [id^="GalleryThumbnails"] .slider-button {
+  display: none !important;
+}
+.docmed-gallery .thumbnail-list {
+  gap: 10px;
+  padding: 0 !important;
+  margin: 0;
+}
+/* beats base.css ".product--small .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide" (!important) */
+media-gallery.docmed-gallery .thumbnail-list.slider .thumbnail-list__item.slider__slide {
+  width: calc(25% - 7.5px) !important;
+}
+.docmed-gallery .thumbnail {
+  padding: 6px;
+  border: 1px solid var(--dg-border) !important;
+  border-radius: 10px !important;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.docmed-gallery .thumbnail:hover {
+  opacity: 1;
+  border-color: rgba(var(--color-foreground), 0.3) !important;
+}
+.docmed-gallery .thumbnail[aria-current] {
+  border: 2px solid var(--dg-active) !important;
+}
+.docmed-gallery .thumbnail img {
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* "+N weitere Bilder" tile – desktop only */
+.docmed-gallery__more {
+  display: none;
+}
+
+/* Dots – mobile + tablet */
+.docmed-gallery__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.docmed-gallery__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(var(--color-foreground), 0.2);
+  transition: background-color 0.2s;
+}
+.docmed-gallery__dots span.is-active {
+  background: var(--dg-active);
+}
+
+/* Desktop: vertical thumbnail column left of the image box */
+@media screen and (min-width: 992px) {
+  .docmed-gallery:has([id^="GalleryThumbnails"]) {
+    display: grid;
+    grid-template-columns: var(--dg-thumb-size) minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+  }
+  .docmed-gallery [id^="GalleryViewer"] {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .docmed-gallery .product__xr-button {
+    grid-column: 2;
+  }
+  .docmed-gallery__arrow,
+  .docmed-gallery__dots {
+    display: none;
+  }
+  /* Column never grows taller than the image box (height set by media-gallery.js); it scrolls instead */
+  .docmed-gallery [id^="GalleryThumbnails"] {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex !important;
+    flex-direction: column;
+    /* theme sets align-items: center, which shrinks the list to 0 width */
+    align-items: stretch !important;
+    gap: 12px;
+    max-height: var(--dg-viewer-height, none);
+    margin: 0;
+    overflow: hidden;
+  }
+  .docmed-gallery [id^="GalleryThumbnails"] .thumbnail-list {
+    display: flex !important;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: none;
+    scrollbar-width: none;
+  }
+  .docmed-gallery [id^="GalleryThumbnails"] .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+  media-gallery.docmed-gallery .thumbnail-list.slider .thumbnail-list__item.slider__slide {
+    flex: 0 0 auto;
+    width: 100% !important;
+    margin: 0;
+  }
+  .docmed-gallery .thumbnail-list__item.docmed-gallery__thumb--overflow {
+    display: none;
+  }
+  .docmed-gallery__more:not([hidden]) {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid var(--dg-border);
+    border-radius: 10px;
+    background: rgba(var(--color-foreground), 0.04);
+    color: rgb(var(--color-foreground));
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .docmed-gallery__more:hover {
+    border-color: rgba(var(--color-foreground), 0.3);
+  }
+  .docmed-gallery__more-count {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .docmed-gallery__more-label {
+    font-size: 12px;
+    line-height: 1.2;
+    opacity: 0.75;
+  }
+}
