@@ -71,6 +71,7 @@
         },
         "slide_HiqrFT": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "enable_video_looping": false,
             "auto_play_video": false,
