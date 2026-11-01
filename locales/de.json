@@ -823,7 +823,7 @@
         "phone_tooltip": "Falls wir Sie zu ihrer Bestellung kontaktieren müssen",
         "address_title": "Straße + Hausnummer",
         "address1_label": "Straße + Hausnummer",
-        "field_tooltip_helper_text": "Wird für Ihre Bestellbestätigung und Warenkorberinnerungen verwendet",
+        "field_tooltip_helper_text": "Wird für Ihre Bestell/-Versandbestätigung, Warenkorberinnerungen & Rechnungsversand verwendet",
         "optional_address2_label": "Wohnung, Zimmer, Etage usw. (optional)"
       },
       "payment": {
