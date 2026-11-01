@@ -791,7 +791,7 @@
       },
       "alternative_payment_method_banner": {
         "express_checkout": "Express Checkout (optional)",
-        "or": "andere Zahlungsmethoden weiter unten "
+        "or": "↓ andere Zahlungsmethoden weiter unten ↓"
       },
       "local_pickup": {
         "or": "ODER"
