@@ -829,7 +829,8 @@
         "offsite_gateway_review_page_redirect_hint": "Nachdem Sie Ihre Bestellung überprüft haben, werden Sie zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
         "offsite_gateway_redirect_hint": "Sie werden zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
         "offsite_gateway_redirect_hint_no_button_label": "Sie werden zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
-        "card_security_notice": "✓ Alle Transaktionen sind sicher und TLS/SSL verschlüsselt"
+        "card_security_notice": "✓ Alle Transaktionen sind sicher und TLS/SSL verschlüsselt",
+        "different_billing_address_label": "Abweichende Rechnungsadresse verwenden"
       },
       "field_errors": {
         "address_address1_blank": "Geben Sie eine Adresse ein",
