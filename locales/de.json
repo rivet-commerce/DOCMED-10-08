@@ -828,7 +828,8 @@
       "payment": {
         "offsite_gateway_review_page_redirect_hint": "Nachdem Sie Ihre Bestellung überprüft haben, werden Sie zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
         "offsite_gateway_redirect_hint": "Sie werden zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
-        "offsite_gateway_redirect_hint_no_button_label": "Sie werden zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen."
+        "offsite_gateway_redirect_hint_no_button_label": "Sie werden zu {{ gateway_label }} weitergeleitet, um Ihren Kauf abzuschließen.",
+        "card_security_notice": "Alle Transaktionen sind sicher und TLS/SSL verschlüsselt"
       },
       "field_errors": {
         "address_address1_blank": "Geben Sie eine Adresse ein",
@@ -867,6 +868,13 @@
     "sign_in": {
       "step_one": {
         "consent_agreement": "Durch das Fortfahren stimmen Sie unseren AGB zu."
+      }
+    },
+    "payment_methods": {
+      "card_fields": {
+        "tooltip": {
+          "card_security_notice": "Alle Transaktionen sind sicher und TLS/SSL verschlüsselt"
+        }
       }
     }
   }
