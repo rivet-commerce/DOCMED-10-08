@@ -1,6 +1,163 @@
+{% doc %}
+  @prompt
+    ## Shopify Sidekick – Produktbezogene FAQ-Section
+    
+    Erstelle eine moderne, dynamische und vollständig responsive **FAQ-Section für sämtliche Produktdetailseiten unseres Shopify-Shops DocMed**.
+    
+    ### 1. Aufbau und Darstellung
+    
+    - Überschrift: **„Häufig gestellte Fragen zu diesem Produkt“**
+    - Bis zu **5 produktspezifische FAQs** pro Produkt.
+    - Darstellung als aufklappbare Accordion-Elemente.
+    - Standardmäßig sind alle Fragen geschlossen.
+    - Plus-/Minus-Symbole zum Öffnen und Schließen.
+    - Dezente Trennlinien zwischen den Fragen.
+    - Animationen beim Auf- und Zuklappen.
+    
+    ### 2. Breite und responsive Darstellung
+    
+    - Die gesamte Section darf eine **maximale Inhaltsbreite von 1500 px** haben.
+    - Auf größeren Bildschirmen wird der Inhalt horizontal zentriert.
+    - Auf kleineren Bildschirmen passt sich die Section automatisch an die verfügbare Bildschirmbreite an.
+    - Keine horizontale Scrollleiste.
+    - Die Section soll auf Desktop, Tablet und Smartphone optimal dargestellt werden.
+    
+    **Desktop:**
+    - Maximale Breite: 1500 px.
+    - Großzügige Abstände zwischen den Elementen.
+    - Überschrift und FAQs sauber ausgerichtet.
+    
+    **Mobil:**
+    - Breite: 100 % des verfügbaren Platzes, mit mindestens 16 px seitlichem Innenabstand.
+    - Kleinere, gut lesbare Schriftgrößen.
+    - Kompaktere Abstände zwischen Fragen und Antworten.
+    - Ausreichend große Klickflächen (mindestens 44 px Höhe).
+    - Lange Fragen sollen automatisch umbrechen.
+    - Plus-/Minus-Symbole bleiben rechtsbündig.
+    - Keine abgeschnittenen Texte oder überstehenden Elemente.
+    
+    ### 3. Dynamische Inhalte über Produkt-Metafelder
+    
+    Die FAQs sollen automatisch aus folgenden Produkt-Metafeldern geladen werden:
+    
+    | Frage | Metafeld Frage | Metafeld Antwort |
+    |---|---|---|
+    | FAQ 1 | `custom.faq_1_question` | `custom.faq_1_answer` |
+    | FAQ 2 | `custom.faq_2_question` | `custom.faq_2_answer` |
+    | FAQ 3 | `custom.faq_3_question` | `custom.faq_3_answer` |
+    | FAQ 4 | `custom.faq_4_question` | `custom.faq_4_answer` |
+    | FAQ 5 | `custom.faq_5_question` | `custom.faq_5_answer` |
+    
+    - Jedes Produkt hat seine eigenen FAQ-Inhalte.
+    - Nur vollständig ausgefüllte Frage-Antwort-Paare anzeigen.
+    - Wenn keine FAQs vorhanden sind, die gesamte Section ausblenden.
+    - Fragen als einzeiligen Text und Antworten als Rich Text speichern.
+    - Keine automatischen Platzhalter anzeigen.
+    
+    ### 4. Design – DocMed Corporate Identity
+    
+    - Schriftart: **Manrope**
+    - Überschriften: Dunkelblau `#1D2E40`
+    - Akzentfarbe: Türkis `#7FC7CF`
+    - Hintergrund: Weiß `#FFFFFF`
+    - Dezente hellgraue Trennlinien.
+    - Minimalistisches, professionelles Erscheinungsbild.
+    - Einheitliche Typografie und konsistente Abstände.
+    
+    ### 5. Shopify-Integration und technische Anforderungen
+    
+    - Eigenständige Shopify-Theme-Section erstellen.
+    - Über den Theme-Editor auf Produktseiten einfügbar.
+    - Maximale Breite von 1500 px festlegen.
+    - Responsive Umsetzung mit CSS Media Queries.
+    - Semantisches HTML und barrierearme Accordion-Funktion.
+    - Keine externen JavaScript-Bibliotheken.
+    - Schnelle Ladezeiten.
+    
+    Im Theme-Editor sollen Überschrift, Schriftgrößen, Farben, Abstände und maximale Breite einstellbar sein.
+    
+    **Ziel:** Eine optisch hochwertige, maximal 1500 px breite und vollständig mobil optimierte FAQ-Section, die auf allen Produktseiten automatisch die jeweils zugehörigen FAQ-Metafelder ausliest.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign faq_has_content = false %}
+{% for i in (1..5) %}
+  {% assign question_key = 'faq_' | append: i | append: '_question' %}
+  {% assign answer_key = 'faq_' | append: i | append: '_answer' %}
+  {% assign question = product.metafields.custom[question_key].value %}
+  {% assign answer = product.metafields.custom[answer_key].value %}
+  {% if question != blank and answer != blank %}{% assign faq_has_content = true %}{% endif %}
+{% endfor %}
+{% if faq_has_content %}
+  {% style %}
+    .ai-product-faq-{{ ai_gen_id }}{display:block;width:{{ block.settings.desktop_width_percent }}%;max-width:100%;margin:0 auto;background:{{ block.settings.background_color }};color:{{ block.settings.text_color }};font-family:Manrope,var(--font-body-family),sans-serif;box-sizing:border-box}
+    .ai-product-faq-{{ ai_gen_id }} *, .ai-product-faq-{{ ai_gen_id }} *::before, .ai-product-faq-{{ ai_gen_id }} *::after{box-sizing:border-box}
+    .ai-product-faq-{{ ai_gen_id }}__inner{width:100%;max-width:{{ block.settings.max_width }}px;margin:0 auto;padding:{{ block.settings.vertical_padding }}px 24px}
+    .ai-product-faq-{{ ai_gen_id }}__heading{margin:0 0 {{ block.settings.heading_spacing }}px;color:{{ block.settings.heading_color }};font-family:Manrope,var(--font-body-family),sans-serif;font-size:{{ block.settings.heading_size }}px;line-height:1.3;font-weight:700;overflow-wrap:anywhere}
+    .ai-product-faq-{{ ai_gen_id }}__item{border-top:1px solid {{ block.settings.divider_color }}}
+    .ai-product-faq-{{ ai_gen_id }}__item:last-child{border-bottom:1px solid {{ block.settings.divider_color }}}
+    .ai-product-faq-{{ ai_gen_id }}__question{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:64px;padding:18px 0;color:{{ block.settings.text_color }};font:600 {{ block.settings.question_size }}px/1.45 Manrope,var(--font-body-family),sans-serif;text-align:left;cursor:pointer;list-style:none;overflow-wrap:anywhere}
+    .ai-product-faq-{{ ai_gen_id }}__question::-webkit-details-marker{display:none}
+    .ai-product-faq-{{ ai_gen_id }}__question:focus-visible{outline:2px solid {{ block.settings.accent_color }};outline-offset:4px}
+    .ai-product-faq-{{ ai_gen_id }}__icon{position:relative;flex:0 0 22px;width:22px;height:22px;color:{{ block.settings.accent_color }}}
+    .ai-product-faq-{{ ai_gen_id }}__icon::before,.ai-product-faq-{{ ai_gen_id }}__icon::after{position:absolute;top:10px;left:3px;width:16px;height:2px;background:currentColor;content:'';transition:transform 220ms ease}
+    .ai-product-faq-{{ ai_gen_id }}__icon::after{transform:rotate(90deg)}
+    .ai-product-faq-{{ ai_gen_id }}__item[open] .ai-product-faq-{{ ai_gen_id }}__icon::after{transform:rotate(0)}
+    .ai-product-faq-{{ ai_gen_id }}__answer-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 220ms ease}
+    .ai-product-faq-{{ ai_gen_id }}__item[open] .ai-product-faq-{{ ai_gen_id }}__answer-wrap{grid-template-rows:1fr}
+    .ai-product-faq-{{ ai_gen_id }}__answer-clip{min-height:0;overflow:hidden}
+    .ai-product-faq-{{ ai_gen_id }}__answer{padding:0 42px 22px 0;color:{{ block.settings.text_color }};font-size:{{ block.settings.answer_size }}px;line-height:1.7;overflow-wrap:anywhere}
+    .ai-product-faq-{{ ai_gen_id }}__answer>:first-child{margin-top:0}
+    .ai-product-faq-{{ ai_gen_id }}__answer>:last-child{margin-bottom:0}
+    @media screen and (max-width:749px){.ai-product-faq-{{ ai_gen_id }}__inner{padding:{{ block.settings.mobile_vertical_padding }}px 16px}.ai-product-faq-{{ ai_gen_id }}__heading{font-size:{{ block.settings.mobile_heading_size }}px}.ai-product-faq-{{ ai_gen_id }}__question{min-height:54px;padding:14px 0;gap:14px;font-size:{{ block.settings.mobile_question_size }}px}.ai-product-faq-{{ ai_gen_id }}__answer{padding:0 34px 18px 0;font-size:{{ block.settings.mobile_answer_size }}px}}
+    @media (prefers-reduced-motion:reduce){.ai-product-faq-{{ ai_gen_id }}__answer-wrap,.ai-product-faq-{{ ai_gen_id }}__icon::before,.ai-product-faq-{{ ai_gen_id }}__icon::after{transition:none}}
+  {% endstyle %}
+  <section class="ai-product-faq-{{ ai_gen_id }}" {{ block.shopify_attributes }} aria-labelledby="ai-product-faq-heading-{{ ai_gen_id }}">
+    <div class="ai-product-faq-{{ ai_gen_id }}__inner">
+      <h2 id="ai-product-faq-heading-{{ ai_gen_id }}" class="ai-product-faq-{{ ai_gen_id }}__heading">{{ block.settings.heading | escape }}</h2>
+      <div class="ai-product-faq-{{ ai_gen_id }}__list">
+        {% for i in (1..5) %}
+          {% assign question_key = 'faq_' | append: i | append: '_question' %}
+          {% assign answer_key = 'faq_' | append: i | append: '_answer' %}
+          {% assign question = product.metafields.custom[question_key].value %}
+          {% assign answer = product.metafields.custom[answer_key].value %}
+          {% if question != blank and answer != blank %}
+            <details class="ai-product-faq-{{ ai_gen_id }}__item">
+              <summary class="ai-product-faq-{{ ai_gen_id }}__question"><span>{{ question | escape }}</span><span class="ai-product-faq-{{ ai_gen_id }}__icon" aria-hidden="true"></span></summary>
+              <div class="ai-product-faq-{{ ai_gen_id }}__answer-wrap"><div class="ai-product-faq-{{ ai_gen_id }}__answer-clip"><div class="ai-product-faq-{{ ai_gen_id }}__answer">{{ answer }}</div></div></div>
+            </details>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Produkt-FAQ",
+  "settings": [
+    {"type":"text","id":"heading","label":"Überschrift","default":"Häufig gestellte Fragen zu diesem Produkt"},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"range","id":"max_width","label":"Maximale Inhaltsbreite","min":600,"max":1800,"step":50,"unit":"px","default":1500},
+    {"type":"header","content":"Farben"},
+    {"type":"color","id":"background_color","label":"Hintergrund","default":"#FFFFFF"},
+    {"type":"color","id":"heading_color","label":"Überschrift","default":"#1D2E40"},
+    {"type":"color","id":"text_color","label":"Text","default":"#1D2E40"},
+    {"type":"color","id":"accent_color","label":"Akzent","default":"#1D6670"},
+    {"type":"color","id":"divider_color","label":"Trennlinien","default":"#DDE3E7"},
+    {"type":"header","content":"Typografie"},
+    {"type":"range","id":"heading_size","label":"Überschrift Desktop","min":20,"max":40,"step":2,"unit":"px","default":30},
+    {"type":"range","id":"mobile_heading_size","label":"Überschrift Mobil","min":18,"max":30,"step":2,"unit":"px","default":22},
+    {"type":"range","id":"question_size","label":"Frage Desktop","min":15,"max":24,"step":1,"unit":"px","default":18},
+    {"type":"range","id":"mobile_question_size","label":"Frage Mobil","min":14,"max":20,"step":1,"unit":"px","default":16},
+    {"type":"range","id":"answer_size","label":"Antwort Desktop","min":14,"max":20,"step":1,"unit":"px","default":16},
+    {"type":"range","id":"mobile_answer_size","label":"Antwort Mobil","min":14,"max":18,"step":1,"unit":"px","default":15},
+    {"type":"header","content":"Abstände"},
+    {"type":"range","id":"vertical_padding","label":"Innenabstand Desktop","min":0,"max":100,"step":5,"unit":"px","default":60},
+    {"type":"range","id":"mobile_vertical_padding","label":"Innenabstand Mobil","min":0,"max":60,"step":5,"unit":"px","default":30},
+    {"type":"range","id":"heading_spacing","label":"Abstand nach Überschrift","min":10,"max":60,"step":5,"unit":"px","default":30}
+  ],
+  "presets": [{"name":"Produkt-FAQ"}],
+  "tag": null,
+  "class": "product-faq-block"
+}
 {% endschema %}
