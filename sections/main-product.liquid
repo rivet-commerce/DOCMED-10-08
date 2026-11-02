@@ -176,6 +176,10 @@
     text-transform: none !important;
   }
 
+  .product__title.cus-product-title-wrp > span {
+    font-weight: 700;
+  }
+
   .product__availability {
     display: flex;
     align-items: center;
@@ -710,33 +714,47 @@
                     {%- assign metafield_parts = block.settings.option_value_metafield -%}
 
                     {%- if product.metafields.custom.variant_type.value != blank -%}
-                      <div class="h-stack gap-1">
-                      
-                        <p class="text-subdued">{{ product.metafields.custom.variant_type.value }} : {{ current_product.metafields.custom.variant_name.value }}</p>
-
-                        
-        
-                      </div>
+                      <p class="docmed-option__label">
+                        {{- product.metafields.custom.variant_type.value | strip }}: <span>{{ current_product.metafields.custom.variant_name.value | strip }}</span>
+                      </p>
                     {%- endif -%}
 
                     {% assign variations = product.metafields.custom.product_variations.value %}
 
                     {% if variations %}
-                      <div class="variant-picker__option-values">
-                        <select class="variant-dropdown" onchange="window.location.href=this.value">
-                    
-                          {% for product_variation in variations %}
-                            {% assign label = product_variation.metafields.custom.variant_name.value %}
-                    
-                            <option 
-                              value="{{ product_variation.url }}"
-                              {% if product_variation.id == product.id %}selected{% endif %}
-                            >
-                              {{ label }}
-                            </option>
+                      {%- comment -%}
+                        Each variation is a separate product, so the cards are links.
+                        Every product stores its own list in its own order, so sort by the
+                        leading number of the label ("5 Stück" before "10 Stück") to keep
+                        the cards in the same place on every page.
+                      {%- endcomment -%}
+                      {%- liquid
+                        assign variation_keys = ''
+                        for product_variation in variations
+                          assign variation_number = product_variation.metafields.custom.variant_name.value | append: '' | strip | split: ' ' | first | plus: 0
+                          assign variation_key = variation_number | plus: 100000 | append: '-' | append: forloop.index0
+                          assign variation_keys = variation_keys | append: variation_key | append: ','
+                        endfor
+                        assign variation_keys = variation_keys | split: ',' | sort
+                      -%}
+                      <div class="docmed-option__values">
+                        {% for variation_key in variation_keys %}
+                          {% assign variation_index = variation_key | split: '-' | last | plus: 0 %}
+                          {% for candidate in variations %}
+                            {% if forloop.index0 == variation_index %}
+                              {% assign product_variation = candidate %}
+                              {% break %}
+                            {% endif %}
                           {% endfor %}
-                    
-                        </select>
+                          {% assign label = product_variation.metafields.custom.variant_name.value %}
+                          <a
+                            href="{{ product_variation.url }}"
+                            class="docmed-option__card{% if product_variation.id == product.id %} is-selected{% endif %}"
+                            {% if product_variation.id == product.id %}aria-current="page"{% endif %}
+                          >
+                            {{- label -}}
+                          </a>
+                        {% endfor %}
                       </div>
                     {% endif %}
                     

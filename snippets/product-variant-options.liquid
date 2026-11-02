@@ -116,7 +116,7 @@
         {% endif %}
       {% else %}
       <label for="{{ input_id }}" class="{% if block.settings.pills_style == 'fill' %}fillpill{% endif %}">
-        {{ value -}}
+        {%- if value_prefix != blank -%}{{ value | remove_first: value_prefix }}{%- else -%}{{ value }}{%- endif -%}
         {{ label_unavailable }}
       </label>
     {% endif %}

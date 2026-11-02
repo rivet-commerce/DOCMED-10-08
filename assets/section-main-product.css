@@ -2304,3 +2304,127 @@ media-gallery.docmed-gallery .thumbnail-list.slider .thumbnail-list__item.slider
     opacity: 0.75;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* DocMed option cards: linked products ("Typ") and variant radios     */
+/* ------------------------------------------------------------------ */
+.product__info-wrapper {
+  --docmed-accent: 41, 163, 191;
+}
+
+.product__info-wrapper .docmed-option__label {
+  display: block;
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgb(var(--color-foreground));
+}
+
+.product__info-wrapper .docmed-option {
+  width: 100%;
+  max-width: none;
+  margin-top: 4px;
+}
+
+.product__info-wrapper .docmed-option__values,
+.product__info-wrapper .docmed-option > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.product__info-wrapper .docmed-option__card,
+.product__info-wrapper .docmed-option input[type='radio'] + label {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  min-width: 0;
+  min-height: 48px;
+  margin: 0 !important;
+  padding: 12px 14px 12px 44px !important;
+  border: 1px solid rgba(var(--color-foreground), 0.12) !important;
+  border-radius: 8px !important;
+  background: rgb(var(--color-background));
+  color: rgba(var(--color-foreground), 0.75) !important;
+  font-size: 14px;
+  font-weight: 500 !important;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Radio circle */
+.product__info-wrapper .docmed-option__card::before,
+.product__info-wrapper .docmed-option input[type='radio'] + label::before {
+  content: '';
+  display: block !important;
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: 2px solid rgba(var(--color-foreground), 0.25);
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  transform: translateY(-50%);
+}
+
+.product__info-wrapper .docmed-option__card:hover,
+.product__info-wrapper .docmed-option input[type='radio'] + label:hover {
+  border-color: rgba(var(--docmed-accent), 0.6) !important;
+}
+
+.product__info-wrapper .docmed-option__card.is-selected,
+.product__info-wrapper .docmed-option input[type='radio']:checked + label {
+  border-color: rgb(var(--docmed-accent)) !important;
+  background: rgba(var(--docmed-accent), 0.08) !important;
+  color: rgb(var(--color-foreground)) !important;
+  font-weight: 600 !important;
+}
+
+.product__info-wrapper .docmed-option__card.is-selected::before,
+.product__info-wrapper .docmed-option input[type='radio']:checked + label::before {
+  border-color: rgb(var(--docmed-accent));
+  background: rgb(var(--docmed-accent));
+  box-shadow: inset 0 0 0 3px rgb(var(--color-background));
+}
+
+.product__info-wrapper .docmed-option__card:focus-visible,
+.product__info-wrapper .docmed-option input[type='radio']:focus-visible + label {
+  outline: 2px solid rgb(var(--docmed-accent));
+  outline-offset: 2px;
+}
+
+/* Narrow phones: long words like "Methamphetamin" must stay inside the card */
+.product__info-wrapper .docmed-option__card,
+.product__info-wrapper .docmed-option input[type='radio'] + label {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .product__info-wrapper .docmed-option__values,
+  .product__info-wrapper .docmed-option > div {
+    gap: 8px;
+  }
+
+  .product__info-wrapper .docmed-option__card,
+  .product__info-wrapper .docmed-option input[type='radio'] + label {
+    min-height: 44px;
+    padding: 10px 10px 10px 36px !important;
+    font-size: 13px;
+  }
+
+  .product__info-wrapper .docmed-option__card::before,
+  .product__info-wrapper .docmed-option input[type='radio'] + label::before {
+    left: 11px;
+    width: 16px;
+    height: 16px;
+  }
+}

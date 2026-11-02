@@ -70,12 +70,30 @@
               </div>
           </fieldset>
         {%- elsif picker_type == 'button' -%}
-          <fieldset class="js product-form__input product-form__input--pill {% if option.name == 'Color' and block.settings.show_colorswatch %} product_form_input swatchComponent inner-class {% else %} product_form_input inner-class {% endif %}">
-              <legend class="form__label">{{ option.name }}:
-                {% assign current_variant = product.selected_or_first_available_variant %}
-                {% if current_variant.option.selected_value != '' %}
-                  <span>{{ option.selected_value }}</span>
-                {% endif %}
+          {%- liquid
+            # Values like "Inkl. Parameter: Methadon (MTD)" share a prefix: show it once as the heading
+            assign value_prefix = ''
+            assign first_value = option.values.first | append: ''
+            if first_value contains ': '
+              assign value_prefix = first_value | split: ': ' | first | append: ': '
+              for value in option.values
+                assign value_text = value | append: ''
+                assign value_start = value_text | slice: 0, value_prefix.size
+                if value_start != value_prefix
+                  assign value_prefix = ''
+                  break
+                endif
+              endfor
+            endif
+          -%}
+          <fieldset class="js product-form__input product-form__input--pill docmed-option {% if option.name == 'Color' and block.settings.show_colorswatch %} product_form_input swatchComponent inner-class {% else %} product_form_input inner-class {% endif %}">
+              {%- comment -%} base.css hides .form__label in variant-selects; global.js writes the chosen value into the legend span {%- endcomment -%}
+              <legend class="docmed-option__label">
+                {%- if value_prefix != blank -%}
+                  {{ value_prefix | remove: ': ' }}<span hidden>{{ option.selected_value }}</span>
+                {%- else -%}
+                  {{ option.name }}: <span>{{ option.selected_value }}</span>
+                {%- endif -%}
               </legend>
               <div {% if option.name == 'Color' %}{% if block.settings.show_colorswatch == true %}class="wbswatchclr"{% endif %}{% endif %}>
                 {% render 'product-variant-options',
@@ -83,7 +101,8 @@
                   option: option,
                   block: block,
                   show_colorswatch: show_colorswatch,
-                  picker_type: picker_type
+                  picker_type: picker_type,
+                  value_prefix: value_prefix
                 %}
               </div>
           </fieldset>
