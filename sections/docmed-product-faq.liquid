@@ -38,6 +38,8 @@
       --faq-accent: {{ section.settings.color_accent }};
       --faq-accent-soft: {{ section.settings.color_accent | color_modify: 'alpha', 0.22 }};
       --faq-divider: {{ section.settings.color_divider }};
+      --faq-panel-bg: {{ section.settings.color_panel }};
+      --faq-card-bg: {{ section.settings.color_card }};
 
       --faq-h-d: {{ section.settings.heading_size_desktop }}px;
       --faq-h-m: {{ section.settings.heading_size_mobile }}px;
@@ -59,7 +61,7 @@
 
   <section
     id="DocmedFaq-{{ section.id }}"
-    class="docmed-faq"
+    class="docmed-faq{% if section.settings.columns_desktop == '2' %} docmed-faq--two-col{% endif %}"
     data-docmed-faq
     data-single-open="{{ section.settings.single_open }}"
     aria-labelledby="DocmedFaqHeading-{{ section.id }}"
@@ -74,7 +76,16 @@
         {%- endif -%}
       </header>
 
+      {%- liquid
+        assign faq_index = 0
+        assign right_start = 99
+        if section.settings.columns_desktop == '2'
+          assign half = faq_count | plus: 1 | divided_by: 2
+          assign right_start = half | plus: 1
+        endif
+      -%}
       <div class="docmed-faq__list">
+        <div class="docmed-faq__col">
         {%- for block in section.blocks -%}
           {%- liquid
             assign i = block.id
@@ -83,6 +94,10 @@
             assign a_text = a_html | strip_html | strip
           -%}
           {%- if q != blank and a_text != blank -%}
+            {%- assign faq_index = faq_index | plus: 1 -%}
+            {%- if faq_index == right_start -%}
+              </div><div class="docmed-faq__col">
+            {%- endif -%}
             <div class="docmed-faq__item" {{ block.shopify_attributes }}>
               <h3 class="docmed-faq__q-heading">
                 <button
@@ -109,6 +124,7 @@
             </div>
           {%- endif -%}
         {%- endfor -%}
+        </div>
       </div>
     </div>
   </section>
@@ -409,6 +425,60 @@
     text-decoration-color: var(--faq-heading);
   }
 
+  /* Desktop: 2 Spalten im Karten-Look */
+  @media screen and (min-width: 990px) {
+    .docmed-faq--two-col .docmed-faq__inner {
+      background: var(--faq-panel-bg);
+      border-radius: 16px;
+      padding: 48px;
+    }
+
+    .docmed-faq--two-col .docmed-faq__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 32px;
+      align-items: start;
+      border-top: 0;
+    }
+
+    .docmed-faq--two-col .docmed-faq__col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .docmed-faq--two-col .docmed-faq__col:only-child {
+      grid-column: 1 / -1;
+    }
+
+    .docmed-faq--two-col .docmed-faq__item {
+      background: var(--faq-card-bg);
+      border: 1px solid var(--faq-divider);
+      border-radius: 10px;
+      padding: 0 20px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .docmed-faq--two-col .docmed-faq__item:hover {
+      border-color: var(--faq-accent);
+    }
+
+    .docmed-faq--two-col .docmed-faq__item.is-open {
+      border-color: var(--faq-accent);
+      box-shadow: 0 6px 20px rgba(29, 46, 64, 0.06);
+    }
+
+    .docmed-faq--two-col .docmed-faq__trigger {
+      padding: calc(var(--faq-item-py) * 0.75) 0;
+    }
+
+    .docmed-faq--two-col .docmed-faq__answer {
+      padding-right: 52px;
+      padding-bottom: calc(var(--faq-item-py) * 0.9);
+    }
+  }
+
   /* Tablet */
   @media screen and (max-width: 989px) {
     .docmed-faq {
@@ -490,7 +560,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Fügt bis zu 5 FAQ-Blöcke hinzu und verbindet Frage und Antwort über „Dynamische Quelle verbinden“ mit den Produkt-Metafeldern. Ohne ausgefüllte FAQs wird die Section ausgeblendet."
+      "content": "Fügt bis zu 6 FAQ-Blöcke hinzu und verbindet Frage und Antwort über „Dynamische Quelle verbinden“ mit den Produkt-Metafeldern. Ohne ausgefüllte FAQs wird die Section ausgeblendet."
     },
     {
       "type": "text",
@@ -515,6 +585,17 @@
       "label": "Strukturierte Daten (FAQPage) ausgeben",
       "info": "Deaktivieren, falls eine App bereits FAQ-Schema für Produktseiten ausgibt.",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Spalten auf dem Desktop",
+      "options": [
+        { "value": "1", "label": "1 Spalte (Liste)" },
+        { "value": "2", "label": "2 Spalten (Karten)" }
+      ],
+      "default": "2",
+      "info": "Auf Tablet und Smartphone werden die FAQs immer untereinander angezeigt."
     },
     {
       "type": "header",
@@ -630,8 +711,20 @@
     {
       "type": "color",
       "id": "color_divider",
-      "label": "Trennlinien",
+      "label": "Trennlinien / Kartenrahmen",
       "default": "#E4E8ED"
+    },
+    {
+      "type": "color",
+      "id": "color_panel",
+      "label": "Hintergrund FAQ-Bereich (Desktop, 2 Spalten)",
+      "default": "#F5F8FB"
+    },
+    {
+      "type": "color",
+      "id": "color_card",
+      "label": "Hintergrund Karten (Desktop, 2 Spalten)",
+      "default": "#FFFFFF"
     },
     {
       "type": "header",
@@ -728,7 +821,7 @@
       "default": 22
     }
   ],
-  "max_blocks": 5,
+  "max_blocks": 6,
   "blocks": [
     {
       "type": "faq",
@@ -753,6 +846,7 @@
     {
       "name": "DocMed Produkt-FAQ",
       "blocks": [
+        { "type": "faq" },
         { "type": "faq" },
         { "type": "faq" },
         { "type": "faq" },
