@@ -1,0 +1,756 @@
+{%- comment -%}
+  DocMed – Produktbezogene FAQ-Section
+  Liest bis zu 5 Frage-Antwort-Paare aus den Produkt-Metafeldern:
+  custom.faq_1_question / custom.faq_1_answer … custom.faq_5_question / custom.faq_5_answer
+  - Frage: Einzeiliger Text
+  - Antwort: Rich Text (mehrzeiliger formatierter Text)
+  Nur vollständig ausgefüllte Paare werden angezeigt. Ohne gültige Paare wird nichts ausgegeben.
+{%- endcomment -%}
+
+{%- liquid
+  assign faq_count = 0
+  if product
+    for i in (1..5)
+      assign q_key = 'faq_' | append: i | append: '_question'
+      assign a_key = 'faq_' | append: i | append: '_answer'
+      assign q = product.metafields.custom[q_key].value | strip
+      assign a_field = product.metafields.custom[a_key]
+      assign a_text = ''
+      if a_field != blank
+        assign a_text = a_field | metafield_tag | strip_html | strip
+      endif
+      if q != blank and a_text != blank
+        assign faq_count = faq_count | plus: 1
+      endif
+    endfor
+  endif
+-%}
+
+{%- if faq_count > 0 -%}
+
+  {%- if section.settings.load_manrope -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  {%- endif -%}
+
+  {%- style -%}
+    #DocmedFaq-{{ section.id }} {
+      --faq-font: {{ section.settings.font_family | default: 'Manrope, sans-serif' }};
+      --faq-max: {{ section.settings.max_width }}px;
+      --faq-bg: {{ section.settings.color_background }};
+      --faq-heading: {{ section.settings.color_heading }};
+      --faq-question: {{ section.settings.color_question }};
+      --faq-text: {{ section.settings.color_text }};
+      --faq-accent: {{ section.settings.color_accent }};
+      --faq-accent-soft: {{ section.settings.color_accent | color_modify: 'alpha', 0.22 }};
+      --faq-divider: {{ section.settings.color_divider }};
+
+      --faq-h-d: {{ section.settings.heading_size_desktop }}px;
+      --faq-h-m: {{ section.settings.heading_size_mobile }}px;
+      --faq-q-d: {{ section.settings.question_size_desktop }}px;
+      --faq-q-m: {{ section.settings.question_size_mobile }}px;
+      --faq-a-d: {{ section.settings.answer_size_desktop }}px;
+      --faq-a-m: {{ section.settings.answer_size_mobile }}px;
+
+      --faq-pt-d: {{ section.settings.padding_top_desktop }}px;
+      --faq-pb-d: {{ section.settings.padding_bottom_desktop }}px;
+      --faq-pt-m: {{ section.settings.padding_top_mobile }}px;
+      --faq-pb-m: {{ section.settings.padding_bottom_mobile }}px;
+      --faq-px-d: {{ section.settings.padding_side_desktop }}px;
+      --faq-px-m: {{ section.settings.padding_side_mobile }}px;
+      --faq-item-py: {{ section.settings.item_padding }}px;
+      --faq-header-gap: {{ section.settings.header_gap }}px;
+    }
+  {%- endstyle -%}
+
+  <section
+    id="DocmedFaq-{{ section.id }}"
+    class="docmed-faq"
+    data-docmed-faq
+    data-single-open="{{ section.settings.single_open }}"
+    aria-labelledby="DocmedFaqHeading-{{ section.id }}"
+  >
+    <div class="docmed-faq__inner">
+      <header class="docmed-faq__header">
+        <h2 id="DocmedFaqHeading-{{ section.id }}" class="docmed-faq__heading">
+          {{- section.settings.heading | default: 'Häufig gestellte Fragen zu diesem Produkt' | escape -}}
+        </h2>
+        {%- if section.settings.intro != blank -%}
+          <p class="docmed-faq__intro">{{ section.settings.intro | escape }}</p>
+        {%- endif -%}
+      </header>
+
+      <div class="docmed-faq__list">
+        {%- for i in (1..5) -%}
+          {%- liquid
+            assign q_key = 'faq_' | append: i | append: '_question'
+            assign a_key = 'faq_' | append: i | append: '_answer'
+            assign q = product.metafields.custom[q_key].value | strip
+            assign a_field = product.metafields.custom[a_key]
+            assign a_html = ''
+            assign a_text = ''
+            if a_field != blank
+              assign a_html = a_field | metafield_tag
+              assign a_text = a_html | strip_html | strip
+            endif
+          -%}
+          {%- if q != blank and a_text != blank -%}
+            <div class="docmed-faq__item">
+              <h3 class="docmed-faq__q-heading">
+                <button
+                  type="button"
+                  class="docmed-faq__trigger"
+                  id="DocmedFaqTrigger-{{ section.id }}-{{ i }}"
+                  aria-expanded="false"
+                  aria-controls="DocmedFaqPanel-{{ section.id }}-{{ i }}"
+                >
+                  <span class="docmed-faq__question">{{ q | escape }}</span>
+                  <span class="docmed-faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="docmed-faq__panel"
+                id="DocmedFaqPanel-{{ section.id }}-{{ i }}"
+                role="region"
+                aria-labelledby="DocmedFaqTrigger-{{ section.id }}-{{ i }}"
+              >
+                <div class="docmed-faq__panel-inner">
+                  <div class="docmed-faq__answer">{{ a_html }}</div>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  {%- if section.settings.enable_schema -%}
+    {%- liquid
+      assign schema_index = 0
+    -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {%- for i in (1..5) -%}
+            {%- liquid
+              assign q_key = 'faq_' | append: i | append: '_question'
+              assign a_key = 'faq_' | append: i | append: '_answer'
+              assign q = product.metafields.custom[q_key].value | strip
+              assign a_field = product.metafields.custom[a_key]
+              assign a_text = ''
+              if a_field != blank
+                assign a_text = a_field | metafield_tag | strip_html | strip
+              endif
+            -%}
+            {%- if q != blank and a_text != blank -%}
+              {%- if schema_index > 0 -%},{%- endif -%}
+              {%- assign schema_index = schema_index | plus: 1 -%}
+              {
+                "@type": "Question",
+                "name": {{ q | json }},
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": {{ a_text | json }}
+                }
+              }
+            {%- endif -%}
+          {%- endfor -%}
+        ]
+      }
+    </script>
+  {%- endif -%}
+
+  <script>
+    (function () {
+      if (window.DocmedFaq) { window.DocmedFaq.initAll(); return; }
+
+      function setState(btn, open) {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var item = btn.closest('.docmed-faq__item');
+        if (item) item.classList.toggle('is-open', open);
+      }
+
+      function init(root) {
+        if (!root || root.dataset.faqInit === 'true') return;
+        root.dataset.faqInit = 'true';
+        root.classList.add('is-enhanced');
+        var singleOpen = root.dataset.singleOpen === 'true';
+        var triggers = root.querySelectorAll('.docmed-faq__trigger');
+
+        Array.prototype.forEach.call(triggers, function (btn) {
+          btn.addEventListener('click', function () {
+            var isOpen = btn.getAttribute('aria-expanded') === 'true';
+            if (singleOpen && !isOpen) {
+              Array.prototype.forEach.call(triggers, function (other) {
+                if (other !== btn) setState(other, false);
+              });
+            }
+            setState(btn, !isOpen);
+          });
+        });
+      }
+
+      function initAll(scope) {
+        var roots = (scope || document).querySelectorAll('[data-docmed-faq]');
+        Array.prototype.forEach.call(roots, init);
+      }
+
+      window.DocmedFaq = { initAll: initAll };
+      initAll();
+      document.addEventListener('shopify:section:load', function (e) { initAll(e.target); });
+    })();
+  </script>
+
+{%- endif -%}
+
+{% stylesheet %}
+  .docmed-faq {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--faq-bg);
+    font-family: var(--faq-font);
+    padding: var(--faq-pt-d) var(--faq-px-d) var(--faq-pb-d);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .docmed-faq *,
+  .docmed-faq *::before,
+  .docmed-faq *::after {
+    box-sizing: border-box;
+  }
+
+  .docmed-faq__inner {
+    width: 100%;
+    max-width: var(--faq-max);
+    margin-inline: auto;
+  }
+
+  /* Kopfbereich */
+  .docmed-faq__header {
+    margin-bottom: var(--faq-header-gap);
+  }
+
+  .docmed-faq__heading {
+    margin: 0;
+    font-family: var(--faq-font);
+    font-size: var(--faq-h-d);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--faq-heading);
+    overflow-wrap: anywhere;
+  }
+
+  .docmed-faq__heading::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 16px;
+    border-radius: 3px;
+    background: var(--faq-accent);
+  }
+
+  .docmed-faq__intro {
+    margin: 16px 0 0;
+    max-width: 760px;
+    font-size: var(--faq-a-d);
+    line-height: 1.6;
+    color: var(--faq-text);
+  }
+
+  /* Liste & Trennlinien */
+  .docmed-faq__list {
+    border-top: 1px solid var(--faq-divider);
+  }
+
+  .docmed-faq__item {
+    border-bottom: 1px solid var(--faq-divider);
+  }
+
+  .docmed-faq__q-heading {
+    margin: 0;
+    font: inherit;
+  }
+
+  /* Frage-Button */
+  .docmed-faq__trigger {
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-height: 44px;
+    margin: 0;
+    padding: var(--faq-item-py) 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--faq-font);
+    font-size: var(--faq-q-d);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--faq-question);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .docmed-faq__question {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .docmed-faq__trigger:focus-visible {
+    outline: 2px solid var(--faq-heading);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Plus / Minus */
+  .docmed-faq__icon {
+    position: relative;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--faq-accent-soft);
+    transition: background-color 0.25s ease;
+  }
+
+  .docmed-faq__icon::before,
+  .docmed-faq__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--faq-question);
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+  }
+
+  .docmed-faq__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .docmed-faq__trigger:hover .docmed-faq__icon,
+  .docmed-faq__item.is-open .docmed-faq__icon {
+    background: var(--faq-accent);
+  }
+
+  .docmed-faq__item.is-open .docmed-faq__icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  /* Antwort-Panel (Animation nur mit JavaScript, sonst bleiben Antworten lesbar) */
+  .docmed-faq.is-enhanced .docmed-faq__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.32s ease, visibility 0s linear 0.32s;
+  }
+
+  .docmed-faq.is-enhanced .docmed-faq__item.is-open .docmed-faq__panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.32s ease, visibility 0s linear 0s;
+  }
+
+  .docmed-faq__panel-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .docmed-faq__answer {
+    padding: 0 60px var(--faq-item-py) 0;
+    font-size: var(--faq-a-d);
+    line-height: 1.7;
+    color: var(--faq-text);
+    overflow-wrap: anywhere;
+    opacity: 1;
+  }
+
+  .docmed-faq.is-enhanced .docmed-faq__answer {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .docmed-faq.is-enhanced .docmed-faq__item.is-open .docmed-faq__answer {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.08s;
+  }
+
+  .docmed-faq__answer > *:first-child { margin-top: 0; }
+  .docmed-faq__answer > *:last-child { margin-bottom: 0; }
+
+  .docmed-faq__answer p {
+    margin: 0 0 0.75em;
+  }
+
+  .docmed-faq__answer ul,
+  .docmed-faq__answer ol {
+    margin: 0 0 0.75em;
+    padding-left: 1.25em;
+  }
+
+  .docmed-faq__answer li + li {
+    margin-top: 0.35em;
+  }
+
+  .docmed-faq__answer strong {
+    color: var(--faq-question);
+    font-weight: 700;
+  }
+
+  .docmed-faq__answer a {
+    color: var(--faq-heading);
+    text-decoration: underline;
+    text-decoration-color: var(--faq-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .docmed-faq__answer a:hover {
+    text-decoration-color: var(--faq-heading);
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 989px) {
+    .docmed-faq {
+      padding-left: max(var(--faq-px-m), min(var(--faq-px-d), 32px));
+      padding-right: max(var(--faq-px-m), min(var(--faq-px-d), 32px));
+    }
+  }
+
+  /* Smartphone */
+  @media screen and (max-width: 749px) {
+    .docmed-faq {
+      padding: var(--faq-pt-m) var(--faq-px-m) var(--faq-pb-m);
+    }
+
+    .docmed-faq__header {
+      margin-bottom: calc(var(--faq-header-gap) * 0.65);
+    }
+
+    .docmed-faq__heading {
+      font-size: var(--faq-h-m);
+    }
+
+    .docmed-faq__heading::after {
+      width: 40px;
+      margin-top: 12px;
+    }
+
+    .docmed-faq__intro {
+      margin-top: 12px;
+      font-size: var(--faq-a-m);
+    }
+
+    .docmed-faq__trigger {
+      gap: 16px;
+      padding: calc(var(--faq-item-py) * 0.7) 0;
+      font-size: var(--faq-q-m);
+    }
+
+    .docmed-faq__icon {
+      flex-basis: 32px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .docmed-faq__icon::before,
+    .docmed-faq__icon::after {
+      width: 12px;
+    }
+
+    .docmed-faq__answer {
+      padding: 0 0 calc(var(--faq-item-py) * 0.8) 0;
+      font-size: var(--faq-a-m);
+      line-height: 1.65;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .docmed-faq *,
+    .docmed-faq *::before,
+    .docmed-faq *::after {
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "DocMed Produkt-FAQ",
+  "tag": "div",
+  "class": "section-docmed-faq",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Inhalt"
+    },
+    {
+      "type": "paragraph",
+      "content": "Die FAQs werden automatisch aus den Produkt-Metafeldern custom.faq_1_question / custom.faq_1_answer bis custom.faq_5_question / custom.faq_5_answer geladen. Ohne ausgefüllte FAQs wird die Section ausgeblendet."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Häufig gestellte Fragen zu diesem Produkt"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Einleitungstext (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "single_open",
+      "label": "Nur eine Frage gleichzeitig geöffnet",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_schema",
+      "label": "Strukturierte Daten (FAQPage) ausgeben",
+      "info": "Deaktivieren, falls eine App bereits FAQ-Schema für Produktseiten ausgibt.",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Schrift"
+    },
+    {
+      "type": "text",
+      "id": "font_family",
+      "label": "Schriftart (CSS font-family)",
+      "default": "Manrope, sans-serif"
+    },
+    {
+      "type": "checkbox",
+      "id": "load_manrope",
+      "label": "Manrope von Google Fonts laden",
+      "info": "Nur aktivieren, wenn das Theme Manrope nicht bereits lädt.",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Überschrift – Desktop",
+      "min": 24,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Überschrift – Mobil",
+      "min": 18,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "question_size_desktop",
+      "label": "Frage – Desktop",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "question_size_mobile",
+      "label": "Frage – Mobil",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "answer_size_desktop",
+      "label": "Antwort – Desktop",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "answer_size_mobile",
+      "label": "Antwort – Mobil",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Farben"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_heading",
+      "label": "Überschrift",
+      "default": "#1D2E40"
+    },
+    {
+      "type": "color",
+      "id": "color_question",
+      "label": "Fragen",
+      "default": "#1D2E40"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Antworttext",
+      "default": "#4A5868"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Akzentfarbe",
+      "default": "#7FC7CF"
+    },
+    {
+      "type": "color",
+      "id": "color_divider",
+      "label": "Trennlinien",
+      "default": "#E4E8ED"
+    },
+    {
+      "type": "header",
+      "content": "Breite & Abstände"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximale Inhaltsbreite",
+      "min": 800,
+      "max": 1500,
+      "step": 20,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Abstand oben – Desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Abstand unten – Desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_side_desktop",
+      "label": "Seitlicher Abstand – Desktop",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Abstand oben – Mobil",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Abstand unten – Mobil",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_side_mobile",
+      "label": "Seitlicher Abstand – Mobil",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Abstand Überschrift zu FAQs",
+      "min": 12,
+      "max": 72,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Innenabstand der Fragen (vertikal)",
+      "min": 12,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    }
+  ],
+  "presets": [
+    {
+      "name": "DocMed Produkt-FAQ"
+    }
+  ]
+}
+{% endschema %}
