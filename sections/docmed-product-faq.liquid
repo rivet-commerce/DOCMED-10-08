@@ -1,29 +1,22 @@
 {%- comment -%}
-  DocMed – Produktbezogene FAQ-Section
-  Liest bis zu 5 Frage-Antwort-Paare aus den Produkt-Metafeldern:
-  custom.faq_1_question / custom.faq_1_answer … custom.faq_5_question / custom.faq_5_answer
-  - Frage: Einzeiliger Text
-  - Antwort: Rich Text (mehrzeiliger formatierter Text)
+  DocMed – Produktbezogene FAQ-Section (Block-Version)
+  Jede FAQ ist ein Block mit „Frage“ (Text) und „Antwort“ (Rich Text).
+  Im Theme-Editor werden die Felder über „Dynamische Quelle verbinden“ mit den
+  Produkt-Metafeldern verknüpft, z. B.:
+  - Frage 1   → custom.faq_1_question (Einzeiliger Text)
+  - Antwort 1 → custom.faq_1_answer   (Rich Text)
   Nur vollständig ausgefüllte Paare werden angezeigt. Ohne gültige Paare wird nichts ausgegeben.
 {%- endcomment -%}
 
 {%- liquid
   assign faq_count = 0
-  if product
-    for i in (1..5)
-      assign q_key = 'faq_' | append: i | append: '_question'
-      assign a_key = 'faq_' | append: i | append: '_answer'
-      assign q = product.metafields.custom[q_key].value | strip
-      assign a_field = product.metafields.custom[a_key]
-      assign a_text = ''
-      if a_field != blank
-        assign a_text = a_field | metafield_tag | strip_html | strip
-      endif
-      if q != blank and a_text != blank
-        assign faq_count = faq_count | plus: 1
-      endif
-    endfor
-  endif
+  for block in section.blocks
+    assign q = block.settings.question | strip
+    assign a_text = block.settings.answer | strip_html | strip
+    if q != blank and a_text != blank
+      assign faq_count = faq_count | plus: 1
+    endif
+  endfor
 -%}
 
 {%- if faq_count > 0 -%}
@@ -82,21 +75,15 @@
       </header>
 
       <div class="docmed-faq__list">
-        {%- for i in (1..5) -%}
+        {%- for block in section.blocks -%}
           {%- liquid
-            assign q_key = 'faq_' | append: i | append: '_question'
-            assign a_key = 'faq_' | append: i | append: '_answer'
-            assign q = product.metafields.custom[q_key].value | strip
-            assign a_field = product.metafields.custom[a_key]
-            assign a_html = ''
-            assign a_text = ''
-            if a_field != blank
-              assign a_html = a_field | metafield_tag
-              assign a_text = a_html | strip_html | strip
-            endif
+            assign i = block.id
+            assign q = block.settings.question | strip
+            assign a_html = block.settings.answer
+            assign a_text = a_html | strip_html | strip
           -%}
           {%- if q != blank and a_text != blank -%}
-            <div class="docmed-faq__item">
+            <div class="docmed-faq__item" {{ block.shopify_attributes }}>
               <h3 class="docmed-faq__q-heading">
                 <button
                   type="button"
@@ -135,16 +122,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          {%- for i in (1..5) -%}
+          {%- for block in section.blocks -%}
             {%- liquid
-              assign q_key = 'faq_' | append: i | append: '_question'
-              assign a_key = 'faq_' | append: i | append: '_answer'
-              assign q = product.metafields.custom[q_key].value | strip
-              assign a_field = product.metafields.custom[a_key]
-              assign a_text = ''
-              if a_field != blank
-                assign a_text = a_field | metafield_tag | strip_html | strip
-              endif
+              assign q = block.settings.question | strip
+              assign a_text = block.settings.answer | strip_html | strip
             -%}
             {%- if q != blank and a_text != blank -%}
               {%- if schema_index > 0 -%},{%- endif -%}
@@ -509,7 +490,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Die FAQs werden automatisch aus den Produkt-Metafeldern custom.faq_1_question / custom.faq_1_answer bis custom.faq_5_question / custom.faq_5_answer geladen. Ohne ausgefüllte FAQs wird die Section ausgeblendet."
+      "content": "Fügt bis zu 5 FAQ-Blöcke hinzu und verbindet Frage und Antwort über „Dynamische Quelle verbinden“ mit den Produkt-Metafeldern. Ohne ausgefüllte FAQs wird die Section ausgeblendet."
     },
     {
       "type": "text",
@@ -747,9 +728,37 @@
       "default": 22
     }
   ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Frage",
+          "info": "Mit Metafeld verbinden, z. B. custom.faq_1_question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Antwort",
+          "info": "Mit Metafeld verbinden, z. B. custom.faq_1_answer"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "DocMed Produkt-FAQ"
+      "name": "DocMed Produkt-FAQ",
+      "blocks": [
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" }
+      ]
     }
   ]
 }
