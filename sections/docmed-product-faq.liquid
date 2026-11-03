@@ -21,12 +21,6 @@
 
 {%- if faq_count > 0 -%}
 
-  {%- if section.settings.load_manrope -%}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  {%- endif -%}
-
   {%- style -%}
     #DocmedFaq-{{ section.id }} {
       --faq-font: {{ section.settings.font_family | default: 'Manrope, sans-serif' }};
@@ -77,27 +71,34 @@
       </header>
 
       {%- liquid
-        assign faq_index = 0
-        assign right_start = 99
-        if section.settings.columns_desktop == '2'
-          assign half = faq_count | plus: 1 | divided_by: 2
-          assign right_start = half | plus: 1
+        assign split_at = 99
+        assign col_count = 1
+        if section.settings.columns_desktop == '2' and faq_count > 1
+          assign split_at = faq_count | plus: 1 | divided_by: 2
+          assign col_count = 2
         endif
       -%}
       <div class="docmed-faq__list">
+        {%- for col in (1..col_count) -%}
         <div class="docmed-faq__col">
+        {%- assign faq_index = 0 -%}
         {%- for block in section.blocks -%}
           {%- liquid
             assign i = block.id
             assign q = block.settings.question | strip
             assign a_html = block.settings.answer
             assign a_text = a_html | strip_html | strip
+            assign show_here = false
+            if q != blank and a_text != blank
+              assign faq_index = faq_index | plus: 1
+              if col == 1 and faq_index <= split_at
+                assign show_here = true
+              elsif col == 2 and faq_index > split_at
+                assign show_here = true
+              endif
+            endif
           -%}
-          {%- if q != blank and a_text != blank -%}
-            {%- assign faq_index = faq_index | plus: 1 -%}
-            {%- if faq_index == right_start -%}
-              </div><div class="docmed-faq__col">
-            {%- endif -%}
+          {%- if show_here -%}
             <div class="docmed-faq__item" {{ block.shopify_attributes }}>
               <h3 class="docmed-faq__q-heading">
                 <button
@@ -125,6 +126,7 @@
           {%- endif -%}
         {%- endfor -%}
         </div>
+        {%- endfor -%}
       </div>
     </div>
   </section>
@@ -606,13 +608,6 @@
       "id": "font_family",
       "label": "Schriftart (CSS font-family)",
       "default": "Manrope, sans-serif"
-    },
-    {
-      "type": "checkbox",
-      "id": "load_manrope",
-      "label": "Manrope von Google Fonts laden",
-      "info": "Nur aktivieren, wenn das Theme Manrope nicht bereits lädt.",
-      "default": false
     },
     {
       "type": "range",
