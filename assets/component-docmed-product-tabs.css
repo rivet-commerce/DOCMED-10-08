@@ -1,0 +1,148 @@
+/* DocMed product tabs (sections/docmed-product-tabs.liquid) */
+.docmed-tabs {
+  --dt-accent: 41, 163, 191;
+  --dt-border: rgba(var(--color-foreground), 0.08);
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid var(--dt-border);
+  border-radius: 16px;
+  background: #f7f8fa;
+  color: #1d2e40;
+}
+
+/* Full-width placement (position "section") keeps the page width */
+.section-docmed-product-tabs > .docmed-tabs {
+  max-width: var(--page-width);
+  margin: 40px auto 0;
+}
+
+.docmed-tabs__list {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  border-bottom: 1px solid var(--dt-border);
+}
+
+.docmed-tabs__tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 18px 24px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: inset 0 -3px 0 transparent;
+  color: rgba(var(--color-foreground), 0.7);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.docmed-tabs__tab span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.docmed-tabs__icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+svg.docmed-tabs__icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.docmed-tabs__tab:hover {
+  color: rgb(var(--dt-accent));
+}
+
+.docmed-tabs__tab[aria-selected='true'] {
+  background: rgba(var(--dt-accent), 0.1);
+  box-shadow: inset 0 -3px 0 rgb(var(--dt-accent));
+  color: rgb(var(--dt-accent));
+  font-weight: 600;
+}
+
+.docmed-tabs__tab:focus-visible {
+  outline: 2px solid rgb(var(--dt-accent));
+  outline-offset: -2px;
+}
+
+.docmed-tabs__panel {
+  padding: 24px 28px 28px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.docmed-tabs__panel:focus-visible {
+  outline: 2px solid rgb(var(--dt-accent));
+  outline-offset: -2px;
+}
+
+.docmed-tabs__panel[hidden] {
+  display: none;
+}
+
+.docmed-tabs__panel > :first-child {
+  margin-top: 0;
+}
+
+.docmed-tabs__panel strong {
+  font-weight: 700;
+}
+
+/* Lists as plain lines: no bullets or check marks */
+.docmed-tabs__panel ul {
+  margin: 12px 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.docmed-tabs__panel ul li {
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.docmed-tabs__panel ul li::before,
+.docmed-tabs__panel ul li::after {
+  content: none;
+}
+
+@media screen and (max-width: 749px) {
+  .docmed-tabs {
+    border-radius: 12px;
+  }
+
+  .section-docmed-product-tabs > .docmed-tabs {
+    margin: 24px 16px 0;
+  }
+
+  .docmed-tabs__tab {
+    gap: 8px;
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .docmed-tabs__icon {
+    flex-basis: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .docmed-tabs__panel {
+    padding: 18px 16px 20px;
+    font-size: 13px;
+  }
+}

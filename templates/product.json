@@ -103,78 +103,34 @@
         "padding_bottom": 0
       }
     },
-    "ss_product_tabs_2_bzCJFz": {
-      "type": "ss-product-tabs-2",
+    "docmed_product_tabs": {
+      "type": "docmed-product-tabs",
       "blocks": {
-        "tab_JYX6D7": {
+        "tab_beschreibung": {
           "type": "tab",
-          "name": "Beschreibung",
           "settings": {
-            "icon": "none",
             "header": "Beschreibung",
-            "content": "{{ product.description }}",
-            "product_description": false
+            "icon": "document",
+            "product_description": true
           }
         },
-        "tab_7eBM6P": {
+        "tab_informationen": {
           "type": "tab",
-          "name": "Informationen",
           "settings": {
-            "icon": "none",
             "header": "Informationen",
-            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&nbsp;</p><p><strong>Lieferinformationen:&nbsp;</strong></p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>",
-            "product_description": false
+            "icon": "info",
+            "product_description": false,
+            "content": "<h5><span style=\"text-decoration:underline\"><strong>Hersteller:</strong></span></h5><p>{{ product.metafields.custom.manufacturer.value.name_firmierung.value }}</p><p>{{ product.metafields.custom.manufacturer.value.adresse_stra_e_hausnummer_.value }}</p><p>{{ product.metafields.custom.manufacturer.value.postleitzahl_stadt.value }}</p><p>{{ product.metafields.custom.manufacturer.value.land.value }}</p><p>Tel: {{ product.metafields.custom.manufacturer.value.telefonnummer.value }}</p><p>E-Mail: {{ product.metafields.custom.manufacturer.value.e_mail_adresse.value }}</p><p>Ust-IdNr.: {{ product.metafields.custom.manufacturer.value.ust_idnr_.value }}</p><p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&nbsp;</p><p><strong>Lieferinformationen:&nbsp;</strong></p><p><strong>WEEE Nummer:</strong> {{ product.metafields.custom.weee_nummer.value }}</p><p><strong>Hilfsmittelnummer:</strong>{{ product.metafields.custom.hilfsmittelnummer_.value }}</p>"
           }
         }
       },
       "block_order": [
-        "tab_JYX6D7",
-        "tab_7eBM6P"
+        "tab_beschreibung",
+        "tab_informationen"
       ],
-      "custom_css": [],
       "settings": {
-        "tabs_position": "below_buy",
-        "btns_gap": 100,
-        "btns_gap_mobile": 38,
-        "button_line_thickness": 3,
-        "bts_padding_vertical": 0,
-        "button_padding_horizontal": 0,
-        "button_radius": 0,
-        "button_border_thickness": 0,
-        "icon_size": 18,
-        "icon_size_mobile": 20,
-        "btns_text_custom": false,
-        "btns_text_font": "poppins_n4",
-        "btns_text_size": 16,
-        "btns_text_size_mobile": 12,
-        "btns_text_height": 60,
-        "content_custom": false,
-        "content_font": "poppins_n4",
-        "content_size": 14,
-        "content_size_mobile": 13,
-        "content_height": 170,
-        "content_mt": 14,
-        "btns_bg_color": "",
-        "btns_bg_hover_color": "",
-        "btns_border_color": "#1d2e40",
-        "btns_border_hover_color": "#1d2e40",
-        "btns_text_color": "#1d2e40",
-        "btns_text_hover_color": "#1d2e40",
-        "tabs_line_color": "#1d2e40",
-        "content_color": "#1d2e40",
-        "icon_color": "#1d2e40",
-        "icon_hover_color": "#1d2e40",
-        "background_color": "#fcfaf7",
-        "background_gradient": "",
-        "border_color": "#1d2e40",
-        "margin_top": 100,
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_horizontal": 0,
-        "padding_horizontal_mobile": 0,
-        "content_width": 350,
-        "border_thickness": 0
+        "position": "under_media",
+        "accent_color": "#29a3bf"
       }
     },
     "docmed_product_faq_He8UQq": {
@@ -356,7 +312,7 @@
   "order": [
     "breadcrumb_nEM3mG",
     "main",
-    "ss_product_tabs_2_bzCJFz",
+    "docmed_product_tabs",
     "docmed_product_faq_He8UQq",
     "related-products",
     "apps_hTtqNU"

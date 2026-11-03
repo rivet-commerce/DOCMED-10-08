@@ -1,0 +1,233 @@
+{{ 'component-docmed-product-tabs.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Product tabs (replaces the Section Store "SS - Product tabs #2" app section).
+  All tab content is rendered into the HTML by the server, so search engines and
+  AI crawlers can read it without running JavaScript. The script below only
+  switches tabs and, if chosen, moves the section under the product images.
+{%- endcomment -%}
+
+{%- liquid
+  assign visible_ids = ''
+  for block in section.blocks
+    if block.settings.product_description
+      assign tab_text = product.description | strip_html | strip
+    else
+      assign tab_text = block.settings.content | strip_html | strip
+    endif
+    if tab_text != blank
+      assign visible_ids = visible_ids | append: block.id | append: ','
+    endif
+  endfor
+  assign first_id = visible_ids | split: ',' | first
+-%}
+
+{%- if first_id != blank -%}
+  <div
+    id="DocmedTabs-{{ section.id }}"
+    class="docmed-tabs"
+    data-docmed-tabs
+    style="--dt-accent: {{ section.settings.accent_color.red }}, {{ section.settings.accent_color.green }}, {{ section.settings.accent_color.blue }};"
+  >
+    <div class="docmed-tabs__list" role="tablist">
+      {%- for block in section.blocks -%}
+        {%- unless visible_ids contains block.id -%}{%- continue -%}{%- endunless -%}
+        {%- assign is_first = false -%}
+        {%- if block.id == first_id -%}{%- assign is_first = true -%}{%- endif -%}
+        <button
+          type="button"
+          role="tab"
+          id="DocmedTab-{{ block.id }}"
+          class="docmed-tabs__tab"
+          aria-controls="DocmedPanel-{{ block.id }}"
+          aria-selected="{{ is_first }}"
+          tabindex="{% if is_first %}0{% else %}-1{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.icon_image != blank -%}
+            {{ block.settings.icon_image | image_url: width: 48 | image_tag: class: 'docmed-tabs__icon', alt: '', loading: 'lazy' }}
+          {%- else -%}
+            {%- case block.settings.icon -%}
+              {%- when 'document' -%}
+                <svg class="docmed-tabs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+              {%- when 'info' -%}
+                <svg class="docmed-tabs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+              {%- when 'list' -%}
+                <svg class="docmed-tabs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+              {%- when 'truck' -%}
+                <svg class="docmed-tabs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+              {%- when 'shield' -%}
+                <svg class="docmed-tabs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            {%- endcase -%}
+          {%- endif -%}
+          <span>{{ block.settings.header | escape }}</span>
+        </button>
+      {%- endfor -%}
+    </div>
+
+    <div class="docmed-tabs__panels">
+      {%- for block in section.blocks -%}
+        {%- unless visible_ids contains block.id -%}{%- continue -%}{%- endunless -%}
+        <div
+          role="tabpanel"
+          id="DocmedPanel-{{ block.id }}"
+          class="docmed-tabs__panel rte"
+          aria-labelledby="DocmedTab-{{ block.id }}"
+          tabindex="0"
+          {% if block.id != first_id %}hidden{% endif %}
+        >
+          {%- if block.settings.product_description -%}
+            {{ product.description }}
+          {%- else -%}
+            {{ block.settings.content }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById('DocmedTabs-{{ section.id }}');
+      if (!root) return;
+
+      {%- if section.settings.position == 'under_media' %}
+      // Move into the slot under the product images (main-product.liquid).
+      // Without JS the tabs simply stay full width below the product.
+      var slot = document.getElementById('docmed-product-tabs-slot');
+      if (slot) {
+        Array.prototype.forEach.call(slot.querySelectorAll('[data-docmed-tabs]'), function (old) {
+          if (old !== root) old.remove();
+        });
+        slot.appendChild(root);
+      }
+      {%- endif %}
+
+      var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var selected = t === tab;
+          t.setAttribute('aria-selected', selected);
+          t.tabIndex = selected ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+        });
+      }
+
+      root.addEventListener('click', function (event) {
+        var tab = event.target.closest('[role="tab"]');
+        if (tab) select(tab);
+      });
+
+      root.addEventListener('keydown', function (event) {
+        var index = tabs.indexOf(document.activeElement);
+        if (index < 0) return;
+        var next = null;
+        if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+        if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+        if (event.key === 'Home') next = tabs[0];
+        if (event.key === 'End') next = tabs[tabs.length - 1];
+        if (!next) return;
+        event.preventDefault();
+        select(next);
+        next.focus();
+      });
+
+      // Theme editor: show the tab whose block is selected in the sidebar
+      document.addEventListener('shopify:block:select', function (event) {
+        var tab = root.querySelector('#DocmedTab-' + event.detail.blockId);
+        if (tab) select(tab);
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product Tabs",
+  "tag": "section",
+  "class": "section-docmed-product-tabs",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Position",
+      "options": [
+        { "value": "under_media", "label": "Unter den Produktbildern" },
+        { "value": "section", "label": "Als eigene Section (volle Breite)" }
+      ],
+      "default": "under_media"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Akzentfarbe",
+      "default": "#29A3BF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Titel",
+          "default": "Beschreibung"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "Kein Icon" },
+            { "value": "document", "label": "Dokument" },
+            { "value": "info", "label": "Info" },
+            { "value": "list", "label": "Liste" },
+            { "value": "truck", "label": "Versand" },
+            { "value": "shield", "label": "Sicherheit" }
+          ],
+          "default": "document"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Eigenes Icon",
+          "info": "Ersetzt das gewählte Icon"
+        },
+        {
+          "type": "checkbox",
+          "id": "product_description",
+          "label": "Produktbeschreibung anzeigen",
+          "default": false,
+          "info": "Zeigt die Beschreibung des Produkts. Der Inhalt unten wird dann ignoriert."
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Inhalt"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": { "header": "Beschreibung", "icon": "document", "product_description": true }
+        },
+        {
+          "type": "tab",
+          "settings": { "header": "Informationen", "icon": "info" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
