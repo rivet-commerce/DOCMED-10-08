@@ -26,17 +26,17 @@
 .docmed-tabs__tab {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
   margin: 0;
-  padding: 18px 24px;
+  padding: 12px 18px;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: inset 0 -3px 0 transparent;
   color: rgba(var(--color-foreground), 0.7);
   font: inherit;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
@@ -50,9 +50,9 @@
 }
 
 .docmed-tabs__icon {
-  flex: 0 0 24px;
-  width: 24px;
-  height: 24px;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
 }
 
@@ -103,15 +103,15 @@ svg.docmed-tabs__icon {
   font-weight: 700;
 }
 
-/* Lists as plain lines: no bullets or check marks */
+/* Lists with normal bullets, no check marks */
 .docmed-tabs__panel ul {
   margin: 12px 0 16px;
-  padding: 0;
-  list-style: none;
+  padding: 0 0 0 22px;
+  list-style: disc outside;
 }
 
 .docmed-tabs__panel ul li {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   padding: 0;
 }
 
@@ -130,15 +130,15 @@ svg.docmed-tabs__icon {
   }
 
   .docmed-tabs__tab {
-    gap: 8px;
-    padding: 14px;
-    font-size: 14px;
+    gap: 6px;
+    padding: 11px 12px;
+    font-size: 13px;
   }
 
   .docmed-tabs__icon {
-    flex-basis: 20px;
-    width: 20px;
-    height: 20px;
+    flex-basis: 16px;
+    width: 16px;
+    height: 16px;
   }
 
   .docmed-tabs__panel {
