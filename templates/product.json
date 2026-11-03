@@ -263,6 +263,94 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "docmed_product_faq_He8UQq": {
+      "type": "docmed-product-faq",
+      "blocks": {
+        "faq_TfR4iC": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_1_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_1_answer | metafield_tag }}</p>"
+          }
+        },
+        "faq_iGLQwB": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_2_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_2_answer | metafield_tag }}</p>"
+          }
+        },
+        "faq_zWJxiA": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_3_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_3_answer | metafield_tag }}</p>"
+          }
+        },
+        "faq_BMRngK": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_4_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_4_answer | metafield_tag }}</p>"
+          }
+        },
+        "faq_aRyrV7": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_5_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_5_answer | metafield_tag }}</p>"
+          }
+        },
+        "faq_WrwxVf": {
+          "type": "faq",
+          "settings": {
+            "question": "{{ product.metafields.custom.custom_faq_6_question.value }}",
+            "answer": "<p>{{ product.metafields.custom.custom_faq_6_answer | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_TfR4iC",
+        "faq_iGLQwB",
+        "faq_zWJxiA",
+        "faq_BMRngK",
+        "faq_aRyrV7",
+        "faq_WrwxVf"
+      ],
+      "disabled": true,
+      "name": "DocMed Produkt-FAQ",
+      "settings": {
+        "heading": "Häufig gestellte Fragen zu diesem Produkt",
+        "intro": "",
+        "single_open": false,
+        "enable_schema": true,
+        "columns_desktop": "2",
+        "font_family": "Manrope, sans-serif",
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "question_size_desktop": 18,
+        "question_size_mobile": 16,
+        "answer_size_desktop": 16,
+        "answer_size_mobile": 15,
+        "color_background": "#FFFFFF",
+        "color_heading": "#1D2E40",
+        "color_question": "#1D2E40",
+        "color_text": "#4A5868",
+        "color_accent": "#7FC7CF",
+        "color_divider": "#E4E8ED",
+        "color_panel": "#F5F8FB",
+        "color_card": "#FFFFFF",
+        "max_width": 1500,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64,
+        "padding_side_desktop": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_side_mobile": 16,
+        "header_gap": 40,
+        "item_padding": 22
+      }
     }
   },
   "order": [
@@ -270,6 +358,7 @@
     "main",
     "ss_product_tabs_2_bzCJFz",
     "related-products",
-    "apps_hTtqNU"
+    "apps_hTtqNU",
+    "docmed_product_faq_He8UQq"
   ]
 }
