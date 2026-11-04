@@ -1565,10 +1565,14 @@
     <script src="{{ 'product-model.js' | asset_url }}" defer></script>
   {%- endif -%}
   {%- liquid
-    if product.selected_or_first_available_variant.featured_media
-      assign seo_media = product.selected_or_first_available_variant.featured_media
-    else
-      assign seo_media = product.featured_media
+    comment
+      The main product image comes first, so Google uses it as the thumbnail
+      even when the first variant is linked to another image.
+    endcomment
+    assign seo_media = product.featured_media
+    assign seo_variant_media = product.selected_or_first_available_variant.featured_media
+    if seo_variant_media == blank or seo_variant_media.id == seo_media.id
+      assign seo_variant_media = nil
     endif
   -%}
 
@@ -1581,6 +1585,9 @@
       {% if seo_media -%}
         "image": [
           {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+          {%- if seo_variant_media -%}
+            , {{ seo_variant_media | image_url: width: 1920 | prepend: "https:" | json }}
+          {%- endif %}
         ],
       {%- endif %}
       "description": {{ product.description | strip_html | json }},
