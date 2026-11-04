@@ -5,6 +5,12 @@
       <div class="default-content-heading">{{- 'wbcustomlabel.wballtext.popular_products' | t -}}</div>
       <a href="{{ routes.all_products_collection_url }}" class="default-heading-link">{{- 'wbcustomlabel.wballtext.all_products' | t -}}</a>
     </div>
+    {%- comment -%}
+      Kept in a <template> so search engines don't take these product images for
+      the current page (Google showed them as the thumbnail of other products).
+      It is unpacked on the visitor's first interaction, see the script below.
+    {%- endcomment -%}
+    <template data-deferred-search-products>
     <ul class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %}">
       {%- assign collection = collections[coll_products] -%}
       {%- for product in collection.products limit: 7 -%}
@@ -129,8 +135,27 @@
           {%- endif -%}
         </li>
       {% endfor %}
-    </ul> 
-  </div> 
+    </ul>
+    </template>
+  </div>
+  <script>
+    (function () {
+      if (window.docmedSearchProductsDeferred) return;
+      window.docmedSearchProductsDeferred = true;
+      var events = ['pointerdown', 'mousemove', 'touchstart', 'keydown', 'focusin'];
+      function unpack() {
+        events.forEach(function (name) {
+          document.removeEventListener(name, unpack, true);
+        });
+        document.querySelectorAll('template[data-deferred-search-products]').forEach(function (template) {
+          template.replaceWith(template.content.cloneNode(true));
+        });
+      }
+      events.forEach(function (name) {
+        document.addEventListener(name, unpack, { capture: true, passive: true });
+      });
+    })();
+  </script>
 {%- endunless -%}
 {% if select_collection != blank %}
   <div class="predictive-search__result-group seachbar-left search-default_data search-center-part">
