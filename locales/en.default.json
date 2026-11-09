@@ -540,7 +540,6 @@
       "discount": "Discount",
       "shipping": "Shipping",
       "free_shipping": "Fast delivery across Europe",
-      // "free_shipping_description": "from 49€ in Germany",
       "free_shipping_description": "Often shipped within 24 hours from Germany",
       "tax": "Tax",
       "product": "Product",
@@ -752,6 +751,14 @@
         "other": "{{count}} Subscription contracts successfully updated"
       },
       "invalid_wallet_type_error": "Invalid wallet type."
+    },
+    "order_details": {
+      "log_in": "Sign in"
+    },
+    "orders": {
+      "order_list": {
+        "empty_state_subtitle": "Go to the shop now and order"
+      }
     }
   }
 }
