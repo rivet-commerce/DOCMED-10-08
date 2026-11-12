@@ -224,7 +224,7 @@
       "view_full_details": "View Product Details",
       "xr_button": "View in your space",
       "xr_button_label": "View in your space, loads item in augmented reality window",
-      "include_taxes": "Tax included.",
+      "include_taxes": "Tax included. within the EU.",
       "shipping_label": "Shipping",
       "shipping_calculated_html": "{{ shipping }} calculated at checkout.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
